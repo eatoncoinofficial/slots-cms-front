@@ -8,4 +8,6 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&display=swap');
+</style>
