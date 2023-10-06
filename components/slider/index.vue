@@ -1,0 +1,34 @@
+<template>
+	<div>
+		<VueSlickCarousel class="sliderContainer" v-bind="settings">
+			<slot />
+		</VueSlickCarousel>
+	</div>
+</template>
+
+<script>
+import VueSlickCarousel from 'vue-slick-carousel'
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+// optional style for arrows & dots
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+
+export default {
+	name: 'Slider',
+	components: { VueSlickCarousel },
+	props: {
+		settings: {
+			type: Object,
+			default: {}
+		}
+	}
+}
+</script>
+<style>
+.slick-list {
+	padding: 0 20% 0 0 !important;
+}
+.slick-arrow {
+	display: none !important;
+}
+</style>
+<style scoped></style>

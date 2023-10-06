@@ -1,16 +1,40 @@
 <template>
 	<div>
-		<header />
+		<header>Header!</header>
+		<main class="main_page">
+			<div class="container">
+				<SliderContainer />
+				<AText tag="h1" :attributes="mainTitleSettings.DC">Найбільша база даних про онлайн-казино у світі</AText>
+			</div>
+		</main>
 		<footer>Footer!</footer>
 	</div>
 </template>
 
 <script>
-import header from '~/components/header'
-
+import Slider from '~/components/slider'
+import SliderContainer from '~/components/slider_container'
+import AText from '~/components/ui/atoms/text'
 export default {
 	name: 'dev-main-page',
+	components: { Slider, SliderContainer, AText },
 	layout: 'dev',
-	components: { header }
+	data: () => {
+		return {
+			mainTitleSettings: {
+				DC: {
+					align: 'center',
+					weight: 'extra-bold',
+					color: 'calgary',
+					size: '2x-large',
+					decoration: 'underline',
+					class: 'custom_class'
+				},
+				TABLET: {},
+				MOBILE: {}
+			}
+		}
+	}
 }
 </script>
+<style scoped></style>
