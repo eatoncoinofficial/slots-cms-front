@@ -43,6 +43,7 @@ export default {
 			'extra-bold',
 			'black'
 		]
+		const availableTextTransform = ['uppercase', 'lowercase', 'capitalize', 'none']
 		if ('color' in this.attributes && availableColor.includes(this.attributes.color)) {
 			classes.push(`text_color_${this.attributes.color}`)
 		}
@@ -54,6 +55,9 @@ export default {
 		}
 		if ('weight' in this.attributes && availableWeight.includes(this.attributes.weight)) {
 			classes.push(`text_weight_${this.attributes.weight}`)
+		}
+		if ('text_transform' in this.attributes && availableTextTransform.includes(this.attributes.text_transform)) {
+			classes.push(`text_transform_${this.attributes.text_transform}`)
 		}
 		this.currentClasses = classes.join(' ')
 	}

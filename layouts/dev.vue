@@ -87,6 +87,9 @@ export default {
 .text_decoration_double {
 	text-decoration: double;
 }
+.text_decoration_none {
+	text-decoration: none;
+}
 .text_size_small {
 	font-size: 12px;
 }
@@ -376,5 +379,17 @@ export default {
 }
 .bg_color_cleveland {
 	background: var(--cleveland);
+}
+.text_transform_uppercase {
+	text-transform: uppercase;
+}
+.text_transform_lowercase {
+	text-transform: lowercase;
+}
+.text_transform_capitalize {
+	text-transform: capitalize;
+}
+.text_transform_none {
+	text-transform: none;
 }
 </style>
