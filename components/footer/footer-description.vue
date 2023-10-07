@@ -27,7 +27,9 @@ export default {
 					class: 'p_m footer_copyright'
 				},
 				TABLET: {},
-				MOB: {}
+				MOB: {
+					class: 'p_s footer_copyright'
+				}
 			}
 		}
 	},

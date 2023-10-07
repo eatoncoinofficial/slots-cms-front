@@ -3,62 +3,44 @@
 		<div class="style-11">
 			<ul class="style-12">
 				<li class="style-13">
-					<a no-prefetch="" href="#" class="style-14"
-						><img
+					<a no-prefetch="" href="#" class="style-14">
+						<AImg
 							src="https://api-new.slototop.ua/public/downloads/60b0d9a7d86ff-617fc0895ee8b.png"
-							loading="lazy"
-							class="style-15"
+							:attributes="imgSettings.DC"
 						/>
 					</a>
 				</li>
-				<li class="style-16">
-					<a no-prefetch="" href="https://www.begambleaware.org/" class="style-17">
-						<img
-							src="https://api-new.slototop.ua/public/downloads/60b0d98cebb7a-617fc09f57f1d.png"
-							loading="lazy"
-							class="style-18"
+				<li class="style-13">
+					<a no-prefetch="" href="#" class="style-14">
+						<AImg
+							src="https://api-new.slototop.ua/public/downloads/60b0d9a7d86ff-617fc0895ee8b.png"
+							:attributes="imgSettings.DC"
 						/>
 					</a>
 				</li>
-				<li class="style-19">
-					<a no-prefetch="" href="#" class="style-20"
-						><img
-							src="https://api-new.slototop.ua/public/downloads/60b0d99e5125b-617fc0a927f7f.png"
-							loading="lazy"
-							class="style-21"
-					/></a>
+				<li class="style-13">
+					<a no-prefetch="" href="#" class="style-14">
+						<AImg
+							src="https://api-new.slototop.ua/public/downloads/60b0d9a7d86ff-617fc0895ee8b.png"
+							:attributes="imgSettings.DC"
+						/>
+					</a>
 				</li>
-				<li class="style-22">
-					<a no-prefetch="" href="#" class="style-23"
-						><img
-							src="https://api-new.slototop.ua/public/downloads/60b0d99742de8-617fc0b13299d.png"
-							loading="lazy"
-							class="style-24"
-					/></a>
+				<li class="style-13">
+					<a no-prefetch="" href="#" class="style-14">
+						<AImg
+							src="https://api-new.slototop.ua/public/downloads/60b0d9a7d86ff-617fc0895ee8b.png"
+							:attributes="imgSettings.DC"
+						/>
+					</a>
 				</li>
-				<li class="style-25">
-					<a no-prefetch="" href="https://www.gamblingtherapy.org/" class="style-26"
-						><img
-							src="https://api-new.slototop.ua/public/downloads/60b0d9808798f-617fc0b98d905.png"
-							loading="lazy"
-							class="style-27"
-					/></a>
-				</li>
-				<li class="style-28">
-					<a no-prefetch="" href="https://play.google.com/store/apps/details?id=ua.gov.diia.app" class="style-29"
-						><img
-							src="https://api-new.slototop.ua/public/downloads/diia-64217c27cd887.png"
-							loading="lazy"
-							class="style-30"
-					/></a>
-				</li>
-				<li class="style-31">
-					<a no-prefetch="" href="https://www.gc.gov.ua/ua/Informatsiini-povidomlennia/32723.html" class="style-32"
-						><img
-							src="https://api-new.slototop.ua/public/downloads/krail-64217c2bb2af6.png"
-							loading="lazy"
-							class="style-33"
-					/></a>
+				<li class="style-13">
+					<a no-prefetch="" href="#" class="style-14">
+						<AImg
+							src="https://api-new.slototop.ua/public/downloads/60b0d9a7d86ff-617fc0895ee8b.png"
+							:attributes="imgSettings.DC"
+						/>
+					</a>
 				</li>
 			</ul>
 		</div>
@@ -66,8 +48,19 @@
 </template>
 
 <script>
+import AImg from '~/components/ui/atoms/img'
 export default {
-	name: 'app-partners'
+	name: 'app-partners',
+	components: { AImg },
+	data: () => {
+		return {
+			imgSettings: {
+				DC: { width: '85px', height: '40px', class: 'object_fit_cover custom_class' },
+				TABLET: {},
+				MOB: {}
+			}
+		}
+	}
 }
 </script>
 <style scoped>
