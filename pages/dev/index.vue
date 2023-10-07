@@ -15,30 +15,30 @@
 				<div class="slider_wrapper">
 					<div class="slider_item">
 						<SliderContainer icon="casino" title="Онлайн-казино" link="/casinos">
-							<CasinoSliderCard link="/text" :rating="90" src="/img/gamePrevyu.png" />
-							<CasinoSliderCard link="/text" :rating="85" src="/img/gamePrevyu.png" />
-							<CasinoSliderCard link="/text" :rating="93" src="/img/gamePrevyu.png" />
-							<CasinoSliderCard link="/text" :rating="95" src="/img/gamePrevyu.png" />
-							<CasinoSliderCard link="/text" :rating="87" src="/img/gamePrevyu.png" />
-							<CasinoSliderCard link="/text" :rating="85" src="/img/gamePrevyu.png" />
-							<CasinoSliderCard link="/text" :rating="56" src="/img/gamePrevyu.png" />
-							<CasinoSliderCard link="/text" :rating="78" src="/img/gamePrevyu.png" />
-							<CasinoSliderCard link="/text" :rating="94" src="/img/gamePrevyu.png" />
-							<CasinoSliderCard link="/text" :rating="93" src="/img/gamePrevyu.png" />
+							<CasinoSliderCard link="/text-1" :rating="90" src="/img/gamePrevyu.png" />
+							<CasinoSliderCard link="/text-2" :rating="85" src="/img/gamePrevyu.png" />
+							<CasinoSliderCard link="/text-3" :rating="93" src="/img/gamePrevyu.png" />
+							<CasinoSliderCard link="/text-4" :rating="95" src="/img/gamePrevyu.png" />
+							<CasinoSliderCard link="/text-5" :rating="87" src="/img/gamePrevyu.png" />
+							<CasinoSliderCard link="/text-6" :rating="85" src="/img/gamePrevyu.png" />
+							<CasinoSliderCard link="/text-7" :rating="56" src="/img/gamePrevyu.png" />
+							<CasinoSliderCard link="/text-8" :rating="78" src="/img/gamePrevyu.png" />
+							<CasinoSliderCard link="/text-9" :rating="94" src="/img/gamePrevyu.png" />
+							<CasinoSliderCard link="/text-10" :rating="93" src="/img/gamePrevyu.png" />
 						</SliderContainer>
 					</div>
 					<div class="slider_item">
 						<SliderContainer icon="game" title="Ігри" link="/games">
-							<SlotSliderCard link="/text" src="/img/gamePrevyu.png" />
-							<SlotSliderCard link="/text" src="/img/gamePrevyu.png" />
-							<SlotSliderCard link="/text" src="/img/gamePrevyu.png" />
-							<SlotSliderCard link="/text" src="/img/gamePrevyu.png" />
-							<SlotSliderCard link="/text" src="/img/gamePrevyu.png" />
-							<SlotSliderCard link="/text" src="/img/gamePrevyu.png" />
-							<SlotSliderCard link="/text" src="/img/gamePrevyu.png" />
-							<SlotSliderCard link="/text" src="/img/gamePrevyu.png" />
-							<SlotSliderCard link="/text" src="/img/gamePrevyu.png" />
-							<SlotSliderCard link="/text" src="/img/gamePrevyu.png" />
+							<SlotSliderCard link="/slot-1" src="/img/gamePrevyu.png" />
+							<SlotSliderCard link="/slot-2" src="/img/gamePrevyu.png" />
+							<SlotSliderCard link="/slot-3" src="/img/gamePrevyu.png" />
+							<SlotSliderCard link="/slot-4" src="/img/gamePrevyu.png" />
+							<SlotSliderCard link="/slot-5" src="/img/gamePrevyu.png" />
+							<SlotSliderCard link="/slot-6" src="/img/gamePrevyu.png" />
+							<SlotSliderCard link="/slot-7" src="/img/gamePrevyu.png" />
+							<SlotSliderCard link="/slot-8" src="/img/gamePrevyu.png" />
+							<SlotSliderCard link="/slot-9" src="/img/gamePrevyu.png" />
+							<SlotSliderCard link="/slot-10" src="/img/gamePrevyu.png" />
 						</SliderContainer>
 					</div>
 					<div class="slider_item">

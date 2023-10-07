@@ -1,33 +1,31 @@
 <template>
-	<div>
-		<span v-if="tag === 'span'" :class="currentClasses">
-			<slot />
-		</span>
-		<p v-else-if="tag === 'p'" :class="currentClasses">
-			<slot />
-		</p>
-		<div v-else-if="tag === 'div'" :class="currentClasses">
-			<slot />
-		</div>
-		<h1 v-else-if="tag === 'h1'" :class="currentClasses">
-			<slot />
-		</h1>
-		<h2 v-else-if="tag === 'h2'" :class="currentClasses">
-			<slot />
-		</h2>
-		<h3 v-else-if="tag === 'h3'" :class="currentClasses">
-			<slot />
-		</h3>
-		<h4 v-else-if="tag === 'h4'" :class="currentClasses">
-			<slot />
-		</h4>
-		<h5 v-else-if="tag === 'h5'" :class="currentClasses">
-			<slot />
-		</h5>
-		<h6 v-else-if="tag === 'h6'" :class="currentClasses">
-			<slot />
-		</h6>
+	<span v-if="tag === 'span'" :class="currentClasses">
+		<slot />
+	</span>
+	<p v-else-if="tag === 'p'" :class="currentClasses">
+		<slot />
+	</p>
+	<div v-else-if="tag === 'div'" :class="currentClasses">
+		<slot />
 	</div>
+	<h1 v-else-if="tag === 'h1'" :class="currentClasses">
+		<slot />
+	</h1>
+	<h2 v-else-if="tag === 'h2'" :class="currentClasses">
+		<slot />
+	</h2>
+	<h3 v-else-if="tag === 'h3'" :class="currentClasses">
+		<slot />
+	</h3>
+	<h4 v-else-if="tag === 'h4'" :class="currentClasses">
+		<slot />
+	</h4>
+	<h5 v-else-if="tag === 'h5'" :class="currentClasses">
+		<slot />
+	</h5>
+	<h6 v-else-if="tag === 'h6'" :class="currentClasses">
+		<slot />
+	</h6>
 </template>
 <script>
 export default {

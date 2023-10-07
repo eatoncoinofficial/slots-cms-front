@@ -4,11 +4,9 @@
 			<div class="ttl" :class="icon">
 				<AText :attributes="ttlSettings.DC">{{ title }}</AText>
 			</div>
-			<div class="link">
-				<a :href="link">
-					Дивитись бильше
-				</a>
-			</div>
+			<LinkWithArrow :link="link" :attributes="linkSettings.DC">
+				Дивитись бильше
+			</LinkWithArrow>
 		</div>
 		<div class="bottom">
 			<Slider :settings="sliderSettings">
@@ -20,13 +18,19 @@
 <script>
 import Slider from '~/components/slider'
 import AText from '~/components/ui/atoms/text'
+import LinkWithArrow from '~/components/ui/atoms/links/link_with_arrow'
 export default {
 	name: 'slider_container',
-	components: { Slider, AText },
+	components: { Slider, AText, LinkWithArrow },
 	data: () => {
 		return {
 			ttlSettings: {
 				DC: { size: 'x-large', color: 'cairo', weight: 'extra-bold' },
+				TABLET: {},
+				MOB: {}
+			},
+			linkSettings: {
+				DC: { size: 'medium', color: 'calgary', weight: 'semi-bold', decoration: 'none' },
 				TABLET: {},
 				MOB: {}
 			}
@@ -126,29 +130,6 @@ export default {
 	top: 10;
 	left: 0px;
 	background: url('/img/newsIcon.svg');
-}
-.link {
-	display: flex;
-	align-items: center;
-	padding-right: 18px;
-	position: relative;
-}
-.link:before {
-	content: '';
-	width: 16px;
-	height: 16px;
-	position: absolute;
-	background: url('/img/arrowGreen.svg');
-	position: absolute;
-	right: 0px;
-	top: 22px;
-}
-.link a {
-	color: #00ea17;
-	font-size: 14px;
-	font-weight: 600;
-	font-family: 'Unbounded';
-	text-decoration: none;
 }
 .ttl {
 	display: flex;

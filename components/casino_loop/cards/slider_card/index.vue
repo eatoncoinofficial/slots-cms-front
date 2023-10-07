@@ -32,7 +32,7 @@ export default {
 				MOB: {}
 			},
 			textSettings: {
-				DC: { color: 'cairo', size: 'small', bold: 'semi-bold' },
+				DC: { color: 'cairo', size: 'small', bold: 'semi-bold', class: 'rating_value' },
 				TABLET: {},
 				MOB: {}
 			},
@@ -65,11 +65,6 @@ export default {
 	}
 }
 </script>
-<style>
-.rating_total_value {
-	font-size: 10px;
-}
-</style>
 <style scoped>
 .item {
 	width: 105px;
@@ -94,5 +89,12 @@ export default {
 	align-items: center;
 	justify-content: center;
 	border-radius: 0 0 var(--s) var(--s);
+}
+.rating_value {
+	transform: translateY(1px);
+}
+.rating_total_value {
+	font-size: 10px;
+	transform: translateY(1px);
 }
 </style>
