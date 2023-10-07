@@ -9,7 +9,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;800&display=swap');
 :root {
 	--cairo: #fff;
 	--calgary: #00ea17;
@@ -18,8 +18,8 @@ export default {
 	--cucuta: #1b1831;
 	--colombo: #08051a;
 	--cancun: #232036;
+	--cochin: #323234;
 	/*  */
-	--cochin: gray;
 	--cardiff: black;
 	--cleveland: white;
 	/* */
@@ -346,5 +346,35 @@ export default {
 }
 .border_radius_50 {
 	border-radius: 50%;
+}
+.bg_color_cairo {
+	background: var(--cairo);
+}
+.bg_color_calgary {
+	background: var(--calgary);
+}
+.bg_color_cordoba {
+	background: var(--cordoba);
+}
+.bg_color_callao {
+	background: var(--callao);
+}
+.bg_color_cucuta {
+	background: var(--cucuta);
+}
+.bg_color_colombo {
+	background: var(--colombo);
+}
+.bg_color_cancun {
+	background: var(--cancun);
+}
+.bg_color_cochin {
+	background: var(--cochin);
+}
+.bg_color_cardiff {
+	background: var(--cardiff);
+}
+.bg_color_cleveland {
+	background: var(--cleveland);
 }
 </style>
