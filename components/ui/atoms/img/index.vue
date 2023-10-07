@@ -11,15 +11,16 @@ export default {
 	},
 	props: {
 		attributes: {
-			default: {},
+			default() {
+				return {}
+			},
 			type: Object
 		},
 		src: {
 			default: '/img/noImages.png',
 			type: String
 		}
-	},
-	mounted() {}
+	}
 }
 </script>
 <style scoped></style>

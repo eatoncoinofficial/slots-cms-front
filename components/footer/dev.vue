@@ -4,8 +4,6 @@
 		<FooterPartners />
 		<FooterDescription />
 		<FooterText />
-		<a href="#top" class="style-41">▲</a>
-		<!---->
 	</footer>
 </template>
 <script>

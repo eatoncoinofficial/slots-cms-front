@@ -9,6 +9,10 @@ export default {
 </script>
 
 <style lang="scss">
+body {
+	position: relative;
+	font-family: 'Unbounded';
+}
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;800&display=swap');
 :root {
 	--cairo: #fff;
@@ -19,8 +23,8 @@ export default {
 	--colombo: #08051a;
 	--cancun: #232036;
 	--cochin: #323234;
+	--cardiff: rgba(0, 0, 0, 0.26);
 	/*  */
-	--cardiff: black;
 	--cleveland: white;
 	/* */
 	--xxs: 2px;
@@ -29,6 +33,15 @@ export default {
 	--m: 16px;
 	--l: 32px;
 	--xl: 64px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0px;
+	padding: 0px;
 }
 .text_color_cairo {
 	color: var(--cairo);
@@ -391,5 +404,9 @@ export default {
 }
 .text_transform_none {
 	text-transform: none;
+}
+/* */
+.main_page_h1 {
+	line-height: 62px;
 }
 </style>

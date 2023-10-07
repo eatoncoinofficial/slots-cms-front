@@ -11,7 +11,9 @@ export default {
 	},
 	props: {
 		attributes: {
-			default: {},
+			default() {
+				return {}
+			},
 			type: Object
 		},
 		href: {
