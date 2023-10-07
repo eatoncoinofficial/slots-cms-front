@@ -321,4 +321,30 @@ export default {
 .m_r_xl {
 	margin-right: var(--xl);
 }
+.object_fit_cover {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.border_radius_xxs {
+	border-radius: var(--xxs);
+}
+.border_radius_xs {
+	border-radius: var(--xs);
+}
+.border_radius_s {
+	border-radius: var(--s);
+}
+.border_radius_m {
+	border-radius: var(--m);
+}
+.border_radius_l {
+	border-radius: var(--l);
+}
+.border_radius_xl {
+	border-radius: var(--xl);
+}
+.border_radius_50 {
+	border-radius: 50%;
+}
 </style>

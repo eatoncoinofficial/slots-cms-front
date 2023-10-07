@@ -3,14 +3,25 @@
 		<div class="wrapper">
 			<div class="rating">9</div>
 			<a href="#">
-				<img src="/img/gamePrevyu.png" />
+				<AImg :attributes="imgSettings.DC" src="/img/gamePrevyu.png" />
 			</a>
 		</div>
 	</article>
 </template>
 <script>
+import AImg from '~/components/ui/atoms/img/'
 export default {
-	name: 'casino_slider_card'
+	name: 'casino_slider_card',
+	components: { AImg },
+	data: () => {
+		return {
+			imgSettings: {
+				DC: { width: '100px', height: '100px', class: 'object_fit_cover' },
+				TABLET: {},
+				MOB: {}
+			}
+		}
+	}
 }
 </script>
 <style scoped>
