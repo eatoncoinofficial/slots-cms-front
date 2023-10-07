@@ -1,18 +1,19 @@
 <template>
 	<footer class="footer">
+		<!--
 		<app_menu :value="changeMenu" />
 		<app_partners_menu :value="changePartnersMenu" />
 		<app_footer_text :value="changeText" />
 		<a href="#top" class="go_top">▲</a>
 		<app-pop-up />
-	</footer>
+		--></footer>
 </template>
 
 <script>
-import app_menu from './app-footer-menu'
-import app_footer_text from './app-footer-text'
-import app_partners_menu from './app-partners-menu'
-import app_pop_up from './app_pop_up'
+//import app_menu from './app-footer-menu'
+//import app_footer_text from './app-footer-text'
+//import app_partners_menu from './app-partners-menu'
+//import app_pop_up from './app_pop_up'
 export default {
 	name: 'app-footer',
 	data() {
@@ -22,32 +23,26 @@ export default {
 			partners_menu: null
 		}
 	},
-	components: { app_menu, app_footer_text, app_partners_menu, app_pop_up },
+	//components: { app_menu, app_footer_text, app_partners_menu, app_pop_up },
 	computed: {
 		changeText() {
 			const settings = this.$store.getters['settings/getSettings']
 			if (settings) {
-				this.footer_text = settings.filter(
-					item => item.key === 'footer_text'
-				)[0].value
+				this.footer_text = settings.filter(item => item.key === 'footer_text')[0].value
 			}
 			return this.footer_text
 		},
 		changeMenu() {
 			const settings = this.$store.getters['settings/getSettings']
 			if (settings) {
-				this.footer_menu = settings.filter(
-					item => item.key === 'footer_menu'
-				)[0].value
+				this.footer_menu = settings.filter(item => item.key === 'footer_menu')[0].value
 			}
 			return this.footer_menu
 		},
 		changePartnersMenu() {
 			const settings = this.$store.getters['settings/getSettings']
 			if (settings) {
-				this.partners_menu = settings.filter(
-					item => item.key === 'partners_menu'
-				)[0].value
+				this.partners_menu = settings.filter(item => item.key === 'partners_menu')[0].value
 			}
 			return this.partners_menu
 		}

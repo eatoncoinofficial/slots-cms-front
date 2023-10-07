@@ -14,7 +14,7 @@ export default {
 	--cairo: #fff;
 	--calgary: #00ea17;
 	--cordoba: #b3b6c8;
-	--callao: #ced2e2;
+	--callao: rgba(206, 210, 226, 0.2);
 	--cucuta: #1b1831;
 	--colombo: #08051a;
 	--cancun: #232036;

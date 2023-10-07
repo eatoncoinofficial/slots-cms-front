@@ -7,7 +7,7 @@
 				<AText tag="h1" :attributes="mainTitleSettings.DC">Найбільша база даних про онлайн-казино у світі</AText>
 			</div>
 		</main>
-		<footer>Footer!</footer>
+		<Footer />
 	</div>
 </template>
 
@@ -15,9 +15,10 @@
 import Slider from '~/components/slider'
 import SliderContainer from '~/components/slider_container'
 import AText from '~/components/ui/atoms/text'
+import Footer from '~/components/footer/dev'
 export default {
 	name: 'dev-main-page',
-	components: { Slider, SliderContainer, AText },
+	components: { Slider, SliderContainer, AText, Footer },
 	layout: 'dev',
 	data: () => {
 		return {
