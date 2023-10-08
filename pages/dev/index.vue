@@ -14,7 +14,12 @@
 				</div>
 				<div class="slider_wrapper">
 					<div class="slider_item">
-						<SliderContainer icon="casino" title="Онлайн-казино" link="/casinos">
+						<SliderContainer
+							icon="casino"
+							title="Онлайн-казино"
+							link="/casinos"
+							:sliderSettings="casinoSliderSettings.DC"
+						>
 							<CasinoSliderCard link="/text-1" :rating="90" src="/img/gamePrevyu.png" />
 							<CasinoSliderCard link="/text-2" :rating="85" src="/img/gamePrevyu.png" />
 							<CasinoSliderCard link="/text-3" :rating="93" src="/img/gamePrevyu.png" />
@@ -28,7 +33,7 @@
 						</SliderContainer>
 					</div>
 					<div class="slider_item">
-						<SliderContainer icon="game" title="Ігри" link="/games">
+						<SliderContainer icon="game" title="Ігри" link="/games" :sliderSettings="gameSliderSettings.DC">
 							<SlotSliderCard link="/slot-1" src="/img/gamePrevyu.png" />
 							<SlotSliderCard link="/slot-2" src="/img/gamePrevyu.png" />
 							<SlotSliderCard link="/slot-3" src="/img/gamePrevyu.png" />
@@ -42,31 +47,141 @@
 						</SliderContainer>
 					</div>
 					<div class="slider_item">
-						<SliderContainer icon="bonus" title="Бонуси" link="/bonuses">
-							<CasinoSliderCard />
-							<CasinoSliderCard />
-							<CasinoSliderCard />
-							<CasinoSliderCard />
-							<CasinoSliderCard />
-							<CasinoSliderCard />
-							<CasinoSliderCard />
-							<CasinoSliderCard />
-							<CasinoSliderCard />
-							<CasinoSliderCard />
+						<SliderContainer icon="bonus" title="Бонуси" link="/bonuses" :sliderSettings="bonusSliderSettings.DC">
+							<BonusSliderCard
+								link="/bonus-1"
+								src="/img/gamePrevyu.png"
+								title="Бонус від Slotoking"
+								desc="Вітальний пакет"
+								value="125 000 ₴ + 500 FS"
+							/>
+							<BonusSliderCard
+								link="/bonus-2"
+								src="/img/gamePrevyu.png"
+								title="Бонус від Slotoking"
+								desc="Вітальний пакет"
+								value="125 000 ₴ + 500 FS"
+							/>
+							<BonusSliderCard
+								link="/bonus-3"
+								src="/img/gamePrevyu.png"
+								title="Бонус від Slotoking"
+								desc="Вітальний пакет"
+								value="125 000 ₴ + 500 FS"
+							/>
+							<BonusSliderCard
+								link="/bonus-4"
+								src="/img/gamePrevyu.png"
+								title="Бонус від Slotoking"
+								desc="Вітальний пакет"
+								value="125 000 ₴ + 500 FS"
+							/>
+							<BonusSliderCard
+								link="/bonus-5"
+								src="/img/gamePrevyu.png"
+								title="Бонус від Slotoking"
+								desc="Вітальний пакет"
+								value="125 000 ₴ + 500 FS"
+							/>
+							<BonusSliderCard
+								link="/bonus-6"
+								src="/img/gamePrevyu.png"
+								title="Бонус від Slotoking"
+								desc="Вітальний пакет"
+								value="125 000 ₴ + 500 FS"
+							/>
+							<BonusSliderCard
+								link="/bonus-7"
+								src="/img/gamePrevyu.png"
+								title="Бонус від Slotoking"
+								desc="Вітальний пакет"
+								value="125 000 ₴ + 500 FS"
+							/>
+							<BonusSliderCard
+								link="/bonus-8"
+								src="/img/gamePrevyu.png"
+								title="Бонус від Slotoking"
+								desc="Вітальний пакет"
+								value="125 000 ₴ + 500 FS"
+							/>
+							<BonusSliderCard
+								link="/bonus-9"
+								src="/img/gamePrevyu.png"
+								title="Бонус від Slotoking"
+								desc="Вітальний пакет"
+								value="125 000 ₴ + 500 FS"
+							/>
+							<BonusSliderCard
+								link="/bonus-10"
+								src="/img/gamePrevyu.png"
+								title="Бонус від Slotoking"
+								desc="Вітальний пакет"
+								value="125 000 ₴ + 500 FS"
+							/>
 						</SliderContainer>
 					</div>
 					<div class="slider_item">
-						<SliderContainer icon="news" title="News" link="/news">
-							<CasinoSliderCard />
-							<CasinoSliderCard />
-							<CasinoSliderCard />
-							<CasinoSliderCard />
-							<CasinoSliderCard />
-							<CasinoSliderCard />
-							<CasinoSliderCard />
-							<CasinoSliderCard />
-							<CasinoSliderCard />
-							<CasinoSliderCard />
+						<SliderContainer icon="news" title="News" link="/news" :sliderSettings="newsSliderSettings.DC">
+							<NewsSliderCard
+								link="/news-1"
+								src="/img/gamePrevyu.png"
+								title="Gaming Corps agrees to power Pin-UP Casino with games"
+								desc="12.07.23"
+							/>
+							<NewsSliderCard
+								link="/news-1"
+								src="/img/gamePrevyu.png"
+								title="Gaming Corps agrees to power Pin-UP Casino with games"
+								desc="12.07.23"
+							/>
+							<NewsSliderCard
+								link="/news-1"
+								src="/img/gamePrevyu.png"
+								title="Gaming Corps agrees to power Pin-UP Casino with games"
+								desc="12.07.23"
+							/>
+							<NewsSliderCard
+								link="/news-1"
+								src="/img/gamePrevyu.png"
+								title="Gaming Corps agrees to power Pin-UP Casino with games"
+								desc="12.07.23"
+							/>
+							<NewsSliderCard
+								link="/news-1"
+								src="/img/gamePrevyu.png"
+								title="Gaming Corps agrees to power Pin-UP Casino with games"
+								desc="12.07.23"
+							/>
+							<NewsSliderCard
+								link="/news-1"
+								src="/img/gamePrevyu.png"
+								title="Gaming Corps agrees to power Pin-UP Casino with games"
+								desc="12.07.23"
+							/>
+							<NewsSliderCard
+								link="/news-1"
+								src="/img/gamePrevyu.png"
+								title="Gaming Corps agrees to power Pin-UP Casino with games"
+								desc="12.07.23"
+							/>
+							<NewsSliderCard
+								link="/news-1"
+								src="/img/gamePrevyu.png"
+								title="Gaming Corps agrees to power Pin-UP Casino with games"
+								desc="12.07.23"
+							/>
+							<NewsSliderCard
+								link="/news-1"
+								src="/img/gamePrevyu.png"
+								title="Gaming Corps agrees to power Pin-UP Casino with games"
+								desc="12.07.23"
+							/>
+							<NewsSliderCard
+								link="/news-1"
+								src="/img/gamePrevyu.png"
+								title="Gaming Corps agrees to power Pin-UP Casino with games"
+								desc="12.07.23"
+							/>
 						</SliderContainer>
 					</div>
 				</div>
@@ -84,9 +199,21 @@ import Footer from '~/components/footer/dev'
 import CasinoSliderCard from '~/components/casino_loop/cards/slider_card'
 import Header from '~/components/header/dev'
 import SlotSliderCard from '~/components/slot_loop/cards/slider_card'
+import BonusSliderCard from '~/components/bonus_loop/cards/slider_card'
+import NewsSliderCard from '~/components/news_loop/cards/slider_card'
 export default {
 	name: 'dev-main-page',
-	components: { Slider, SliderContainer, AText, Footer, CasinoSliderCard, Header, SlotSliderCard },
+	components: {
+		Slider,
+		SliderContainer,
+		AText,
+		Footer,
+		CasinoSliderCard,
+		Header,
+		SlotSliderCard,
+		BonusSliderCard,
+		NewsSliderCard
+	},
 	layout: 'dev',
 	data: () => {
 		return {
@@ -98,7 +225,7 @@ export default {
 					class: 'main_page_h1'
 				},
 				TABLET: {},
-				MOBILE: {}
+				MOB: {}
 			},
 			mainDescSettings: {
 				DC: {
@@ -108,7 +235,59 @@ export default {
 					weight: 'regular'
 				},
 				TABLET: {},
-				MOBILE: {}
+				MOB: {}
+			},
+			bonusSliderSettings: {
+				DC: {
+					slidesToShow: 1.12,
+					centerMode: true,
+					autoplay: true,
+					speed: 2000,
+					autoplaySpeed: 2000,
+					initialSlide: 0,
+					infinite: true
+				},
+				TABLET: {},
+				MOB: {}
+			},
+			casinoSliderSettings: {
+				DC: {
+					slidesToShow: 5,
+					centerMode: false,
+					autoplay: true,
+					speed: 2000,
+					autoplaySpeed: 2000,
+					initialSlide: 0,
+					infinite: true
+				},
+				TABLE: {},
+				MOB: {}
+			},
+			gameSliderSettings: {
+				DC: {
+					slidesToShow: 5,
+					centerMode: false,
+					autoplay: true,
+					speed: 2000,
+					autoplaySpeed: 2000,
+					initialSlide: 0,
+					infinite: true
+				},
+				TABLE: {},
+				MOB: {}
+			},
+			newsSliderSettings: {
+				DC: {
+					slidesToShow: 1.12,
+					centerMode: true,
+					autoplay: true,
+					speed: 2000,
+					autoplaySpeed: 2000,
+					initialSlide: 0,
+					infinite: true
+				},
+				TABLET: {},
+				MOB: {}
 			}
 		}
 	}

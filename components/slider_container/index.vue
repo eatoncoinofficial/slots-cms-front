@@ -58,15 +58,7 @@ export default {
 		sliderSettings: {
 			type: Object,
 			default() {
-				return {
-					slidesToShow: 5,
-					centerMode: false,
-					autoplay: true,
-					speed: 2000,
-					autoplaySpeed: 2000,
-					initialSlide: 0,
-					infinite: true
-				}
+				return {}
 			}
 		}
 	}

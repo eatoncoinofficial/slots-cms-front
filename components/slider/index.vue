@@ -24,9 +24,11 @@ export default {
 }
 </script>
 <style>
+/*
 .slick-list {
 	padding: 0 20% 0 0 !important;
 }
+*/
 .slick-arrow {
 	display: none !important;
 }
