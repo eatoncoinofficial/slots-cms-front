@@ -13,7 +13,7 @@ body {
 	position: relative;
 	font-family: 'Unbounded';
 }
-@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;800&display=swap');
 :root {
 	--cairo: #fff;
 	--calgary: #00ea17;

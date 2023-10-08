@@ -248,6 +248,46 @@
 					</TwoContentContainer>
 				</div>
 			</div>
+			<div class="news_loop">
+				<div class="container">
+					<div class="section_title_wrapper">
+						<AText tag="div" :attributes="mainContainerTitle.DC">News</AText>
+						<LinkWithArrow link="/news" :attributes="newsLinkSettings.DC">
+							Дивитись більше
+						</LinkWithArrow>
+					</div>
+					<div class="news_container">
+						<NewsMainCard
+							link="/custom-link"
+							src="/img/newsPrevyu.png"
+							title="Casino Guru Awards returns for 2nd edition with nominations now underway"
+							date="12.07.23"
+							desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
+						/>
+						<NewsMainCard
+							link="/custom-link"
+							src="/img/newsPrevyu.png"
+							title="Relax Gaming shares early details about Money Train 4"
+							date="12.07.23"
+							desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
+						/>
+						<NewsMainCard
+							link="/custom-link"
+							src="/img/newsPrevyu.png"
+							title="Casino Guru Awards returns for 2nd edition with nominations now underway"
+							date="12.07.23"
+							desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
+						/>
+						<NewsMainCard
+							link="/custom-link"
+							src="/img/newsPrevyu.png"
+							title="Casino Guru Awards returns for 2nd edition with nominations now underway"
+							date="12.07.23"
+							desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
+						/>
+					</div>
+				</div>
+			</div>
 		</main>
 		<Footer />
 	</div>
@@ -266,6 +306,8 @@ import NewsSliderCard from '~/components/news_loop/cards/slider_card'
 import TwoContentContainer from '~/components/two_content_container/'
 import CategoryFilter from '~/components/category_filter/dev'
 import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
+import LinkWithArrow from '~/components/ui/atoms/links/link_with_arrow'
+import NewsMainCard from '~/components/news_loop/cards/main'
 export default {
 	name: 'dev-main-page',
 	components: {
@@ -280,7 +322,9 @@ export default {
 		NewsSliderCard,
 		TwoContentContainer,
 		CategoryFilter,
-		BonusAsideCard
+		BonusAsideCard,
+		LinkWithArrow,
+		NewsMainCard
 	},
 	layout: 'dev',
 	data: () => {
@@ -374,6 +418,11 @@ export default {
 				},
 				TABLET: {},
 				MOB: {}
+			},
+			newsLinkSettings: {
+				DC: { size: 'medium', color: 'calgary', weight: 'semi-bold', decoration: 'none' },
+				TABLET: {},
+				MOB: {}
 			}
 		}
 	}
@@ -417,5 +466,22 @@ export default {
 }
 .aside {
 	padding-top: var(--xl);
+}
+.main_container {
+	padding-bottom: 80px;
+}
+.section_title_wrapper {
+	display: flex;
+	justify-content: space-between;
+}
+.news_loop {
+	padding-top: 40px;
+	padding-bottom: 60px;
+	background: var(--cancun);
+}
+.news_container {
+	display: flex;
+	justify-content: space-between;
+	margin-top: var(--l);
 }
 </style>

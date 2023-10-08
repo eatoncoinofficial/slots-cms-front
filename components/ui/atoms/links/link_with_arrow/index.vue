@@ -39,8 +39,6 @@ export default {
 	height: 16px;
 	position: absolute;
 	background: url('/img/arrowGreen.svg');
-	position: absolute;
 	right: 0px;
-	top: 23px;
 }
 </style>
