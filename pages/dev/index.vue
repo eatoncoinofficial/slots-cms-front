@@ -185,6 +185,68 @@
 						</SliderContainer>
 					</div>
 				</div>
+				<div class="main_container">
+					<TwoContentContainer>
+						<template v-slot:left>
+							<AText tag="div" :attributes="mainContainerTitle.DC">Онлайн-казино</AText>
+							<div class="category_filter_wrapper">
+								<CategoryFilter />
+							</div>
+						</template>
+						<template v-slot:right>
+							<aside class="aside">
+								<AText tag="div" :attributes="asideContainerTitle.DC">Рекомендовані бонуси</AText>
+								<div class="aside_bonus_container">
+									<BonusAsideCard
+										link="/bonus-1"
+										src="/img/gamePrevyu.png"
+										title="Бонус від Slotoking"
+										desc="Вітальний пакет"
+										value="125 000 ₴ + 500 FS"
+										min_dep="Min. deposit: $30"
+										wager="Wagering: 40x"
+									/>
+									<BonusAsideCard
+										link="/bonus-1"
+										src="/img/gamePrevyu.png"
+										title="Бонус від Slotoking"
+										desc="Вітальний пакет"
+										value="125 000 ₴ + 500 FS"
+										min_dep="Min. deposit: $30"
+										wager="Wagering: 40x"
+									/>
+									<BonusAsideCard
+										link="/bonus-1"
+										src="/img/gamePrevyu.png"
+										title="Бонус від Slotoking"
+										desc="Вітальний пакет"
+										value="125 000 ₴ + 500 FS"
+										min_dep="Min. deposit: $30"
+										wager="Wagering: 40x"
+									/>
+									<BonusAsideCard
+										link="/bonus-1"
+										src="/img/gamePrevyu.png"
+										title="Бонус від Slotoking"
+										desc="Вітальний пакет"
+										value="125 000 ₴ + 500 FS"
+										min_dep="Min. deposit: $30"
+										wager="Wagering: 40x"
+									/>
+									<BonusAsideCard
+										link="/bonus-1"
+										src="/img/gamePrevyu.png"
+										title="Бонус від Slotoking"
+										desc="Вітальний пакет"
+										value="125 000 ₴ + 500 FS"
+										min_dep="Min. deposit: $30"
+										wager="Wagering: 40x"
+									/>
+								</div>
+							</aside>
+						</template>
+					</TwoContentContainer>
+				</div>
 			</div>
 		</main>
 		<Footer />
@@ -201,6 +263,9 @@ import Header from '~/components/header/dev'
 import SlotSliderCard from '~/components/slot_loop/cards/slider_card'
 import BonusSliderCard from '~/components/bonus_loop/cards/slider_card'
 import NewsSliderCard from '~/components/news_loop/cards/slider_card'
+import TwoContentContainer from '~/components/two_content_container/'
+import CategoryFilter from '~/components/category_filter/dev'
+import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
 export default {
 	name: 'dev-main-page',
 	components: {
@@ -212,7 +277,10 @@ export default {
 		Header,
 		SlotSliderCard,
 		BonusSliderCard,
-		NewsSliderCard
+		NewsSliderCard,
+		TwoContentContainer,
+		CategoryFilter,
+		BonusAsideCard
 	},
 	layout: 'dev',
 	data: () => {
@@ -288,6 +356,24 @@ export default {
 				},
 				TABLET: {},
 				MOB: {}
+			},
+			mainContainerTitle: {
+				DC: {
+					weight: 'extra-bold',
+					color: 'cairo',
+					size: 'x-large'
+				},
+				TABLET: {},
+				MOB: {}
+			},
+			asideContainerTitle: {
+				DC: {
+					weight: 'bold',
+					color: 'cairo',
+					size: 'large'
+				},
+				TABLET: {},
+				MOB: {}
 			}
 		}
 	}
@@ -318,5 +404,18 @@ export default {
 .slider_wrapper {
 	padding-top: 50px;
 	padding-bottom: 50px;
+}
+.category_filter_wrapper {
+	padding-top: var(--m);
+	padding-bottom: var(--m);
+}
+.aside_bonus_container {
+	margin-top: var(--xs);
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+}
+.aside {
+	padding-top: var(--xl);
 }
 </style>

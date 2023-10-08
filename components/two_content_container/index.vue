@@ -1,0 +1,29 @@
+<template>
+	<div class="two_content_container">
+		<div class="left">
+			<slot name="left"></slot>
+		</div>
+		<div class="right">
+			<slot name="right"></slot>
+		</div>
+	</div>
+</template>
+<script>
+export default {
+	name: 'two_content_container'
+}
+</script>
+<style scoped>
+.two_content_container {
+	display: flex;
+}
+.left {
+	flex-grow: 1;
+	padding-right: 15px;
+}
+.right {
+	width: 328px;
+	max-width: 100%;
+	min-width: 328px;
+}
+</style>
