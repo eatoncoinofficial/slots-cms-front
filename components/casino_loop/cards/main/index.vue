@@ -16,6 +16,14 @@
 					<AText tag="div" :attributes="bonusNameSettings.DC">{{ bonus_name }}</AText>
 					<AText tag="div" :attributes="bonusValueSettings.DC">{{ bonus_value }}</AText>
 					<AText tag="div" :attributes="bonusDescSettings.DC">{{ min_dep }} &middot; {{ wager }}</AText>
+					<div class="action_wrapper">
+						<div class="btn_wrapper">
+							<AButton :attributes="btnSettings.DC">Перейти</AButton>
+						</div>
+						<ALink :href="link" :attributes="readMoreLinkSettings.DC"
+							><AImg :attributes="searchSettings.DC" src="/img/search.png" />
+						</ALink>
+					</div>
 				</div>
 				<div class="right_right"></div>
 				<!--
@@ -33,13 +41,19 @@
 import AImg from '~/components/ui/atoms/img/'
 import AText from '~/components/ui/atoms/text'
 import ALink from '~/components/ui/atoms/links'
+import AButton from '~/components/ui/atoms/buttons'
 export default {
 	name: 'casino_main_card',
-	components: { AImg, AText, ALink },
+	components: { AImg, AText, ALink, AButton },
 	data: () => {
 		return {
 			imgSettings: {
 				DC: { width: '210px', height: '92px', class: 'object_fit_cover' },
+				TABLET: {},
+				MOB: {}
+			},
+			searchSettings: {
+				DC: { width: '20px', height: '20px' },
 				TABLET: {},
 				MOB: {}
 			},
@@ -60,6 +74,16 @@ export default {
 			},
 			bonusDescSettings: {
 				DC: { color: 'cairo', size: 'small', weight: 'regular' },
+				TABLET: {},
+				MOB: {}
+			},
+			btnSettings: {
+				DC: { bg: 'calgary', color: 'cochin', borderRadius: 's', weight: 'semi-bold' },
+				TABLET: {},
+				MOB: {}
+			},
+			readMoreLinkSettings: {
+				DC: { bg: 'calgary', class: 'read_more' },
 				TABLET: {},
 				MOB: {}
 			}
@@ -156,12 +180,29 @@ export default {
 .right {
 	display: flex;
 	flex-grow: 1;
-	border: 1px solid green;
-	background: rgba(255, 255, 255, 0.15);
+	background: rgba(16, 13, 36, 0.7);
 	border-radius: var(--m);
 	padding: var(--m);
 }
 .bonus_name {
 	margin-top: var(--s);
+}
+.btn_wrapper {
+	width: 206px;
+	height: 40px;
+}
+.action_wrapper {
+	display: flex;
+	margin-top: var(--m);
+}
+.read_more {
+	display: flex;
+	width: 40px;
+	height: 40px;
+	background: var(--cleveland);
+	border-radius: var(--s);
+	margin-left: var(--s);
+	align-items: center;
+	justify-content: center;
 }
 </style>

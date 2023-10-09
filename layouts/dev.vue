@@ -24,9 +24,7 @@ body {
 	--cancun: #232036;
 	--cochin: #323234;
 	--cardiff: rgba(0, 0, 0, 0.26);
-	/*  */
-	--cleveland: white;
-	/* */
+	--cleveland: #5e40b5;
 	--xxs: 2px;
 	--xs: 4px;
 	--s: 8px;

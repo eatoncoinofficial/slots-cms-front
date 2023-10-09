@@ -69,7 +69,7 @@ export default {
 	width: 100%;
 	max-width: 585px;
 	border: 1px solid #886dff;
-	background: linear-gradient(#886dff, #6da8ff);
+	background: rgba(36, 0, 140);
 	border-radius: 14px;
 	padding-left: 24px;
 	padding-top: 14px;
