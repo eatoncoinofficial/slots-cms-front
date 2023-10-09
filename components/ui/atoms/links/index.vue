@@ -17,7 +17,9 @@ export default {
 			type: Object
 		},
 		href: {
-			default: '#',
+			default() {
+				return '#'
+			},
 			type: String
 		}
 	},

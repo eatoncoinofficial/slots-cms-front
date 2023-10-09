@@ -9,7 +9,7 @@
 				</div>
 			</div>
 			<div class="center">
-				<ALink :link="link" :attributes="titleLinkSettings.DC">
+				<ALink :href="link" :attributes="titleLinkSettings.DC">
 					{{ title }}
 				</ALink>
 				<AText tag="div" :attributes="dateTextSettings.DC">{{ date }}</AText>
@@ -60,11 +60,6 @@ export default {
 			},
 			dateTextSettings: {
 				DC: { size: 'small', color: 'cairo', weight: 'regular', class: 'date' },
-				TABLET: {},
-				MOB: {}
-			},
-			descTextSetting: {
-				DC: { size: 'small', color: 'cairo', weight: 'light', class: 'desc' },
 				TABLET: {},
 				MOB: {}
 			}

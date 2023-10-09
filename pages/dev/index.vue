@@ -192,6 +192,104 @@
 							<div class="category_filter_wrapper">
 								<CategoryFilter />
 							</div>
+							<div class="casino_loop">
+								<CasinoMainCard
+									bg="#D21037"
+									src="/img/slotokingLogo.png"
+									title="Slotoking"
+									bonus_name="Вітальний пакет!"
+									link="/casino/single"
+									bonus_value="125 000 ₴ + 500 FS!"
+								/>
+								<CasinoMainCard
+									bg="#27076D"
+									src="/img/slotokingLogo.png"
+									title="Cosmolot"
+									bonus_name="Вітальний пакет!"
+									link="/casino/single"
+									bonus_value="125 000 ₴ + 500 FS!"
+								/>
+								<CasinoMainCard
+									bg="#fff"
+									src="/img/slotokingLogo.png"
+									title="Slotoking"
+									bonus_name="Вітальний пакет!"
+									link="/casino/single"
+									bonus_value="125 000 ₴ + 500 FS!"
+								/>
+								<CasinoMainCard
+									bg="#272525"
+									src="/img/slotokingLogo.png"
+									title="Slotoking"
+									bonus_name="Вітальний пакет!"
+									link="/casino/single"
+									bonus_value="125 000 ₴ + 500 FS!"
+								/>
+								<CasinoMainCard
+									bg="#fff"
+									src="/img/slotokingLogo.png"
+									title="Slotoking"
+									bonus_name="Вітальний пакет!"
+									link="/casino/single"
+									bonus_value="125 000 ₴ + 500 FS!"
+								/>
+								<CasinoMainCard
+									bg="#161616"
+									src="/img/slotokingLogo.png"
+									title="Slotoking"
+									bonus_name="Вітальний пакет!"
+									link="/casino/single"
+									bonus_value="125 000 ₴ + 500 FS!"
+								/>
+								<CasinoMainCard
+									bg="#27076D"
+									src="/img/slotokingLogo.png"
+									title="Slotoking"
+									bonus_name="Вітальний пакет!"
+									link="/casino/single"
+									bonus_value="125 000 ₴ + 500 FS!"
+								/>
+								<CasinoMainCard
+									bg="#27076D"
+									src="/img/slotokingLogo.png"
+									title="Slotoking"
+									bonus_name="Вітальний пакет!"
+									link="/casino/single"
+									bonus_value="125 000 ₴ + 500 FS!"
+								/>
+								<CasinoMainCard
+									bg="#27076D"
+									src="/img/slotokingLogo.png"
+									title="Slotoking"
+									bonus_name="Вітальний пакет!"
+									link="/casino/single"
+									bonus_value="125 000 ₴ + 500 FS!"
+								/>
+								<CasinoMainCard
+									bg="#27076D"
+									src="/img/slotokingLogo.png"
+									title="Slotoking"
+									bonus_name="Вітальний пакет!"
+									link="/casino/single"
+									bonus_value="125 000 ₴ + 500 FS!"
+								/>
+								<CasinoMainCard
+									bg="#27076D"
+									src="/img/slotokingLogo.png"
+									title="Slotoking"
+									bonus_name="Вітальний пакет!"
+									link="/casino/single"
+									bonus_value="125 000 ₴ + 500 FS!"
+								/>
+								<CasinoMainCard
+									bg="#27076D"
+									src="/img/slotokingLogo.png"
+									title="Slotoking"
+									bonus_name="Вітальний пакет!"
+									link="/casino/single"
+									bonus_value="125 000 ₴ + 500 FS!"
+								/>
+							</div>
 						</template>
 						<template v-slot:right>
 							<aside class="aside">
@@ -308,6 +406,7 @@ import CategoryFilter from '~/components/category_filter/dev'
 import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
 import LinkWithArrow from '~/components/ui/atoms/links/link_with_arrow'
 import NewsMainCard from '~/components/news_loop/cards/main'
+import CasinoMainCard from '~/components/casino_loop/cards/main'
 export default {
 	name: 'dev-main-page',
 	components: {
@@ -324,7 +423,8 @@ export default {
 		CategoryFilter,
 		BonusAsideCard,
 		LinkWithArrow,
-		NewsMainCard
+		NewsMainCard,
+		CasinoMainCard
 	},
 	layout: 'dev',
 	data: () => {
@@ -483,5 +583,10 @@ export default {
 	display: flex;
 	justify-content: space-between;
 	margin-top: var(--l);
+}
+.casino_loop {
+	display: flex;
+	gap: var(--m);
+	flex-wrap: wrap;
 }
 </style>
