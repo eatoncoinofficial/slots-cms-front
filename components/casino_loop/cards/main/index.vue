@@ -25,14 +25,31 @@
 						</ALink>
 					</div>
 				</div>
-				<div class="right_right"></div>
-				<!--
-				<ALink :link="link" :attributes="titleLinkSettings.DC">
-					{{ title }}
-				</ALink>
-				<AText tag="div" :attributes="dateTextSettings.DC">{{ date }}</AText>
-				<AText tag="div" :attributes="descTextSettings.DC">{{ desc }}</AText>
-                -->
+				<div class="right_right">
+					<AText tag="div" :attributes="advantagesTextSettings.DC">Famous progressive jackpots</AText>
+					<AText tag="div" :attributes="advantagesTextSettings.DC">Live Dealer games</AText>
+					<AText tag="div" :attributes="advantagesTextSettings.DC">40+ software providers</AText>
+					<div class="providers">
+						<div class="providers_icon"></div>
+						<div class="providers_loop">
+							<ALink href="/provider/link" :attributes="providerLinkSettings.DC">
+								<AImg :attributes="providerSettings.DC" src="/img/provider_item.png" />
+							</ALink>
+							<ALink href="/provider/link" :attributes="providerLinkSettings.DC">
+								<AImg :attributes="providerSettings.DC" src="/img/provider_item.png" />
+							</ALink>
+							<ALink href="/provider/link" :attributes="providerLinkSettings.DC">
+								<AImg :attributes="providerSettings.DC" src="/img/provider_item.png" />
+							</ALink>
+							<ALink href="/provider/link" :attributes="providerLinkSettings.DC">
+								<AImg :attributes="providerSettings.DC" src="/img/provider_item.png" />
+							</ALink>
+						</div>
+						<div class="providers_total">
+							<AText tag="span" :attributes="totalTextSettings.DC">+ 20</AText>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</article>
@@ -84,6 +101,26 @@ export default {
 			},
 			readMoreLinkSettings: {
 				DC: { bg: 'calgary', class: 'read_more' },
+				TABLET: {},
+				MOB: {}
+			},
+			advantagesTextSettings: {
+				DC: { color: 'cairo', size: 'small', class: 'advantages' },
+				TABLET: {},
+				MOB: {}
+			},
+			totalTextSettings: {
+				DC: { color: 'cairo' },
+				TABLET: {},
+				MOB: {}
+			},
+			providerLinkSettings: {
+				DC: { class: 'provider_link' },
+				TABLET: {},
+				MOB: {}
+			},
+			providerSettings: {
+				DC: { class: 'provider_img', width: '54px', height: '34px' },
 				TABLET: {},
 				MOB: {}
 			}
@@ -204,5 +241,63 @@ export default {
 	margin-left: var(--s);
 	align-items: center;
 	justify-content: center;
+}
+.right_right {
+	flex-grow: 1;
+	padding-left: var(--m);
+}
+.advantages {
+	margin-bottom: 20px;
+	position: relative;
+	padding-left: 25px;
+}
+.advantages::before {
+	content: '';
+	width: 18px;
+	height: 18px;
+	background: url('/img/success.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.providers {
+	display: flex;
+	justify-content: space-between;
+}
+.providers_icon {
+	height: 34px;
+	width: 18px;
+	background: url('/img/providers.png');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.providers_total {
+	height: 34px;
+	width: 34px;
+	background: var(--cleveland);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--s);
+	border: 1px solid rgba(94, 64, 181, 0.45);
+	font-size: 10px;
+}
+.providers_loop {
+	flex-grow: 1;
+	display: flex;
+	justify-content: space-around;
+}
+.provider_link {
+	display: inline-block;
+	width: 54px;
+	height: 34px;
+}
+.provider_img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: var(--s);
 }
 </style>

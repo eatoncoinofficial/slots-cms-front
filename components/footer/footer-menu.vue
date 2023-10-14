@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="footer-nav">
+		<nav class="footer-nav">
 			<div class="item">
 				<ALink href="/good-day" :attributes="textSettings.DC">
 					Hello world 1
@@ -21,7 +21,7 @@
 					Hello world 4
 				</ALink>
 			</div>
-		</div>
+		</nav>
 	</div>
 </template>
 
@@ -47,3 +47,9 @@ export default {
 	}
 }
 </script>
+<style scoped>
+.footer-nav {
+	display: flex;
+	gap: 30px;
+}
+</style>

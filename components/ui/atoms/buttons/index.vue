@@ -59,6 +59,7 @@ export default {
 		if ('text_transform' in this.attributes && availableTextTransform.includes(this.attributes.text_transform)) {
 			classes.push(`text_transform_${this.attributes.text_transform}`)
 		}
+		if ('class' in this.attributes) classes.push(this.attributes.class)
 		this.currentClasses = classes.join(' ')
 	}
 }

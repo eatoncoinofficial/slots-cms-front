@@ -34,9 +34,12 @@ export default {
 <style scoped>
 .top-container {
 	display: flex;
-	border: 1px solid red;
+	margin-bottom: var(--l);
 }
 .left {
-	border: 1px solid blue;
+	width: 57%;
+}
+.right {
+	width: 43%;
 }
 </style>

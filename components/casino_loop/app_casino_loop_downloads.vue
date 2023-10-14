@@ -1,75 +1,107 @@
 <template>
-	<div :class="'casinos ' + bg">
-		<div class="slots">
-			<div class="container">
-				<div class="slots__heading" v-if="title">
-					<h2 class="slots__ttl">{{ title }}</h2>
-					<NuxtLink
-						no-prefetch
-						:to="link"
-						class="link-primary"
-						v-if="linkText"
-						>{{ linkText }}</NuxtLink
-					>
-				</div>
-				<div class="slots__container items-wrap">
-					<article
-						class="slot-item"
-						v-for="(item, index) in currentPosts"
-						:key="index"
-					>
-						<div class="slot-item__logo">
-							<NuxtLink no-prefetch :to="item.permalink">
-								<img :src="item.thumbnail" loading="lazy" alt="" />
-							</NuxtLink>
-						</div>
-						<div class="slot-item__content">
-							<div class="slot-item__name">
-								<NuxtLink no-prefetch :to="item.permalink">
-									{{ item.title }}
-								</NuxtLink>
-								<img
-									src="/img/check.svg"
-									alt=""
-									v-if="item.licenses.length !== 0"
-								/>
-							</div>
-
-							<div class="slot-item__stats">
-								<div class="star-rating">
-									<span
-										class="star-rating__val"
-										:style="item | widthRating"
-									></span>
-								</div>
-								<strong class="slot-item__stats-val"
-									>{{ item.rating }}/100</strong
-								>
-							</div>
-						</div>
-
-						<div class="slot-item__btns">
-							<button class="slot-item__btn --blue" @click="refActivate(item)">
-								{{ translates.GO_TO[config.LANG] }}
-							</button>
-						</div>
-
-						<span class="ribbon-closed" v-if="item.close !== 0">{{
-							translates.CLOSE[config.LANG]
-						}}</span>
-					</article>
-				</div>
-			</div>
-			<div class="items-more">
-				<button
-					no-prefetch
-					v-if="value.length > numberPostOnQuery * postCurrentPage"
-					class="btn-secondary"
-					@click="postShowMore"
-				>
-					{{ translates.SHOW_MORE[config.LANG] }}
-				</button>
-			</div>
+	<div>
+		<div class="casino_loop">
+			<CasinoMainCard
+				bg="#D21037"
+				src="/img/slotokingLogo.png"
+				title="Slotoking"
+				bonus_name="Вітальний пакет!"
+				link="/casino/single"
+				bonus_value="125 000 ₴ + 500 FS!"
+			/>
+			<CasinoMainCard
+				bg="#27076D"
+				src="/img/slotokingLogo.png"
+				title="Cosmolot"
+				bonus_name="Вітальний пакет!"
+				link="/casino/single"
+				bonus_value="125 000 ₴ + 500 FS!"
+			/>
+			<CasinoMainCard
+				bg="#fff"
+				src="/img/slotokingLogo.png"
+				title="Slotoking"
+				bonus_name="Вітальний пакет!"
+				link="/casino/single"
+				bonus_value="125 000 ₴ + 500 FS!"
+			/>
+			<CasinoMainCard
+				bg="#272525"
+				src="/img/slotokingLogo.png"
+				title="Slotoking"
+				bonus_name="Вітальний пакет!"
+				link="/casino/single"
+				bonus_value="125 000 ₴ + 500 FS!"
+			/>
+			<CasinoMainCard
+				bg="#fff"
+				src="/img/slotokingLogo.png"
+				title="Slotoking"
+				bonus_name="Вітальний пакет!"
+				link="/casino/single"
+				bonus_value="125 000 ₴ + 500 FS!"
+			/>
+			<CasinoMainCard
+				bg="#161616"
+				src="/img/slotokingLogo.png"
+				title="Slotoking"
+				bonus_name="Вітальний пакет!"
+				link="/casino/single"
+				bonus_value="125 000 ₴ + 500 FS!"
+			/>
+			<CasinoMainCard
+				bg="#27076D"
+				src="/img/slotokingLogo.png"
+				title="Slotoking"
+				bonus_name="Вітальний пакет!"
+				link="/casino/single"
+				bonus_value="125 000 ₴ + 500 FS!"
+			/>
+			<CasinoMainCard
+				bg="#27076D"
+				src="/img/slotokingLogo.png"
+				title="Slotoking"
+				bonus_name="Вітальний пакет!"
+				link="/casino/single"
+				bonus_value="125 000 ₴ + 500 FS!"
+			/>
+			<CasinoMainCard
+				bg="#27076D"
+				src="/img/slotokingLogo.png"
+				title="Slotoking"
+				bonus_name="Вітальний пакет!"
+				link="/casino/single"
+				bonus_value="125 000 ₴ + 500 FS!"
+			/>
+			<CasinoMainCard
+				bg="#27076D"
+				src="/img/slotokingLogo.png"
+				title="Slotoking"
+				bonus_name="Вітальний пакет!"
+				link="/casino/single"
+				bonus_value="125 000 ₴ + 500 FS!"
+			/>
+			<CasinoMainCard
+				bg="#27076D"
+				src="/img/slotokingLogo.png"
+				title="Slotoking"
+				bonus_name="Вітальний пакет!"
+				link="/casino/single"
+				bonus_value="125 000 ₴ + 500 FS!"
+			/>
+			<CasinoMainCard
+				bg="#27076D"
+				src="/img/slotokingLogo.png"
+				title="Slotoking"
+				bonus_name="Вітальний пакет!"
+				link="/casino/single"
+				bonus_value="125 000 ₴ + 500 FS!"
+			/>
+		</div>
+		<div class="items-more">
+			<AButton @click="postShowMore" :attributes="btnSettings.DC">
+				{{ translates.SHOW_MORE[config.LANG] }} <AImg :attributes="arrowSettings.DC" src="/img/arrowGreen.svg" />
+			</AButton>
 		</div>
 	</div>
 </template>
@@ -78,35 +110,35 @@
 import { CASINO as NumberPostOnQuery } from '~/config/postLoader'
 import Helper from '~/helpers/helpers.js'
 import translateMixin from '~/mixins/translate'
+import CasinoMainCard from '~/components/casino_loop/cards/main'
+import AButton from '~/components/ui/atoms/buttons'
+import AImg from '~/components/ui/atoms/img/'
 export default {
 	name: 'app_casino_loop_downloads',
+	components: { CasinoMainCard, AButton, AImg },
 	props: {
 		value: {
 			type: Array,
-			default: []
-		},
-		title: {
-			type: String,
-			default: undefined
-		},
-		link: {
-			type: String,
-			default: undefined
-		},
-		linkText: {
-			type: String,
-			default: undefined
-		},
-		bg: {
-			type: String,
-			default: ''
+			default() {
+				return []
+			}
 		}
 	},
 	mixins: [translateMixin],
 	data() {
 		return {
 			numberPostOnQuery: NumberPostOnQuery,
-			postCurrentPage: 1
+			postCurrentPage: 1,
+			btnSettings: {
+				DC: { color: 'cairo', class: 'load_more', weight: 'bold', size: 'medium' },
+				TABLET: {},
+				MOB: {}
+			},
+			arrowSettings: {
+				DC: { width: '18px', height: '18px', class: 'arrow' },
+				TABLET: {},
+				MOB: {}
+			}
 		}
 	},
 	computed: {
@@ -117,9 +149,6 @@ export default {
 	filters: {
 		classRating(item) {
 			return Helper.classRating(item)
-		},
-		widthRating(item) {
-			return `width: ${item.rating}%`
 		}
 	},
 	methods: {
@@ -132,3 +161,24 @@ export default {
 	}
 }
 </script>
+<style scoped>
+.casino_loop {
+	display: flex;
+	gap: var(--m);
+	flex-wrap: wrap;
+}
+.items-more {
+	width: 820px;
+	height: 52px;
+	margin-top: var(--l);
+}
+.load_more {
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: var(--s);
+	border: rgba(255, 255, 255, 0.05);
+}
+.arrow {
+	transform: rotate(90deg);
+	margin-left: 10px;
+}
+</style>
