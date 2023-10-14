@@ -1,0 +1,103 @@
+<template>
+	<div class="lang_selector">
+		<div class="lang_selector_ttl open">
+			<div class="flag">
+				<AImg :attributes="imgSettings.DC" src="/img/flag_ua.png" />
+			</div>
+			<AText tag="div" :attributes="textSettings.DC">UA</AText>
+			<div class="arrow">
+				<AImg :attributes="imgSettings.DC" src="/img/white_arrow.png" />
+			</div>
+		</div>
+		<div class="lang_selector_wrapper">
+			<ALink href="/custom-link" class="lang_item">
+				<div class="flag">
+					<AImg :attributes="imgSettings.DC" src="/img/flag_ua.png" />
+				</div>
+				<AText tag="div" :attributes="textSettings.DC">RU</AText>
+				<div class="arrow">
+					<AImg :attributes="imgSettings.DC" src="/img/white_arrow.png" />
+				</div>
+			</ALink>
+			<ALink href="/custom-link" class="lang_item">
+				<div class="flag">
+					<AImg :attributes="imgSettings.DC" src="/img/flag_ua.png" />
+				</div>
+				<AText tag="div" :attributes="textSettings.DC">EN</AText>
+				<div class="arrow">
+					<AImg :attributes="imgSettings.DC" src="/img/white_arrow.png" />
+				</div>
+			</ALink>
+		</div>
+	</div>
+</template>
+<script>
+import ALink from '~/components/ui/atoms/links'
+import AImg from '~/components/ui/atoms/img'
+import AText from '~/components/ui/atoms/text'
+export default {
+	name: 'lang_selector',
+	components: { ALink, AImg, AText },
+	data() {
+		return {
+			options: null,
+			imgSettings: {
+				DC: { width: '18px', height: '18px' },
+				TABLET: {},
+				MOB: {}
+			},
+			textSettings: {
+				DC: { color: 'cairo', transform: 'uppercase', weight: 'bolder', class: 'text' },
+				TABLET: {},
+				MOB: {}
+			}
+		}
+	}
+}
+</script>
+
+<style scoped lang="scss">
+.lang_selector {
+	position: relative;
+	width: 84px;
+	height: 40px;
+	border-radius: 14px;
+	background: rgba(16, 13, 36, 0.28);
+	border: 1px solid #5e40b5;
+	cursor: pointer;
+}
+.lang_selector_wrapper {
+	position: absolute;
+	top: 45px;
+	left: 0px;
+	//display: flex;
+	display: none;
+	flex-wrap: wrap;
+	border-radius: 14px;
+	background: rgba(16, 13, 36, 0.28);
+	border: 1px solid #5e40b5;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.lang_selector_ttl {
+	display: flex;
+	align-items: center;
+	padding: 11px 0px 11px 10px;
+	justify-content: space-between;
+}
+.text {
+	font-size: 14px;
+	transform: translateY(-3px);
+}
+.lang_item {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding: 5px 0px 0px 10px;
+	justify-content: space-between;
+	text-decoration: none;
+}
+.lang_selector_wrapper .arrow img {
+	transform: rotate(-90deg);
+}
+</style>
