@@ -1,14 +1,6 @@
 <template>
-	<section
-		class="faq"
-		itemscope
-		itemtype="https://schema.org/FAQPage"
-		v-if="currentValue.length !== 0"
-	>
-		<div class="container">
-			<h2 class="faq_title">{{ title }}</h2>
-		</div>
-		<div class="container faq_wrapper">
+	<section class="faq" itemscope itemtype="https://schema.org/FAQPage" v-if="currentValue.length !== 0">
+		<div class="faq_wrapper">
 			<div
 				class="faq_row"
 				itemscope
@@ -17,11 +9,7 @@
 				v-for="(item, index) in currentValue"
 				:key="index"
 			>
-				<div
-					class="faq_question"
-					@click="activate(item)"
-					:class="{ faq_active: item.status === 'open' }"
-				>
+				<div class="faq_question" @click="activate(item)" :class="{ faq_active: item.status === 'open' }">
 					<span itemprop="name">{{ item.question }}</span>
 					<span class="faq_close"></span>
 				</div>
@@ -75,38 +63,22 @@ export default {
 	}
 }
 </script>
-<style lang="scss">
-.faq {
-	margin-top: 30px;
-	margin-bottom: 30px;
-
-	&:last-child {
-		@media (min-width: 992px) {
-			margin-bottom: 50px;
-		}
-	}
-}
-
-.faq_title {
-	font-size: 28px;
-	font-weight: 700;
-	margin-bottom: 11px;
-	color: var(--theme-cr-4);
-}
-
+<style scoped lang="scss">
 .faq_question {
 	transition: var(--transition-default);
-	background-color: var(--faq-cr);
+	background-color: var(--cancun);
 	border-radius: 10px;
 	padding: 16px 57px 16px 20px;
 	margin-top: 2px;
 	font-style: normal;
 	font-weight: bold;
-	color: var(--theme-cr-2);
+	color: var(--cairo);
 	position: relative;
 	cursor: pointer;
 	font-size: 15px;
 	line-height: 1.2;
+	font-size: 14px;
+	font-weight: 700;
 
 	@media (min-width: 992px) {
 		&:hover {
@@ -119,12 +91,16 @@ export default {
 	font: inherit;
 	font-size: 14px;
 	line-height: 25px;
-	color: var(--theme-cr-txt-cms);
+	color: var(--cairo);
 	vertical-align: baseline;
 	padding: 25px 20px;
 	display: none;
 	opacity: 0;
 	transition: 0.7s;
+	font-weight: 400;
+	background-color: var(--cancun);
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 
 .faq_answer span {
@@ -137,24 +113,25 @@ export default {
 	top: 50%;
 	right: 34px;
 	transition: var(--transition-default);
-	border: solid var(--theme-cr-2);
+	border: solid var(--calgary);
 	border-width: 0 2px 2px 0;
 	border-radius: 2px;
 	transform: rotate(45deg) translateY(-50%) translateY(-3px);
 }
-
 .fadeIn {
 	display: block;
 	opacity: 1;
 }
-
 .faq_active .faq_close {
 	transform: rotate(45deg) translateY(-50%) translate(2px, -1px) scale(-1);
 }
-
 @media (min-width: 320px) and (max-width: 767px) {
 	.faq_answer {
 		padding: 15px;
 	}
+}
+.faq_question.faq_active {
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
 }
 </style>
