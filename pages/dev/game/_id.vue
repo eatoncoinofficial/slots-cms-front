@@ -1,12 +1,21 @@
 <template>
 	<div>
 		<Header />
-		<main class="news_page">
-			<div class="container">
-				<AText tag="div" :attributes="titleSettings.DC">News</AText>
+		<main class="game_page">
+			<div class="container container_top_game">
+				<SlotCard />
 			</div>
-			<div class="container">
-				<NewsLoop />
+			<div class="symbols">
+				<div class="container">
+					<AText tag="div" :attributes="symbolTitleSettings.DC">Символи слота</AText>
+					<SlotSymbols />
+				</div>
+			</div>
+			<div class="screenshots">
+				<div class="container">
+					<AText tag="div" :attributes="symbolTitleSettings.DC">Скріншоти слота</AText>
+					<SlotScreenshots />
+				</div>
 			</div>
 			<div class="container">
 				<div class="faq_container">
@@ -22,23 +31,27 @@
 import AText from '~/components/ui/atoms/text'
 import Footer from '~/components/footer/dev'
 import Header from '~/components/header/dev'
-import NewsLoop from '~/components/news_loop'
+import SlotCard from '~/components/slot_card'
+import SlotSymbols from '~/components/slot_symbols'
+import SlotScreenshots from '~/components/slot_screenshots'
 import Faq from '~/components/faq/app_faq'
 
 export default {
-	name: 'dev-news-page',
+	name: 'game_single',
 	components: {
 		AText,
 		Footer,
 		Header,
-		Faq,
-		NewsLoop
+		SlotCard,
+		SlotSymbols,
+		SlotScreenshots,
+		Faq
 	},
 	layout: 'dev',
 	data: () => {
 		return {
-			titleSettings: {
-				DC: { color: 'cairo', size: 'x-large', weight: 'bold', transform: 'uppercase', class: 'title' },
+			symbolTitleSettings: {
+				DC: { size: 'x-large', color: 'cairo', weight: 'bold', class: 'title' },
 				TABLE: {},
 				MOB: {}
 			},
@@ -80,17 +93,24 @@ export default {
 }
 </script>
 <style scoped>
-.news_page {
+.game_page {
 	background: url('/img/short_bg.png') top center var(--colombo);
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }
-.news_container {
-	display: flex;
-	justify-content: space-between;
-	margin-top: var(--l);
+.container_top_game {
+	padding-bottom: 80px;
+}
+.symbols {
+	background: var(--cucuta);
+	padding-top: 50px;
+	padding-bottom: 60px;
+}
+.screenshots {
+	padding-top: 50px;
+	padding-bottom: 60px;
 }
 .title {
-	margin-bottom: var(--m);
+	margin-bottom: 24px;
 }
 </style>

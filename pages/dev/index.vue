@@ -528,9 +528,4 @@ export default {
 	justify-content: space-between;
 	margin-top: var(--l);
 }
-.faq_container {
-	max-width: 820px;
-	padding-top: 30px;
-	padding-bottom: 30px;
-}
 </style>

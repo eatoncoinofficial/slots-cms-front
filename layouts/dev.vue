@@ -12,6 +12,8 @@ export default {
 body {
 	position: relative;
 	font-family: 'Unbounded';
+	overflow-x: hidden;
+	max-width: 100%;
 }
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;800&display=swap');
 :root {
@@ -406,5 +408,10 @@ h6 {
 /* */
 .main_page_h1 {
 	line-height: 62px;
+}
+.faq_container {
+	max-width: 820px;
+	padding-top: 30px;
+	padding-bottom: 30px;
 }
 </style>

@@ -76,7 +76,7 @@ import NewsMainCard from '~/components/news_loop/cards/main'
 import AButton from '~/components/ui/atoms/buttons'
 import AImg from '~/components/ui/atoms/img/'
 export default {
-	name: 'app_casino_loop_downloads',
+	name: 'news_loop',
 	components: { NewsMainCard, AButton, AImg },
 	props: {
 		value: {

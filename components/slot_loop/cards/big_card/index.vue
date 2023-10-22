@@ -1,0 +1,80 @@
+<template>
+	<article class="item">
+		<div class="badge">
+			<AText :attributes="textSettings.DC">Гра Тижня</AText>
+		</div>
+		<div class="wrapper">
+			<ALink :href="link">
+				<AImg :attributes="imgSettings.DC" :src="src" />
+			</ALink>
+		</div>
+	</article>
+</template>
+<script>
+import AImg from '~/components/ui/atoms/img/'
+import AText from '~/components/ui/atoms/text'
+import ALink from '~/components/ui/atoms/links'
+export default {
+	name: 'game_main_card',
+	components: { AImg, AText, ALink },
+	data: () => {
+		return {
+			imgSettings: {
+				DC: { width: '329px', height: '355px', class: 'object_fit_cover thumbnail' },
+				TABLET: {},
+				MOB: {}
+			},
+			textSettings: {
+				DC: { color: 'cairo', class: 'badgeText', weight: 'medium' },
+				TABLET: {},
+				MOB: {}
+			}
+		}
+	},
+	props: {
+		link: {
+			type: String,
+			default() {
+				return '/game'
+			}
+		},
+		src: {
+			type: String,
+			default() {
+				return '/img/noImages.png'
+			}
+		}
+	}
+}
+</script>
+<style scoped>
+.item {
+	width: 329px;
+	height: 355px;
+	border-radius: 14px;
+	position: relative;
+	overflow: hidden;
+}
+.badgeText {
+	font-size: 10px;
+	line-height: 14px;
+}
+.badge {
+	background: #ff005c;
+	position: absolute;
+	top: 8px;
+	left: 16px;
+	border-radius: var(--s);
+	padding: 2px 16px 6px 25px;
+}
+.badge::before {
+	content: '';
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	top: 50%;
+	left: 6px;
+	transform: translateY(-50%);
+	background: url('/img/fire.png');
+}
+</style>

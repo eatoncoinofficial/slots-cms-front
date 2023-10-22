@@ -112,11 +112,6 @@ export default {
 .title {
 	margin-bottom: var(--m);
 }
-.faq_container {
-	max-width: 820px;
-	padding-top: 30px;
-	padding-bottom: 30px;
-}
 .bonus_category_container {
 	display: flex;
 	flex-wrap: wrap;

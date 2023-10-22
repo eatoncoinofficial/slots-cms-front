@@ -1,12 +1,32 @@
 <template>
 	<div>
 		<Header />
-		<main class="news_page">
+		<main class="games_page">
 			<div class="container">
-				<AText tag="div" :attributes="titleSettings.DC">News</AText>
+				<AText tag="div" :attributes="titleSettings.DC">Ігри</AText>
 			</div>
-			<div class="container">
-				<NewsLoop />
+			<div class="container container_providers">
+				<ProviderFilter />
+			</div>
+			<div class="container container_game_week">
+				<div class="left">
+					<GameBigCard link="/dev/game-1" src="/img/gape_card.png" />
+				</div>
+				<div class="right">
+					<GameMainCard link="/dev/game/game-1" src="/img/gape_card.png" />
+					<GameMainCard link="/dev/game/game-1" src="/img/gape_card.png" />
+					<GameMainCard link="/dev/game/game-1" src="/img/gape_card.png" />
+					<GameMainCard link="/dev/game/game-1" src="/img/gape_card.png" />
+					<GameMainCard link="/dev/game/game-1" src="/img/gape_card.png" />
+					<GameMainCard link="/dev/game/game-1" src="/img/gape_card.png" />
+					<GameMainCard link="/dev/game/game-1" src="/img/gape_card.png" />
+					<GameMainCard link="/dev/game/game-1" src="/img/gape_card.png" />
+					<GameMainCard link="/dev/game/game-1" src="/img/gape_card.png" />
+					<GameMainCard link="/dev/game/game-1" src="/img/gape_card.png" />
+				</div>
+			</div>
+			<div class="container container_loop">
+				<SlotLoop />
 			</div>
 			<div class="container">
 				<div class="faq_container">
@@ -22,8 +42,12 @@
 import AText from '~/components/ui/atoms/text'
 import Footer from '~/components/footer/dev'
 import Header from '~/components/header/dev'
-import NewsLoop from '~/components/news_loop'
 import Faq from '~/components/faq/app_faq'
+import BonusCategory from '~/components/bonus_category'
+import GameMainCard from '~/components/slot_loop/cards/main'
+import GameBigCard from '~/components/slot_loop/cards/big_card'
+import SlotLoop from '~/components/slot_loop'
+import ProviderFilter from '~/components/provider_list'
 
 export default {
 	name: 'dev-news-page',
@@ -32,7 +56,11 @@ export default {
 		Footer,
 		Header,
 		Faq,
-		NewsLoop
+		BonusCategory,
+		GameMainCard,
+		GameBigCard,
+		SlotLoop,
+		ProviderFilter
 	},
 	layout: 'dev',
 	data: () => {
@@ -80,17 +108,27 @@ export default {
 }
 </script>
 <style scoped>
-.news_page {
+.games_page {
 	background: url('/img/short_bg.png') top center var(--colombo);
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }
-.news_container {
-	display: flex;
-	justify-content: space-between;
-	margin-top: var(--l);
-}
 .title {
 	margin-bottom: var(--m);
+}
+.right {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+.container_game_week {
+	display: flex;
+	gap: 12px;
+}
+.container_loop {
+	margin-top: 12px;
+}
+.container_providers {
+	padding: var(--s) 0px 21px 0px;
 }
 </style>

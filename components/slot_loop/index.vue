@@ -1,78 +1,64 @@
 <template>
-	<div :class="'games --alt-bg ' + bg">
-		<div class="container">
-			<div class="slots__heading" v-if="title">
-				<h2 class="slots__ttl">{{ title }}</h2>
-				<NuxtLink no-prefetch :to="link" class="link-primary" v-if="link">
-					{{ linkText }}
-				</NuxtLink>
-			</div>
-			<div class="games__container flex-wrap">
-				<NuxtLink
-					class="game-item"
-					no-prefetch
-					:to="item.permalink"
-					v-for="(item, index) in currentPosts"
-					:key="index"
-				>
-					<div class="game-item__logo">
-						<img :src="item.thumbnail" loading="lazy" alt="" />
-					</div>
-
-					<div class="game-item__hover">
-						<span class="game-item__name">{{ item.title }}</span>
-						<span class="game-item__category">{{ item.vendor.title }}</span>
-
-						<NuxtLink class="btn-play" :to="item.permalink">{{
-							translates.PLAY[config.LANG]
-						}}</NuxtLink>
-					</div>
-				</NuxtLink>
-			</div>
+	<div>
+		<div class="slot_loop">
+			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
+			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
+			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
+			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
+			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
+			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
+			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
+			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
+			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
+			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
+			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
+			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
+			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
+			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
 		</div>
-
-		<div
-			class="games__more items-more"
-			v-if="value.length > numberPostOnQuery * postCurrentPage"
-		>
-			<button no-prefetch class="btn-secondary" @click="postShowMore">
-				{{ translates.SHOW_MORE[config.LANG] }}
-			</button>
+		<div class="items-more">
+			<div class="btn_wrapper">
+				<AButton @click="postShowMore" :attributes="btnSettings.DC">
+					{{ translates.SHOW_MORE[config.LANG] }} <AImg :attributes="arrowSettings.DC" src="/img/arrowGreen.svg" />
+				</AButton>
+			</div>
 		</div>
 	</div>
 </template>
+
 <script>
 import { GAME as NumberPostOnQuery } from '~/config/postLoader'
+import Helper from '~/helpers/helpers.js'
 import translateMixin from '~/mixins/translate'
+import GameMainCard from '~/components/slot_loop/cards/main'
+import AButton from '~/components/ui/atoms/buttons'
+import AImg from '~/components/ui/atoms/img/'
 export default {
-	name: 'app_slot_loop_downloads',
-	mixins: [translateMixin],
+	name: 'slot_loop',
+	components: { GameMainCard, AButton, AImg },
 	props: {
 		value: {
 			type: Array,
-			default: []
-		},
-		title: {
-			type: String,
-			default: undefined
-		},
-		link: {
-			type: String,
-			default: undefined
-		},
-		linkText: {
-			type: String,
-			default: undefined
-		},
-		bg: {
-			type: String,
-			default: ''
+			default() {
+				return []
+			}
 		}
 	},
+	mixins: [translateMixin],
 	data() {
 		return {
 			numberPostOnQuery: NumberPostOnQuery,
-			postCurrentPage: 1
+			postCurrentPage: 1,
+			btnSettings: {
+				DC: { color: 'cairo', class: 'load_more', weight: 'bold', size: 'medium' },
+				TABLET: {},
+				MOB: {}
+			},
+			arrowSettings: {
+				DC: { width: '18px', height: '18px', class: 'arrow' },
+				TABLET: {},
+				MOB: {}
+			}
 		}
 	},
 	computed: {
@@ -80,12 +66,43 @@ export default {
 			return this.value.slice(0, this.numberPostOnQuery * this.postCurrentPage)
 		}
 	},
+	filters: {
+		classRating(item) {
+			return Helper.classRating(item)
+		}
+	},
 	methods: {
+		refActivate(item) {
+			Helper.refActivate(item)
+		},
 		postShowMore() {
 			this.postCurrentPage += 1
 		}
 	}
 }
 </script>
-
-<style lang="scss" scoped></style>
+<style scoped>
+.slot_loop {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+.items-more {
+	display: flex;
+	justify-content: center;
+	margin-top: var(--l);
+	height: 52px;
+}
+.btn_wrapper {
+	max-width: 272px;
+}
+.load_more {
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: var(--s);
+	border: rgba(255, 255, 255, 0.05);
+}
+.arrow {
+	transform: rotate(90deg);
+	margin-left: 10px;
+}
+</style>
