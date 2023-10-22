@@ -22,6 +22,7 @@
 					<Faq :value="faq" />
 				</div>
 			</div>
+			<SlotPopUp v-if="false" />
 		</main>
 		<Footer />
 	</div>
@@ -35,6 +36,7 @@ import SlotCard from '~/components/slot_card'
 import SlotSymbols from '~/components/slot_symbols'
 import SlotScreenshots from '~/components/slot_screenshots'
 import Faq from '~/components/faq/app_faq'
+import SlotPopUp from '~/components/slot_popup'
 
 export default {
 	name: 'game_single',
@@ -45,7 +47,8 @@ export default {
 		SlotCard,
 		SlotSymbols,
 		SlotScreenshots,
-		Faq
+		Faq,
+		SlotPopUp
 	},
 	layout: 'dev',
 	data: () => {
