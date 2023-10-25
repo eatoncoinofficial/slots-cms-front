@@ -6,7 +6,7 @@
 				src="/img/slotokingLogo.png"
 				title="Slotoking"
 				bonus_name="Вітальний пакет!"
-				link="/casino/single"
+				link="/dev/casino/single"
 				bonus_value="125 000 ₴ + 500 FS!"
 			/>
 			<CasinoMainCard
@@ -14,7 +14,7 @@
 				src="/img/slotokingLogo.png"
 				title="Cosmolot"
 				bonus_name="Вітальний пакет!"
-				link="/casino/single"
+				link="/dev/casino/single"
 				bonus_value="125 000 ₴ + 500 FS!"
 			/>
 			<CasinoMainCard
@@ -22,7 +22,7 @@
 				src="/img/slotokingLogo.png"
 				title="Slotoking"
 				bonus_name="Вітальний пакет!"
-				link="/casino/single"
+				link="/dev/casino/single"
 				bonus_value="125 000 ₴ + 500 FS!"
 			/>
 			<CasinoMainCard
@@ -30,7 +30,7 @@
 				src="/img/slotokingLogo.png"
 				title="Slotoking"
 				bonus_name="Вітальний пакет!"
-				link="/casino/single"
+				link="/dev/casino/single"
 				bonus_value="125 000 ₴ + 500 FS!"
 			/>
 			<CasinoMainCard
@@ -38,7 +38,7 @@
 				src="/img/slotokingLogo.png"
 				title="Slotoking"
 				bonus_name="Вітальний пакет!"
-				link="/casino/single"
+				link="/dev/casino/single"
 				bonus_value="125 000 ₴ + 500 FS!"
 			/>
 			<CasinoMainCard
@@ -46,7 +46,7 @@
 				src="/img/slotokingLogo.png"
 				title="Slotoking"
 				bonus_name="Вітальний пакет!"
-				link="/casino/single"
+				link="/dev/casino/single"
 				bonus_value="125 000 ₴ + 500 FS!"
 			/>
 			<CasinoMainCard
@@ -54,7 +54,7 @@
 				src="/img/slotokingLogo.png"
 				title="Slotoking"
 				bonus_name="Вітальний пакет!"
-				link="/casino/single"
+				link="/dev/casino/single"
 				bonus_value="125 000 ₴ + 500 FS!"
 			/>
 			<CasinoMainCard
@@ -62,7 +62,7 @@
 				src="/img/slotokingLogo.png"
 				title="Slotoking"
 				bonus_name="Вітальний пакет!"
-				link="/casino/single"
+				link="/dev/casino/single"
 				bonus_value="125 000 ₴ + 500 FS!"
 			/>
 			<CasinoMainCard
@@ -70,7 +70,7 @@
 				src="/img/slotokingLogo.png"
 				title="Slotoking"
 				bonus_name="Вітальний пакет!"
-				link="/casino/single"
+				link="/dev/casino/single"
 				bonus_value="125 000 ₴ + 500 FS!"
 			/>
 			<CasinoMainCard
@@ -78,7 +78,7 @@
 				src="/img/slotokingLogo.png"
 				title="Slotoking"
 				bonus_name="Вітальний пакет!"
-				link="/casino/single"
+				link="/dev/casino/single"
 				bonus_value="125 000 ₴ + 500 FS!"
 			/>
 			<CasinoMainCard
@@ -86,7 +86,7 @@
 				src="/img/slotokingLogo.png"
 				title="Slotoking"
 				bonus_name="Вітальний пакет!"
-				link="/casino/single"
+				link="/dev/casino/single"
 				bonus_value="125 000 ₴ + 500 FS!"
 			/>
 			<CasinoMainCard
@@ -94,7 +94,7 @@
 				src="/img/slotokingLogo.png"
 				title="Slotoking"
 				bonus_name="Вітальний пакет!"
-				link="/casino/single"
+				link="/dev/casino/single"
 				bonus_value="125 000 ₴ + 500 FS!"
 			/>
 		</div>

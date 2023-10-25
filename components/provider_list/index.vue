@@ -99,7 +99,7 @@ export default {
 	display: flex;
 	align-items: center;
 	padding: 5px 15px;
-	border-radius: var(--m);
+	border-radius: var(--s);
 	background: rgba(255, 255, 255, 0.1);
 	white-space: nowrap;
 	font-size: 10px;
@@ -114,7 +114,7 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: var(--m);
+	border-radius: var(--s);
 }
 [data-active='true'] {
 	background: rgba(255, 255, 255, 0.27);
