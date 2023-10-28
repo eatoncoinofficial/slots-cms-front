@@ -71,4 +71,25 @@ export default {
 	outline: 0;
 	outline-offset: 0;
 }
+%btn-general {
+	font-family: var(--base-font-family);
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	text-decoration: none;
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+}
+
+.btn-default {
+	@extend %btn-general;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 1.1;
+	text-align: center;
+	position: relative;
+	padding: 0;
+}
 </style>

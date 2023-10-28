@@ -9,7 +9,7 @@
 			<div>
 				<AText tag="h1" :attributes="titleSettings.DC">Luxor Gold</AText>
 				<AText tag="div" :attributes="subTitleSettings.DC">Playson</AText>
-				<AText tag="div" :attributes="sectionTitleSettings.DC">Ця гра доступна в цих казино</AText>
+				<AText tag="div" :attributes="sectionTitleSettings.DC">{{ t('GAME_AVAILABLE_CASINOS') }}</AText>
 				<div class="casino_wrapper">
 					<div class="item" style="background: #D21037">
 						<ALink href="/dev/casino/single">
@@ -49,10 +49,10 @@
 				</div>
 				<div class="action_wrapper">
 					<div class="action_item">
-						<AButton :attributes="btnSettings.DC">Перейти</AButton>
+						<AButton :attributes="btnSettings.DC">{{ t('GO_TO') }}</AButton>
 					</div>
 					<div class="action_item">
-						<AButton :attributes="btnDemoSettings.DC">Демо</AButton>
+						<AButton :attributes="btnDemoSettings.DC">{{ t('DEMO') }}</AButton>
 					</div>
 				</div>
 			</div>
@@ -60,9 +60,9 @@
 		<div class="right">
 			<div class="characters_container">
 				<GameCharacters type="rtp" title="RTP" value="96.46%" />
-				<GameCharacters type="min_dep" title="МІН. СТАВКА" value="0.1" />
-				<GameCharacters type="scheme" title="СХЕМА" value="3-3-4-4-4" />
-				<GameCharacters type="line" title="ЛІНІЇ" value="2-3-0-4" />
+				<GameCharacters type="min_dep" :title="t('MIN_BET')" value="0.1" />
+				<GameCharacters type="scheme" :title="t('SCHEMA')" value="3-3-4-4-4" />
+				<GameCharacters type="line" :title="t('LINES')" value="2-3-0-4" />
 			</div>
 		</div>
 	</div>
@@ -73,8 +73,10 @@ import AImg from '~/components/ui/atoms/img'
 import ALink from '~/components/ui/atoms/links'
 import AButton from '~/components/ui/atoms/buttons'
 import GameCharacters from '~/components/game_characters'
+import translateMixin from '~/mixins/translate'
 export default {
 	name: 'single-game-page',
+	mixins: [translateMixin],
 	components: {
 		AText,
 		AImg,

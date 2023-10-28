@@ -1,7 +1,6 @@
 import translateMixin from '~/mixins/translate'
 import app_header_amp from '~/components/header/app-header_amp'
 import app_footer_amp from '~/components/footer/app-footer_amp'
-import app_author_link_amp from '~/components/author/app-author-link_amp'
 import app_content_amp from '~/components/content/app-content_amp'
 import PageBannerAmp from '~/components/page_banner/amp'
 export default {
@@ -9,7 +8,6 @@ export default {
 	ampLayout: 'default.amp',
 	mixins: [translateMixin],
 	components: {
-		app_author_link_amp,
 		app_header_amp,
 		app_footer_amp,
 		app_content_amp,

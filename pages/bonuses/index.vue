@@ -1,65 +1,117 @@
 <template>
 	<div>
-		<PageBanner :title="data.body.h1" :shortDesc="data.body.short_desc" />
-		<div class="container">
-			<div class="contentEnd">
-				<AuthorLink
-					:link="config.AUTHOR_PAGE_LINK"
-					:text="translates.REVIEW_AUTHOR[config.LANG]"
-					:dataTime="data.body.created_at.slice(0, 10)"
-					:name="data.body.author_name"
-				/>
+		<main class="bonuses_page">
+			<div class="container">
+				<AText tag="div" :attributes="titleSettings.DC">БОНУСИ</AText>
 			</div>
-		</div>
-		<app_category_filter :value="data.body.bonus_type" v-if="data.body.bonus_type.length !== 0" />
-		<app_bonuses_loop_downloads :value="data.body.bonuses" v-if="data.body.bonuses.length !== 0" />
-		<Content :value="data.body.content" v-if="data.body.content !== ''" />
-		<app_faq :value="changeFaq" :title="'Faq'" v-if="changeFaq.length !== 0" />
+			<div class="container">
+				<div class="bonus_category_container">
+					<div class="bonus_category_item">
+						<BonusCategory />
+					</div>
+					<div class="bonus_category_item">
+						<BonusCategory />
+					</div>
+					<div class="bonus_category_item">
+						<BonusCategory />
+					</div>
+					<div class="bonus_category_item">
+						<BonusCategory />
+					</div>
+					<div class="bonus_category_item">
+						<BonusCategory />
+					</div>
+					<div class="bonus_category_item">
+						<BonusCategory />
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="faq_container">
+					<Faq :value="faq" />
+				</div>
+			</div>
+		</main>
 	</div>
 </template>
 
 <script>
-import DAL_Builder from '~/DAL/builder'
-import helper from '~/helpers/helpers'
-import app_bonuses_loop_downloads from '~/components/bonus_loop/app_bonuses_loop_downloads'
-import app_faq from '~/components/faq/app_faq'
-import app_category_filter from '~/components/category_filter/app_category_filter'
-import head from '~/mixins/head'
-import pageTemplate from '~/mixins/pageTemplate'
+import AText from '~/components/ui/atoms/text'
+import Faq from '~/components/faq/app_faq'
+import BonusCategory from '~/components/bonus_category'
+
 export default {
-	name: 'app_bonuses',
+	name: 'bonuses-page',
+	components: {
+		AText,
+		Faq,
+		BonusCategory
+	},
+	layout: 'default',
 	data: () => {
 		return {
-			faq: []
-		}
-	},
-	components: {
-		app_bonuses_loop_downloads,
-		app_faq,
-		app_category_filter
-	},
-	mixins: [head, pageTemplate],
-	async asyncData({ store, route, error }) {
-		const request = new DAL_Builder()
-		const response = await request
-			.postType('pages')
-			.url('bonuses')
-			.get()
-		if (response.data.confirm === 'error') {
-			error({ statusCode: 404, message: 'Post not found' })
-		} else {
-			const data = helper.headDataMixin(response.data, route)
-			return { data }
-		}
-	},
-	computed: {
-		changeFaq() {
-			const settings = this.$store.getters['settings/getSettings']
-			if (settings) {
-				this.faq = settings.filter(item => item.key === 'bonus_page_faq')[0].value
-			}
-			return this.faq
+			titleSettings: {
+				DC: { color: 'cairo', size: 'x-large', weight: 'bold', transform: 'uppercase', class: 'title' },
+				TABLE: {},
+				MOB: {}
+			},
+			faq: [
+				{
+					value_1: '✅ Чи приймає Slotoking гравців з України?',
+					value_2:
+						'Так, приймає. Slotoking є одним з перших українських казино. Окрім гравців їхньої України, тут можуть грати жителі Європи та Азії.'
+				},
+				{
+					value_1: '🎗 Чи можна грати у Слотокінг на гривні?',
+					value_2: 'Так, гривня є основною ігровою валютою.'
+				},
+				{
+					value_1: '🧨 Як пройти реєстрацію на сайті Slotoking?',
+					value_2:
+						'На головній сторінці сайту натиснути кнопку "Реєстрація". Для реєстрації можна використовувати профілі у соціальних мережах, мобільний номер або електронну пошту.'
+				},
+				{
+					value_1: '❇️ Який мінімальний депозит у казино Кінг?',
+					value_2: 'Мінімальний депозит – 50 гривень.'
+				},
+				{
+					value_1: '🏆 Яка мінімальна сума виведення коштів у Slotoking?',
+					value_2: 'Мінімальна сума для виведення – 50 гривень.'
+				},
+				{
+					value_1: '⭐ Чи є бонусна програма в Слотокінг?',
+					value_2: 'Є вітальний пакет, а також фріспіни за реєстрацію в онлайн казино.'
+				},
+				{
+					value_1: '💯 Які платіжні методи є в Slotoking?',
+					value_2:
+						'Казино Кінг приймає депозити за допомогою платіжних карток, банківських переказів та інших електронних валют. Детальнішу інформацію можна знайти на сторінці "Методи оплати".'
+				}
+			]
 		}
 	}
 }
 </script>
+<style scoped>
+.bonuses_page {
+	background: url('/img/short_bg.png') top center var(--colombo);
+	background-repeat: no-repeat;
+	padding-top: 165px;
+}
+.news_container {
+	display: flex;
+	justify-content: space-between;
+	margin-top: var(--l);
+}
+.title {
+	margin-bottom: var(--m);
+}
+.bonus_category_container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.bonus_category_item {
+	width: 32%;
+}
+</style>

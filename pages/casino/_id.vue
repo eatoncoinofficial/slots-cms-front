@@ -1,140 +1,202 @@
 <template>
 	<div>
-		<PageBanner :title="data.body.h1" :shortDesc="data.body.short_desc" />
-		<div class="container">
-			<div class="contentEnd">
-				<AuthorLink
-					:link="config.AUTHOR_PAGE_LINK"
-					:text="translates.REVIEW_AUTHOR[config.LANG]"
-					:dataTime="data.body.created_at.slice(0, 10)"
-					:name="data.body.author_name"
-				/>
+		<main class="casino_page">
+			<div class="container">
+				<AText tag="h1" :attributes="titleSettings.DC">Огляд онлайн казино Slotoking</AText>
+				<div class="main_container">
+					<TwoContentContainer>
+						<template v-slot:left>
+							<div class="left_wrapper">
+								<div class="casino_card_container">
+									<CasinoCard />
+								</div>
+								<div class="casino_characters_container">
+									<AText tag="div" :attributes="titleCharactersSettings.DC">{{ t('CASINO_CHARACTERS') }}</AText>
+									<CasinoDetails />
+								</div>
+								<div class="casino_slot_container">
+									<AText tag="div" :attributes="titleSlotsSettings.DC">{{ t('BEST_GAMES_IN_CASINO') }} Slotoking</AText>
+									<div class="slot_loop">
+										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
+										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
+										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
+										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
+										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
+										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
+										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
+										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
+										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
+										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
+										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
+										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
+									</div>
+								</div>
+							</div>
+						</template>
+						<template v-slot:right>
+							<aside class="aside">
+								<AText tag="div" :attributes="asideContainerTitle.DC">{{ t('RECOMMENDED_BONUSES') }}</AText>
+								<div class="aside_bonus_container">
+									<BonusAsideCard
+										link="/bonus-1"
+										src="/img/gamePrevyu.png"
+										title="Бонус від Slotoking"
+										desc="Вітальний пакет"
+										value="125 000 ₴ + 500 FS"
+										min_dep="Min. deposit: $30"
+										wager="Wagering: 40x"
+									/>
+									<BonusAsideCard
+										link="/bonus-1"
+										src="/img/gamePrevyu.png"
+										title="Бонус від Slotoking"
+										desc="Вітальний пакет"
+										value="125 000 ₴ + 500 FS"
+										min_dep="Min. deposit: $30"
+										wager="Wagering: 40x"
+									/>
+									<BonusAsideCard
+										link="/bonus-1"
+										src="/img/gamePrevyu.png"
+										title="Бонус від Slotoking"
+										desc="Вітальний пакет"
+										value="125 000 ₴ + 500 FS"
+										min_dep="Min. deposit: $30"
+										wager="Wagering: 40x"
+									/>
+									<BonusAsideCard
+										link="/bonus-1"
+										src="/img/gamePrevyu.png"
+										title="Бонус від Slotoking"
+										desc="Вітальний пакет"
+										value="125 000 ₴ + 500 FS"
+										min_dep="Min. deposit: $30"
+										wager="Wagering: 40x"
+									/>
+									<BonusAsideCard
+										link="/bonus-1"
+										src="/img/gamePrevyu.png"
+										title="Бонус від Slotoking"
+										desc="Вітальний пакет"
+										value="125 000 ₴ + 500 FS"
+										min_dep="Min. deposit: $30"
+										wager="Wagering: 40x"
+									/>
+								</div>
+							</aside>
+						</template>
+					</TwoContentContainer>
+				</div>
 			</div>
-		</div>
-		<app_breadcrumbs :value="data.body.breadcrumbs" />
-		<app_casino_card :value="data.body" />
-		<app_close_disclaimer v-if="data.body.close === 1" :value="data.body.title" />
-		<app_casino
-			v-if="data.body.close === 1"
-			:value="data.body.casino"
-			bg="--bg-gray"
-			:title="translates.RECOMMENDED_CASINOS[config.LANG]"
-			:linkText="translates.ALL_CASINO[config.LANG]"
-			link="/casino"
-		/>
-		<app_casino_detail :value="data.body" />
-		<app_bonuses
-			:value="data.body.bonuses"
-			:topTextShow="false"
-			:title="`${translates.BONUSES_FROM[config.LANG]} ${data.body.title}`"
-			v-if="data.body.bonuses.length !== 0"
-		/>
-		<div class="casino_content container">
-			<div class="casino_content_left">
-				<Content :value="data.body.content" v-if="data.body.content !== ''" />
-			</div>
-			<div class="casino_content_right">
-				<app_casino_aside :value="data.body.sidebar" />
-			</div>
-		</div>
-		<app_casino_rating :value="data.body.casinoRating" :title="data.body.title" />
-		<app_faq :value="data.body.faq" v-if="data.body.faq.length !== 0" />
-		<app_reviews
-			:title="translates.REVIEWS[config.LANG]"
-			:value="data.body.reviews"
-			v-if="data.body.reviews.length !== 0"
-		/>
-		<app_slick_button :referal="data.body.ref"></app_slick_button>
+			<section class="content_wrapper">
+				<div class="container">
+					<TabContent />
+				</div>
+			</section>
+		</main>
 	</div>
 </template>
 
 <script>
-import DAL_Builder from '~/DAL/builder'
-import config from '~/config'
-import breadcrumbs from '~/config/breadcrumbs'
-import helper from '~/helpers/helpers'
-import app_faq from '~/components/faq/app_faq'
-import app_bonuses from '~/components/bonus_casino/app_bonuses_casino'
-import app_breadcrumbs from '~/components/breadcrumbs/app_breadcrumbs'
-import app_casino_card from '~/components/casino_card/app-casino-card'
-import app_casino_detail from '~/components/casino_detail/app-casino-detail'
-import app_reviews from '~/components/reviews/app_reviews'
-import app_slick_button from '~/components/slick_button/app_slick_button'
-import app_casino_rating from '~/components/casino_rating/app-casino-rating'
-import app_close_disclaimer from '~/components/close_disclaimer/close-disclaimer'
-import app_casino from '~/components/casino/app_casino'
-import app_casino_aside from '~/components/casino_sidebar/app_casino_aside'
-import head from '~/mixins/head'
-import pageTemplate from '~/mixins/pageTemplate'
+import AText from '~/components/ui/atoms/text'
+import TwoContentContainer from '~/components/two_content_container/'
+import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
+import CasinoCard from '~/components/casino_card'
+import CasinoDetails from '~/components/casino_detail'
+import GameMainCard from '~/components/slot_loop/cards/main'
+import TabContent from '~/components/content/tab_content'
+import translateMixin from '~/mixins/translate'
 
 export default {
-	name: 'app_single_casino',
+	name: 'casino_single',
+	mixins: [translateMixin],
 	components: {
-		app_breadcrumbs,
-		app_casino_card,
-		app_casino_detail,
-		app_faq,
-		app_bonuses,
-		app_reviews,
-		app_slick_button,
-		app_casino_rating,
-		app_close_disclaimer,
-		app_casino,
-		app_casino_aside
+		AText,
+		BonusAsideCard,
+		TwoContentContainer,
+		CasinoCard,
+		CasinoDetails,
+		GameMainCard,
+		TabContent
 	},
-	mixins: [head, pageTemplate],
+	layout: 'default',
 	data: () => {
-		return {}
-	},
-	async asyncData({ route, error }) {
-		if (route.params.id) {
-			const request = new DAL_Builder()
-			const response = await request
-				.postType('casino')
-				.url(route.params.id)
-				.get()
-			if (response.data.confirm === 'error') {
-				error({ statusCode: 404, message: 'Post not found' })
-			} else {
-				const data = helper.headDataMixin(response.data, route)
-				data.body.casinoRating = {
-					reliability: data.body.reliability,
-					conveniencePayments: data.body.convenience_payments,
-					interface: data.body.interface,
-					support: data.body.support,
-					popularity: data.body.popularity,
-					shares: data.body.shares
-				}
-				data.body.breadcrumbs = [
-					{ ...breadcrumbs.BREADCRUMBS_ROOT[config.LANG] },
-					{ ...breadcrumbs.BREADCRUMBS_CASINOS[config.LANG] },
-					{ title: data.body.title, permalink: '' }
-				]
-				return { data }
+		return {
+			titleSettings: {
+				DC: { color: 'cairo', weight: 'bold', class: 'title' },
+				TABLE: {},
+				MOB: {}
+			},
+			titleCharactersSettings: {
+				DC: { color: 'cairo', weight: 'bold', size: 'x-large' },
+				TABLE: {},
+				MOB: {}
+			},
+			titleSlotsSettings: {
+				DC: { color: 'cairo', weight: 'regular', class: 'slots_title' },
+				TABLE: {},
+				MOB: {}
+			},
+			asideContainerTitle: {
+				DC: {
+					weight: 'bold',
+					color: 'cairo',
+					size: 'large'
+				},
+				TABLET: {},
+				MOB: {}
 			}
-		} else {
-			error({ statusCode: 404, message: 'Post not found' })
 		}
 	}
 }
 </script>
 <style scoped>
-.casino_content {
+.casino_page {
+	background: url('/img/casino_bg.png') top center rgba(16, 13, 36, 1);
+	background-repeat: no-repeat;
+	padding-top: 165px;
+}
+.main_container {
+	padding-bottom: 60px;
+}
+.title {
+	font-size: 32px;
+}
+.aside {
+	padding-top: 10px;
+}
+.aside_bonus_container {
+	margin-top: var(--s);
 	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
 }
-.casino_content_left {
-	width: 70%;
+.casino_card_container {
+	margin-top: var(--l);
 }
-.casino_content_right {
-	width: 30%;
+.casino_characters_container,
+.casino_slot_container {
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	background: rgba(27, 24, 49, 1);
+	margin-top: 40px;
+	border-radius: 20px;
+	padding: 32px 22px;
 }
-@media (min-width: 319px) and (max-width: 768px) {
-	.casino_content {
-		flex-wrap: wrap;
-	}
-	.casino_content_left,
-	.casino_content_right {
-		width: 100%;
-	}
+.left_wrapper {
+	max-width: 820px;
+}
+.slots_title {
+	font-size: 22px;
+}
+.slot_loop {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+	margin-top: 24px;
+	justify-content: space-between;
+}
+.content_wrapper {
+	background: rgba(8, 5, 26, 1);
+	padding: 60px 0px;
 }
 </style>

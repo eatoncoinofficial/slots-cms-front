@@ -1,6 +1,6 @@
 <template>
 	<div class="root">
-		<AText tag="div" :attributes="titleSettings.DC">Рекомендовані бонуси</AText>
+		<AText tag="div" :attributes="titleSettings.DC">{{ t('RECOMMENDED_BONUSES') }}</AText>
 		<div class="bonus_loop">
 			<BonusAsideCard
 				link="/bonus-1"
@@ -33,7 +33,7 @@
 		<div class="items-more">
 			<div class="btn_wrapper">
 				<AButton @click="postShowMore" :attributes="btnSettings.DC">
-					{{ translates.SHOW_MORE[config.LANG] }} <AImg :attributes="arrowSettings.DC" src="/img/arrowGreen.svg" />
+					{{ t('SHOW_MORE') }} <AImg :attributes="arrowSettings.DC" src="/img/arrowGreen.svg" />
 				</AButton>
 			</div>
 		</div>
@@ -98,6 +98,9 @@ export default {
 }
 </script>
 <style scoped>
+.root {
+	margin-bottom: 40px;
+}
 .bonus_loop {
 	display: flex;
 	flex-wrap: wrap;
@@ -108,9 +111,11 @@ export default {
 	justify-content: center;
 	margin-top: var(--l);
 	height: 52px;
+	width: 356px;
 }
 .btn_wrapper {
 	max-width: 272px;
+	width: 272px;
 }
 .load_more {
 	background: rgba(255, 255, 255, 0.1);

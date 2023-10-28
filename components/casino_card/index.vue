@@ -19,7 +19,7 @@
 					<AText tag="div" :attributes="bonusValueSettings.DC">125 000 ₴ + 500 FS</AText>
 					<div class="action_wrapper">
 						<div class="btn_wrapper">
-							<AButton :attributes="btnSettings.DC">Перейти</AButton>
+							<AButton :attributes="btnSettings.DC">{{ t('GO_TO') }}</AButton>
 						</div>
 					</div>
 				</div>
@@ -31,8 +31,10 @@
 import AImg from '~/components/ui/atoms/img/'
 import AText from '~/components/ui/atoms/text'
 import AButton from '~/components/ui/atoms/buttons'
+import translateMixin from '~/mixins/translate'
 export default {
 	name: 'casino_card',
+	mixins: [translateMixin],
 	components: { AImg, AText, AButton },
 	data() {
 		return {

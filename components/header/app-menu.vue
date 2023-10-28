@@ -2,16 +2,16 @@
 	<div class="header_menu">
 		<nav class="header_menu_container">
 			<div class="header_menu_item" data-active="true">
-				<ALink href="/dev" :attributes="linkSettings.DC">ОНЛАЙН-КАЗИНО</ALink>
+				<ALink href="/" :attributes="linkSettings.DC">ОНЛАЙН-КАЗИНО</ALink>
 			</div>
 			<div class="header_menu_item">
-				<ALink href="/dev/games" :attributes="linkSettings.DC">Ігри</ALink>
+				<ALink href="/games" :attributes="linkSettings.DC">Ігри</ALink>
 			</div>
 			<div class="header_menu_item">
-				<ALink href="/dev/bonuses" :attributes="linkSettings.DC">БОНУСИ</ALink>
+				<ALink href="/bonuses" :attributes="linkSettings.DC">БОНУСИ</ALink>
 			</div>
 			<div class="header_menu_item">
-				<ALink href="/dev/news" :attributes="linkSettings.DC">NEWS</ALink>
+				<ALink href="/news" :attributes="linkSettings.DC">NEWS</ALink>
 			</div>
 		</nav>
 	</div>

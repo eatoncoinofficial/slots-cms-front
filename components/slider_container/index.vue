@@ -5,7 +5,7 @@
 				<AText :attributes="ttlSettings.DC">{{ title }}</AText>
 			</div>
 			<LinkWithArrow :link="link" :attributes="linkSettings.DC">
-				Дивитись бильше
+				{{ t('SHOW_MORE') }}
 			</LinkWithArrow>
 		</div>
 		<div class="bottom">
@@ -19,9 +19,11 @@
 import Slider from '~/components/slider'
 import AText from '~/components/ui/atoms/text'
 import LinkWithArrow from '~/components/ui/atoms/links/link_with_arrow'
+import translateMixin from '~/mixins/translate'
 export default {
 	name: 'slider_container',
 	components: { Slider, AText, LinkWithArrow },
+	mixins: [translateMixin],
 	data: () => {
 		return {
 			ttlSettings: {

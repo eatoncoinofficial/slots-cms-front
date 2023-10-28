@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<Header />
 		<main class="news_page">
 			<div class="container">
 				<AText tag="div" :attributes="titleSettings.DC">News</AText>
@@ -14,14 +13,11 @@
 				</div>
 			</div>
 		</main>
-		<Footer />
 	</div>
 </template>
 
 <script>
 import AText from '~/components/ui/atoms/text'
-import Footer from '~/components/footer/dev'
-import Header from '~/components/header/dev'
 import NewsLoop from '~/components/news_loop'
 import Faq from '~/components/faq/app_faq'
 
@@ -29,12 +25,10 @@ export default {
 	name: 'dev-news-page',
 	components: {
 		AText,
-		Footer,
-		Header,
 		Faq,
 		NewsLoop
 	},
-	layout: 'dev',
+	layout: 'default',
 	data: () => {
 		return {
 			titleSettings: {

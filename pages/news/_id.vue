@@ -1,44 +1,43 @@
 <template>
 	<div>
-		<Header />
 		<main class="news_page">
 			<div class="container">
 				<TwoContentContainer>
 					<template v-slot:left>
-						<AText tag="div" :attributes="titleSettings.DC">Gaming corps address to supply games for Stb</AText>
+						<AText tag="h1" :attributes="titleSettings.DC">Gaming corps address to supply games for Stb</AText>
 						<div class="wrapper_thumbnail">
 							<AImg :attributes="thumbnailSettings.DC" src="/img/thumbnail_news.png" />
 						</div>
 					</template>
 					<template v-slot:right>
-						<AText tag="div" :attributes="subTitleSettings.DC">Популярні новини</AText>
+						<AText tag="div" :attributes="subTitleSettings.DC">{{ t('POPULAR_NEWS') }}</AText>
 						<aside class="aside">
 							<NewsSliderCard
-								link="/news-1"
+								link="/news/single"
 								src="/img/gamePrevyu.png"
 								title="Gaming Corps agrees to power Pin-UP Casino with games"
 								desc="12.07.23"
 							/>
 							<NewsSliderCard
-								link="/news-1"
+								link="/news/single"
 								src="/img/gamePrevyu.png"
 								title="Gaming Corps agrees to power Pin-UP Casino with games"
 								desc="12.07.23"
 							/>
 							<NewsSliderCard
-								link="/news-1"
+								link="/news/single"
 								src="/img/gamePrevyu.png"
 								title="Gaming Corps agrees to power Pin-UP Casino with games"
 								desc="12.07.23"
 							/>
 							<NewsSliderCard
-								link="/news-1"
+								link="/news/single"
 								src="/img/gamePrevyu.png"
 								title="Gaming Corps agrees to power Pin-UP Casino with games"
 								desc="12.07.23"
 							/>
 							<NewsSliderCard
-								link="/news-1"
+								link="/news/single"
 								src="/img/gamePrevyu.png"
 								title="Gaming Corps agrees to power Pin-UP Casino with games"
 								desc="12.07.23"
@@ -50,32 +49,32 @@
 			<div class="news_loop">
 				<div class="container">
 					<div class="section_title_wrapper">
-						<AText tag="div" :attributes="mainContainerTitle.DC">Останні новини</AText>
+						<AText tag="div" :attributes="mainContainerTitle.DC">{{ t('LAST_NEWS') }}</AText>
 					</div>
 					<div class="news_container">
 						<NewsMainCard
-							link="/custom-link"
+							link="/news/single"
 							src="/img/newsPrevyu.png"
 							title="Casino Guru Awards returns for 2nd edition with nominations now underway"
 							date="12.07.23"
 							desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
 						/>
 						<NewsMainCard
-							link="/custom-link"
+							link="/news/single"
 							src="/img/newsPrevyu.png"
 							title="Relax Gaming shares early details about Money Train 4"
 							date="12.07.23"
 							desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
 						/>
 						<NewsMainCard
-							link="/custom-link"
+							link="/news/single"
 							src="/img/newsPrevyu.png"
 							title="Casino Guru Awards returns for 2nd edition with nominations now underway"
 							date="12.07.23"
 							desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
 						/>
 						<NewsMainCard
-							link="/custom-link"
+							link="/news/single"
 							src="/img/newsPrevyu.png"
 							title="Casino Guru Awards returns for 2nd edition with nominations now underway"
 							date="12.07.23"
@@ -85,7 +84,6 @@
 				</div>
 			</div>
 		</main>
-		<Footer />
 	</div>
 </template>
 
@@ -98,9 +96,11 @@ import TwoContentContainer from '~/components/two_content_container/'
 import NewsSliderCard from '~/components/news_loop/cards/slider_card'
 import LinkWithArrow from '~/components/ui/atoms/links/link_with_arrow'
 import NewsMainCard from '~/components/news_loop/cards/main'
+import translateMixin from '~/mixins/translate'
 
 export default {
 	name: 'news_single',
+	mixins: [translateMixin],
 	components: {
 		AText,
 		Footer,
@@ -111,7 +111,7 @@ export default {
 		LinkWithArrow,
 		NewsMainCard
 	},
-	layout: 'dev',
+	layout: 'default',
 	data: () => {
 		return {
 			titleSettings: {

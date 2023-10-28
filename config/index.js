@@ -16,7 +16,7 @@ export default {
 		RU: 'ru',
 		UA: 'uk'
 	},
-	LANG: 'RU',
+	LANG: 'UA',
 	DEFAULT_LANG: {
 		RU: 'ru-UA',
 		UA: 'ru-UA'

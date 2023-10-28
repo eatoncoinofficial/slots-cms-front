@@ -1,5 +1,5 @@
 <template>
-	<article class="item">
+	<article class="item" :class="size">
 		<div class="wrapper">
 			<ALink :href="link">
 				<AImg :attributes="imgSettings.DC" :src="src" />
@@ -7,7 +7,7 @@
 		</div>
 		<div class="mask">
 			<div class="action">
-				<ALink :attributes="linkSettings.DC" :href="link">Грати</ALink>
+				<ALink :attributes="linkSettings.DC" :href="link">{{ t('PLAY') }}</ALink>
 			</div>
 		</div>
 	</article>
@@ -16,8 +16,10 @@
 import AImg from '~/components/ui/atoms/img/'
 import AText from '~/components/ui/atoms/text'
 import ALink from '~/components/ui/atoms/links'
+import translateMixin from '~/mixins/translate'
 export default {
 	name: 'game_main_card',
+	mixins: [translateMixin],
 	components: { AImg, AText, ALink },
 	data: () => {
 		return {
@@ -45,17 +47,29 @@ export default {
 			default() {
 				return '/img/noImages.png'
 			}
+		},
+		size: {
+			type: String,
+			default() {
+				return 'big'
+			}
 		}
 	}
 }
 </script>
 <style scoped>
 .item {
-	width: 159px;
-	height: 172px;
 	border-radius: 14px;
 	position: relative;
 	overflow: hidden;
+}
+.item.big {
+	width: 159px;
+	height: 172px;
+}
+.item.middle {
+	width: 114px;
+	height: 114px;
 }
 .item:hover .mask {
 	opacity: 1;

@@ -2,7 +2,7 @@
 	<div class="casino_details">
 		<div class="row">
 			<div class="left">
-				<AText :attributes="textProvidersSettings.DC">Провайдери</AText>
+				<AText :attributes="textProvidersSettings.DC">{{ t('VENDORS') }}</AText>
 			</div>
 			<div class="right">
 				<ALink
@@ -18,7 +18,7 @@
 		</div>
 		<div class="row">
 			<div class="left">
-				<AText :attributes="textDepositMethodsSettings.DC">Методи депозиту</AText>
+				<AText :attributes="textDepositMethodsSettings.DC">{{ t('DEPOSIT_METHODS') }}</AText>
 			</div>
 			<div class="right">
 				<AText :attributes="textPayoutSettings.DC">Privat24</AText>
@@ -37,7 +37,7 @@
 		</div>
 		<div class="row">
 			<div class="left">
-				<AText :attributes="textWithoutMethodsSettings.DC">Методи виплат</AText>
+				<AText :attributes="textWithoutMethodsSettings.DC">{{ t('PAYMENTS_OPTIONS') }}</AText>
 			</div>
 			<div class="right">
 				<AText :attributes="textPayoutSettings.DC">Privat24</AText>
@@ -50,7 +50,7 @@
 		</div>
 		<div class="row">
 			<div class="left">
-				<AText :attributes="textGameCurrencySettings.DC">Ігрові валюти</AText>
+				<AText :attributes="textGameCurrencySettings.DC">{{ t('GAME_CURRENCY') }}</AText>
 			</div>
 			<div class="right">
 				<AText :attributes="textItemSettings.DC">$ - USD</AText>
@@ -63,7 +63,7 @@
 		</div>
 		<div class="row">
 			<div class="left">
-				<AText :attributes="textLangSettings.DC">Мова</AText>
+				<AText :attributes="textLangSettings.DC">{{ t('LANG') }}</AText>
 			</div>
 			<div class="right">
 				<AText :attributes="textItemSettings.DC">English</AText>
@@ -77,9 +77,11 @@
 import AText from '~/components/ui/atoms/text'
 import ALink from '~/components/ui/atoms/links'
 import AImg from '~/components/ui/atoms/img'
+import translateMixin from '~/mixins/translate'
 export default {
 	name: 'casino_detail',
 	components: { AText, ALink, AImg },
+	mixins: [translateMixin],
 	data() {
 		return {
 			textProvidersSettings: {

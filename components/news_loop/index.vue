@@ -2,56 +2,56 @@
 	<div>
 		<div class="news_loop">
 			<NewsMainCard
-				link="/dev/news/single"
+				link="/news/single"
 				src="/img/newsPrevyu.png"
 				title="Casino Guru Awards returns for 2nd edition with nominations now underway"
 				date="12.07.23"
 				desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
 			/>
 			<NewsMainCard
-				link="/dev/news/single"
+				link="/news/single"
 				src="/img/newsPrevyu.png"
 				title="Relax Gaming shares early details about Money Train 4"
 				date="12.07.23"
 				desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
 			/>
 			<NewsMainCard
-				link="/dev/news/single"
+				link="/news/single"
 				src="/img/newsPrevyu.png"
 				title="Casino Guru Awards returns for 2nd edition with nominations now underway"
 				date="12.07.23"
 				desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
 			/>
 			<NewsMainCard
-				link="/dev/news/single"
+				link="/news/single"
 				src="/img/newsPrevyu.png"
 				title="Casino Guru Awards returns for 2nd edition with nominations now underway"
 				date="12.07.23"
 				desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
 			/>
 			<NewsMainCard
-				link="/dev/news/single"
+				link="/news/single"
 				src="/img/newsPrevyu.png"
 				title="Casino Guru Awards returns for 2nd edition with nominations now underway"
 				date="12.07.23"
 				desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
 			/>
 			<NewsMainCard
-				link="/dev/news/single"
+				link="/news/single"
 				src="/img/newsPrevyu.png"
 				title="Relax Gaming shares early details about Money Train 4"
 				date="12.07.23"
 				desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
 			/>
 			<NewsMainCard
-				link="/dev/news/single"
+				link="/news/single"
 				src="/img/newsPrevyu.png"
 				title="Casino Guru Awards returns for 2nd edition with nominations now underway"
 				date="12.07.23"
 				desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
 			/>
 			<NewsMainCard
-				link="/dev/news/single"
+				link="/news/single"
 				src="/img/newsPrevyu.png"
 				title="Casino Guru Awards returns for 2nd edition with nominations now underway"
 				date="12.07.23"
@@ -61,7 +61,7 @@
 		<div class="items-more">
 			<div class="btn_wrapper">
 				<AButton @click="postShowMore" :attributes="btnSettings.DC">
-					{{ translates.SHOW_MORE[config.LANG] }} <AImg :attributes="arrowSettings.DC" src="/img/arrowGreen.svg" />
+					{{ t('SHOW_MORE') }} <AImg :attributes="arrowSettings.DC" src="/img/arrowGreen.svg" />
 				</AButton>
 			</div>
 		</div>
@@ -137,6 +137,7 @@ export default {
 }
 .btn_wrapper {
 	max-width: 272px;
+	width: 272px;
 }
 .load_more {
 	background: rgba(255, 255, 255, 0.1);

@@ -17,7 +17,7 @@
 			</div>
 			<div class="bottom">
 				<LinkWithArrow :link="link" :attributes="linkSettings.DC">
-					Читати далі
+					{{ t('READ_MORE') }}
 				</LinkWithArrow>
 			</div>
 		</div>
@@ -28,9 +28,11 @@ import AImg from '~/components/ui/atoms/img/'
 import AText from '~/components/ui/atoms/text'
 import ALink from '~/components/ui/atoms/links'
 import LinkWithArrow from '~/components/ui/atoms/links/link_with_arrow'
+import translateMixin from '~/mixins/translate'
 export default {
 	name: 'news_main_card',
 	components: { AImg, AText, ALink, LinkWithArrow },
+	mixins: [translateMixin],
 	data: () => {
 		return {
 			imgSettings: {

@@ -9,7 +9,7 @@
 				</div>
 			</div>
 			<div class="right">
-				<div class="m_t_s">
+				<div>
 					<ALink :attributes="titleSettings.DC" :href="link">{{ title }}</ALink>
 				</div>
 				<div>

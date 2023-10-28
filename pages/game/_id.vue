@@ -1,99 +1,115 @@
 <template>
 	<div>
-		<PageBanner :title="data.body.h1" :shortDesc="data.body.short_desc" />
-		<app_breadcrumbs :value="data.body.breadcrumbs" />
-		<app_game_card :value="data.body" :globalRef="globalRef" />
-		<app_game_details :value="data.body.details" />
-		<app_casino
-			:value="data.body.casino"
-			bg="--bg-gray"
-			:title="translates.CASINO_WITH_THIS_GAME[config.LANG]"
-			:linkText="translates.ALL_CASINO[config.LANG]"
-			link="/casino"
-		/>
-		<app_slots
-			:value="data.body.games"
-			bg="--bg-gray"
-			:title="translates.SIMILAR_GAME[config.LANG]"
-			:linkText="translates.ALL_GAMES[config.LANG]"
-			link="/games"
-		/>
-		<app_game_screenshots
-			:value="data.body.gallery"
-			:title="`${translates.SCREENSHOTS[config.LANG]} ${data.body.title}`"
-			v-if="data.body.gallery.length !== 0"
-		/>
-		<app_game_symbols
-			:value="data.body.characters"
-			:title="`${translates.SLOT_MACHINE_SYMBOLS[config.LANG]} ${data.body.title}`"
-			v-if="data.body.characters.length !== 0"
-		/>
-		<Content :value="data.body.content" v-if="data.body.content !== ''" />
+		<main class="game_page">
+			<div class="container container_top_game">
+				<SlotCard />
+			</div>
+			<div class="symbols">
+				<div class="container">
+					<AText tag="div" :attributes="symbolTitleSettings.DC">{{ t('SLOT_SYMBOLS') }}</AText>
+					<SlotSymbols />
+				</div>
+			</div>
+			<div class="screenshots">
+				<div class="container">
+					<AText tag="div" :attributes="symbolTitleSettings.DC">{{ t('SCREENSHOTS') }}</AText>
+					<SlotScreenshots />
+				</div>
+			</div>
+			<div class="container">
+				<div class="faq_container">
+					<Faq :value="faq" />
+				</div>
+			</div>
+			<SlotPopUp v-if="false" />
+		</main>
 	</div>
 </template>
 
 <script>
-import DAL_Builder from '~/DAL/builder'
-import config from '~/config'
-import breadcrumbs from '~/config/breadcrumbs'
-import helper from '~/helpers/helpers'
-import app_breadcrumbs from '~/components/breadcrumbs/app_breadcrumbs'
-import app_game_card from '~/components/slot_card/app-game-card'
-import app_game_details from '~/components/slot_detail/app-game-details'
-import app_casino from '~/components/casino/app_casino'
-import app_slots from '~/components/slots/app_slots'
-import app_game_screenshots from '~/components/slot_screenshots/app-game-screenshots'
-import app_game_symbols from '~/components/slot_symbols/app-game-symbols'
-import head from '~/mixins/head'
-import pageTemplate from '~/mixins/pageTemplate'
+import AText from '~/components/ui/atoms/text'
+import SlotCard from '~/components/slot_card'
+import SlotSymbols from '~/components/slot_symbols'
+import SlotScreenshots from '~/components/slot_screenshots'
+import Faq from '~/components/faq/app_faq'
+import SlotPopUp from '~/components/slot_popup'
+import translateMixin from '~/mixins/translate'
+
 export default {
-	name: 'single-game',
+	name: 'game_single',
+	mixins: [translateMixin],
+	components: {
+		AText,
+		SlotCard,
+		SlotSymbols,
+		SlotScreenshots,
+		Faq,
+		SlotPopUp
+	},
+	layout: 'default',
 	data: () => {
 		return {
-			globalRef: {
-				ref: []
-			}
+			symbolTitleSettings: {
+				DC: { size: 'x-large', color: 'cairo', weight: 'bold', class: 'title' },
+				TABLE: {},
+				MOB: {}
+			},
+			faq: [
+				{
+					value_1: '✅ Чи приймає Slotoking гравців з України?',
+					value_2:
+						'Так, приймає. Slotoking є одним з перших українських казино. Окрім гравців їхньої України, тут можуть грати жителі Європи та Азії.'
+				},
+				{
+					value_1: '🎗 Чи можна грати у Слотокінг на гривні?',
+					value_2: 'Так, гривня є основною ігровою валютою.'
+				},
+				{
+					value_1: '🧨 Як пройти реєстрацію на сайті Slotoking?',
+					value_2:
+						'На головній сторінці сайту натиснути кнопку "Реєстрація". Для реєстрації можна використовувати профілі у соціальних мережах, мобільний номер або електронну пошту.'
+				},
+				{
+					value_1: '❇️ Який мінімальний депозит у казино Кінг?',
+					value_2: 'Мінімальний депозит – 50 гривень.'
+				},
+				{
+					value_1: '🏆 Яка мінімальна сума виведення коштів у Slotoking?',
+					value_2: 'Мінімальна сума для виведення – 50 гривень.'
+				},
+				{
+					value_1: '⭐ Чи є бонусна програма в Слотокінг?',
+					value_2: 'Є вітальний пакет, а також фріспіни за реєстрацію в онлайн казино.'
+				},
+				{
+					value_1: '💯 Які платіжні методи є в Slotoking?',
+					value_2:
+						'Казино Кінг приймає депозити за допомогою платіжних карток, банківських переказів та інших електронних валют. Детальнішу інформацію можна знайти на сторінці "Методи оплати".'
+				}
+			]
 		}
-	},
-	components: {
-		app_breadcrumbs,
-		app_game_card,
-		app_casino,
-		app_slots,
-		app_game_details,
-		app_game_screenshots,
-		app_game_symbols
-	},
-	mixins: [head, pageTemplate],
-	async asyncData({ route, error }) {
-		if (route.params.id) {
-			const request = new DAL_Builder()
-			const response = await request
-				.postType('game')
-				.url(route.params.id)
-				.get()
-			if (response.data.confirm === 'error') {
-				error({ statusCode: 404, message: 'Post not found' })
-			} else {
-				const data = helper.headDataMixin(response.data, route)
-				data.body.breadcrumbs = [
-					{ ...breadcrumbs.BREADCRUMBS_ROOT[config.LANG] },
-					{ ...breadcrumbs.BREADCRUMBS_GAMES[config.LANG] },
-					{ title: data.body.title, permalink: '' }
-				]
-				return { data }
-			}
-		} else {
-			error({ statusCode: 404, message: 'Post not found' })
-		}
-	},
-	async mounted() {
-		await this.$store.dispatch('options/setOptions')
-		const options = this.$store.getters['options/getOptions']
-		const ref = options.filter(item => item.key === 'global-ref')
-		ref.forEach(element => {
-			this.globalRef.ref.push(element.value)
-		})
 	}
 }
 </script>
+<style scoped>
+.game_page {
+	background: url('/img/short_bg.png') top center var(--colombo);
+	background-repeat: no-repeat;
+	padding-top: 165px;
+}
+.container_top_game {
+	padding-bottom: 80px;
+}
+.symbols {
+	background: var(--cucuta);
+	padding-top: 50px;
+	padding-bottom: 60px;
+}
+.screenshots {
+	padding-top: 50px;
+	padding-bottom: 60px;
+}
+.title {
+	margin-bottom: 24px;
+}
+</style>

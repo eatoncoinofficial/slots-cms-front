@@ -1,7 +1,7 @@
 <template>
 	<article class="item">
 		<div class="badge">
-			<AText :attributes="textSettings.DC">Гра Тижня</AText>
+			<AText :attributes="textSettings.DC">{{ t('GAME_WEEK') }}</AText>
 		</div>
 		<div class="wrapper">
 			<ALink :href="link">
@@ -14,8 +14,10 @@
 import AImg from '~/components/ui/atoms/img/'
 import AText from '~/components/ui/atoms/text'
 import ALink from '~/components/ui/atoms/links'
+import translateMixin from '~/mixins/translate'
 export default {
 	name: 'game_main_card',
+	mixins: [translateMixin],
 	components: { AImg, AText, ALink },
 	data: () => {
 		return {

@@ -3,26 +3,14 @@
 		<div class="container">
 			<div class="slots__heading" v-if="title">
 				<h2 class="slots__ttl">{{ title }}</h2>
-				<NuxtLink
-					no-prefetch
-					:to="`${config.AMP_PREFIX}${link}`"
-					class="link-primary"
-					v-if="link"
-				>
+				<NuxtLink no-prefetch :to="`${config.AMP_PREFIX}${link}`" class="link-primary" v-if="link">
 					{{ linkText }}
 				</NuxtLink>
 			</div>
 			<div class="games__container flex-wrap">
-				<div
-					class="game-item"
-					v-for="(item, index) in currentPosts"
-					:key="index"
-				>
+				<div class="game-item" v-for="(item, index) in currentPosts" :key="index">
 					<div class="game-item__logo">
-						<NuxtLink
-							class="btn-play"
-							:to="`${config.AMP_PREFIX}${item.permalink}`"
-						>
+						<NuxtLink class="btn-play" :to="`${config.AMP_PREFIX}${item.permalink}`">
 							<amp-img :src="item.thumbnail" alt="" width="224" height="140" />
 						</NuxtLink>
 					</div>
@@ -31,10 +19,7 @@
 			<div class="loadContainer games__container flex-wrap"></div>
 		</div>
 
-		<div
-			class="games__more items-more"
-			v-if="value.length > numberPostOnQuery * postCurrentPage"
-		>
+		<div class="games__more items-more" v-if="value.length > numberPostOnQuery * postCurrentPage">
 			<button
 				class="btn-secondary loadMoreBtn"
 				:data-apiUrl="`${config.API_URL[config.LANG]}game/search`"
@@ -44,7 +29,7 @@
 				:data-post-url="post_url"
 				:data-translate-play="translates.PLAY[config.LANG]"
 			>
-				{{ translates.SHOW_MORE[config.LANG] }}
+				{{ t('SHOW_MORE') }}
 			</button>
 		</div>
 	</div>

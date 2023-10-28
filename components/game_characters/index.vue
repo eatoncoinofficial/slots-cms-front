@@ -39,7 +39,7 @@ export default {
 	data: () => {
 		return {
 			titleSettings: {
-				DC: { color: 'cairo', size: 'small' },
+				DC: { color: 'cairo', size: 'small', text_transform: 'uppercase' },
 				TABLE: {},
 				MOB: {}
 			},

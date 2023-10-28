@@ -1,25 +1,25 @@
 <template>
 	<div>
 		<div class="slot_loop">
-			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
-			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
-			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
-			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
-			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
-			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
-			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
-			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
-			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
-			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
-			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
-			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
-			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
-			<GameMainCard link="/dev/game-1" src="/img/gape_card.png" />
+			<GameMainCard link="/game/single" src="/img/gape_card.png" />
+			<GameMainCard link="/game/single" src="/img/gape_card.png" />
+			<GameMainCard link="/game/single" src="/img/gape_card.png" />
+			<GameMainCard link="/game/single" src="/img/gape_card.png" />
+			<GameMainCard link="/game/single" src="/img/gape_card.png" />
+			<GameMainCard link="/game/single" src="/img/gape_card.png" />
+			<GameMainCard link="/game/single" src="/img/gape_card.png" />
+			<GameMainCard link="/game/single" src="/img/gape_card.png" />
+			<GameMainCard link="/game/single" src="/img/gape_card.png" />
+			<GameMainCard link="/game/single" src="/img/gape_card.png" />
+			<GameMainCard link="/game/single" src="/img/gape_card.png" />
+			<GameMainCard link="/game/single" src="/img/gape_card.png" />
+			<GameMainCard link="/game/single" src="/img/gape_card.png" />
+			<GameMainCard link="/game/single" src="/img/gape_card.png" />
 		</div>
 		<div class="items-more">
 			<div class="btn_wrapper">
 				<AButton @click="postShowMore" :attributes="btnSettings.DC">
-					{{ translates.SHOW_MORE[config.LANG] }} <AImg :attributes="arrowSettings.DC" src="/img/arrowGreen.svg" />
+					{{ t('SHOW_MORE') }} <AImg :attributes="arrowSettings.DC" src="/img/arrowGreen.svg" />
 				</AButton>
 			</div>
 		</div>
@@ -95,6 +95,7 @@ export default {
 }
 .btn_wrapper {
 	max-width: 272px;
+	width: 272px;
 }
 .load_more {
 	background: rgba(255, 255, 255, 0.1);

@@ -32,7 +32,7 @@ export default {
 	buildModules: [],
 
 	// Modules: https://go.nuxtjs.dev/config-modules
-	modules: ['@nuxtjs/sitemap', '@nuxtjs/amp'],
+	modules: ['@nuxtjs/sitemap'],
 
 	// Build Configuration: https://go.nuxtjs.dev/config-build
 	build: {
@@ -65,8 +65,5 @@ export default {
 				.get()
 			return data.body.posts
 		}
-	},
-	amp: {
-		css: '~/assets/amp-custom.css'
 	}
 }

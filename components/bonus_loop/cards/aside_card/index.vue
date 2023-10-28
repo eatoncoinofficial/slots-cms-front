@@ -9,7 +9,7 @@
 				</div>
 			</div>
 			<div class="right">
-				<div class="m_t_s">
+				<div>
 					<ALink :attributes="titleSettings.DC" :href="link">{{ title }}</ALink>
 				</div>
 				<div>
@@ -142,6 +142,7 @@ export default {
 }
 .right {
 	flex-grow: 1;
+	padding: 4px 0px;
 }
 .desc {
 	line-height: 18px;
