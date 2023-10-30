@@ -2,60 +2,13 @@
 	<div>
 		<div class="news_loop">
 			<NewsMainCard
-				link="/news/single"
-				src="/img/newsPrevyu.png"
-				title="Casino Guru Awards returns for 2nd edition with nominations now underway"
-				date="12.07.23"
-				desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
-			/>
-			<NewsMainCard
-				link="/news/single"
-				src="/img/newsPrevyu.png"
-				title="Relax Gaming shares early details about Money Train 4"
-				date="12.07.23"
-				desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
-			/>
-			<NewsMainCard
-				link="/news/single"
-				src="/img/newsPrevyu.png"
-				title="Casino Guru Awards returns for 2nd edition with nominations now underway"
-				date="12.07.23"
-				desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
-			/>
-			<NewsMainCard
-				link="/news/single"
-				src="/img/newsPrevyu.png"
-				title="Casino Guru Awards returns for 2nd edition with nominations now underway"
-				date="12.07.23"
-				desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
-			/>
-			<NewsMainCard
-				link="/news/single"
-				src="/img/newsPrevyu.png"
-				title="Casino Guru Awards returns for 2nd edition with nominations now underway"
-				date="12.07.23"
-				desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
-			/>
-			<NewsMainCard
-				link="/news/single"
-				src="/img/newsPrevyu.png"
-				title="Relax Gaming shares early details about Money Train 4"
-				date="12.07.23"
-				desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
-			/>
-			<NewsMainCard
-				link="/news/single"
-				src="/img/newsPrevyu.png"
-				title="Casino Guru Awards returns for 2nd edition with nominations now underway"
-				date="12.07.23"
-				desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
-			/>
-			<NewsMainCard
-				link="/news/single"
-				src="/img/newsPrevyu.png"
-				title="Casino Guru Awards returns for 2nd edition with nominations now underway"
-				date="12.07.23"
-				desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
+				v-for="item in value"
+				:key="item.title"
+				:link="item.permalink"
+				:src="item.thumbnail"
+				:title="item.title"
+				:date="item.create_at.slice(0, 10)"
+				:desc="item.short_desc"
 			/>
 		</div>
 		<div class="items-more">

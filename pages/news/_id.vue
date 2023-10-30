@@ -4,9 +4,12 @@
 			<div class="container">
 				<TwoContentContainer>
 					<template v-slot:left>
-						<AText tag="h1" :attributes="titleSettings.DC">Gaming corps address to supply games for Stb</AText>
+						<AText tag="h1" :attributes="titleSettings.DC">{{ data.body.h1 }}</AText>
 						<div class="wrapper_thumbnail">
-							<AImg :attributes="thumbnailSettings.DC" src="/img/thumbnail_news.png" />
+							<AImg :attributes="thumbnailSettings.DC" :src="data.body.thumbnail" />
+						</div>
+						<div class="container content_container">
+							<MainContent :value="data.body.content" />
 						</div>
 					</template>
 					<template v-slot:right>
@@ -46,9 +49,6 @@
 					</template>
 				</TwoContentContainer>
 			</div>
-			<div class="container content_container">
-				<MainContent :value="data.body.content" />
-			</div>
 			<div class="news_loop">
 				<div class="container">
 					<div class="section_title_wrapper">
@@ -56,32 +56,13 @@
 					</div>
 					<div class="news_container">
 						<NewsMainCard
-							link="/news/single"
-							src="/img/newsPrevyu.png"
-							title="Casino Guru Awards returns for 2nd edition with nominations now underway"
-							date="12.07.23"
-							desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
-						/>
-						<NewsMainCard
-							link="/news/single"
-							src="/img/newsPrevyu.png"
-							title="Relax Gaming shares early details about Money Train 4"
-							date="12.07.23"
-							desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
-						/>
-						<NewsMainCard
-							link="/news/single"
-							src="/img/newsPrevyu.png"
-							title="Casino Guru Awards returns for 2nd edition with nominations now underway"
-							date="12.07.23"
-							desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
-						/>
-						<NewsMainCard
-							link="/news/single"
-							src="/img/newsPrevyu.png"
-							title="Casino Guru Awards returns for 2nd edition with nominations now underway"
-							date="12.07.23"
-							desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
+							v-for="item in data.body.posts"
+							:key="item.title"
+							:link="item.permalink"
+							:src="item.thumbnail"
+							:title="item.title"
+							:date="item.create_at.slice(0, 10)"
+							:desc="item.short_desc"
 						/>
 					</div>
 				</div>
@@ -91,6 +72,7 @@
 </template>
 
 <script>
+import DAL_Builder from '~/DAL/builder'
 import AText from '~/components/ui/atoms/text'
 import AImg from '~/components/ui/atoms/img/'
 import Footer from '~/components/footer/dev'
@@ -101,10 +83,12 @@ import LinkWithArrow from '~/components/ui/atoms/links/link_with_arrow'
 import NewsMainCard from '~/components/news_loop/cards/main'
 import translateMixin from '~/mixins/translate'
 import MainContent from '~/components/content'
+import head from '~/mixins/head'
+import helper from '~/helpers/helpers'
 
 export default {
 	name: 'news_single',
-	mixins: [translateMixin],
+	mixins: [head, translateMixin],
 	components: {
 		AText,
 		Footer,
@@ -143,6 +127,24 @@ export default {
 				TABLET: {},
 				MOB: {}
 			}
+		}
+	},
+	mixins: [head, translateMixin],
+	async asyncData({ route, error }) {
+		if (route.params.id) {
+			const request = new DAL_Builder()
+			const response = await request
+				.postType('news')
+				.url(route.params.id)
+				.get()
+			if (response.data.confirm === 'error') {
+				error({ statusCode: 404, message: 'Post not found' })
+			} else {
+				const data = helper.headDataMixin(response.data, route)
+				return { data }
+			}
+		} else {
+			error({ statusCode: 404, message: 'Post not found' })
 		}
 	}
 }
