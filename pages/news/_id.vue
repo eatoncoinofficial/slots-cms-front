@@ -46,6 +46,9 @@
 					</template>
 				</TwoContentContainer>
 			</div>
+			<div class="container content_container">
+				<MainContent :value="data.body.content" />
+			</div>
 			<div class="news_loop">
 				<div class="container">
 					<div class="section_title_wrapper">
@@ -97,6 +100,7 @@ import NewsSliderCard from '~/components/news_loop/cards/slider_card'
 import LinkWithArrow from '~/components/ui/atoms/links/link_with_arrow'
 import NewsMainCard from '~/components/news_loop/cards/main'
 import translateMixin from '~/mixins/translate'
+import MainContent from '~/components/content'
 
 export default {
 	name: 'news_single',
@@ -109,7 +113,8 @@ export default {
 		NewsSliderCard,
 		AImg,
 		LinkWithArrow,
-		NewsMainCard
+		NewsMainCard,
+		MainContent
 	},
 	layout: 'default',
 	data: () => {

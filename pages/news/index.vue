@@ -2,10 +2,13 @@
 	<div>
 		<main class="news_page">
 			<div class="container">
-				<AText tag="div" :attributes="titleSettings.DC">News</AText>
+				<AText tag="div" :attributes="titleSettings.DC">{{ data.body.h1 }}</AText>
 			</div>
 			<div class="container">
 				<NewsLoop />
+			</div>
+			<div class="container content_container">
+				<MainContent :value="data.body.content" />
 			</div>
 			<div class="container">
 				<div class="faq_container">
@@ -20,13 +23,19 @@
 import AText from '~/components/ui/atoms/text'
 import NewsLoop from '~/components/news_loop'
 import Faq from '~/components/faq/app_faq'
+import DAL_Page from '~/DAL/static_pages'
+import head from '~/mixins/head'
+import helper from '~/helpers/helpers'
+import MainContent from '~/components/content'
 
 export default {
-	name: 'dev-news-page',
+	name: 'news-page',
+	mixins: [head],
 	components: {
 		AText,
 		Faq,
-		NewsLoop
+		NewsLoop,
+		MainContent
 	},
 	layout: 'default',
 	data: () => {
@@ -70,12 +79,20 @@ export default {
 				}
 			]
 		}
+	},
+	async asyncData({ store, route }) {
+		const request = {
+			url: 'news'
+		}
+		const response = await DAL_Page.getData(request)
+		const data = helper.headDataMixin(response.data, route)
+		return { data }
 	}
 }
 </script>
 <style scoped>
 .news_page {
-	background: url('/img/short_bg.png') top center var(--colombo);
+	background: url('/img/short_bg.png') top center rgba(16, 13, 36, 1);
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }

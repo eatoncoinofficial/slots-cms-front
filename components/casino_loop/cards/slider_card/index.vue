@@ -75,6 +75,7 @@ export default {
 	position: relative;
 	border: 1px solid #886dff;
 	border-radius: 14px;
+	overflow: hidden;
 }
 .rating {
 	position: absolute;

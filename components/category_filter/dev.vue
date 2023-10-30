@@ -6,7 +6,7 @@
 				:attributes="textSettings.DC"
 				v-for="(item, index) in value"
 				:key="index"
-				:data-active="item.active"
+				:data-active="activeLink(item.permalink, index)"
 				>{{ item.title }}</ALink
 			>
 		</div>
@@ -22,12 +22,7 @@ export default {
 		value: {
 			type: Array,
 			default() {
-				return [
-					{ title: 'Popular', permalink: '/casinos/popular', active: true },
-					{ title: 'New', permalink: '/casinos/new', active: false },
-					{ title: 'Best', permalink: '/casinos/best', active: false },
-					{ title: 'Trusted', permalink: '/casinos/trusted', active: false }
-				]
+				return []
 			}
 		}
 	},
@@ -45,6 +40,13 @@ export default {
 				TABLE: {},
 				MOB: {}
 			}
+		}
+	},
+	methods: {
+		activeLink(link, index) {
+			if (index === 0 && this.$route.path === '/') return true
+			else if (this.$route.path === link) return true
+			else return false
 		}
 	}
 }

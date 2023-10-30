@@ -3,40 +3,41 @@
 		<div class="wrapper">
 			<div class="left">
 				<div class="img_wrapper">
-					<ALink :href="link">
+					<AText>
 						<AImg :attributes="imgSettings.DC" :src="src" />
-					</ALink>
+					</AText>
 				</div>
 			</div>
 			<div class="right">
 				<div>
-					<ALink :attributes="titleSettings.DC" :href="link">{{ title }}</ALink>
+					<AText tag="div" :attributes="titleSettings.DC">{{ title }}</AText>
 				</div>
 				<div>
-					<AText :attributes="descTextSettings.DC">{{ desc }}</AText>
+					<AText tag="div" :attributes="descTextSettings.DC">{{ desc }}</AText>
 				</div>
 				<div>
-					<AText :attributes="valueTextSettings.DC">{{ value }}</AText>
+					<AText tag="div" :attributes="valueTextSettings.DC">{{ value }}</AText>
 				</div>
 			</div>
 			<div class="action">
-				<ALink :href="link">
+				<AText>
 					<AImg :attributes="arrowSettings.DC" src="/img/arrowGreen.svg" />
-				</ALink>
+				</AText>
 			</div>
 		</div>
 		<div class="bottom">
-			<AText tag="div" :attributes="bottomTextSettings.DC">{{ min_dep }} &middot; {{ wager }}</AText>
+			<AText tag="div" :attributes="bottomTextSettings.DC"
+				>Min. deposit: {{ min_dep }} &middot; Wagering: {{ wager }}</AText
+			>
 		</div>
 	</article>
 </template>
 <script>
 import AImg from '~/components/ui/atoms/img/'
 import AText from '~/components/ui/atoms/text'
-import ALink from '~/components/ui/atoms/links'
 export default {
 	name: 'bonus_aside_card',
-	components: { AImg, AText, ALink },
+	components: { AImg, AText },
 	data: () => {
 		return {
 			imgSettings: {
@@ -72,12 +73,6 @@ export default {
 		}
 	},
 	props: {
-		link: {
-			type: String,
-			default() {
-				return '/game'
-			}
-		},
 		title: {
 			type: String,
 			default() {
@@ -121,6 +116,7 @@ export default {
 .item {
 	width: 356px;
 	max-width: 100%;
+	cursor: pointer;
 }
 .wrapper {
 	position: relative;
@@ -128,6 +124,8 @@ export default {
 	border-top-right-radius: 14px;
 	background: rgba(255, 255, 255, 0.1);
 	display: flex;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 .img_wrapper {
 	width: 62px;
@@ -149,6 +147,7 @@ export default {
 }
 .title {
 	line-height: 12px;
+	margin-bottom: 8px;
 }
 .action {
 	min-width: 26px;

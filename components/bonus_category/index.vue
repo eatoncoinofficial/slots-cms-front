@@ -8,8 +8,8 @@
 				title="Бонус від Slotoking"
 				desc="Вітальний пакет"
 				value="125 000 ₴ + 500 FS"
-				min_dep="Min. deposit: $30"
-				wager="Wagering: 40x"
+				min_dep="$30"
+				wager="40x"
 			/>
 			<BonusAsideCard
 				link="/bonus-1"
@@ -17,8 +17,8 @@
 				title="Бонус від Slotoking"
 				desc="Вітальний пакет"
 				value="125 000 ₴ + 500 FS"
-				min_dep="Min. deposit: $30"
-				wager="Wagering: 40x"
+				min_dep="$30"
+				wager="40x"
 			/>
 			<BonusAsideCard
 				link="/bonus-1"
@@ -26,8 +26,8 @@
 				title="Бонус від Slotoking"
 				desc="Вітальний пакет"
 				value="125 000 ₴ + 500 FS"
-				min_dep="Min. deposit: $30"
-				wager="Wagering: 40x"
+				min_dep="$30"
+				wager="40x"
 			/>
 		</div>
 		<div class="items-more">

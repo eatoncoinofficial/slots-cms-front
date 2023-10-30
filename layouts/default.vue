@@ -586,4 +586,8 @@ Common styles*/
 	}
 }
 /* Content */
+.content_container {
+	padding-top: 40px;
+	padding-bottom: 20px;
+}
 </style>

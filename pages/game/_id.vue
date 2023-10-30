@@ -16,6 +16,9 @@
 					<SlotScreenshots />
 				</div>
 			</div>
+			<div class="container content_container">
+				<MainContent :value="data.body.content" />
+			</div>
 			<div class="container">
 				<div class="faq_container">
 					<Faq :value="faq" />
@@ -27,24 +30,29 @@
 </template>
 
 <script>
+import DAL_Builder from '~/DAL/builder'
 import AText from '~/components/ui/atoms/text'
 import SlotCard from '~/components/slot_card'
 import SlotSymbols from '~/components/slot_symbols'
 import SlotScreenshots from '~/components/slot_screenshots'
 import Faq from '~/components/faq/app_faq'
 import SlotPopUp from '~/components/slot_popup'
+import MainContent from '~/components/content'
+import head from '~/mixins/head'
+import helper from '~/helpers/helpers'
 import translateMixin from '~/mixins/translate'
 
 export default {
 	name: 'game_single',
-	mixins: [translateMixin],
+	mixins: [head, translateMixin],
 	components: {
 		AText,
 		SlotCard,
 		SlotSymbols,
 		SlotScreenshots,
 		Faq,
-		SlotPopUp
+		SlotPopUp,
+		MainContent
 	},
 	layout: 'default',
 	data: () => {
@@ -87,6 +95,24 @@ export default {
 						'Казино Кінг приймає депозити за допомогою платіжних карток, банківських переказів та інших електронних валют. Детальнішу інформацію можна знайти на сторінці "Методи оплати".'
 				}
 			]
+		}
+	},
+	async asyncData({ route, error }) {
+		if (route.params.id) {
+			const request = new DAL_Builder()
+			const response = await request
+				.postType('game')
+				.url(route.params.id)
+				.get()
+			if (response.data.confirm === 'error') {
+				error({ statusCode: 404, message: 'Post not found' })
+			} else {
+				console.log(response.data)
+				const data = helper.headDataMixin(response.data, route)
+				return { data }
+			}
+		} else {
+			error({ statusCode: 404, message: 'Post not found' })
 		}
 	}
 }

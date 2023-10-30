@@ -3,12 +3,9 @@
 		<main class="main_page">
 			<div class="container">
 				<div class="ttl_container">
-					<AText tag="h1" :attributes="mainTitleSettings.DC">Найбільша база даних про онлайн-казино у світі</AText>
+					<AText tag="h1" :attributes="mainTitleSettings.DC">{{ data.body.h1 }}</AText>
 					<div class="ttl_desc">
-						<AText tag="div" :attributes="mainDescSettings.DC"
-							>Актуальні огляди на все онлайн-казино, списки бонусів, міжнародне співтовариство, допомога у вирішенні
-							скарг та багато іншого.</AText
-						>
+						<AText tag="div" :attributes="mainDescSettings.DC">{{ data.body.short_desc }}</AText>
 					</div>
 				</div>
 				<div class="slider_wrapper">
@@ -33,16 +30,12 @@
 					</div>
 					<div class="slider_item">
 						<SliderContainer icon="game" :title="t('GAMES')" link="/games" :sliderSettings="gameSliderSettings.DC">
-							<SlotSliderCard link="/slot-1" src="/img/gamePrevyu.png" />
-							<SlotSliderCard link="/slot-2" src="/img/gamePrevyu.png" />
-							<SlotSliderCard link="/slot-3" src="/img/gamePrevyu.png" />
-							<SlotSliderCard link="/slot-4" src="/img/gamePrevyu.png" />
-							<SlotSliderCard link="/slot-5" src="/img/gamePrevyu.png" />
-							<SlotSliderCard link="/slot-6" src="/img/gamePrevyu.png" />
-							<SlotSliderCard link="/slot-7" src="/img/gamePrevyu.png" />
-							<SlotSliderCard link="/slot-8" src="/img/gamePrevyu.png" />
-							<SlotSliderCard link="/slot-9" src="/img/gamePrevyu.png" />
-							<SlotSliderCard link="/slot-10" src="/img/gamePrevyu.png" />
+							<SlotSliderCard
+								v-for="item in data.body.games"
+								:key="item.title"
+								:link="item.permalink"
+								:src="item.thumbnail"
+							/>
 						</SliderContainer>
 					</div>
 					<div class="slider_item">
@@ -53,138 +46,24 @@
 							:sliderSettings="bonusSliderSettings.DC"
 						>
 							<BonusSliderCard
-								link="/bonus-1"
-								src="/img/gamePrevyu.png"
-								title="Бонус від Slotoking"
-								desc="Вітальний пакет"
-								value="125 000 ₴ + 500 FS"
-							/>
-							<BonusSliderCard
-								link="/bonus-2"
-								src="/img/gamePrevyu.png"
-								title="Бонус від Slotoking"
-								desc="Вітальний пакет"
-								value="125 000 ₴ + 500 FS"
-							/>
-							<BonusSliderCard
-								link="/bonus-3"
-								src="/img/gamePrevyu.png"
-								title="Бонус від Slotoking"
-								desc="Вітальний пакет"
-								value="125 000 ₴ + 500 FS"
-							/>
-							<BonusSliderCard
-								link="/bonus-4"
-								src="/img/gamePrevyu.png"
-								title="Бонус від Slotoking"
-								desc="Вітальний пакет"
-								value="125 000 ₴ + 500 FS"
-							/>
-							<BonusSliderCard
-								link="/bonus-5"
-								src="/img/gamePrevyu.png"
-								title="Бонус від Slotoking"
-								desc="Вітальний пакет"
-								value="125 000 ₴ + 500 FS"
-							/>
-							<BonusSliderCard
-								link="/bonus-6"
-								src="/img/gamePrevyu.png"
-								title="Бонус від Slotoking"
-								desc="Вітальний пакет"
-								value="125 000 ₴ + 500 FS"
-							/>
-							<BonusSliderCard
-								link="/bonus-7"
-								src="/img/gamePrevyu.png"
-								title="Бонус від Slotoking"
-								desc="Вітальний пакет"
-								value="125 000 ₴ + 500 FS"
-							/>
-							<BonusSliderCard
-								link="/bonus-8"
-								src="/img/gamePrevyu.png"
-								title="Бонус від Slotoking"
-								desc="Вітальний пакет"
-								value="125 000 ₴ + 500 FS"
-							/>
-							<BonusSliderCard
-								link="/bonus-9"
-								src="/img/gamePrevyu.png"
-								title="Бонус від Slotoking"
-								desc="Вітальний пакет"
-								value="125 000 ₴ + 500 FS"
-							/>
-							<BonusSliderCard
-								link="/bonus-10"
-								src="/img/gamePrevyu.png"
-								title="Бонус від Slotoking"
-								desc="Вітальний пакет"
-								value="125 000 ₴ + 500 FS"
+								v-for="item in data.body.bonuses"
+								:key="item.title"
+								:src="item.thumbnail"
+								:title="item.title"
+								:desc="item.short_desc"
+								:value="item.bonus"
 							/>
 						</SliderContainer>
 					</div>
 					<div class="slider_item">
 						<SliderContainer icon="news" :title="t('NEWS')" link="/news" :sliderSettings="newsSliderSettings.DC">
 							<NewsSliderCard
-								link="/news-1"
-								src="/img/gamePrevyu.png"
-								title="Gaming Corps agrees to power Pin-UP Casino with games"
-								desc="12.07.23"
-							/>
-							<NewsSliderCard
-								link="/news-1"
-								src="/img/gamePrevyu.png"
-								title="Gaming Corps agrees to power Pin-UP Casino with games"
-								desc="12.07.23"
-							/>
-							<NewsSliderCard
-								link="/news-1"
-								src="/img/gamePrevyu.png"
-								title="Gaming Corps agrees to power Pin-UP Casino with games"
-								desc="12.07.23"
-							/>
-							<NewsSliderCard
-								link="/news-1"
-								src="/img/gamePrevyu.png"
-								title="Gaming Corps agrees to power Pin-UP Casino with games"
-								desc="12.07.23"
-							/>
-							<NewsSliderCard
-								link="/news-1"
-								src="/img/gamePrevyu.png"
-								title="Gaming Corps agrees to power Pin-UP Casino with games"
-								desc="12.07.23"
-							/>
-							<NewsSliderCard
-								link="/news-1"
-								src="/img/gamePrevyu.png"
-								title="Gaming Corps agrees to power Pin-UP Casino with games"
-								desc="12.07.23"
-							/>
-							<NewsSliderCard
-								link="/news-1"
-								src="/img/gamePrevyu.png"
-								title="Gaming Corps agrees to power Pin-UP Casino with games"
-								desc="12.07.23"
-							/>
-							<NewsSliderCard
-								link="/news-1"
-								src="/img/gamePrevyu.png"
-								title="Gaming Corps agrees to power Pin-UP Casino with games"
-								desc="12.07.23"
-							/>
-							<NewsSliderCard
-								link="/news-1"
-								src="/img/gamePrevyu.png"
-								title="Gaming Corps agrees to power Pin-UP Casino with games"
-								desc="12.07.23"
-							/>
-							<NewsSliderCard
-								link="/news-1"
-								src="/img/gamePrevyu.png"
-								title="Gaming Corps agrees to power Pin-UP Casino with games"
-								desc="12.07.23"
+								v-for="item in data.body.news"
+								:key="item.title"
+								:link="item.permalink"
+								:src="item.thumbnail"
+								:title="item.title"
+								:desc="item.create_at.slice(0, 10)"
 							/>
 						</SliderContainer>
 					</div>
@@ -194,7 +73,7 @@
 						<template v-slot:left>
 							<AText tag="div" :attributes="mainContainerTitle.DC">{{ t('ONLINE_CASINO') }}</AText>
 							<div class="category_filter_wrapper">
-								<CategoryFilter />
+								<CategoryFilter :value="data.body.casino_category" />
 							</div>
 							<CasinoLoop />
 						</template>
@@ -203,49 +82,15 @@
 								<AText tag="div" :attributes="asideContainerTitle.DC">{{ t('RECOMMENDED_BONUSES') }}</AText>
 								<div class="aside_bonus_container">
 									<BonusAsideCard
-										link="/bonus-1"
-										src="/img/gamePrevyu.png"
-										title="Бонус від Slotoking"
-										desc="Вітальний пакет"
-										value="125 000 ₴ + 500 FS"
-										min_dep="Min. deposit: $30"
-										wager="Wagering: 40x"
-									/>
-									<BonusAsideCard
-										link="/bonus-1"
-										src="/img/gamePrevyu.png"
-										title="Бонус від Slotoking"
-										desc="Вітальний пакет"
-										value="125 000 ₴ + 500 FS"
-										min_dep="Min. deposit: $30"
-										wager="Wagering: 40x"
-									/>
-									<BonusAsideCard
-										link="/bonus-1"
-										src="/img/gamePrevyu.png"
-										title="Бонус від Slotoking"
-										desc="Вітальний пакет"
-										value="125 000 ₴ + 500 FS"
-										min_dep="Min. deposit: $30"
-										wager="Wagering: 40x"
-									/>
-									<BonusAsideCard
-										link="/bonus-1"
-										src="/img/gamePrevyu.png"
-										title="Бонус від Slotoking"
-										desc="Вітальний пакет"
-										value="125 000 ₴ + 500 FS"
-										min_dep="Min. deposit: $30"
-										wager="Wagering: 40x"
-									/>
-									<BonusAsideCard
-										link="/bonus-1"
-										src="/img/gamePrevyu.png"
-										title="Бонус від Slotoking"
-										desc="Вітальний пакет"
-										value="125 000 ₴ + 500 FS"
-										min_dep="Min. deposit: $30"
-										wager="Wagering: 40x"
+										v-for="item in data.body.top_bonuses"
+										:key="item.title"
+										:link="item.permalink"
+										:src="item.thumbnail"
+										:title="item.title"
+										:desc="item.short_desc"
+										:value="item.bonus"
+										:min_dep="item.min_deposit"
+										:wager="item.wagering"
 									/>
 								</div>
 							</aside>
@@ -263,39 +108,23 @@
 					</div>
 					<div class="news_container">
 						<NewsMainCard
-							link="/news/single"
-							src="/img/newsPrevyu.png"
-							title="Casino Guru Awards returns for 2nd edition with nominations now underway"
-							date="12.07.23"
-							desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
-						/>
-						<NewsMainCard
-							link="/news/single"
-							src="/img/newsPrevyu.png"
-							title="Relax Gaming shares early details about Money Train 4"
-							date="12.07.23"
-							desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
-						/>
-						<NewsMainCard
-							link="/news/single"
-							src="/img/newsPrevyu.png"
-							title="Casino Guru Awards returns for 2nd edition with nominations now underway"
-							date="12.07.23"
-							desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
-						/>
-						<NewsMainCard
-							link="/news/single"
-							src="/img/newsPrevyu.png"
-							title="Casino Guru Awards returns for 2nd edition with nominations now underway"
-							date="12.07.23"
-							desc="Casino Guru Awards returns for a 2nd edition with nominations for Casino Guru Awards 2024 now open."
+							v-for="item in data.body.news.slice(0, 4)"
+							:key="item.title"
+							:link="item.permalink"
+							:src="item.thumbnail"
+							:title="item.title"
+							:date="item.create_at.slice(0, 10)"
+							:desc="item.short_desc"
 						/>
 					</div>
 				</div>
 			</div>
+			<div class="container content_container">
+				<MainContent :value="data.body.content" />
+			</div>
 			<div class="container">
 				<div class="faq_container">
-					<Faq :value="faq" />
+					<Faq :value="data.body.faq" />
 				</div>
 			</div>
 		</main>
@@ -303,6 +132,7 @@
 </template>
 
 <script>
+import DAL_Page from '~/DAL/static_pages'
 import Slider from '~/components/slider'
 import SliderContainer from '~/components/slider_container'
 import AText from '~/components/ui/atoms/text'
@@ -316,13 +146,15 @@ import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
 import LinkWithArrow from '~/components/ui/atoms/links/link_with_arrow'
 import NewsMainCard from '~/components/news_loop/cards/main'
 import CasinoLoop from '~/components/casino_loop/app_casino_loop_downloads.vue'
+import MainContent from '~/components/content'
 import Faq from '~/components/faq/app_faq'
 import translateMixin from '~/mixins/translate'
 import head from '~/mixins/head'
+import helper from '~/helpers/helpers'
 
 export default {
 	name: 'main-page',
-	mixins: [translateMixin],
+	mixins: [translateMixin, head],
 	components: {
 		Slider,
 		SliderContainer,
@@ -337,7 +169,8 @@ export default {
 		LinkWithArrow,
 		NewsMainCard,
 		CasinoLoop,
-		Faq
+		Faq,
+		MainContent
 	},
 	layout: 'default',
 	data: () => {
@@ -436,41 +269,16 @@ export default {
 				DC: { size: 'medium', color: 'calgary', weight: 'semi-bold', decoration: 'none' },
 				TABLET: {},
 				MOB: {}
-			},
-			faq: [
-				{
-					value_1: '✅ Чи приймає Slotoking гравців з України?',
-					value_2:
-						'Так, приймає. Slotoking є одним з перших українських казино. Окрім гравців їхньої України, тут можуть грати жителі Європи та Азії.'
-				},
-				{
-					value_1: '🎗 Чи можна грати у Слотокінг на гривні?',
-					value_2: 'Так, гривня є основною ігровою валютою.'
-				},
-				{
-					value_1: '🧨 Як пройти реєстрацію на сайті Slotoking?',
-					value_2:
-						'На головній сторінці сайту натиснути кнопку "Реєстрація". Для реєстрації можна використовувати профілі у соціальних мережах, мобільний номер або електронну пошту.'
-				},
-				{
-					value_1: '❇️ Який мінімальний депозит у казино Кінг?',
-					value_2: 'Мінімальний депозит – 50 гривень.'
-				},
-				{
-					value_1: '🏆 Яка мінімальна сума виведення коштів у Slotoking?',
-					value_2: 'Мінімальна сума для виведення – 50 гривень.'
-				},
-				{
-					value_1: '⭐ Чи є бонусна програма в Слотокінг?',
-					value_2: 'Є вітальний пакет, а також фріспіни за реєстрацію в онлайн казино.'
-				},
-				{
-					value_1: '💯 Які платіжні методи є в Slotoking?',
-					value_2:
-						'Казино Кінг приймає депозити за допомогою платіжних карток, банківських переказів та інших електронних валют. Детальнішу інформацію можна знайти на сторінці "Методи оплати".'
-				}
-			]
+			}
 		}
+	},
+	async asyncData({ store, route }) {
+		const request = {
+			url: 'main'
+		}
+		const response = await DAL_Page.getData(request)
+		const data = helper.headDataMixin(response.data, route)
+		return { data }
 	}
 }
 </script>

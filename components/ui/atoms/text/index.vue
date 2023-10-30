@@ -37,12 +37,16 @@ export default {
 	},
 	props: {
 		attributes: {
-			default: {},
+			default() {
+				return {}
+			},
 			type: Object
 		},
 		tag: {
 			type: String,
-			default: 'span'
+			default() {
+				return 'span'
+			}
 		}
 	},
 	mounted() {

@@ -3,14 +3,14 @@
 		<div class="wrapper">
 			<div class="left">
 				<div class="img_wrapper">
-					<ALink :href="link">
+					<AText>
 						<AImg :attributes="imgSettings.DC" :src="src" />
-					</ALink>
+					</AText>
 				</div>
 			</div>
 			<div class="right">
 				<div>
-					<ALink :attributes="titleSettings.DC" :href="link">{{ title }}</ALink>
+					<AText :attributes="titleSettings.DC">{{ title }}</AText>
 				</div>
 				<div>
 					<AText :attributes="descTextSettings.DC">{{ desc }}</AText>
@@ -20,9 +20,9 @@
 				</div>
 			</div>
 			<div class="action">
-				<ALink :href="link">
+				<AText>
 					<AImg :attributes="arrowSettings.DC" src="/img/arrowGreen.svg" />
-				</ALink>
+				</AText>
 			</div>
 		</div>
 	</article>
@@ -64,12 +64,6 @@ export default {
 		}
 	},
 	props: {
-		link: {
-			type: String,
-			default() {
-				return '/game'
-			}
-		},
 		title: {
 			type: String,
 			default() {
@@ -103,6 +97,7 @@ export default {
 	height: 95px;
 	padding: 5px;
 	padding-right: 25px;
+	cursor: pointer;
 }
 .wrapper {
 	position: relative;
@@ -128,9 +123,13 @@ export default {
 }
 .desc {
 	line-height: 18px;
+	display: block;
+	margin-top: 8px;
 }
 .title {
 	line-height: 12px;
+	display: block;
+	margin-top: 15px;
 }
 .action {
 	min-width: 26px;

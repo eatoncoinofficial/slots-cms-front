@@ -2,7 +2,7 @@
 	<div>
 		<main class="bonuses_page">
 			<div class="container">
-				<AText tag="div" :attributes="titleSettings.DC">БОНУСИ</AText>
+				<AText tag="div" :attributes="titleSettings.DC">{{ data.body.h1 }}</AText>
 			</div>
 			<div class="container">
 				<div class="bonus_category_container">
@@ -26,6 +26,9 @@
 					</div>
 				</div>
 			</div>
+			<div class="container content_container">
+				<MainContent :value="data.body.content" />
+			</div>
 			<div class="container">
 				<div class="faq_container">
 					<Faq :value="faq" />
@@ -39,13 +42,19 @@
 import AText from '~/components/ui/atoms/text'
 import Faq from '~/components/faq/app_faq'
 import BonusCategory from '~/components/bonus_category'
+import MainContent from '~/components/content'
+import DAL_Page from '~/DAL/static_pages'
+import head from '~/mixins/head'
+import helper from '~/helpers/helpers'
 
 export default {
 	name: 'bonuses-page',
+	mixins: [head],
 	components: {
 		AText,
 		Faq,
-		BonusCategory
+		BonusCategory,
+		MainContent
 	},
 	layout: 'default',
 	data: () => {
@@ -89,6 +98,14 @@ export default {
 				}
 			]
 		}
+	},
+	async asyncData({ store, route }) {
+		const request = {
+			url: 'bonuses'
+		}
+		const response = await DAL_Page.getData(request)
+		const data = helper.headDataMixin(response.data, route)
+		return { data }
 	}
 }
 </script>

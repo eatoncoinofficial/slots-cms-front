@@ -2,7 +2,7 @@
 	<div>
 		<main class="games_page">
 			<div class="container">
-				<AText tag="div" :attributes="titleSettings.DC">Ігри</AText>
+				<AText tag="h1" :attributes="titleSettings.DC">{{ data.body.h1 }}</AText>
 			</div>
 			<div class="container container_providers">
 				<ProviderFilter />
@@ -27,6 +27,9 @@
 			<div class="container container_loop">
 				<SlotLoop />
 			</div>
+			<div class="container content_container">
+				<MainContent :value="data.body.content" />
+			</div>
 			<div class="container">
 				<div class="faq_container">
 					<Faq :value="faq" />
@@ -44,9 +47,14 @@ import GameMainCard from '~/components/slot_loop/cards/main'
 import GameBigCard from '~/components/slot_loop/cards/big_card'
 import SlotLoop from '~/components/slot_loop'
 import ProviderFilter from '~/components/provider_list'
+import MainContent from '~/components/content'
+import DAL_Page from '~/DAL/static_pages'
+import head from '~/mixins/head'
+import helper from '~/helpers/helpers'
 
 export default {
 	name: 'games-page',
+	mixins: [head],
 	components: {
 		AText,
 		Faq,
@@ -54,7 +62,8 @@ export default {
 		GameMainCard,
 		GameBigCard,
 		SlotLoop,
-		ProviderFilter
+		ProviderFilter,
+		MainContent
 	},
 	layout: 'default',
 	data: () => {
@@ -98,6 +107,14 @@ export default {
 				}
 			]
 		}
+	},
+	async asyncData({ store, route }) {
+		const request = {
+			url: 'games'
+		}
+		const response = await DAL_Page.getData(request)
+		const data = helper.headDataMixin(response.data, route)
+		return { data }
 	}
 }
 </script>
