@@ -1,6 +1,6 @@
 <template>
 	<article class="item">
-		<div class="wrapper">
+		<div class="wrapper" :style="`background: ${color}`">
 			<div class="rating">
 				<AImg :attributes="starSettings.DC" src="/img/goldStar.svg" />
 				<AText tag="span" :attributes="textSettings.DC">{{ rating / 10 }}</AText>
@@ -22,7 +22,7 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-				DC: { width: '100px', height: '100px', class: 'object_fit_cover border_radius_s' },
+				DC: { width: '50px', height: '50px', class: 'border_radius_s' },
 				TABLET: {},
 				MOB: {}
 			},
@@ -61,14 +61,20 @@ export default {
 			default() {
 				return '/img/noImages.png'
 			}
+		},
+		color: {
+			type: String,
+			default() {
+				return '#000000FF'
+			}
 		}
 	}
 }
 </script>
 <style scoped>
 .item {
-	width: 105px;
-	height: 105px;
+	width: 118px;
+	height: 118px;
 	padding: 5px;
 }
 .wrapper {
@@ -76,6 +82,11 @@ export default {
 	border: 1px solid #886dff;
 	border-radius: 14px;
 	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .rating {
 	position: absolute;

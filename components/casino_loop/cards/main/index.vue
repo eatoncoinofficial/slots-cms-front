@@ -2,6 +2,14 @@
 	<article class="item" :style="`background: ${bg}`">
 		<div class="wrapper">
 			<div class="left">
+				<div class="label" v-if="label" :class="label">
+					{{ label }}
+				</div>
+				<div class="rating">
+					<AImg :attributes="starSettings.DC" src="/img/goldStar.svg" />
+					<AText tag="span" :attributes="textSettings.DC">{{ rating / 10 }}</AText>
+					<AText tag="span" :attributes="thinTextSettings.DC">/10</AText>
+				</div>
 				<div class="img_wrapper">
 					<ALink :href="link">
 						<AImg :attributes="imgSettings.DC" :src="src" />
@@ -13,12 +21,14 @@
 					<ALink :href="link" :attributes="titleLinkSettings.DC">
 						{{ title }}
 					</ALink>
-					<AText tag="div" :attributes="bonusNameSettings.DC">{{ bonus_name }}</AText>
+					<AText tag="div" :attributes="bonusNameSettings.DC">{{ t('WELCOME_PACKAGE') }}</AText>
 					<AText tag="div" :attributes="bonusValueSettings.DC">{{ bonus_value }}</AText>
-					<AText tag="div" :attributes="bonusDescSettings.DC">{{ min_dep }} &middot; {{ wager }}</AText>
+					<AText tag="div" :attributes="bonusDescSettings.DC"
+						>Min. deposit: {{ min_dep }} &middot; Wagering: {{ wager }}</AText
+					>
 					<div class="action_wrapper">
 						<div class="btn_wrapper">
-							<AButton :attributes="btnSettings.DC">Перейти</AButton>
+							<AButton :attributes="btnSettings.DC">{{ t('GO_TO') }}</AButton>
 						</div>
 						<ALink :href="link" :attributes="readMoreLinkSettings.DC"
 							><AImg :attributes="searchSettings.DC" src="/img/search.png" />
@@ -26,27 +36,25 @@
 					</div>
 				</div>
 				<div class="right_right">
-					<AText tag="div" :attributes="advantagesTextSettings.DC">Famous progressive jackpots</AText>
-					<AText tag="div" :attributes="advantagesTextSettings.DC">Live Dealer games</AText>
-					<AText tag="div" :attributes="advantagesTextSettings.DC">40+ software providers</AText>
+					<div class="advantages_wrapper">
+						<AText tag="div" :attributes="advantagesTextSettings.DC" v-for="(item, index) in advantages" :key="index">{{
+							item
+						}}</AText>
+					</div>
 					<div class="providers">
 						<div class="providers_icon"></div>
 						<div class="providers_loop">
-							<ALink href="/provider/link" :attributes="providerLinkSettings.DC">
-								<AImg :attributes="providerSettings.DC" src="/img/provider_item.png" />
-							</ALink>
-							<ALink href="/provider/link" :attributes="providerLinkSettings.DC">
-								<AImg :attributes="providerSettings.DC" src="/img/provider_item.png" />
-							</ALink>
-							<ALink href="/provider/link" :attributes="providerLinkSettings.DC">
-								<AImg :attributes="providerSettings.DC" src="/img/provider_item.png" />
-							</ALink>
-							<ALink href="/provider/link" :attributes="providerLinkSettings.DC">
-								<AImg :attributes="providerSettings.DC" src="/img/provider_item.png" />
+							<ALink
+								v-for="(item, index) in vendors.slice(0, 4)"
+								:href="item.permalink"
+								:attributes="providerLinkSettings.DC"
+								:key="index"
+							>
+								<AImg :attributes="providerSettings.DC" :src="item.thumbnail" />
 							</ALink>
 						</div>
 						<div class="providers_total">
-							<AText tag="span" :attributes="totalTextSettings.DC">+ 20</AText>
+							<AText tag="span" :attributes="totalTextSettings.DC">+ {{ vendors.length }}</AText>
 						</div>
 					</div>
 				</div>
@@ -59,13 +67,30 @@ import AImg from '~/components/ui/atoms/img/'
 import AText from '~/components/ui/atoms/text'
 import ALink from '~/components/ui/atoms/links'
 import AButton from '~/components/ui/atoms/buttons'
+import translateMixin from '~/mixins/translate'
 export default {
 	name: 'casino_main_card',
+	mixins: [translateMixin],
 	components: { AImg, AText, ALink, AButton },
 	data: () => {
 		return {
 			imgSettings: {
 				DC: { width: '210px', height: '92px', class: 'object_fit_cover' },
+				TABLET: {},
+				MOB: {}
+			},
+			starSettings: {
+				DC: { width: '14px', height: '14px', class: ' m_r_xs' },
+				TABLET: {},
+				MOB: {}
+			},
+			textSettings: {
+				DC: { color: 'cairo', size: 'small', bold: 'semi-bold', class: 'rating_value' },
+				TABLET: {},
+				MOB: {}
+			},
+			thinTextSettings: {
+				DC: { color: 'cordoba', size: 'small', bold: 'thin', class: 'rating_total_value' },
 				TABLET: {},
 				MOB: {}
 			},
@@ -151,12 +176,6 @@ export default {
 				return '/img/noImages.png'
 			}
 		},
-		bonus_name: {
-			type: String,
-			default() {
-				return 'Вітальний пакет'
-			}
-		},
 		bonus_value: {
 			type: String,
 			default() {
@@ -172,13 +191,37 @@ export default {
 		min_dep: {
 			type: String,
 			default() {
-				return 'Min. deposit: $30'
+				return '$30'
 			}
 		},
 		wager: {
 			type: String,
 			default() {
-				return 'Wagering: 40x'
+				return '40x'
+			}
+		},
+		label: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
+		advantages: {
+			type: Array,
+			default() {
+				return []
+			}
+		},
+		vendors: {
+			type: Array,
+			default() {
+				return []
+			}
+		},
+		rating: {
+			type: Number,
+			default() {
+				return 0
 			}
 		}
 	}
@@ -213,6 +256,7 @@ export default {
 	display: flex;
 	height: 100%;
 	align-items: center;
+	position: relative;
 }
 .right {
 	display: flex;
@@ -299,5 +343,55 @@ export default {
 	height: 100%;
 	object-fit: cover;
 	border-radius: var(--s);
+}
+.advantages_wrapper {
+	height: 123px;
+	overflow: hidden;
+	padding-bottom: 5px;
+}
+.rating {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 2;
+	background: var(--cardiff);
+	width: 75px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--l);
+}
+.rating_value {
+	transform: translateY(1px);
+}
+.rating_total_value {
+	font-size: 10px;
+	transform: translateY(1px);
+}
+.label {
+	width: 63px;
+	height: 30px;
+	border-radius: var(--l);
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-size: 10px;
+	text-transform: uppercase;
+	font-weight: 500;
+	color: var(--cairo);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.label.trusted {
+	background: rgba(0, 184, 107, 1);
+}
+.label.new {
+	background: rgba(0, 163, 255, 1);
+}
+.label.popular {
+	background: rgba(255, 0, 92, 1);
 }
 </style>

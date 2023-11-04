@@ -2,100 +2,19 @@
 	<div>
 		<div class="casino_loop">
 			<CasinoMainCard
-				bg="#D21037"
-				src="/img/slotokingLogo.png"
-				title="Slotoking"
-				bonus_name="Вітальний пакет!"
-				link="/casino/single"
-				bonus_value="125 000 ₴ + 500 FS!"
-			/>
-			<CasinoMainCard
-				bg="#27076D"
-				src="/img/slotokingLogo.png"
-				title="Cosmolot"
-				bonus_name="Вітальний пакет!"
-				link="/casino/single"
-				bonus_value="125 000 ₴ + 500 FS!"
-			/>
-			<CasinoMainCard
-				bg="#fff"
-				src="/img/slotokingLogo.png"
-				title="Slotoking"
-				bonus_name="Вітальний пакет!"
-				link="/casino/single"
-				bonus_value="125 000 ₴ + 500 FS!"
-			/>
-			<CasinoMainCard
-				bg="#272525"
-				src="/img/slotokingLogo.png"
-				title="Slotoking"
-				bonus_name="Вітальний пакет!"
-				link="/casino/single"
-				bonus_value="125 000 ₴ + 500 FS!"
-			/>
-			<CasinoMainCard
-				bg="#fff"
-				src="/img/slotokingLogo.png"
-				title="Slotoking"
-				bonus_name="Вітальний пакет!"
-				link="/casino/single"
-				bonus_value="125 000 ₴ + 500 FS!"
-			/>
-			<CasinoMainCard
-				bg="#161616"
-				src="/img/slotokingLogo.png"
-				title="Slotoking"
-				bonus_name="Вітальний пакет!"
-				link="/casino/single"
-				bonus_value="125 000 ₴ + 500 FS!"
-			/>
-			<CasinoMainCard
-				bg="#27076D"
-				src="/img/slotokingLogo.png"
-				title="Slotoking"
-				bonus_name="Вітальний пакет!"
-				link="/casino/single"
-				bonus_value="125 000 ₴ + 500 FS!"
-			/>
-			<CasinoMainCard
-				bg="#27076D"
-				src="/img/slotokingLogo.png"
-				title="Slotoking"
-				bonus_name="Вітальний пакет!"
-				link="/casino/single"
-				bonus_value="125 000 ₴ + 500 FS!"
-			/>
-			<CasinoMainCard
-				bg="#27076D"
-				src="/img/slotokingLogo.png"
-				title="Slotoking"
-				bonus_name="Вітальний пакет!"
-				link="/casino/single"
-				bonus_value="125 000 ₴ + 500 FS!"
-			/>
-			<CasinoMainCard
-				bg="#27076D"
-				src="/img/slotokingLogo.png"
-				title="Slotoking"
-				bonus_name="Вітальний пакет!"
-				link="/casino/single"
-				bonus_value="125 000 ₴ + 500 FS!"
-			/>
-			<CasinoMainCard
-				bg="#27076D"
-				src="/img/slotokingLogo.png"
-				title="Slotoking"
-				bonus_name="Вітальний пакет!"
-				link="/casino/single"
-				bonus_value="125 000 ₴ + 500 FS!"
-			/>
-			<CasinoMainCard
-				bg="#27076D"
-				src="/img/slotokingLogo.png"
-				title="Slotoking"
-				bonus_name="Вітальний пакет!"
-				link="/casino/single"
-				bonus_value="125 000 ₴ + 500 FS!"
+				v-for="item in currentPosts"
+				:key="item.title"
+				:link="item.permalink"
+				:src="item.thumbnail"
+				:bg="item.color"
+				:title="item.title"
+				:label="item.label"
+				:advantages="item.advantages"
+				:bonus_value="item.bonus_value"
+				:wager="item.wager"
+				:min_dep="item.min_dep"
+				:vendors="item.vendors"
+				:rating="item.rating"
 			/>
 		</div>
 		<div class="items-more">
@@ -114,7 +33,7 @@ import CasinoMainCard from '~/components/casino_loop/cards/main'
 import AButton from '~/components/ui/atoms/buttons'
 import AImg from '~/components/ui/atoms/img/'
 export default {
-	name: 'app_casino_loop_downloads',
+	name: 'casino_loop_downloads',
 	components: { CasinoMainCard, AButton, AImg },
 	props: {
 		value: {

@@ -16,16 +16,14 @@
 							link="/casinos"
 							:sliderSettings="casinoSliderSettings.DC"
 						>
-							<CasinoSliderCard link="/text-1" :rating="90" src="/img/gamePrevyu.png" />
-							<CasinoSliderCard link="/text-2" :rating="85" src="/img/gamePrevyu.png" />
-							<CasinoSliderCard link="/text-3" :rating="93" src="/img/gamePrevyu.png" />
-							<CasinoSliderCard link="/text-4" :rating="95" src="/img/gamePrevyu.png" />
-							<CasinoSliderCard link="/text-5" :rating="87" src="/img/gamePrevyu.png" />
-							<CasinoSliderCard link="/text-6" :rating="85" src="/img/gamePrevyu.png" />
-							<CasinoSliderCard link="/text-7" :rating="56" src="/img/gamePrevyu.png" />
-							<CasinoSliderCard link="/text-8" :rating="78" src="/img/gamePrevyu.png" />
-							<CasinoSliderCard link="/text-9" :rating="94" src="/img/gamePrevyu.png" />
-							<CasinoSliderCard link="/text-10" :rating="93" src="/img/gamePrevyu.png" />
+							<CasinoSliderCard
+								v-for="item in data.body.casino_slider"
+								:key="item.title"
+								:link="item.permalink"
+								:src="item.icon"
+								:color="item.color"
+								:rating="item.rating"
+							/>
 						</SliderContainer>
 					</div>
 					<div class="slider_item">
@@ -75,7 +73,7 @@
 							<div class="category_filter_wrapper">
 								<CategoryFilter :value="data.body.casino_category" />
 							</div>
-							<CasinoLoop />
+							<CasinoLoop :value="data.body.casino" />
 						</template>
 						<template v-slot:right>
 							<aside class="aside">
