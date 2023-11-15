@@ -1,19 +1,7 @@
 <template>
 	<div class="item_container">
-		<div class="item_wrapper">
-			<SlotSymbolItem />
-		</div>
-		<div class="item_wrapper">
-			<SlotSymbolItem />
-		</div>
-		<div class="item_wrapper">
-			<SlotSymbolItem />
-		</div>
-		<div class="item_wrapper">
-			<SlotSymbolItem />
-		</div>
-		<div class="item_wrapper">
-			<SlotSymbolItem />
+		<div class="item_wrapper" v-for="(item, index) in posts" :key="index">
+			<SlotSymbolItem :src="item.src" :value_1="item.value_1" :value_2="item.value_2" :value_3="item.value_3" />
 		</div>
 	</div>
 </template>
@@ -26,6 +14,14 @@ export default {
 	data() {
 		return {
 			currentValue: []
+		}
+	},
+	props: {
+		posts: {
+			type: Array,
+			default() {
+				return []
+			}
 		}
 	}
 }

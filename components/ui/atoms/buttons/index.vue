@@ -1,5 +1,5 @@
 <template>
-	<button class="btn" :class="currentClasses">
+	<button class="btn" :class="currentClasses" @click="onClick">
 		<slot />
 	</button>
 </template>
@@ -15,6 +15,11 @@ export default {
 		attributes: {
 			default: {},
 			type: Object
+		}
+	},
+	methods: {
+		onClick() {
+			this.$emit('onClick')
 		}
 	},
 	mounted() {

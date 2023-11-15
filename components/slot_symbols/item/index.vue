@@ -1,13 +1,13 @@
 <template>
 	<div class="item">
 		<div class="left">
-			<AImg :attributes="imgSettings.DC" src="/img/game_symbols.png" />
+			<AImg :attributes="imgSettings.DC" :src="src" />
 		</div>
 		<div class="right">
 			<div>
-				<AText tag="div" :attributes="textSettings.DC">5 • 10</AText>
-				<AText tag="div" :attributes="textSettings.DC">4 • 4</AText>
-				<AText tag="div" :attributes="textSettings.DC">3 • 0.2</AText>
+				<AText tag="div" :attributes="textSettings.DC" v-if="value_1">{{ value_1 }}</AText>
+				<AText tag="div" :attributes="textSettings.DC" v-if="value_2">{{ value_2 }}</AText>
+				<AText tag="div" :attributes="textSettings.DC" v-if="value_3">{{ value_3 }}</AText>
 			</div>
 		</div>
 	</div>
@@ -30,6 +30,32 @@ export default {
 				DC: { size: 'large', color: 'cairo', weight: 'regular' },
 				TABLE: {},
 				MOB: {}
+			}
+		}
+	},
+	props: {
+		src: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
+		value_1: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
+		value_2: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
+		value_3: {
+			type: String,
+			default() {
+				return ''
 			}
 		}
 	}

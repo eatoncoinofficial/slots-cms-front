@@ -16,34 +16,12 @@
 						<AText tag="div" :attributes="subTitleSettings.DC">{{ t('POPULAR_NEWS') }}</AText>
 						<aside class="aside">
 							<NewsSliderCard
-								link="/news/single"
-								src="/img/gamePrevyu.png"
-								title="Gaming Corps agrees to power Pin-UP Casino with games"
-								desc="12.07.23"
-							/>
-							<NewsSliderCard
-								link="/news/single"
-								src="/img/gamePrevyu.png"
-								title="Gaming Corps agrees to power Pin-UP Casino with games"
-								desc="12.07.23"
-							/>
-							<NewsSliderCard
-								link="/news/single"
-								src="/img/gamePrevyu.png"
-								title="Gaming Corps agrees to power Pin-UP Casino with games"
-								desc="12.07.23"
-							/>
-							<NewsSliderCard
-								link="/news/single"
-								src="/img/gamePrevyu.png"
-								title="Gaming Corps agrees to power Pin-UP Casino with games"
-								desc="12.07.23"
-							/>
-							<NewsSliderCard
-								link="/news/single"
-								src="/img/gamePrevyu.png"
-								title="Gaming Corps agrees to power Pin-UP Casino with games"
-								desc="12.07.23"
+								v-for="item in data.body.last_news"
+								:key="item.title"
+								:link="item.permalink"
+								:src="item.thumbnail"
+								:title="item.title"
+								:desc="item.create_at.slice(0, 10)"
 							/>
 						</aside>
 					</template>

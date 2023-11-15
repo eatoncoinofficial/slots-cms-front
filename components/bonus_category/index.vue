@@ -1,40 +1,23 @@
 <template>
 	<div class="root">
-		<AText tag="div" :attributes="titleSettings.DC">{{ t('RECOMMENDED_BONUSES') }}</AText>
+		<AText tag="div" :attributes="titleSettings.DC">{{ title }}</AText>
 		<div class="bonus_loop">
 			<BonusAsideCard
-				link="/bonus-1"
-				src="/img/gamePrevyu.png"
-				title="Бонус від Slotoking"
-				desc="Вітальний пакет"
-				value="125 000 ₴ + 500 FS"
-				min_dep="$30"
-				wager="40x"
-			/>
-			<BonusAsideCard
-				link="/bonus-1"
-				src="/img/gamePrevyu.png"
-				title="Бонус від Slotoking"
-				desc="Вітальний пакет"
-				value="125 000 ₴ + 500 FS"
-				min_dep="$30"
-				wager="40x"
-			/>
-			<BonusAsideCard
-				link="/bonus-1"
-				src="/img/gamePrevyu.png"
-				title="Бонус від Slotoking"
-				desc="Вітальний пакет"
-				value="125 000 ₴ + 500 FS"
-				min_dep="$30"
-				wager="40x"
+				v-for="(item, index) in posts"
+				:key="index"
+				:src="item.thumbnail"
+				:title="item.title"
+				:desc="item.short_desc"
+				:value="item.bonus"
+				:min_dep="item.min_deposit"
+				:wager="item.wagering"
 			/>
 		</div>
 		<div class="items-more">
 			<div class="btn_wrapper">
-				<AButton @click="postShowMore" :attributes="btnSettings.DC">
+				<ALink :attributes="btnSettings.DC" :href="link">
 					{{ t('SHOW_MORE') }} <AImg :attributes="arrowSettings.DC" src="/img/arrowGreen.svg" />
-				</AButton>
+				</ALink>
 			</div>
 		</div>
 	</div>
@@ -43,17 +26,39 @@
 import AText from '~/components/ui/atoms/text'
 import AButton from '~/components/ui/atoms/buttons'
 import AImg from '~/components/ui/atoms/img/'
+import ALink from '~/components/ui/atoms/links'
 import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
 import translateMixin from '~/mixins/translate'
 import { BONUS_CATEGORY_SMALL as NumberPostOnQuery } from '~/config/postLoader'
 export default {
 	name: 'bonus_category',
 	mixins: [translateMixin],
+	props: {
+		title: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
+		link: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
+		posts: {
+			type: Array,
+			default() {
+				return []
+			}
+		}
+	},
 	components: {
 		AText,
 		AImg,
 		AButton,
-		BonusAsideCard
+		BonusAsideCard,
+		ALink
 	},
 	layout: 'dev',
 	data: () => {
@@ -121,6 +126,12 @@ export default {
 	background: rgba(255, 255, 255, 0.1);
 	border-radius: var(--s);
 	border: rgba(255, 255, 255, 0.05);
+	display: flex;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
 }
 .arrow {
 	transform: rotate(90deg);

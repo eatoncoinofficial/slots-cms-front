@@ -6,13 +6,12 @@
 			</div>
 			<div class="right">
 				<ALink
+					v-for="(item, index) in vendors"
 					:href="item.permalink"
 					:attributes="textProviderItemSettings.DC"
-					v-for="(item, index) in value"
 					:key="index"
-					:data-active="item.active"
 				>
-					<AImg :attributes="imgSettings.DC" :src="item.img" /> {{ item.title }}
+					<AImg :attributes="imgSettings.DC" :src="item.icon" /> {{ item.title }}
 				</ALink>
 			</div>
 		</div>
@@ -21,18 +20,9 @@
 				<AText :attributes="textDepositMethodsSettings.DC">{{ t('DEPOSIT_METHODS') }}</AText>
 			</div>
 			<div class="right">
-				<AText :attributes="textPayoutSettings.DC">Privat24</AText>
-				<AText :attributes="textPayoutSettings.DC">VISA</AText>
-				<AText :attributes="textPayoutSettings.DC">MasterCard</AText>
-				<AText :attributes="textPayoutSettings.DC">QIWI</AText>
-				<AText :attributes="textPayoutSettings.DC">Perfect Money</AText>
-				<AText :attributes="textPayoutSettings.DC">WebMoney</AText>
-				<AText :attributes="textPayoutSettings.DC">Privat24</AText>
-				<AText :attributes="textPayoutSettings.DC">VISA</AText>
-				<AText :attributes="textPayoutSettings.DC">MasterCard</AText>
-				<AText :attributes="textPayoutSettings.DC">QIWI</AText>
-				<AText :attributes="textPayoutSettings.DC">Perfect Money</AText>
-				<AText :attributes="textPayoutSettings.DC">WebMoney</AText>
+				<AText :attributes="textPayoutSettings.DC" v-for="(item, index) in payments" :key="index">{{
+					item.title
+				}}</AText>
 			</div>
 		</div>
 		<div class="row">
@@ -40,12 +30,9 @@
 				<AText :attributes="textWithoutMethodsSettings.DC">{{ t('PAYMENTS_OPTIONS') }}</AText>
 			</div>
 			<div class="right">
-				<AText :attributes="textPayoutSettings.DC">Privat24</AText>
-				<AText :attributes="textPayoutSettings.DC">VISA</AText>
-				<AText :attributes="textPayoutSettings.DC">MasterCard</AText>
-				<AText :attributes="textPayoutSettings.DC">QIWI</AText>
-				<AText :attributes="textPayoutSettings.DC">Perfect Money</AText>
-				<AText :attributes="textPayoutSettings.DC">WebMoney</AText>
+				<AText :attributes="textPayoutSettings.DC" v-for="(item, index) in payments" :key="index">{{
+					item.title
+				}}</AText>
 			</div>
 		</div>
 		<div class="row">
@@ -53,12 +40,9 @@
 				<AText :attributes="textGameCurrencySettings.DC">{{ t('GAME_CURRENCY') }}</AText>
 			</div>
 			<div class="right">
-				<AText :attributes="textItemSettings.DC">$ - USD</AText>
-				<AText :attributes="textItemSettings.DC">€ - EUR</AText>
-				<AText :attributes="textItemSettings.DC">₽ -RUB</AText>
-				<AText :attributes="textItemSettings.DC">₸ -KZT</AText>
-				<AText :attributes="textItemSettings.DC">zł - PLN</AText>
-				<AText :attributes="textItemSettings.DC">₴ - UAH</AText>
+				<AText :attributes="textItemSettings.DC" v-for="(item, index) in currencies" :key="index">{{
+					item.title
+				}}</AText>
 			</div>
 		</div>
 		<div class="row">
@@ -66,9 +50,9 @@
 				<AText :attributes="textLangSettings.DC">{{ t('LANG') }}</AText>
 			</div>
 			<div class="right">
-				<AText :attributes="textItemSettings.DC">English</AText>
-				<AText :attributes="textItemSettings.DC">Українська</AText>
-				<AText :attributes="textItemSettings.DC">Русский</AText>
+				<AText :attributes="textItemSettings.DC" v-for="(item, index) in languages" :key="index">{{
+					item.title
+				}}</AText>
 			</div>
 		</div>
 	</div>
@@ -82,6 +66,32 @@ export default {
 	name: 'casino_detail',
 	components: { AText, ALink, AImg },
 	mixins: [translateMixin],
+	props: {
+		vendors: {
+			type: Array,
+			default() {
+				return []
+			}
+		},
+		payments: {
+			type: Array,
+			default() {
+				return []
+			}
+		},
+		currencies: {
+			type: Array,
+			default() {
+				return []
+			}
+		},
+		languages: {
+			type: Array,
+			default() {
+				return []
+			}
+		}
+	},
 	data() {
 		return {
 			textProvidersSettings: {
@@ -142,33 +152,7 @@ export default {
 				},
 				TABLE: {},
 				MOB: {}
-			},
-			value: [
-				{ title: 'Netgame', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Triple Edge Studio', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Ainsworth Games', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Evo', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Netgame', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Triple Edge Studio', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Ainsworth Games', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Evolution', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Netgame', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Triple Edge Studio', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Ainsworth Games', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Evolution', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Netgame', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Triple Edge Studio', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Ainsworth Games', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Evolution', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Netgame', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Triple Edge Studio', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Ainsworth Games', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Evolution', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Netgame', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Triple Edge Studio', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Ainsworth Games', permalink: '/provider/single', img: '/img/provider.png' },
-				{ title: 'Evolution', permalink: '/provider/single', img: '/img/provider.png' }
-			]
+			}
 		}
 	}
 }

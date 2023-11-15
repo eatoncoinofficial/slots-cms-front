@@ -2,33 +2,42 @@
 	<div>
 		<main class="casino_page">
 			<div class="container">
-				<AText tag="h1" :attributes="titleSettings.DC">Огляд онлайн казино Slotoking</AText>
+				<AText tag="h1" :attributes="titleSettings.DC">{{ data.body.h1 }}</AText>
 				<div class="main_container">
 					<TwoContentContainer>
 						<template v-slot:left>
 							<div class="left_wrapper">
 								<div class="casino_card_container">
-									<CasinoCard />
+									<CasinoCard
+										:src="data.body.thumbnail"
+										:bonus_value="data.body.bonus_value"
+										:title="data.body.title"
+										:rating="data.body.rating"
+										:bg="data.body.color"
+										:label="data.body.label"
+									/>
 								</div>
 								<div class="casino_characters_container">
 									<AText tag="div" :attributes="titleCharactersSettings.DC">{{ t('CASINO_CHARACTERS') }}</AText>
-									<CasinoDetails />
+									<CasinoDetails
+										:vendors="data.body.vendors"
+										:payments="data.body.payments"
+										:currencies="data.body.currencies"
+										:languages="data.body.languages"
+									/>
 								</div>
-								<div class="casino_slot_container">
-									<AText tag="div" :attributes="titleSlotsSettings.DC">{{ t('BEST_GAMES_IN_CASINO') }} Slotoking</AText>
+								<div class="casino_slot_container" v-if="data.body.games.length">
+									<AText tag="div" :attributes="titleSlotsSettings.DC"
+										>{{ t('BEST_GAMES_IN_CASINO') }} {{ data.body.title }}</AText
+									>
 									<div class="slot_loop">
-										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
-										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
-										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
-										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
-										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
-										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
-										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
-										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
-										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
-										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
-										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
-										<GameMainCard link="/dev/game-1" src="/img/gape_card.png" size="middle" />
+										<GameMainCard
+											v-for="(item, index) in data.body.games"
+											:key="index"
+											:link="item.permalink"
+											:src="item.thumbnail"
+											size="middle"
+										/>
 									</div>
 								</div>
 							</div>
@@ -38,49 +47,14 @@
 								<AText tag="div" :attributes="asideContainerTitle.DC">{{ t('RECOMMENDED_BONUSES') }}</AText>
 								<div class="aside_bonus_container">
 									<BonusAsideCard
-										link="/bonus-1"
-										src="/img/gamePrevyu.png"
-										title="Бонус від Slotoking"
-										desc="Вітальний пакет"
-										value="125 000 ₴ + 500 FS"
-										min_dep="Min. deposit: $30"
-										wager="Wagering: 40x"
-									/>
-									<BonusAsideCard
-										link="/bonus-1"
-										src="/img/gamePrevyu.png"
-										title="Бонус від Slotoking"
-										desc="Вітальний пакет"
-										value="125 000 ₴ + 500 FS"
-										min_dep="Min. deposit: $30"
-										wager="Wagering: 40x"
-									/>
-									<BonusAsideCard
-										link="/bonus-1"
-										src="/img/gamePrevyu.png"
-										title="Бонус від Slotoking"
-										desc="Вітальний пакет"
-										value="125 000 ₴ + 500 FS"
-										min_dep="Min. deposit: $30"
-										wager="Wagering: 40x"
-									/>
-									<BonusAsideCard
-										link="/bonus-1"
-										src="/img/gamePrevyu.png"
-										title="Бонус від Slotoking"
-										desc="Вітальний пакет"
-										value="125 000 ₴ + 500 FS"
-										min_dep="Min. deposit: $30"
-										wager="Wagering: 40x"
-									/>
-									<BonusAsideCard
-										link="/bonus-1"
-										src="/img/gamePrevyu.png"
-										title="Бонус від Slotoking"
-										desc="Вітальний пакет"
-										value="125 000 ₴ + 500 FS"
-										min_dep="Min. deposit: $30"
-										wager="Wagering: 40x"
+										v-for="(item, index) in data.body.bonuses"
+										:key="index"
+										:src="item.thumbnail"
+										:title="item.title"
+										:desc="item.short_desc"
+										:value="item.bonus"
+										:min_dep="item.min_deposit"
+										:wager="item.wagering"
 									/>
 								</div>
 							</aside>
@@ -98,6 +72,7 @@
 </template>
 
 <script>
+import DAL_Builder from '~/DAL/builder'
 import AText from '~/components/ui/atoms/text'
 import TwoContentContainer from '~/components/two_content_container/'
 import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
@@ -106,10 +81,12 @@ import CasinoDetails from '~/components/casino_detail'
 import GameMainCard from '~/components/slot_loop/cards/main'
 import TabContent from '~/components/content/tab_content'
 import translateMixin from '~/mixins/translate'
+import head from '~/mixins/head'
+import helper from '~/helpers/helpers'
 
 export default {
 	name: 'casino_single',
-	mixins: [translateMixin],
+	mixins: [translateMixin, head],
 	components: {
 		AText,
 		BonusAsideCard,
@@ -147,6 +124,23 @@ export default {
 				MOB: {}
 			}
 		}
+	},
+	async asyncData({ route, error }) {
+		if (route.params.id) {
+			const request = new DAL_Builder()
+			const response = await request
+				.postType('casino')
+				.url(route.params.id)
+				.get()
+			if (response.data.confirm === 'error') {
+				error({ statusCode: 404, message: 'Post not found' })
+			} else {
+				const data = helper.headDataMixin(response.data, route)
+				return { data }
+			}
+		} else {
+			error({ statusCode: 404, message: 'Post not found' })
+		}
 	}
 }
 </script>
@@ -166,7 +160,7 @@ export default {
 	padding-top: 10px;
 }
 .aside_bonus_container {
-	margin-top: var(--s);
+	margin-top: 14px;
 	display: flex;
 	flex-wrap: wrap;
 	gap: 15px;

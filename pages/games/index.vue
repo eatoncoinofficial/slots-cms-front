@@ -5,32 +5,32 @@
 				<AText tag="h1" :attributes="titleSettings.DC">{{ data.body.h1 }}</AText>
 			</div>
 			<div class="container container_providers">
-				<ProviderFilter />
+				<ProviderFilter :value="data.body.vendors" />
 			</div>
 			<div class="container container_game_week">
 				<div class="left">
-					<GameBigCard link="/dev/game-1" src="/img/gape_card.png" />
+					<GameBigCard
+						v-if="data.body.game_week.length"
+						:link="data.body.game_week[0].permalink"
+						:src="data.body.game_week[0].thumbnail"
+					/>
 				</div>
 				<div class="right">
-					<GameMainCard link="/game/single" src="/img/gape_card.png" />
-					<GameMainCard link="/game/single" src="/img/gape_card.png" />
-					<GameMainCard link="/game/single" src="/img/gape_card.png" />
-					<GameMainCard link="/game/single" src="/img/gape_card.png" />
-					<GameMainCard link="/game/single" src="/img/gape_card.png" />
-					<GameMainCard link="/game/single" src="/img/gape_card.png" />
-					<GameMainCard link="/game/single" src="/img/gape_card.png" />
-					<GameMainCard link="/game/single" src="/img/gape_card.png" />
-					<GameMainCard link="/game/single" src="/img/gape_card.png" />
-					<GameMainCard link="/game/single" src="/img/gape_card.png" />
+					<GameMainCard
+						v-for="(item, index) in data.body.games_week_list"
+						:key="index"
+						:link="item.permalink"
+						:src="item.thumbnail"
+					/>
 				</div>
 			</div>
-			<div class="container container_loop">
-				<SlotLoop />
+			<div class="container container_loop" v-if="data.body.games.length">
+				<SlotLoop :value="data.body.games" />
 			</div>
-			<div class="container content_container">
+			<div class="container content_container" v-if="data.body.content">
 				<MainContent :value="data.body.content" />
 			</div>
-			<div class="container">
+			<div class="container" v-if="data.body.faq.length">
 				<div class="faq_container">
 					<Faq :value="data.body.faq" />
 				</div>

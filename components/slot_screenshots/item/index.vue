@@ -1,6 +1,6 @@
 <template>
 	<div class="item">
-		<AImg :attributes="imgSettings.DC" src="/img/screenshot.png" />
+		<AImg :attributes="imgSettings.DC" :src="src" />
 	</div>
 </template>
 
@@ -15,6 +15,14 @@ export default {
 				DC: { width: '280px', height: '170px', class: 'img' },
 				TABLE: {},
 				MOB: {}
+			}
+		}
+	},
+	props: {
+		src: {
+			type: String,
+			default() {
+				return []
 			}
 		}
 	}

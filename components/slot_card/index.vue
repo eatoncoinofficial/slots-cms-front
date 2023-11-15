@@ -2,48 +2,18 @@
 	<div class="root">
 		<div class="left">
 			<div class="thumbnail_wrapper">
-				<AImg :attributes="imgSettings.DC" src="/img/gape_card.png" />
+				<AImg :attributes="imgSettings.DC" :src="src" />
 			</div>
 		</div>
 		<div class="center">
 			<div>
-				<AText tag="h1" :attributes="titleSettings.DC">Luxor Gold</AText>
-				<AText tag="div" :attributes="subTitleSettings.DC">Playson</AText>
+				<AText tag="div" :attributes="titleSettings.DC">{{ title }}</AText>
+				<AText tag="div" :attributes="subTitleSettings.DC">{{ vendor_title }}</AText>
 				<AText tag="div" :attributes="sectionTitleSettings.DC">{{ t('GAME_AVAILABLE_CASINOS') }}</AText>
 				<div class="casino_wrapper">
-					<div class="item" style="background: #D21037">
-						<ALink href="/dev/casino/single">
-							<AImg :attributes="itemImgSettings.DC" src="/img/slotokingLogo.png" />
-						</ALink>
-					</div>
-					<div class="item" style="background: #D21037">
-						<ALink href="/dev/casino/single">
-							<AImg :attributes="itemImgSettings.DC" src="/img/slotokingLogo.png" />
-						</ALink>
-					</div>
-					<div class="item" style="background: #D21037">
-						<ALink href="/dev/casino/single">
-							<AImg :attributes="itemImgSettings.DC" src="/img/slotokingLogo.png" />
-						</ALink>
-					</div>
-					<div class="item" style="background: #D21037">
-						<ALink href="/dev/casino/single">
-							<AImg :attributes="itemImgSettings.DC" src="/img/slotokingLogo.png" />
-						</ALink>
-					</div>
-					<div class="item" style="background: #D21037">
-						<ALink href="/dev/casino/single">
-							<AImg :attributes="itemImgSettings.DC" src="/img/slotokingLogo.png" />
-						</ALink>
-					</div>
-					<div class="item" style="background: #D21037">
-						<ALink href="/dev/casino/single">
-							<AImg :attributes="itemImgSettings.DC" src="/img/slotokingLogo.png" />
-						</ALink>
-					</div>
-					<div class="item" style="background: #D21037">
-						<ALink href="/dev/casino/single">
-							<AImg :attributes="itemImgSettings.DC" src="/img/slotokingLogo.png" />
+					<div class="item" v-for="(item, index) in casinos" :key="index" :style="`background: ${item.color}`">
+						<ALink :href="item.permalink">
+							<AImg :attributes="itemImgSettings.DC" :src="item.thumbnail" />
 						</ALink>
 					</div>
 				</div>
@@ -52,17 +22,17 @@
 						<AButton :attributes="btnSettings.DC">{{ t('GO_TO') }}</AButton>
 					</div>
 					<div class="action_item">
-						<AButton :attributes="btnDemoSettings.DC">{{ t('DEMO') }}</AButton>
+						<AButton :attributes="btnDemoSettings.DC" v-if="demo">{{ t('DEMO') }}</AButton>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="right">
 			<div class="characters_container">
-				<GameCharacters type="rtp" title="RTP" value="96.46%" />
-				<GameCharacters type="min_dep" :title="t('MIN_BET')" value="0.1" />
-				<GameCharacters type="scheme" :title="t('SCHEMA')" value="3-3-4-4-4" />
-				<GameCharacters type="line" :title="t('LINES')" value="2-3-0-4" />
+				<GameCharacters type="rtp" title="RTP" :value="rtp" />
+				<GameCharacters type="min_dep" :title="t('MIN_BET')" :value="min_bid" />
+				<GameCharacters type="scheme" :title="t('SCHEMA')" :value="scheme" />
+				<GameCharacters type="line" :title="t('LINES')" :value="line" />
 			</div>
 		</div>
 	</div>
@@ -96,7 +66,7 @@ export default {
 				MOB: {}
 			},
 			titleSettings: {
-				DC: { class: 'title', color: 'cairo' },
+				DC: { class: 'title', color: 'cairo', weight: 'bold' },
 				TABLE: {},
 				MOB: {}
 			},
@@ -126,6 +96,62 @@ export default {
 				MOB: {}
 			}
 		}
+	},
+	props: {
+		title: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
+		src: {
+			type: String,
+			default() {
+				return '/img/slotokingLogo.png'
+			}
+		},
+		rtp: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
+		min_bid: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
+		scheme: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
+		line: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
+		demo: {
+			type: Boolean,
+			default() {
+				return false
+			}
+		},
+		vendor_title: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
+		casinos: {
+			type: Array,
+			default() {
+				return []
+			}
+		}
 	}
 }
 </script>
@@ -138,6 +164,7 @@ export default {
 .center {
 	display: flex;
 	align-items: center;
+	min-width: 512px;
 	max-width: 512px;
 }
 .left {

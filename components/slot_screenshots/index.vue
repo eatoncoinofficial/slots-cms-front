@@ -1,16 +1,7 @@
 <template>
 	<div class="item_container">
-		<div class="item_wrapper">
-			<SlotScreenshotsItem />
-		</div>
-		<div class="item_wrapper">
-			<SlotScreenshotsItem />
-		</div>
-		<div class="item_wrapper">
-			<SlotScreenshotsItem />
-		</div>
-		<div class="item_wrapper">
-			<SlotScreenshotsItem />
+		<div class="item_wrapper" v-for="(item, index) in posts" :key="index">
+			<SlotScreenshotsItem :src="item.src" />
 		</div>
 	</div>
 </template>
@@ -23,6 +14,14 @@ export default {
 	data() {
 		return {
 			currentValue: []
+		}
+	},
+	props: {
+		posts: {
+			type: Array,
+			default() {
+				return []
+			}
 		}
 	}
 }

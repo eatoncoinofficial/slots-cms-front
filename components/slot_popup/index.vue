@@ -2,17 +2,13 @@
 	<div class="game_popup">
 		<div class="wrapper">
 			<div class="title_wrapper">
-				<AText :attributes="titleSettings.DC">Luxor Gold</AText>
+				<AText :attributes="titleSettings.DC">{{ title }}</AText>
 				<div class="btn_action">
 					<AButton :attributes="btnFullSettings.DC"></AButton>
 					<AButton :attributes="btnCloseSettings.DC"></AButton>
 				</div>
 			</div>
-			<iframe
-				class="game-popup__iframe"
-				src="https://staticpff.yggdrasilgaming.com/init/launchClient.html?gameid=7304&org=Demo&currency=EUR&lang=en&channel=pc&key="
-				frameborder="0"
-			></iframe>
+			<iframe class="game-popup__iframe" :src="src" frameborder="0"></iframe>
 		</div>
 	</div>
 </template>
@@ -42,6 +38,20 @@ export default {
 				DC: { class: 'btn_close' },
 				TABLE: {},
 				MOB: {}
+			}
+		}
+	},
+	props: {
+		src: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
+		title: {
+			type: String,
+			default() {
+				return ''
 			}
 		}
 	}

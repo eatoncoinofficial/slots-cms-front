@@ -17,8 +17,8 @@
 				:rating="item.rating"
 			/>
 		</div>
-		<div class="items-more">
-			<AButton @click="postShowMore" :attributes="btnSettings.DC">
+		<div class="items-more" v-if="hideBtnShowMore">
+			<AButton @onClick="postShowMore" :attributes="btnSettings.DC">
 				{{ t('SHOW_MORE') }} <AImg :attributes="arrowSettings.DC" src="/img/arrowGreen.svg" />
 			</AButton>
 		</div>
@@ -27,11 +27,11 @@
 
 <script>
 import { CASINO as NumberPostOnQuery } from '~/config/postLoader'
-import Helper from '~/helpers/helpers.js'
 import translateMixin from '~/mixins/translate'
 import CasinoMainCard from '~/components/casino_loop/cards/main'
 import AButton from '~/components/ui/atoms/buttons'
 import AImg from '~/components/ui/atoms/img/'
+import postLoader from '~/mixins/postLoader'
 export default {
 	name: 'casino_loop_downloads',
 	components: { CasinoMainCard, AButton, AImg },
@@ -43,7 +43,7 @@ export default {
 			}
 		}
 	},
-	mixins: [translateMixin],
+	mixins: [translateMixin, postLoader],
 	data() {
 		return {
 			numberPostOnQuery: NumberPostOnQuery,
@@ -60,22 +60,9 @@ export default {
 			}
 		}
 	},
-	computed: {
-		currentPosts() {
-			return this.value.slice(0, this.numberPostOnQuery * this.postCurrentPage)
-		}
-	},
-	filters: {
-		classRating(item) {
-			return Helper.classRating(item)
-		}
-	},
 	methods: {
-		refActivate(item) {
-			Helper.refActivate(item)
-		},
-		postShowMore() {
-			this.postCurrentPage += 1
+		test() {
+			console.log('Good day')
 		}
 	}
 }

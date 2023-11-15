@@ -1,7 +1,17 @@
 <template>
 	<div>
-		<div class="slot_loop">
-			<GameMainCard v-for="(item, index) in value" :key="index" :link="item.permalink" :src="item.thumbnail" />
+		<div class="bonus_loop">
+			<div class="bonus_item" v-for="item in value" :key="item.title">
+				<BonusAsideCard
+					:link="item.permalink"
+					:src="item.thumbnail"
+					:title="item.title"
+					:desc="item.short_desc"
+					:value="item.bonus"
+					:min_dep="item.min_deposit"
+					:wager="item.wagering"
+				/>
+			</div>
 		</div>
 		<div class="items-more">
 			<div class="btn_wrapper">
@@ -14,15 +24,15 @@
 </template>
 
 <script>
-import { GAME as NumberPostOnQuery } from '~/config/postLoader'
+import { BONUS_CATEGORY as NumberPostOnQuery } from '~/config/postLoader'
 import Helper from '~/helpers/helpers.js'
 import translateMixin from '~/mixins/translate'
-import GameMainCard from '~/components/slot_loop/cards/main'
+import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
 import AButton from '~/components/ui/atoms/buttons'
 import AImg from '~/components/ui/atoms/img/'
 export default {
-	name: 'slot_loop',
-	components: { GameMainCard, AButton, AImg },
+	name: 'bonus_loop',
+	components: { BonusAsideCard, AButton, AImg },
 	props: {
 		value: {
 			type: Array,
@@ -69,10 +79,21 @@ export default {
 }
 </script>
 <style scoped>
-.slot_loop {
+.bonus_loop {
 	display: flex;
-	gap: 12px;
 	flex-wrap: wrap;
+}
+.bonus_item {
+	width: 33.3%;
+	margin-bottom: 12px;
+}
+.bonus_item:nth-child(3n + 2) {
+	display: flex;
+	justify-content: center;
+}
+.bonus_item:nth-child(3n + 3) {
+	display: flex;
+	justify-content: flex-end;
 }
 .items-more {
 	display: flex;

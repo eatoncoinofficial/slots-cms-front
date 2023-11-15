@@ -1,15 +1,15 @@
 <template>
 	<div class="root">
 		<div class="wrapper">
-			<AText :attributes="btnSettings.DC" data-active="true">Все</AText>
+			<AText :attributes="btnSettings.DC" data-active="true">{{ t('ALL') }}</AText>
 			<ALink
+				v-for="(item, index) in value"
 				:href="item.permalink"
 				:attributes="textSettings.DC"
-				v-for="(item, index) in value"
 				:key="index"
 				:data-active="item.active"
 			>
-				<AImg :attributes="imgSettings.DC" :src="item.img" /> {{ item.title }}
+				<AImg :attributes="imgSettings.DC" :src="item.icon" /> {{ item.title }}
 			</ALink>
 		</div>
 	</div>
@@ -19,39 +19,16 @@
 import ALink from '~/components/ui/atoms/links'
 import AImg from '~/components/ui/atoms/img'
 import AText from '~/components/ui/atoms/text'
+import translateMixin from '~/mixins/translate'
 export default {
 	name: 'providers_filter',
 	components: { ALink, AImg, AText },
+	mixins: [translateMixin],
 	props: {
 		value: {
 			type: Array,
 			default() {
-				return [
-					{ title: 'Netgame', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Triple Edge Studio', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Ainsworth Games', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Evolution', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Netgame', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Triple Edge Studio', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Ainsworth Games', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Evolution', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Netgame', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Triple Edge Studio', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Ainsworth Games', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Evolution', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Netgame', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Triple Edge Studio', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Ainsworth Games', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Evolution', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Netgame', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Triple Edge Studio', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Ainsworth Games', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Evolution', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Netgame', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Triple Edge Studio', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Ainsworth Games', permalink: '/provider/single', img: '/img/provider.png' },
-					{ title: 'Evolution', permalink: '/provider/single', img: '/img/provider.png' }
-				]
+				return []
 			}
 		}
 	},

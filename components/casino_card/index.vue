@@ -4,7 +4,7 @@
 			<div class="left">
 				<div class="rating">
 					<AImg :attributes="starSettings.DC" src="/img/goldStar.svg" />
-					<AText tag="span" :attributes="textSettings.DC">9.4 </AText>
+					<AText tag="span" :attributes="textSettings.DC">{{ rating / 10 }} </AText>
 					<AText tag="span" :attributes="thinTextSettings.DC">/ 10</AText>
 				</div>
 				<div class="img_wrapper">
@@ -12,11 +12,11 @@
 				</div>
 			</div>
 			<div class="right">
-				<AText tag="div" :attributes="labelSettings.DC">Popular</AText>
+				<AText tag="div" :attributes="labelSettings.DC" v-if="label" :class="label">{{ label }}</AText>
 				<div>
-					<AText tag="div" :attributes="titleSettings.DC">Slotoking</AText>
-					<AText tag="div" :attributes="bonusNameSettings.DC">Вітальний пакет</AText>
-					<AText tag="div" :attributes="bonusValueSettings.DC">125 000 ₴ + 500 FS</AText>
+					<AText tag="div" :attributes="titleSettings.DC">{{ title }}</AText>
+					<AText tag="div" :attributes="bonusNameSettings.DC">{{ t('WELCOME_PACKAGE') }}</AText>
+					<AText tag="div" :attributes="bonusValueSettings.DC">{{ bonus_value }}</AText>
 					<div class="action_wrapper">
 						<div class="btn_wrapper">
 							<AButton :attributes="btnSettings.DC">{{ t('GO_TO') }}</AButton>
@@ -92,22 +92,34 @@ export default {
 				return '/img/slotokingLogo.png'
 			}
 		},
-		bonus_name: {
-			type: String,
-			default() {
-				return 'Вітальний пакет'
-			}
-		},
 		bonus_value: {
 			type: String,
 			default() {
 				return '125 000 ₴ + 500 FS'
 			}
 		},
+		title: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
+		label: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
 		bg: {
 			type: String,
 			default() {
 				return '#D21037'
+			}
+		},
+		rating: {
+			type: Number,
+			default() {
+				return 0
 			}
 		}
 	}
@@ -186,5 +198,14 @@ export default {
 	right: 6px;
 	top: 6px;
 	border-radius: 8px;
+}
+.label.trusted {
+	background: rgba(0, 184, 107, 1);
+}
+.label.new {
+	background: rgba(0, 163, 255, 1);
+}
+.label.popular {
+	background: rgba(255, 0, 92, 1);
 }
 </style>

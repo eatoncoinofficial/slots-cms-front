@@ -47,6 +47,10 @@ export default {
 		UA: 'Усі слоти',
 		RU: 'Все слоты'
 	},
+	ALL: {
+		UA: 'Усі',
+		RU: 'Все'
+	},
 	POPULAR_SLOTS: {
 		UA: 'Популярні слоти',
 		RU: 'Популярные слоты'
@@ -484,6 +488,10 @@ export default {
 	BEST_GAMES_IN_CASINO: {
 		RU: 'Лучшие игры в казино',
 		UA: 'Найкращі ігри в казино'
+	},
+	BEST_GAMES_PROVIDER: {
+		RU: 'Лучшие игры провайдера',
+		UA: 'Найкращі ігри провайдера'
 	},
 	SLOT_SYMBOLS: {
 		RU: 'Символы слота',
