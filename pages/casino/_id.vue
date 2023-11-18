@@ -1,76 +1,74 @@
 <template>
-	<div>
-		<main class="casino_page">
-			<div class="container">
-				<AText tag="h1" :attributes="titleSettings.DC">{{ data.body.h1 }}</AText>
-				<div class="main_container">
-					<TwoContentContainer>
-						<template v-slot:left>
-							<div class="left_wrapper">
-								<div class="casino_card_container">
-									<CasinoCard
-										:src="data.body.thumbnail"
-										:bonus_value="data.body.bonus_value"
-										:title="data.body.title"
-										:rating="data.body.rating"
-										:bg="data.body.color"
-										:label="data.body.label"
-										:refLinks="data.body.ref"
+	<main class="casino_page">
+		<div class="container">
+			<AText tag="h1" :attributes="titleSettings.DC">{{ data.body.h1 }}</AText>
+			<div class="main_container">
+				<TwoContentContainer>
+					<template v-slot:left>
+						<div class="left_wrapper">
+							<div class="casino_card_container">
+								<CasinoCard
+									:src="data.body.thumbnail"
+									:bonus_value="data.body.bonus_value"
+									:title="data.body.title"
+									:rating="data.body.rating"
+									:bg="data.body.color"
+									:label="data.body.label"
+									:refLinks="data.body.ref"
+								/>
+							</div>
+							<div class="casino_characters_container">
+								<AText tag="div" :attributes="titleCharactersSettings.DC">{{ t('CASINO_CHARACTERS') }}</AText>
+								<CasinoDetails
+									:vendors="data.body.vendors"
+									:payments="data.body.payments"
+									:currencies="data.body.currencies"
+									:languages="data.body.languages"
+								/>
+							</div>
+							<div class="casino_slot_container" v-if="data.body.games.length">
+								<AText tag="div" :attributes="titleSlotsSettings.DC"
+									>{{ t('BEST_GAMES_IN_CASINO') }} {{ data.body.title }}</AText
+								>
+								<div class="slot_loop">
+									<GameMainCard
+										v-for="(item, index) in data.body.games"
+										:key="index"
+										:link="item.permalink"
+										:src="item.thumbnail"
+										size="middle"
 									/>
-								</div>
-								<div class="casino_characters_container">
-									<AText tag="div" :attributes="titleCharactersSettings.DC">{{ t('CASINO_CHARACTERS') }}</AText>
-									<CasinoDetails
-										:vendors="data.body.vendors"
-										:payments="data.body.payments"
-										:currencies="data.body.currencies"
-										:languages="data.body.languages"
-									/>
-								</div>
-								<div class="casino_slot_container" v-if="data.body.games.length">
-									<AText tag="div" :attributes="titleSlotsSettings.DC"
-										>{{ t('BEST_GAMES_IN_CASINO') }} {{ data.body.title }}</AText
-									>
-									<div class="slot_loop">
-										<GameMainCard
-											v-for="(item, index) in data.body.games"
-											:key="index"
-											:link="item.permalink"
-											:src="item.thumbnail"
-											size="middle"
-										/>
-									</div>
 								</div>
 							</div>
-						</template>
-						<template v-slot:right>
-							<aside class="aside">
-								<AText tag="div" :attributes="asideContainerTitle.DC">{{ t('RECOMMENDED_BONUSES') }}</AText>
-								<div class="aside_bonus_container">
-									<BonusAsideCard
-										v-for="(item, index) in data.body.bonuses"
-										:key="index"
-										:src="item.thumbnail"
-										:title="item.title"
-										:desc="item.short_desc"
-										:value="item.bonus"
-										:min_dep="item.min_deposit"
-										:wager="item.wagering"
-										:refLinks="item.casino.ref"
-									/>
-								</div>
-							</aside>
-						</template>
-					</TwoContentContainer>
-				</div>
+						</div>
+					</template>
+					<template v-slot:right>
+						<aside class="aside">
+							<AText tag="div" :attributes="asideContainerTitle.DC">{{ t('RECOMMENDED_BONUSES') }}</AText>
+							<div class="aside_bonus_container">
+								<BonusAsideCard
+									v-for="(item, index) in data.body.bonuses"
+									:key="index"
+									:src="item.thumbnail"
+									:title="item.title"
+									:desc="item.short_desc"
+									:value="item.bonus"
+									:min_dep="item.min_deposit"
+									:wager="item.wagering"
+									:refLinks="item.casino.ref"
+								/>
+							</div>
+						</aside>
+					</template>
+				</TwoContentContainer>
 			</div>
-			<section class="content_wrapper">
-				<div class="container">
-					<TabContent />
-				</div>
-			</section>
-		</main>
-	</div>
+		</div>
+		<section class="content_wrapper">
+			<div class="container">
+				<TabContent :value="tabContent" />
+			</div>
+		</section>
+	</main>
 </template>
 
 <script>
@@ -125,6 +123,17 @@ export default {
 				TABLET: {},
 				MOB: {}
 			}
+		}
+	},
+	computed: {
+		tabContent() {
+			const data = [
+				{ title: this.t('ANALYSIS'), content: this.data.body.content_analysis },
+				{ title: this.t('BONUSES'), content: this.data.body.content_bonuses },
+				{ title: this.t('REVIEWS'), content: this.data.body.content_reviews },
+				{ title: this.t('GAMES'), content: this.data.body.content_games }
+			]
+			return data
 		}
 	},
 	async asyncData({ route, error }) {

@@ -1,60 +1,56 @@
 <template>
-	<div>
-		<main class="news_page">
-			<div class="container">
-				<TwoContentContainer>
-					<template v-slot:left>
-						<AText tag="h1" :attributes="titleSettings.DC">{{ data.body.h1 }}</AText>
-						<div class="wrapper_thumbnail">
-							<AImg :attributes="thumbnailSettings.DC" :src="data.body.thumbnail" />
-						</div>
-						<div class="container content_container">
-							<MainContent :value="data.body.content" />
-						</div>
-					</template>
-					<template v-slot:right>
-						<AText tag="div" :attributes="subTitleSettings.DC">{{ t('POPULAR_NEWS') }}</AText>
-						<aside class="aside">
-							<NewsSliderCard
-								v-for="item in data.body.last_news"
-								:key="item.title"
-								:link="item.permalink"
-								:src="item.thumbnail"
-								:title="item.title"
-								:desc="item.create_at.slice(0, 10)"
-							/>
-						</aside>
-					</template>
-				</TwoContentContainer>
-			</div>
-			<div class="news_loop">
-				<div class="container">
-					<div class="section_title_wrapper">
-						<AText tag="div" :attributes="mainContainerTitle.DC">{{ t('LAST_NEWS') }}</AText>
+	<main class="news_page">
+		<div class="container">
+			<TwoContentContainer>
+				<template v-slot:left>
+					<AText tag="h1" :attributes="titleSettings.DC">{{ data.body.h1 }}</AText>
+					<div class="wrapper_thumbnail">
+						<AImg :attributes="thumbnailSettings.DC" :src="data.body.thumbnail" />
 					</div>
-					<div class="news_container">
-						<NewsMainCard
-							v-for="item in data.body.posts"
+					<div class="container content_container">
+						<MainContent :value="data.body.content" />
+					</div>
+				</template>
+				<template v-slot:right>
+					<AText tag="div" :attributes="subTitleSettings.DC">{{ t('POPULAR_NEWS') }}</AText>
+					<aside class="aside">
+						<NewsSliderCard
+							v-for="item in data.body.last_news"
 							:key="item.title"
 							:link="item.permalink"
 							:src="item.thumbnail"
 							:title="item.title"
-							:date="item.create_at.slice(0, 10)"
-							:desc="item.short_desc"
+							:desc="item.create_at.slice(0, 10)"
 						/>
-					</div>
+					</aside>
+				</template>
+			</TwoContentContainer>
+		</div>
+		<div class="news_loop">
+			<div class="container">
+				<div class="section_title_wrapper">
+					<AText tag="div" :attributes="mainContainerTitle.DC">{{ t('LAST_NEWS') }}</AText>
+				</div>
+				<div class="news_container">
+					<NewsMainCard
+						v-for="item in data.body.posts"
+						:key="item.title"
+						:link="item.permalink"
+						:src="item.thumbnail"
+						:title="item.title"
+						:date="item.create_at.slice(0, 10)"
+						:desc="item.short_desc"
+					/>
 				</div>
 			</div>
-		</main>
-	</div>
+		</div>
+	</main>
 </template>
 
 <script>
 import DAL_Builder from '~/DAL/builder'
 import AText from '~/components/ui/atoms/text'
 import AImg from '~/components/ui/atoms/img/'
-import Footer from '~/components/footer/dev'
-import Header from '~/components/header/dev'
 import TwoContentContainer from '~/components/two_content_container/'
 import NewsSliderCard from '~/components/news_loop/cards/slider_card'
 import LinkWithArrow from '~/components/ui/atoms/links/link_with_arrow'
@@ -69,8 +65,6 @@ export default {
 	mixins: [head, translateMixin],
 	components: {
 		AText,
-		Footer,
-		Header,
 		TwoContentContainer,
 		NewsSliderCard,
 		AImg,
@@ -138,6 +132,7 @@ export default {
 }
 .sub_title {
 	margin-bottom: 16px;
+	margin-top: 60px;
 }
 .thumbnail {
 	width: 100%;

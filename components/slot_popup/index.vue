@@ -1,11 +1,11 @@
 <template>
-	<div class="game_popup">
-		<div class="wrapper">
-			<div class="title_wrapper">
+	<div class="game_popup" :class="fullScreen ? 'p-0' : ''">
+		<div class="wrapper" :class="fullScreen ? 'full_screen' : ''">
+			<div class="title_wrapper" :class="fullScreen ? 'full_screen' : ''">
 				<AText :attributes="titleSettings.DC">{{ title }}</AText>
 				<div class="btn_action">
-					<AButton :attributes="btnFullSettings.DC"></AButton>
-					<AButton :attributes="btnCloseSettings.DC"></AButton>
+					<AButton :attributes="btnFullSettings.DC" @onClick="changeSize"></AButton>
+					<AButton :attributes="btnCloseSettings.DC" @onClick="onClickDemoClose"></AButton>
 				</div>
 			</div>
 			<iframe class="game-popup__iframe" :src="src" frameborder="0"></iframe>
@@ -38,7 +38,8 @@ export default {
 				DC: { class: 'btn_close' },
 				TABLE: {},
 				MOB: {}
-			}
+			},
+			fullScreen: false
 		}
 	},
 	props: {
@@ -53,6 +54,14 @@ export default {
 			default() {
 				return ''
 			}
+		}
+	},
+	methods: {
+		onClickDemoClose() {
+			this.$emit('onClickDemoClose')
+		},
+		changeSize() {
+			this.fullScreen = this.fullScreen ? false : true
 		}
 	}
 }
@@ -70,6 +79,9 @@ export default {
 	justify-content: center;
 	padding-top: 5%;
 }
+.game_popup.p-0 {
+	padding: 0px;
+}
 .wrapper {
 	width: 968px;
 	height: 594px;
@@ -78,11 +90,18 @@ export default {
 	border-top-right-radius: 20px;
 	overflow: hidden;
 }
+.wrapper.full_screen {
+	width: 100%;
+	height: 100%;
+}
 .title_wrapper {
 	background: var(--cucuta);
 	padding: 10px 20px;
 	display: flex;
 	justify-content: space-between;
+}
+.title_wrapper.full_screen {
+	padding-right: 40px;
 }
 .game-popup__iframe {
 	width: 100%;

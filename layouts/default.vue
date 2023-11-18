@@ -10,7 +10,7 @@
 
 <script>
 import Footer from '~/components/footer/dev'
-import Header from '~/components/header/dev'
+import Header from '~/components/header'
 export default {
 	name: 'app-main',
 	components: { Header, Footer },
@@ -491,9 +491,6 @@ h6 {
 	text-transform: none;
 }
 /* */
-.main_page_h1 {
-	line-height: 62px;
-}
 .faq_container {
 	max-width: 820px;
 	padding-top: 30px;

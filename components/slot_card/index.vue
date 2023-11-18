@@ -6,7 +6,7 @@
 			</div>
 		</div>
 		<div class="center">
-			<div>
+			<div class="center_wrapper">
 				<AText tag="div" :attributes="titleSettings.DC">{{ title }}</AText>
 				<AText tag="div" :attributes="subTitleSettings.DC">{{ vendor_title }}</AText>
 				<AText tag="div" :attributes="sectionTitleSettings.DC">{{ t('GAME_AVAILABLE_CASINOS') }}</AText>
@@ -22,7 +22,9 @@
 						<AButton :attributes="btnSettings.DC" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
 					</div>
 					<div class="action_item">
-						<AButton :attributes="btnDemoSettings.DC" v-if="demo">{{ t('DEMO') }}</AButton>
+						<AButton :attributes="btnDemoSettings.DC" v-if="demo" @onClick="onClickDemoActivate">{{
+							t('DEMO')
+						}}</AButton>
 					</div>
 				</div>
 			</div>
@@ -153,6 +155,11 @@ export default {
 				return []
 			}
 		}
+	},
+	methods: {
+		onClickDemoActivate() {
+			this.$emit('onClickDemoActivate')
+		}
 	}
 }
 </script>
@@ -188,6 +195,9 @@ export default {
 	display: flex;
 	gap: var(--xs);
 	margin-top: 12px;
+}
+.center_wrapper {
+	width: 100%;
 }
 .item {
 	border-radius: var(--s);

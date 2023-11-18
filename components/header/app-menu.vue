@@ -1,7 +1,7 @@
 <template>
 	<div class="header_menu">
 		<nav class="header_menu_container">
-			<div class="header_menu_item" data-active="true">
+			<div class="header_menu_item" :data-active="activeLink('/')">
 				<ALink href="/" :attributes="linkSettings.DC">ОНЛАЙН-КАЗИНО</ALink>
 			</div>
 			<div class="header_menu_item">
@@ -29,6 +29,11 @@ export default {
 				MOB: {}
 			}
 		}
+	},
+	methods: {
+		activeLink(link) {
+			return link === this.$route.path
+		}
 	}
 }
 </script>
@@ -42,7 +47,13 @@ export default {
 .header_menu_item {
 	padding-bottom: 10px;
 }
-[data-active='true'] {
+.header_menu_item:has(.nuxt-link-active) {
 	border-bottom: 4px solid var(--calgary);
+}
+.header_menu_item:first-child:has(.nuxt-link-active) {
+	border-bottom: none;
+}
+.header_menu_item[data-active='true'] {
+	border-bottom: 4px solid var(--calgary) !important;
 }
 </style>

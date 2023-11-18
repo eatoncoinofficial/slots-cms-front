@@ -1,134 +1,127 @@
 <template>
-	<div>
-		<main class="main_page">
-			<div class="container">
-				<div class="ttl_container">
-					<AText tag="h1" :attributes="mainTitleSettings.DC">{{ data.body.h1 }}</AText>
-					<div class="ttl_desc">
-						<AText tag="div" :attributes="mainDescSettings.DC">{{ data.body.short_desc }}</AText>
-					</div>
-				</div>
-				<div class="slider_wrapper">
-					<div class="slider_item">
-						<SliderContainer
-							icon="casino"
-							:title="t('ONLINE_CASINO')"
-							link="/casinos"
-							:sliderSettings="casinoSliderSettings.DC"
-						>
-							<CasinoSliderCard
-								v-for="item in data.body.casino_slider"
-								:key="item.title"
-								:link="item.permalink"
-								:src="item.icon"
-								:color="item.color"
-								:rating="item.rating"
-							/>
-						</SliderContainer>
-					</div>
-					<div class="slider_item">
-						<SliderContainer icon="game" :title="t('GAMES')" link="/games" :sliderSettings="gameSliderSettings.DC">
-							<SlotSliderCard
-								v-for="item in data.body.games"
-								:key="item.title"
-								:link="item.permalink"
-								:src="item.thumbnail"
-							/>
-						</SliderContainer>
-					</div>
-					<div class="slider_item">
-						<SliderContainer
-							icon="bonus"
-							:title="t('BONUSES')"
-							link="/bonuses"
-							:sliderSettings="bonusSliderSettings.DC"
-						>
-							<BonusSliderCard
-								v-for="item in data.body.bonuses"
-								:key="item.title"
-								:src="item.thumbnail"
-								:title="item.title"
-								:desc="item.short_desc"
-								:value="item.bonus"
-								:refLinks="item.casino.ref"
-							/>
-						</SliderContainer>
-					</div>
-					<div class="slider_item">
-						<SliderContainer icon="news" :title="t('NEWS')" link="/news" :sliderSettings="newsSliderSettings.DC">
-							<NewsSliderCard
-								v-for="item in data.body.news"
-								:key="item.title"
-								:link="item.permalink"
-								:src="item.thumbnail"
-								:title="item.title"
-								:desc="item.create_at.slice(0, 10)"
-							/>
-						</SliderContainer>
-					</div>
-				</div>
-				<div class="main_container">
-					<TwoContentContainer>
-						<template v-slot:left>
-							<AText tag="div" :attributes="mainContainerTitle.DC">{{ t('ONLINE_CASINO') }}</AText>
-							<div class="category_filter_wrapper">
-								<CategoryFilter :value="data.body.casino_category" />
-							</div>
-							<CasinoLoop :value="data.body.casino" />
-						</template>
-						<template v-slot:right>
-							<aside class="aside">
-								<AText tag="div" :attributes="asideContainerTitle.DC">{{ t('RECOMMENDED_BONUSES') }}</AText>
-								<div class="aside_bonus_container">
-									<BonusAsideCard
-										v-for="item in data.body.top_bonuses"
-										:key="item.title"
-										:link="item.permalink"
-										:src="item.thumbnail"
-										:title="item.title"
-										:desc="item.short_desc"
-										:value="item.bonus"
-										:min_dep="item.min_deposit"
-										:wager="item.wagering"
-										:refLinks="item.casino.ref"
-									/>
-								</div>
-							</aside>
-						</template>
-					</TwoContentContainer>
+	<main class="main_page">
+		<div class="container">
+			<div class="ttl_container">
+				<AText tag="h1" :attributes="mainTitleSettings[device]">{{ data.body.h1 }}</AText>
+				<div class="ttl_desc">
+					<AText tag="div" :attributes="mainDescSettings.DC">{{ data.body.short_desc }}</AText>
 				</div>
 			</div>
-			<div class="news_loop">
-				<div class="container">
-					<div class="section_title_wrapper">
-						<AText tag="div" :attributes="mainContainerTitle.DC">{{ t('NEWS') }}</AText>
-						<LinkWithArrow link="/news" :attributes="newsLinkSettings.DC">
-							{{ t('SHOW_MORE') }}
-						</LinkWithArrow>
-					</div>
-					<div class="news_container">
-						<NewsMainCard
-							v-for="item in data.body.news.slice(0, 4)"
-							:key="item.title"
+			<div class="slider_wrapper">
+				<div class="slider_item">
+					<SliderContainer
+						icon="casino"
+						:title="t('ONLINE_CASINO')"
+						link="/casinos"
+						:sliderSettings="casinoSliderSettings.DC"
+					>
+						<CasinoSliderCard
+							v-for="(item, index) in data.body.casino_slider"
+							:key="index"
+							:link="item.permalink"
+							:src="item.icon"
+							:color="item.color"
+							:rating="item.rating"
+						/>
+					</SliderContainer>
+				</div>
+				<div class="slider_item">
+					<SliderContainer icon="game" :title="t('GAMES')" link="/games" :sliderSettings="gameSliderSettings.DC">
+						<SlotSliderCard
+							v-for="(item, index) in data.body.games"
+							:key="index"
+							:link="item.permalink"
+							:src="item.thumbnail"
+						/>
+					</SliderContainer>
+				</div>
+				<div class="slider_item">
+					<SliderContainer icon="bonus" :title="t('BONUSES')" link="/bonuses" :sliderSettings="bonusSliderSettings.DC">
+						<BonusSliderCard
+							v-for="(item, index) in data.body.bonuses"
+							:key="index"
+							:src="item.thumbnail"
+							:title="item.title"
+							:desc="item.short_desc"
+							:value="item.bonus"
+							:refLinks="item.casino.ref"
+						/>
+					</SliderContainer>
+				</div>
+				<div class="slider_item">
+					<SliderContainer icon="news" :title="t('NEWS')" link="/news" :sliderSettings="newsSliderSettings.DC">
+						<NewsSliderCard
+							v-for="(item, index) in data.body.news"
+							:key="index"
 							:link="item.permalink"
 							:src="item.thumbnail"
 							:title="item.title"
-							:date="item.create_at.slice(0, 10)"
-							:desc="item.short_desc"
+							:desc="item.create_at.slice(0, 10)"
 						/>
-					</div>
+					</SliderContainer>
 				</div>
 			</div>
-			<div class="container content_container">
-				<MainContent :value="data.body.content" />
+			<div class="main_container">
+				<TwoContentContainer>
+					<template v-slot:left>
+						<AText tag="div" :attributes="mainContainerTitle.DC">{{ t('ONLINE_CASINO') }}</AText>
+						<div class="category_filter_wrapper">
+							<CategoryFilter :value="data.body.casino_category" />
+						</div>
+						<CasinoLoop :value="data.body.casino" />
+					</template>
+					<template v-slot:right>
+						<aside class="aside">
+							<AText tag="div" :attributes="asideContainerTitle.DC">{{ t('RECOMMENDED_BONUSES') }}</AText>
+							<div class="aside_bonus_container">
+								<BonusAsideCard
+									v-for="item in data.body.top_bonuses"
+									:key="item.title"
+									:link="item.permalink"
+									:src="item.thumbnail"
+									:title="item.title"
+									:desc="item.short_desc"
+									:value="item.bonus"
+									:min_dep="item.min_deposit"
+									:wager="item.wagering"
+									:refLinks="item.casino.ref"
+								/>
+							</div>
+						</aside>
+					</template>
+				</TwoContentContainer>
 			</div>
+		</div>
+		<div class="news_loop">
 			<div class="container">
-				<div class="faq_container">
-					<Faq :value="data.body.faq" />
+				<div class="section_title_wrapper">
+					<AText tag="div" :attributes="mainContainerTitle.DC">{{ t('NEWS') }}</AText>
+					<LinkWithArrow link="/news" :attributes="newsLinkSettings.DC">
+						{{ t('SHOW_MORE') }}
+					</LinkWithArrow>
+				</div>
+				<div class="news_container">
+					<NewsMainCard
+						v-for="item in data.body.news.slice(0, 4)"
+						:key="item.title"
+						:link="item.permalink"
+						:src="item.thumbnail"
+						:title="item.title"
+						:date="item.create_at.slice(0, 10)"
+						:desc="item.short_desc"
+					/>
 				</div>
 			</div>
-		</main>
-	</div>
+		</div>
+		<div class="container content_container">
+			<MainContent :value="data.body.content" />
+		</div>
+		<div class="container">
+			<div class="faq_container">
+				<Faq :value="data.body.faq" />
+			</div>
+		</div>
+	</main>
 </template>
 
 <script>
@@ -149,12 +142,13 @@ import CasinoLoop from '~/components/casino_loop/app_casino_loop_downloads.vue'
 import MainContent from '~/components/content'
 import Faq from '~/components/faq/app_faq'
 import translateMixin from '~/mixins/translate'
+import deviceMixin from '~/mixins/device'
 import head from '~/mixins/head'
 import helper from '~/helpers/helpers'
 
 export default {
 	name: 'main-page',
-	mixins: [translateMixin, head],
+	mixins: [translateMixin, head, deviceMixin],
 	components: {
 		Slider,
 		SliderContainer,
@@ -337,5 +331,19 @@ export default {
 	display: flex;
 	justify-content: space-between;
 	margin-top: var(--l);
+}
+.main_page_h1 {
+	line-height: 62px;
+}
+@media (max-width: 767px) {
+	.main_page_h1 {
+		font-size: 32px;
+		line-height: 40px;
+	}
+	.slider_item {
+		max-width: 100%;
+		margin-bottom: var(--m);
+		flex-grow: 1;
+	}
 }
 </style>

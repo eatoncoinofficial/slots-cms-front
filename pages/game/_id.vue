@@ -13,6 +13,7 @@
 					:vendor_title="data.body.vendor.length ? data.body.vendor[0].title : ''"
 					:casinos="data.body.casinos"
 					:refLinks="data.body.ref"
+					@onClickDemoActivate="onClickDemoActivate"
 				/>
 			</div>
 			<div class="symbols" v-if="data.body.symbols.length">
@@ -35,7 +36,12 @@
 					<Faq :value="data.body.faq" />
 				</div>
 			</div>
-			<SlotPopUp v-if="false" :src="data.body.iframe" :title="data.body.title" />
+			<SlotPopUp
+				v-if="isShowDemo"
+				:src="data.body.iframe"
+				:title="data.body.title"
+				@onClickDemoClose="onClickDemoClose"
+			/>
 		</main>
 	</div>
 </template>
@@ -72,7 +78,8 @@ export default {
 				DC: { size: 'x-large', color: 'cairo', weight: 'bold', class: 'title' },
 				TABLE: {},
 				MOB: {}
-			}
+			},
+			isShowDemo: false
 		}
 	},
 	async asyncData({ route, error }) {
@@ -90,6 +97,14 @@ export default {
 			}
 		} else {
 			error({ statusCode: 404, message: 'Post not found' })
+		}
+	},
+	methods: {
+		onClickDemoActivate() {
+			this.isShowDemo = true
+		},
+		onClickDemoClose() {
+			this.isShowDemo = false
 		}
 	}
 }

@@ -22,7 +22,7 @@ import Menu from './app-menu'
 import Search from './app-search'
 import LangSelector from './lang_selector'
 export default {
-	name: 'dev-header',
+	name: 'header',
 	components: { Logo, Menu, Search, LangSelector },
 	data() {
 		return {}
@@ -59,5 +59,10 @@ export default {
 }
 .wrapper_menu {
 	margin-top: var(--s);
+}
+@media (max-width: 767px) {
+	.header {
+		display: none;
+	}
 }
 </style>

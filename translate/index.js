@@ -23,13 +23,17 @@ export default {
 		UA: 'Огляд казино',
 		RU: 'Обзор казино'
 	},
-	REVIEW: {
+	ANALYSIS: {
 		UA: 'Огляд',
 		RU: 'Обзор'
 	},
 	GO_TO: {
 		UA: 'Перейти',
 		RU: 'Перейти'
+	},
+	REVIEWS: {
+		UA: 'Відгуки',
+		RU: 'Отзывы'
 	},
 	NEW_CASINO: {
 		UA: 'Нові казино',
