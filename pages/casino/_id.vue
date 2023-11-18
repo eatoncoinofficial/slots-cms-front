@@ -15,6 +15,7 @@
 										:rating="data.body.rating"
 										:bg="data.body.color"
 										:label="data.body.label"
+										:refLinks="data.body.ref"
 									/>
 								</div>
 								<div class="casino_characters_container">
@@ -55,6 +56,7 @@
 										:value="item.bonus"
 										:min_dep="item.min_deposit"
 										:wager="item.wagering"
+										:refLinks="item.casino.ref"
 									/>
 								</div>
 							</aside>

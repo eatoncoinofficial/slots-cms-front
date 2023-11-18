@@ -12,6 +12,7 @@
 					:demo="data.body.iframe ? true : false"
 					:vendor_title="data.body.vendor.length ? data.body.vendor[0].title : ''"
 					:casinos="data.body.casinos"
+					:refLinks="data.body.ref"
 				/>
 			</div>
 			<div class="symbols" v-if="data.body.symbols.length">

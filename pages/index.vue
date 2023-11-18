@@ -50,6 +50,7 @@
 								:title="item.title"
 								:desc="item.short_desc"
 								:value="item.bonus"
+								:refLinks="item.casino.ref"
 							/>
 						</SliderContainer>
 					</div>
@@ -89,6 +90,7 @@
 										:value="item.bonus"
 										:min_dep="item.min_deposit"
 										:wager="item.wagering"
+										:refLinks="item.casino.ref"
 									/>
 								</div>
 							</aside>

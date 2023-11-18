@@ -19,7 +19,7 @@
 				</div>
 				<div class="action_wrapper">
 					<div class="action_item">
-						<AButton :attributes="btnSettings.DC">{{ t('GO_TO') }}</AButton>
+						<AButton :attributes="btnSettings.DC" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
 					</div>
 					<div class="action_item">
 						<AButton :attributes="btnDemoSettings.DC" v-if="demo">{{ t('DEMO') }}</AButton>
@@ -44,9 +44,10 @@ import ALink from '~/components/ui/atoms/links'
 import AButton from '~/components/ui/atoms/buttons'
 import GameCharacters from '~/components/game_characters'
 import translateMixin from '~/mixins/translate'
+import ref from '~/mixins/ref'
 export default {
 	name: 'single-game-page',
-	mixins: [translateMixin],
+	mixins: [translateMixin, ref],
 	components: {
 		AText,
 		AImg,

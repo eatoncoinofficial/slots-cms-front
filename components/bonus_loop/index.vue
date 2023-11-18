@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="bonus_loop">
-			<div class="bonus_item" v-for="item in value" :key="item.title">
+			<div class="bonus_item" v-for="item in currentPosts" :key="item.title">
 				<BonusAsideCard
 					:link="item.permalink"
 					:src="item.thumbnail"
@@ -10,12 +10,13 @@
 					:value="item.bonus"
 					:min_dep="item.min_deposit"
 					:wager="item.wagering"
+					:refLinks="item.casino.ref"
 				/>
 			</div>
 		</div>
-		<div class="items-more">
+		<div class="items-more" v-if="hideBtnShowMore">
 			<div class="btn_wrapper">
-				<AButton @click="postShowMore" :attributes="btnSettings.DC">
+				<AButton @onClick="postShowMore" :attributes="btnSettings.DC">
 					{{ t('SHOW_MORE') }} <AImg :attributes="arrowSettings.DC" src="/img/arrowGreen.svg" />
 				</AButton>
 			</div>
@@ -25,11 +26,11 @@
 
 <script>
 import { BONUS_CATEGORY as NumberPostOnQuery } from '~/config/postLoader'
-import Helper from '~/helpers/helpers.js'
 import translateMixin from '~/mixins/translate'
 import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
 import AButton from '~/components/ui/atoms/buttons'
 import AImg from '~/components/ui/atoms/img/'
+import postLoader from '~/mixins/postLoader'
 export default {
 	name: 'bonus_loop',
 	components: { BonusAsideCard, AButton, AImg },
@@ -41,11 +42,10 @@ export default {
 			}
 		}
 	},
-	mixins: [translateMixin],
+	mixins: [translateMixin, postLoader],
 	data() {
 		return {
 			numberPostOnQuery: NumberPostOnQuery,
-			postCurrentPage: 1,
 			btnSettings: {
 				DC: { color: 'cairo', class: 'load_more', weight: 'bold', size: 'medium' },
 				TABLET: {},
@@ -56,24 +56,6 @@ export default {
 				TABLET: {},
 				MOB: {}
 			}
-		}
-	},
-	computed: {
-		currentPosts() {
-			return this.value.slice(0, this.numberPostOnQuery * this.postCurrentPage)
-		}
-	},
-	filters: {
-		classRating(item) {
-			return Helper.classRating(item)
-		}
-	},
-	methods: {
-		refActivate(item) {
-			Helper.refActivate(item)
-		},
-		postShowMore() {
-			this.postCurrentPage += 1
 		}
 	}
 }

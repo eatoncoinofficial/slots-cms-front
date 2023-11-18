@@ -1,5 +1,5 @@
 <template>
-	<article class="item">
+	<article class="item" @click="refActivate(refLinks)">
 		<div class="wrapper">
 			<div class="left">
 				<div class="img_wrapper">
@@ -35,9 +35,11 @@
 <script>
 import AImg from '~/components/ui/atoms/img/'
 import AText from '~/components/ui/atoms/text'
+import ref from '~/mixins/ref'
 export default {
 	name: 'bonus_aside_card',
 	components: { AImg, AText },
+	mixins: [ref],
 	data: () => {
 		return {
 			imgSettings: {

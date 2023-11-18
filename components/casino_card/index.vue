@@ -19,7 +19,7 @@
 					<AText tag="div" :attributes="bonusValueSettings.DC">{{ bonus_value }}</AText>
 					<div class="action_wrapper">
 						<div class="btn_wrapper">
-							<AButton :attributes="btnSettings.DC">{{ t('GO_TO') }}</AButton>
+							<AButton :attributes="btnSettings.DC" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
 						</div>
 					</div>
 				</div>
@@ -32,9 +32,10 @@ import AImg from '~/components/ui/atoms/img/'
 import AText from '~/components/ui/atoms/text'
 import AButton from '~/components/ui/atoms/buttons'
 import translateMixin from '~/mixins/translate'
+import ref from '~/mixins/ref'
 export default {
 	name: 'casino_card',
-	mixins: [translateMixin],
+	mixins: [translateMixin, ref],
 	components: { AImg, AText, AButton },
 	data() {
 		return {

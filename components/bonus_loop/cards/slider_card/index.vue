@@ -1,5 +1,5 @@
 <template>
-	<article class="item">
+	<article class="item" @click="refActivate(refLinks)">
 		<div class="wrapper">
 			<div class="left">
 				<div class="img_wrapper">
@@ -31,9 +31,11 @@
 import AImg from '~/components/ui/atoms/img/'
 import AText from '~/components/ui/atoms/text'
 import ALink from '~/components/ui/atoms/links'
+import ref from '~/mixins/ref'
 export default {
 	name: 'bonus_slider_card',
 	components: { AImg, AText, ALink },
+	mixins: [ref],
 	data: () => {
 		return {
 			imgSettings: {

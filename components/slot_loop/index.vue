@@ -1,11 +1,11 @@
 <template>
 	<div>
 		<div class="slot_loop">
-			<GameMainCard v-for="(item, index) in value" :key="index" :link="item.permalink" :src="item.thumbnail" />
+			<GameMainCard v-for="(item, index) in currentPosts" :key="index" :link="item.permalink" :src="item.thumbnail" />
 		</div>
-		<div class="items-more">
+		<div class="items-more" v-if="hideBtnShowMore">
 			<div class="btn_wrapper">
-				<AButton @click="postShowMore" :attributes="btnSettings.DC">
+				<AButton @onClick="postShowMore" :attributes="btnSettings.DC">
 					{{ t('SHOW_MORE') }} <AImg :attributes="arrowSettings.DC" src="/img/arrowGreen.svg" />
 				</AButton>
 			</div>
@@ -15,11 +15,11 @@
 
 <script>
 import { GAME as NumberPostOnQuery } from '~/config/postLoader'
-import Helper from '~/helpers/helpers.js'
 import translateMixin from '~/mixins/translate'
 import GameMainCard from '~/components/slot_loop/cards/main'
 import AButton from '~/components/ui/atoms/buttons'
 import AImg from '~/components/ui/atoms/img/'
+import postLoader from '~/mixins/postLoader'
 export default {
 	name: 'slot_loop',
 	components: { GameMainCard, AButton, AImg },
@@ -31,11 +31,10 @@ export default {
 			}
 		}
 	},
-	mixins: [translateMixin],
+	mixins: [translateMixin, postLoader],
 	data() {
 		return {
 			numberPostOnQuery: NumberPostOnQuery,
-			postCurrentPage: 1,
 			btnSettings: {
 				DC: { color: 'cairo', class: 'load_more', weight: 'bold', size: 'medium' },
 				TABLET: {},
@@ -46,24 +45,6 @@ export default {
 				TABLET: {},
 				MOB: {}
 			}
-		}
-	},
-	computed: {
-		currentPosts() {
-			return this.value.slice(0, this.numberPostOnQuery * this.postCurrentPage)
-		}
-	},
-	filters: {
-		classRating(item) {
-			return Helper.classRating(item)
-		}
-	},
-	methods: {
-		refActivate(item) {
-			Helper.refActivate(item)
-		},
-		postShowMore() {
-			this.postCurrentPage += 1
 		}
 	}
 }

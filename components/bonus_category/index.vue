@@ -11,6 +11,7 @@
 				:value="item.bonus"
 				:min_dep="item.min_deposit"
 				:wager="item.wagering"
+				:refLinks="item.casino.ref"
 			/>
 		</div>
 		<div class="items-more">
@@ -29,7 +30,6 @@ import AImg from '~/components/ui/atoms/img/'
 import ALink from '~/components/ui/atoms/links'
 import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
 import translateMixin from '~/mixins/translate'
-import { BONUS_CATEGORY_SMALL as NumberPostOnQuery } from '~/config/postLoader'
 export default {
 	name: 'bonus_category',
 	mixins: [translateMixin],
@@ -77,27 +77,7 @@ export default {
 				DC: { width: '18px', height: '18px', class: 'arrow' },
 				TABLET: {},
 				MOB: {}
-			},
-			numberPostOnQuery: NumberPostOnQuery,
-			postCurrentPage: 1
-		}
-	},
-	computed: {
-		currentPosts() {
-			return this.value.slice(0, this.numberPostOnQuery * this.postCurrentPage)
-		}
-	},
-	filters: {
-		classRating(item) {
-			return Helper.classRating(item)
-		}
-	},
-	methods: {
-		refActivate(item) {
-			Helper.refActivate(item)
-		},
-		postShowMore() {
-			this.postCurrentPage += 1
+			}
 		}
 	}
 }

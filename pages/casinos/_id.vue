@@ -25,6 +25,7 @@
 										:value="item.bonus"
 										:min_dep="item.min_deposit"
 										:wager="item.wagering"
+										:refLinks="item.casino.ref"
 									/>
 								</div>
 							</aside>
