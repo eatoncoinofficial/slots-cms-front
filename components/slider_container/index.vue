@@ -2,9 +2,9 @@
 	<div class="root">
 		<div class="top">
 			<div class="ttl" :class="icon">
-				<AText :attributes="ttlSettings.DC">{{ title }}</AText>
+				<AText :attributes="ttlSettings">{{ title }}</AText>
 			</div>
-			<LinkWithArrow :link="link" :attributes="linkSettings.DC">
+			<LinkWithArrow :link="link" :attributes="linkSettings">
 				{{ t('SHOW_MORE') }}
 			</LinkWithArrow>
 		</div>
@@ -27,14 +27,17 @@ export default {
 	data: () => {
 		return {
 			ttlSettings: {
-				DC: { size: 'x-large', color: 'cairo', weight: 'extra-bold' },
-				TABLET: {},
-				MOB: {}
+				size: 'x-large',
+				color: 'cairo',
+				weight: 'extra-bold',
+				class: 'slider_head-ttl'
 			},
 			linkSettings: {
-				DC: { size: 'medium', color: 'calgary', weight: 'semi-bold', decoration: 'none' },
-				TABLET: {},
-				MOB: {}
+				size: 'medium',
+				color: 'calgary',
+				weight: 'semi-bold',
+				decoration: 'none',
+				class: 'slider_head-link'
 			}
 		}
 	},
@@ -66,6 +69,16 @@ export default {
 	}
 }
 </script>
+<style>
+@media (max-width: 767px) {
+	.slider_head-ttl {
+		font-size: 16px;
+	}
+	.slider_head-link {
+		display: none;
+	}
+}
+</style>
 <style scoped>
 .root {
 	width: 100%;
@@ -128,5 +141,15 @@ export default {
 .ttl {
 	display: flex;
 	align-items: center;
+}
+@media (max-width: 767px) {
+	.root {
+		padding: 10px;
+	}
+	.top {
+		height: 40px;
+		padding-right: 0px;
+		margin-bottom: 0px;
+	}
 }
 </style>

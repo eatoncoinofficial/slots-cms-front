@@ -115,4 +115,28 @@ export default {
 	padding-left: 0px;
 	padding-right: 0px;
 }
+@media (max-width: 767px) {
+	.container_providers {
+		padding-left: 15px;
+		overflow-x: scroll;
+	}
+	.container_game_week {
+		flex-wrap: wrap;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.left {
+		width: 100%;
+		margin-bottom: 20px;
+		justify-content: center;
+		display: flex;
+	}
+	.right {
+		justify-content: space-between;
+	}
+	.container_loop {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
 </style>

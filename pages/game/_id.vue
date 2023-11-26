@@ -130,4 +130,14 @@ export default {
 .title {
 	margin-bottom: 24px;
 }
+@media (max-width: 767px) {
+	.symbols,
+	.screenshots {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+	.container_top_game {
+		padding-bottom: 30px;
+	}
+}
 </style>

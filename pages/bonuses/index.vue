@@ -83,4 +83,9 @@ export default {
 .bonus_category_item {
 	width: 32%;
 }
+@media (max-width: 767px) {
+	.bonus_category_item {
+		width: 100%;
+	}
+}
 </style>

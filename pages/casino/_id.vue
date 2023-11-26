@@ -105,7 +105,7 @@ export default {
 				MOB: {}
 			},
 			titleCharactersSettings: {
-				DC: { color: 'cairo', weight: 'bold', size: 'x-large' },
+				DC: { color: 'cairo', weight: 'bold', size: 'x-large', class: 'detail_title' },
 				TABLE: {},
 				MOB: {}
 			},
@@ -157,12 +157,9 @@ export default {
 </script>
 <style scoped>
 .casino_page {
-	background: url('/img/casino_bg.png') top center rgba(16, 13, 36, 1);
+	background: url('/img/mobHeroBg.webp') top center rgba(16, 13, 36, 1);
 	background-repeat: no-repeat;
 	padding-top: 165px;
-}
-.main_container {
-	padding-bottom: 60px;
 }
 .title {
 	font-size: 32px;
@@ -203,5 +200,19 @@ export default {
 .content_wrapper {
 	background: rgba(8, 5, 26, 1);
 	padding: 60px 0px;
+}
+@media (max-width: 767px) {
+	.title {
+		font-size: 24px;
+	}
+	.detail_title {
+		font-size: 17px;
+	}
+	.slot_loop {
+		gap: 10px;
+	}
+	.casino_page {
+		padding-top: 150px;
+	}
 }
 </style>

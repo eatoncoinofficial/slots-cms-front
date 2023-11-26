@@ -32,5 +32,10 @@ export default {
 .slick-arrow {
 	display: none !important;
 }
+@media (max-width: 767px) {
+	.slick-list {
+		padding-left: 0px !important;
+	}
+}
 </style>
 <style scoped></style>

@@ -1,6 +1,6 @@
 export default {
     data: () => ({
-        device: 'DC'
+        device: ''
       }),
     mounted() {
         window.addEventListener('resize', this.onResize);

@@ -13,10 +13,10 @@
 					<AText :attributes="titleSettings.DC">{{ title }}</AText>
 				</div>
 				<div>
-					<AText :attributes="descTextSettings.DC">{{ desc }}</AText>
+					<AText :attributes="descTextSettings">{{ desc }}</AText>
 				</div>
 				<div>
-					<AText :attributes="valueTextSettings.DC">{{ value }}</AText>
+					<AText :attributes="valueTextSettings">{{ value }}</AText>
 				</div>
 			</div>
 			<div class="action">
@@ -54,14 +54,17 @@ export default {
 				MOB: {}
 			},
 			descTextSettings: {
-				DC: { color: 'cairo', size: 'small', weight: 'regular', class: 'desc' },
-				TABLET: {},
-				MOB: {}
+				color: 'cairo',
+				size: 'small',
+				weight: 'regular',
+				class: 'desc'
 			},
 			valueTextSettings: {
-				DC: { color: 'calgary', size: 'large', weight: 'bold', transform: 'uppercase' },
-				TABLET: {},
-				MOB: {}
+				color: 'calgary',
+				size: 'large',
+				weight: 'bold',
+				transform: 'uppercase',
+				class: 'bonus_card_value'
 			}
 		}
 	},
@@ -138,5 +141,20 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+@media (max-width: 767px) {
+	.item {
+		padding-right: 0px;
+		width: 100%;
+	}
+	.bonus_card_value {
+		font-size: 14px;
+	}
+	.desc {
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		width: 190px;
+		overflow: hidden;
+	}
 }
 </style>

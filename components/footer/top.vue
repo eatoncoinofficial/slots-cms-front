@@ -42,4 +42,17 @@ export default {
 .right {
 	width: 43%;
 }
+@media (max-width: 767px) {
+	.top-container {
+		flex-wrap: wrap;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	.left {
+		width: 100%;
+	}
+	.right {
+		width: 100%;
+	}
+}
 </style>

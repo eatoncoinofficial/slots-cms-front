@@ -96,4 +96,13 @@ export default {
 [data-active='true'] {
 	background: rgba(255, 255, 255, 0.27);
 }
+@media (max-width: 767px) {
+	.wrapper {
+		width: auto;
+	}
+	.wrapper a,
+	.wrapper span {
+		flex-shrink: 0;
+	}
+}
 </style>

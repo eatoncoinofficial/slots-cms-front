@@ -1,17 +1,28 @@
 <template>
 	<div class="search">
-		<input placeholder="Пошук" class="input" />
-		<button type="button" class="btn-default search__cta">
+		<input :placeholder="t('SEARCH')" class="input" v-model="searchWord" v-on:keyup.enter="search" />
+		<button type="button" class="btn-default search__cta" @click="search">
 			<AImg :attributes="imgSettings.DC" src="/img/search.png" />
 		</button>
+		<div class="search-box" v-if="posts.length && searchWord.length">
+			<ul class="search-suggest" v-if="posts.length !== 0">
+				<li v-for="(item, index) in posts" :key="index" @click="goToSearch">
+					<NuxtLink :to="item.permalink">
+						{{ item.title }}
+					</NuxtLink>
+				</li>
+			</ul>
+		</div>
 	</div>
 </template>
 <script>
 import DAL_Builder from '~/DAL/builder'
 import AImg from '~/components/ui/atoms/img'
+import translate from '~/mixins/translate'
 export default {
 	name: 'app-search',
 	components: { AImg },
+	mixins: [translate],
 	data() {
 		return {
 			posts: [],
@@ -29,6 +40,9 @@ export default {
 		}
 	},
 	methods: {
+		searchActivate() {
+			this.$store.dispatch('common/setShowSearch', !this.$store.getters['common/getShowSearch'])
+		},
 		async search() {
 			if (this.searchWord === '') return
 			const request = new DAL_Builder()
@@ -38,8 +52,19 @@ export default {
 				.searchWold(this.searchWord)
 				.get()
 			if (response.data.confirm !== 'error') {
+				console.log('Search good')
 				this.posts = response.data.body.posts
 			}
+		},
+		goToSearch() {
+			this.$store.dispatch('common/setShowSearch', !this.$store.getters['common/getShowSearch'])
+			this.posts = []
+			this.searchWord = ''
+		}
+	},
+	watch: {
+		searchWord() {
+			if (this.searchWord === '') this.posts = []
 		}
 	}
 }
@@ -53,6 +78,7 @@ export default {
 	background: rgba(16, 13, 36, 0.28);
 	border-radius: 14px;
 	padding-right: 15px;
+	position: relative;
 }
 .input {
 	flex-grow: 1;
@@ -91,5 +117,31 @@ export default {
 	text-align: center;
 	position: relative;
 	padding: 0;
+}
+.search-box {
+	position: absolute;
+	width: 100%;
+	z-index: 4;
+	background: #311b92ff;
+	border-radius: 12px;
+	padding-left: 15px;
+	padding-right: 5px;
+	border: 1px var(--cairo);
+}
+.search-box a {
+	color: var(--cairo);
+	text-decoration: none;
+}
+.search-box ul {
+	list-style: none;
+	padding-left: 0px;
+}
+.search-box {
+	top: 50px;
+}
+@media (max-width: 767px) {
+	.search-box {
+		top: 50px;
+	}
 }
 </style>

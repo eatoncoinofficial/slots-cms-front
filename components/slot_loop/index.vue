@@ -74,4 +74,10 @@ export default {
 	transform: rotate(90deg);
 	margin-left: 10px;
 }
+@media (max-width: 767px) {
+	.slot_loop {
+		justify-content: space-between;
+		padding-bottom: 20px;
+	}
+}
 </style>

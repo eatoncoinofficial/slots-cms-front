@@ -2,23 +2,23 @@
 	<div>
 		<nav class="footer-nav">
 			<div class="item">
-				<ALink href="/good-day" :attributes="textSettings.DC">
-					Hello world 1
+				<ALink href="/" :attributes="textSettings">
+					ОНЛАЙН-КАЗИНО
 				</ALink>
 			</div>
 			<div class="item">
-				<ALink href="/good-day" :attributes="textSettings.DC">
-					Hello world 2
+				<ALink href="/games" :attributes="textSettings">
+					ІГРИ
 				</ALink>
 			</div>
 			<div class="item">
-				<ALink href="/good-day" :attributes="textSettings.DC">
-					Hello world 3
+				<ALink href="/bonuses" :attributes="textSettings">
+					БОНУСИ
 				</ALink>
 			</div>
 			<div class="item">
-				<ALink href="/good-day" :attributes="textSettings.DC">
-					Hello world 4
+				<ALink href="/news" :attributes="textSettings">
+					NEWS
 				</ALink>
 			</div>
 		</nav>
@@ -33,15 +33,11 @@ export default {
 	data: () => {
 		return {
 			textSettings: {
-				DC: {
-					weight: 'regular',
-					color: 'cairo',
-					size: 'small',
-					decoration: 'none',
-					text_transform: 'uppercase'
-				},
-				TABLET: {},
-				MOB: {}
+				weight: 'regular',
+				color: 'cairo',
+				size: 'small',
+				decoration: 'none',
+				text_transform: 'uppercase'
 			}
 		}
 	}
@@ -52,5 +48,16 @@ export default {
 	display: flex;
 	gap: 30px;
 	margin-top: 65px;
+}
+@media (max-width: 767px) {
+	.footer-nav {
+		flex-wrap: wrap;
+		margin-top: 30px;
+		margin-bottom: 30px;
+		gap: 15px;
+	}
+	.item {
+		width: 100%;
+	}
 }
 </style>

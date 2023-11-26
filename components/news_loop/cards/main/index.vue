@@ -131,4 +131,9 @@ export default {
 .bottom {
 	padding: 0 var(--s);
 }
+@media (max-width: 767px) {
+	.item {
+		flex-shrink: 0;
+	}
+}
 </style>

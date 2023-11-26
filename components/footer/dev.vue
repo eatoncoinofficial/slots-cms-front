@@ -21,4 +21,9 @@ export default {
 	padding-top: 45px;
 	background: var(--cucuta);
 }
+@media (max-width: 767px) {
+	.footer {
+		padding-top: 15px;
+	}
+}
 </style>

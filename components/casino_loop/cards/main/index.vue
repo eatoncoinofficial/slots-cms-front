@@ -16,7 +16,7 @@
 					</ALink>
 				</div>
 			</div>
-			<div class="right">
+			<div class="right" v-if="device !== 'MOB'">
 				<div class="right_left">
 					<ALink :href="link" :attributes="titleLinkSettings.DC">
 						{{ title }}
@@ -59,6 +59,50 @@
 					</div>
 				</div>
 			</div>
+			<div class="right" v-if="device === 'MOB'">
+				<div class="wrapper_title">
+					<ALink :href="link" :attributes="titleLinkSettings.DC">
+						{{ title }}
+					</ALink>
+				</div>
+				<AText tag="div" :attributes="bonusNameSettings.DC">{{ t('WELCOME_PACKAGE') }}</AText>
+				<AText tag="div" :attributes="bonusValueSettings.DC">{{ bonus_value }}</AText>
+				<AText tag="div" :attributes="bonusDescSettings.DC"
+					>Min. deposit: {{ min_dep }} &middot; Wagering: {{ wager }}</AText
+				>
+				<div class="providers">
+					<div class="providers_icon"></div>
+					<div class="providers_loop">
+						<ALink
+							v-for="(item, index) in vendors.slice(0, 4)"
+							:href="item.permalink"
+							:attributes="providerLinkSettings.DC"
+							:key="index"
+						>
+							<AImg :attributes="providerSettings.DC" :src="item.thumbnail" />
+						</ALink>
+					</div>
+					<div class="providers_total">
+						<AText tag="span" :attributes="totalTextSettings.DC">+ {{ vendors.length }}</AText>
+					</div>
+				</div>
+				<div class="details_wrapper">
+					<div class="details_btn" :class="{ active: detailActive }" @click="onDetailActive">{{ t('DETAILS') }}</div>
+				</div>
+				<div class="advantages_wrapper" v-if="detailActive">
+					<AText tag="div" :attributes="advantagesTextSettings.DC" v-for="(item, index) in advantages" :key="index">{{
+						item
+					}}</AText>
+				</div>
+				<div class="action_wrapper">
+					<div class="btn_wrapper">
+						<AButton :attributes="btnSettings.DC" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
+					</div>
+					<ALink :href="link" :attributes="readMoreLinkSettings.DC"
+						><AImg :attributes="searchSettings.DC" src="/img/search.png" />
+					</ALink>
+				</div>
+			</div>
 		</div>
 	</article>
 </template>
@@ -69,9 +113,10 @@ import ALink from '~/components/ui/atoms/links'
 import AButton from '~/components/ui/atoms/buttons'
 import translateMixin from '~/mixins/translate'
 import ref from '~/mixins/ref'
+import device from '~/mixins/device'
 export default {
 	name: 'casino_main_card',
-	mixins: [translateMixin, ref],
+	mixins: [translateMixin, ref, device],
 	components: { AImg, AText, ALink, AButton },
 	data: () => {
 		return {
@@ -116,7 +161,7 @@ export default {
 				MOB: {}
 			},
 			bonusDescSettings: {
-				DC: { color: 'cairo', size: 'small', weight: 'regular' },
+				DC: { color: 'cairo', size: 'small', weight: 'regular', class: 'bonus_desc' },
 				TABLET: {},
 				MOB: {}
 			},
@@ -149,7 +194,8 @@ export default {
 				DC: { class: 'provider_img', width: '54px', height: '34px' },
 				TABLET: {},
 				MOB: {}
-			}
+			},
+			detailActive: false
 		}
 	},
 	props: {
@@ -224,6 +270,11 @@ export default {
 			default() {
 				return 0
 			}
+		}
+	},
+	methods: {
+		onDetailActive() {
+			this.detailActive = !this.detailActive
 		}
 	}
 }
@@ -394,5 +445,85 @@ export default {
 }
 .label.popular {
 	background: rgba(255, 0, 92, 1);
+}
+@media (max-width: 767px) {
+	.item {
+		width: 100%;
+		height: auto;
+	}
+	.wrapper {
+		flex-wrap: wrap;
+		height: auto;
+	}
+	.left {
+		width: 100%;
+		justify-content: center;
+	}
+	.right {
+		width: 100%;
+		flex-wrap: wrap;
+	}
+	.rating {
+		left: 100%;
+		transform: translateX(-100%);
+	}
+	.wrapper_title {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+	.bonus_name,
+	.bonus_value,
+	.bonus_desc {
+		width: 100%;
+		text-align: center;
+	}
+	.bonus_desc {
+		margin-top: 10px;
+	}
+	.providers {
+		width: 90%;
+		margin: 0 auto;
+		margin-top: 20px;
+	}
+	.details_wrapper {
+		display: flex;
+		justify-content: center;
+		margin-top: 20px;
+		width: 100%;
+	}
+	.details_btn {
+		font-size: 14px;
+		color: var(--cairo);
+		cursor: pointer;
+		position: relative;
+		padding-right: 24px;
+	}
+	.details_btn::after {
+		content: '';
+		width: 18px;
+		height: 18px;
+		background: url('/img/white_arrow_details.png') center center no-repeat;
+		position: absolute;
+		right: 0px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	.details_btn.active::after {
+		transform: rotate(180deg) translateY(50%);
+	}
+	.advantages_wrapper {
+		height: auto;
+		width: 100%;
+		margin-top: 10px;
+		padding-bottom: 0px;
+	}
+	.advantages {
+		margin-bottom: 15px;
+	}
+	.action_wrapper {
+		width: 100%;
+		justify-content: center;
+	}
 }
 </style>

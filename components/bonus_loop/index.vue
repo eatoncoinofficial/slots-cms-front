@@ -96,4 +96,12 @@ export default {
 	transform: rotate(90deg);
 	margin-left: 10px;
 }
+@media (max-width: 767px) {
+	.bonus_item {
+		width: 100%;
+	}
+	.items-more {
+		width: 100%;
+	}
+}
 </style>

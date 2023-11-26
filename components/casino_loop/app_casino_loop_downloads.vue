@@ -78,14 +78,20 @@ export default {
 	width: 820px;
 	height: 52px;
 	margin-top: var(--l);
-}
-.load_more {
-	background: rgba(255, 255, 255, 0.1);
-	border-radius: var(--s);
-	border: rgba(255, 255, 255, 0.05);
+	max-width: 100%;
 }
 .arrow {
 	transform: rotate(90deg);
 	margin-left: 10px;
+}
+@media (max-width: 767px) {
+	.casino_loop {
+		padding-bottom: 40px;
+	}
+	.items-more {
+		margin-top: 0px;
+		width: 272px;
+		margin: 0 auto;
+	}
 }
 </style>

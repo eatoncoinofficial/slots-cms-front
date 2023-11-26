@@ -139,7 +139,9 @@ export default {
 .aside {
 	padding-top: var(--xl);
 }
-.main_container {
-	padding-bottom: 80px;
+@media (max-width: 767px) {
+	.aside {
+		padding-top: var(--l);
+	}
 }
 </style>

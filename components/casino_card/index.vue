@@ -209,4 +209,20 @@ export default {
 .label.popular {
 	background: rgba(255, 0, 92, 1);
 }
+@media (max-width: 767px) {
+	.left {
+		width: 100%;
+		justify-content: center;
+	}
+	.casino_card {
+		height: auto;
+	}
+	.wrapper {
+		flex-wrap: wrap;
+		height: auto;
+	}
+	.img_wrapper {
+		margin-top: 25px;
+	}
+}
 </style>

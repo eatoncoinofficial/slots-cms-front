@@ -1,9 +1,7 @@
 <template>
 	<div>
 		<Header />
-		<main class="main">
-			<nuxt />
-		</main>
+		<nuxt />
 		<Footer />
 	</div>
 </template>
@@ -582,9 +580,30 @@ Common styles*/
 		text-decoration: none;
 	}
 }
+.load_more {
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: var(--s);
+	border: rgba(255, 255, 255, 0.05);
+	height: 100%;
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
 /* Content */
 .content_container {
 	padding-top: 40px;
 	padding-bottom: 20px;
+}
+.main_container {
+	padding-bottom: 60px;
+}
+@media (max-width: 767px) {
+	.content_container {
+		padding: 20px 0px;
+	}
+	.main_container {
+		padding-bottom: 40px;
+	}
 }
 </style>

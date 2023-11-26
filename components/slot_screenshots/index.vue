@@ -37,4 +37,14 @@ export default {
 	min-width: 22%;
 	max-width: 22%;
 }
+@media (max-width: 767px) {
+	.item_container {
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	.item_wrapper {
+		min-width: 45%;
+		max-width: 45%;
+	}
+}
 </style>

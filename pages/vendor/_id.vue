@@ -139,11 +139,13 @@ export default {
 	flex-wrap: wrap;
 	gap: 15px;
 }
-.main_container {
-	padding-bottom: 80px;
-}
 .slots_title {
 	font-size: 22px;
 	margin-bottom: 30px;
+}
+@media (max-width: 767px) {
+	.aside {
+		margin-top: 20px;
+	}
 }
 </style>

@@ -238,4 +238,16 @@ export default {
 	border-radius: 10px;
 	background: rgba(255, 255, 255, 0.06);
 }
+@media (max-width: 767px) {
+	.row {
+		flex-wrap: wrap;
+	}
+	.left {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	.right {
+		width: 100%;
+	}
+}
 </style>

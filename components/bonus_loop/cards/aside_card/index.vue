@@ -163,4 +163,9 @@ export default {
 	border-bottom-left-radius: 14px;
 	border-bottom-right-radius: 14px;
 }
+@media (max-width: 767px) {
+	.item {
+		width: 100%;
+	}
+}
 </style>

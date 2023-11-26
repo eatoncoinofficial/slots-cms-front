@@ -56,4 +56,14 @@ export default {
 .header_menu_item[data-active='true'] {
 	border-bottom: 4px solid var(--calgary) !important;
 }
+@media (max-width: 767px) {
+	.header_menu_container {
+		flex-wrap: wrap;
+		gap: 10px;
+		margin-top: 20px;
+	}
+	.header_menu_item {
+		width: 100%;
+	}
+}
 </style>

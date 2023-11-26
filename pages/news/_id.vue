@@ -157,4 +157,25 @@ export default {
 	justify-content: space-between;
 	margin-top: var(--l);
 }
+@media (max-width: 767px) {
+	.wrapper_thumbnail {
+		width: 100%;
+		height: auto;
+	}
+	.content_container {
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+	.aside {
+		margin-bottom: 40px;
+	}
+	.news_container {
+		gap: 20px;
+		overflow-x: scroll;
+		margin-right: -20px;
+	}
+	.news_container .item:last-child {
+		margin-right: 20px;
+	}
+}
 </style>

@@ -27,7 +27,7 @@ export default {
 				MOB: {}
 			},
 			textSettings: {
-				DC: { size: 'large', color: 'cairo', weight: 'regular' },
+				DC: { size: 'large', color: 'cairo', weight: 'regular', class: 'item_text' },
 				TABLE: {},
 				MOB: {}
 			}
@@ -70,5 +70,13 @@ export default {
 .right {
 	display: flex;
 	align-items: center;
+}
+@media (max-width: 767px) {
+	.left {
+		width: 80px;
+	}
+	.item_text {
+		font-size: 12px;
+	}
 }
 </style>

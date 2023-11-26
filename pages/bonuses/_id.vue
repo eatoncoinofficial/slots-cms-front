@@ -105,7 +105,4 @@ export default {
 .aside {
 	padding-top: var(--xl);
 }
-.main_container {
-	padding-bottom: 80px;
-}
 </style>

@@ -109,4 +109,13 @@ export default {
 	font-size: 10px;
 	transform: translateY(1px);
 }
+@media (max-width: 767px) {
+	.item {
+		width: 110px;
+		height: 110px;
+	}
+	.wrapper {
+		padding-top: 5px;
+	}
+}
 </style>

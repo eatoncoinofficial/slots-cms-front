@@ -2,7 +2,7 @@
 	<main class="main_page">
 		<div class="container">
 			<div class="ttl_container">
-				<AText tag="h1" :attributes="mainTitleSettings[device]">{{ data.body.h1 }}</AText>
+				<AText tag="h1" :attributes="mainTitleSettings">{{ data.body.h1 }}</AText>
 				<div class="ttl_desc">
 					<AText tag="div" :attributes="mainDescSettings.DC">{{ data.body.short_desc }}</AText>
 				</div>
@@ -13,7 +13,7 @@
 						icon="casino"
 						:title="t('ONLINE_CASINO')"
 						link="/casinos"
-						:sliderSettings="casinoSliderSettings.DC"
+						:sliderSettings="casinoSliderSettings"
 					>
 						<CasinoSliderCard
 							v-for="(item, index) in data.body.casino_slider"
@@ -26,7 +26,7 @@
 					</SliderContainer>
 				</div>
 				<div class="slider_item">
-					<SliderContainer icon="game" :title="t('GAMES')" link="/games" :sliderSettings="gameSliderSettings.DC">
+					<SliderContainer icon="game" :title="t('GAMES')" link="/games" :sliderSettings="gameSliderSettings">
 						<SlotSliderCard
 							v-for="(item, index) in data.body.games"
 							:key="index"
@@ -35,8 +35,8 @@
 						/>
 					</SliderContainer>
 				</div>
-				<div class="slider_item">
-					<SliderContainer icon="bonus" :title="t('BONUSES')" link="/bonuses" :sliderSettings="bonusSliderSettings.DC">
+				<div class="slider_item" v-if="sliderShow">
+					<SliderContainer icon="bonus" :title="t('BONUSES')" link="/bonuses" :sliderSettings="bonusSliderSettings">
 						<BonusSliderCard
 							v-for="(item, index) in data.body.bonuses"
 							:key="index"
@@ -48,8 +48,8 @@
 						/>
 					</SliderContainer>
 				</div>
-				<div class="slider_item">
-					<SliderContainer icon="news" :title="t('NEWS')" link="/news" :sliderSettings="newsSliderSettings.DC">
+				<div class="slider_item" v-if="sliderShow">
+					<SliderContainer icon="news" :title="t('NEWS')" link="/news" :sliderSettings="newsSliderSettings">
 						<NewsSliderCard
 							v-for="(item, index) in data.body.news"
 							:key="index"
@@ -59,6 +59,13 @@
 							:desc="item.create_at.slice(0, 10)"
 						/>
 					</SliderContainer>
+				</div>
+				<div class="slider_show_more_container" v-if="device === 'MOB' && !sliderShow">
+					<div class="btn_wrapper">
+						<AButton @onClick="sliderShowToggle" :attributes="btnSettings.DC">
+							{{ t('SHOW_MORE') }} <AImg :attributes="arrowSettings.DC" src="/img/arrowGreen.svg" />
+						</AButton>
+					</div>
 				</div>
 			</div>
 			<div class="main_container">
@@ -129,6 +136,8 @@ import DAL_Page from '~/DAL/static_pages'
 import Slider from '~/components/slider'
 import SliderContainer from '~/components/slider_container'
 import AText from '~/components/ui/atoms/text'
+import AButton from '~/components/ui/atoms/buttons'
+import AImg from '~/components/ui/atoms/img/'
 import CasinoSliderCard from '~/components/casino_loop/cards/slider_card'
 import SlotSliderCard from '~/components/slot_loop/cards/slider_card'
 import BonusSliderCard from '~/components/bonus_loop/cards/slider_card'
@@ -142,13 +151,13 @@ import CasinoLoop from '~/components/casino_loop/app_casino_loop_downloads.vue'
 import MainContent from '~/components/content'
 import Faq from '~/components/faq/app_faq'
 import translateMixin from '~/mixins/translate'
-import deviceMixin from '~/mixins/device'
+import device from '~/mixins/device'
 import head from '~/mixins/head'
 import helper from '~/helpers/helpers'
 
 export default {
 	name: 'main-page',
-	mixins: [translateMixin, head, deviceMixin],
+	mixins: [translateMixin, head, device],
 	components: {
 		Slider,
 		SliderContainer,
@@ -164,20 +173,18 @@ export default {
 		NewsMainCard,
 		CasinoLoop,
 		Faq,
-		MainContent
+		MainContent,
+		AButton,
+		AImg
 	},
 	layout: 'default',
 	data: () => {
 		return {
 			mainTitleSettings: {
-				DC: {
-					weight: 'extra-bold',
-					color: 'cairo',
-					size: '2x-large',
-					class: 'main_page_h1'
-				},
-				TABLET: {},
-				MOB: {}
+				weight: 'extra-bold',
+				color: 'cairo',
+				size: '2x-large',
+				class: 'main_page_h1'
 			},
 			mainDescSettings: {
 				DC: {
@@ -190,56 +197,124 @@ export default {
 				MOB: {}
 			},
 			bonusSliderSettings: {
-				DC: {
-					slidesToShow: 1.12,
-					centerMode: true,
-					autoplay: true,
-					speed: 2000,
-					autoplaySpeed: 2000,
-					initialSlide: 0,
-					infinite: true
-				},
-				TABLET: {},
-				MOB: {}
+				slidesToShow: 1.12,
+				centerMode: true,
+				autoplay: true,
+				speed: 2000,
+				autoplaySpeed: 2000,
+				initialSlide: 0,
+				infinite: true,
+				responsive: [
+					{
+						breakpoint: 1024,
+						settings: {
+							slidesToShow: 1.12
+						}
+					},
+					{
+						breakpoint: 600,
+						settings: {
+							slidesToShow: 1.12
+						}
+					},
+					{
+						breakpoint: 480,
+						settings: {
+							slidesToShow: 1,
+							centerMode: false,
+							initialSlide: -1
+						}
+					}
+				]
 			},
 			casinoSliderSettings: {
-				DC: {
-					slidesToShow: 5,
-					centerMode: false,
-					autoplay: true,
-					speed: 2000,
-					autoplaySpeed: 2000,
-					initialSlide: 0,
-					infinite: true
-				},
-				TABLE: {},
-				MOB: {}
+				slidesToShow: 5,
+				centerMode: false,
+				autoplay: true,
+				speed: 2000,
+				autoplaySpeed: 2000,
+				initialSlide: 0,
+				infinite: true,
+				responsive: [
+					{
+						breakpoint: 1024,
+						settings: {
+							slidesToShow: 5
+						}
+					},
+					{
+						breakpoint: 600,
+						settings: {
+							slidesToShow: 3
+						}
+					},
+					{
+						breakpoint: 480,
+						settings: {
+							slidesToShow: 3
+						}
+					}
+				]
 			},
 			gameSliderSettings: {
-				DC: {
-					slidesToShow: 5,
-					centerMode: false,
-					autoplay: true,
-					speed: 2000,
-					autoplaySpeed: 2000,
-					initialSlide: 0,
-					infinite: true
-				},
-				TABLE: {},
-				MOB: {}
+				slidesToShow: 5,
+				centerMode: false,
+				autoplay: true,
+				speed: 2000,
+				autoplaySpeed: 2000,
+				initialSlide: 0,
+				infinite: true,
+				responsive: [
+					{
+						breakpoint: 1024,
+						settings: {
+							slidesToShow: 5
+						}
+					},
+					{
+						breakpoint: 600,
+						settings: {
+							slidesToShow: 3
+						}
+					},
+					{
+						breakpoint: 480,
+						settings: {
+							slidesToShow: 3
+						}
+					}
+				]
 			},
 			newsSliderSettings: {
-				DC: {
-					slidesToShow: 1.12,
-					centerMode: true,
-					autoplay: true,
-					speed: 2000,
-					autoplaySpeed: 2000,
-					initialSlide: 0,
-					infinite: true
-				},
-				TABLET: {},
-				MOB: {}
+				slidesToShow: 1.12,
+				centerMode: true,
+				autoplay: true,
+				speed: 2000,
+				autoplaySpeed: 2000,
+				initialSlide: 0,
+				infinite: true,
+				responsive: [
+					{
+						breakpoint: 1024,
+						settings: {
+							slidesToShow: 1.12
+						}
+					},
+					{
+						breakpoint: 600,
+						settings: {
+							slidesToShow: 1.12
+						}
+					},
+					{
+						breakpoint: 480,
+						settings: {
+							slidesToShow: 1,
+							centerMode: false,
+							initialSlide: -1
+						}
+					}
+				]
 			},
 			mainContainerTitle: {
 				DC: {
@@ -263,7 +338,30 @@ export default {
 				DC: { size: 'medium', color: 'calgary', weight: 'semi-bold', decoration: 'none' },
 				TABLET: {},
 				MOB: {}
+			},
+			showSliders: false,
+			btnSettings: {
+				DC: { color: 'cairo', class: 'load_more', weight: 'bold', size: 'medium' },
+				TABLET: {},
+				MOB: {}
+			},
+			arrowSettings: {
+				DC: { width: '18px', height: '18px', class: 'arrow' },
+				TABLET: {},
+				MOB: {}
 			}
+		}
+	},
+	computed: {
+		sliderShow() {
+			if (this.device !== 'MOB') return true
+			else if (this.device === 'MOB' && this.showSliders) return true
+			else return false
+		}
+	},
+	methods: {
+		sliderShowToggle() {
+			this.showSliders = !this.showSliders
 		}
 	},
 	async asyncData({ store, route }) {
@@ -287,7 +385,7 @@ export default {
 	margin-bottom: var(--m);
 }
 .main_page {
-	background: url('/img/mainPageBg.jpg') top center var(--colombo);
+	background: url('/img/hero_img.webp') top center var(--colombo);
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }
@@ -315,9 +413,6 @@ export default {
 .aside {
 	padding-top: var(--xl);
 }
-.main_container {
-	padding-bottom: 80px;
-}
 .section_title_wrapper {
 	display: flex;
 	justify-content: space-between;
@@ -335,6 +430,10 @@ export default {
 .main_page_h1 {
 	line-height: 62px;
 }
+.arrow {
+	transform: rotate(90deg);
+	margin-left: 10px;
+}
 @media (max-width: 767px) {
 	.main_page_h1 {
 		font-size: 32px;
@@ -344,6 +443,34 @@ export default {
 		max-width: 100%;
 		margin-bottom: var(--m);
 		flex-grow: 1;
+	}
+	.slider_wrapper {
+		padding-top: 30px;
+	}
+	.aside {
+		padding-top: 30px;
+	}
+	.news_container {
+		overflow-y: scroll;
+		gap: 20px;
+		margin-right: -20px;
+	}
+	.news_container .item:last-child {
+		margin-right: 20px;
+	}
+	.main_page {
+		padding-top: 150px;
+	}
+	.slider_show_more_container {
+		width: 100%;
+		margin-top: 20px;
+		display: flex;
+		justify-content: center;
+	}
+	.btn_wrapper {
+		max-width: 272px;
+		width: 272px;
+		height: 52px;
 	}
 }
 </style>

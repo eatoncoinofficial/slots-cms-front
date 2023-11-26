@@ -1,7 +1,8 @@
 export default {
 	API_URL: {
 		UA: 'http://127.0.0.1:8000/api/',
-		RU: 'https://api-new.slototop.ua/api/',
+		RU: 'http://127.0.0.1:8000/api/',
+		//RU: 'https://api-new.slototop.ua/api/',
 		//UA: 'https://api.slototop.ua/api/'
 	},
 	BASE_URL: {
@@ -16,7 +17,7 @@ export default {
 		RU: 'ru',
 		UA: 'uk'
 	},
-	LANG: 'UA',
+	LANG: 'RU',
 	DEFAULT_LANG: {
 		RU: 'ru-UA',
 		UA: 'ru-UA'

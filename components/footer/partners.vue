@@ -19,9 +19,7 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-				DC: { height: '40px', class: 'object_fit_cover custom_class' },
-				TABLET: {},
-				MOB: {}
+				height: '40px'
 			}
 		}
 	}
@@ -32,5 +30,10 @@ export default {
 	display: flex;
 	gap: 20px;
 	margin-bottom: var(--m);
+}
+@media (max-width: 767px) {
+	.partners {
+		flex-wrap: wrap;
+	}
 }
 </style>

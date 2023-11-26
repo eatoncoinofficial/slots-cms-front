@@ -26,4 +26,16 @@ export default {
 	max-width: 100%;
 	min-width: 328px;
 }
+@media (max-width: 767px) {
+	.two_content_container {
+		flex-wrap: wrap;
+	}
+	.left {
+		width: 100%;
+		padding-right: 0px;
+	}
+	.right {
+		width: 100%;
+	}
+}
 </style>

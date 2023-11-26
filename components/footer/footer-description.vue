@@ -1,7 +1,7 @@
 <template>
-	<div v-bind="containerSettings.DC">
+	<div v-bind="containerSettings">
 		<div class="container">
-			<AText tag="div" :attributes="textSettings.DC">{{ value }}</AText>
+			<AText tag="div" :attributes="textSettings">{{ value }}</AText>
 		</div>
 	</div>
 </template>
@@ -14,22 +14,12 @@ export default {
 	data: () => {
 		return {
 			textSettings: {
-				DC: {
-					weight: 'regular',
-					color: 'cordoba',
-					size: 'small'
-				},
-				TABLET: {},
-				MOB: {}
+				weight: 'regular',
+				color: 'cordoba',
+				size: 'small'
 			},
 			containerSettings: {
-				DC: {
-					class: 'p_m footer_copyright'
-				},
-				TABLET: {},
-				MOB: {
-					class: 'p_s footer_copyright'
-				}
+				class: 'p_m footer_copyright'
 			}
 		}
 	},
@@ -45,5 +35,11 @@ export default {
 <style scoped>
 .footer_copyright {
 	border-top: 1px solid var(--callao);
+}
+@media (max-width: 767px) {
+	.footer_copyright {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
 }
 </style>

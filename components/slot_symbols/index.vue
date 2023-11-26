@@ -36,4 +36,16 @@ export default {
 .item_wrapper {
 	min-width: 30%;
 }
+@media (max-width: 767px) {
+	.item_wrapper {
+		width: 48%;
+	}
+	.item {
+		gap: 10px;
+	}
+	.item_container {
+		gap: 20px 0px;
+		justify-content: space-between;
+	}
+}
 </style>

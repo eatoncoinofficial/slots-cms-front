@@ -232,4 +232,32 @@ export default {
 	flex-wrap: wrap;
 	gap: var(--m);
 }
+@media (max-width: 767px) {
+	.root {
+		flex-wrap: wrap;
+		padding: 15px;
+	}
+	.left,
+	.right,
+	.center {
+		width: 100%;
+		max-width: none;
+	}
+	.center {
+		min-width: auto;
+	}
+	.left {
+		display: flex;
+		justify-content: center;
+	}
+	.casino_wrapper {
+		flex-wrap: wrap;
+	}
+	.action_wrapper {
+		margin-top: 30px;
+	}
+	.item_character {
+		padding-right: 0px;
+	}
+}
 </style>

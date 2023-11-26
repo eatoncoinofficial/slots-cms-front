@@ -82,4 +82,9 @@ export default {
 	transform: rotate(90deg);
 	margin-left: 10px;
 }
+@media (max-width: 767px) {
+	.news_loop {
+		justify-content: center;
+	}
+}
 </style>

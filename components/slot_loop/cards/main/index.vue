@@ -104,4 +104,11 @@ export default {
 	background: url('/img/link_arrow.png');
 	position: absolute;
 }
+@media (max-width: 767px) {
+	.item.big,
+	.item.middle {
+		width: 48%;
+		height: auto;
+	}
+}
 </style>

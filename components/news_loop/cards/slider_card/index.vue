@@ -110,4 +110,11 @@ export default {
 	line-height: 18px;
 	display: inline-block;
 }
+@media (max-width: 767px) {
+	.item {
+		padding-right: 0px;
+		width: 100%;
+		height: 90px;
+	}
+}
 </style>

@@ -69,7 +69,7 @@ export default {
 				MOB: {}
 			},
 			btnSettings: {
-				DC: { color: 'cairo', class: 'load_more', weight: 'bold', size: 'medium' },
+				DC: { color: 'cairo', class: 'load_more', weight: 'bold', size: 'medium', decoration: 'none' },
 				TABLET: {},
 				MOB: {}
 			},
@@ -97,21 +97,11 @@ export default {
 	margin-top: var(--l);
 	height: 52px;
 	width: 356px;
+	max-width: 100%;
 }
 .btn_wrapper {
 	max-width: 272px;
 	width: 272px;
-}
-.load_more {
-	background: rgba(255, 255, 255, 0.1);
-	border-radius: var(--s);
-	border: rgba(255, 255, 255, 0.05);
-	display: flex;
-	width: 100%;
-	height: 100%;
-	align-items: center;
-	justify-content: center;
-	text-decoration: none;
 }
 .arrow {
 	transform: rotate(90deg);
@@ -120,5 +110,10 @@ export default {
 .title {
 	font-size: 18px;
 	margin-bottom: var(--m);
+}
+@media (max-width: 767px) {
+	.items-more {
+		width: 100%;
+	}
 }
 </style>
