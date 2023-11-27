@@ -49,7 +49,7 @@ import helper from '~/helpers/helpers'
 import head from '~/mixins/head'
 import pageTemplate from '~/mixins/pageTemplate'
 import TwoContentContainer from '~/components/two_content_container/'
-import CategoryFilter from '~/components/category_filter/dev'
+import CategoryFilter from '~/components/category_filter'
 import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
 import CasinoLoop from '~/components/casino_loop'
 import MainContent from '~/components/content'
@@ -95,7 +95,6 @@ export default {
 		BonusAsideCard,
 		MainContent,
 		CasinoLoop,
-		CategoryFilter,
 		AText,
 		SlotLoop
 	},
