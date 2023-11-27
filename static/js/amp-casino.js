@@ -128,6 +128,6 @@
 	}
 }
 /*
-    pages: ['casino']
-    postTypes: ['lang', 'country', 'license', 'payment', 'technology', 'vendor'] 
+    pages: ['casino_good']
+    postTypes: ['lang', 'country', 'license', 'payment', 'technology', 'vendor']
  */

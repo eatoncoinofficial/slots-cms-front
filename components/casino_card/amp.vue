@@ -2,10 +2,10 @@
 	<div class="casino-card">
 		<div class="container casino-card__container">
 			<div class="casino-card__logo">
-				<img
+				<amp-img
 					:src="value.thumbnail"
 					width="250"
-					height="160"
+					height="140"
 					:alt="value.title"
 				/>
 			</div>
@@ -13,19 +13,13 @@
 			<div class="casino-card__txt">
 				<div class="casino-card__name">
 					{{ value.title }}
-					<img
+					<amp-img
 						class="casino-card__license"
 						src="/img/check.svg"
 						alt=""
 						v-if="value.licenses.length !== 0"
-						width="15"
+						width="30"
 						height="15"
-					/>
-					<img
-						v-for="(item, index) in value.licenses"
-						:src="item.thumbnail"
-						:key="index"
-						:alt="item.title"
 					/>
 					<span
 						class="casino-card__license-txt"
@@ -34,21 +28,14 @@
 					>
 				</div>
 
-				<!--<span class="casino-card__company">(Кинг, Слотокинг Украина)</span> -->
+				<!--<span class="casino_good-card__company">(Кинг, Слотокинг Украина)</span> -->
 				<div class="casino-card__button_wrapper">
-					<button
+					<a
 						v-if="value.close !== 1"
-						type="button"
 						class="casino-card__cta btn-primary"
-						@click="refActivate(value)"
+						:href="getRef(value)"
+						>{{ translates.GO_TO_CASINO[config.LANG] }}</a
 					>
-						{{ translates.GO_TO_CASINO[config.LANG] }}
-					</button>
-					<PromoBtn
-						v-if="value.promocod"
-						:text="value.promocod"
-						:subTitle="translates.PROMO_TITLE[config.LANG]"
-					/>
 				</div>
 			</div>
 
@@ -83,19 +70,17 @@
 
 <script>
 import Helper from '~/helpers/helpers.js'
-import PromoBtn from '~/components/casino_card/parts/PromoBtn'
 import translateMixin from '~/mixins/translate'
 export default {
 	name: 'app-casino-card',
 	props: ['value'],
-	components: { PromoBtn },
 	mixins: [translateMixin],
 	data() {
 		return {}
 	},
 	methods: {
-		refActivate(item) {
-			Helper.refActivate(item)
+		getRef(item) {
+			return Helper.getRef(item)
 		}
 	},
 	filters: {
@@ -105,19 +90,3 @@ export default {
 	}
 }
 </script>
-
-<style lang="scss">
-.casino-card__button_wrapper {
-	display: flex;
-	align-items: flex-start;
-	justify-content: flex-start;
-	gap: 15px;
-	margin-top: 40px;
-}
-@media (max-width: 767px) {
-	.casino-card__button_wrapper {
-		margin-top: 20px;
-		flex-wrap: wrap;
-	}
-}
-</style>

@@ -26,7 +26,7 @@
 
 <script>
 import { BONUS_CATEGORY as NumberPostOnQuery } from '~/config/postLoader'
-import translateMixin from '~/mixins/translate'
+import translate from '~/mixins/translate'
 import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
 import AButton from '~/components/ui/atoms/buttons'
 import AImg from '~/components/ui/atoms/img/'
@@ -42,7 +42,7 @@ export default {
 			}
 		}
 	},
-	mixins: [translateMixin, postLoader],
+	mixins: [translate, postLoader],
 	data() {
 		return {
 			numberPostOnQuery: NumberPostOnQuery,

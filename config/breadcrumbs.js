@@ -8,8 +8,8 @@ export default {
 		UA: { title: 'Бонуси', permalink: '/bonuses' }
 	},
 	BREADCRUMBS_CASINOS: {
-		RU: { title: 'Казино', permalink: '/casino' },
-		UA: { title: 'Казино', permalink: '/casino' }
+		RU: { title: 'Казино', permalink: '/casino_good' },
+		UA: { title: 'Казино', permalink: '/casino_good' }
 	},
 	BREADCRUMBS_GAMES: {
 		RU: { title: 'Игры', permalink: '/games' },

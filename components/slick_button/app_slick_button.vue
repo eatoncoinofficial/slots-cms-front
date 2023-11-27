@@ -11,7 +11,7 @@
 					width="8"
 					height="12"
 				/>
-				<NuxtLink no-prefetch :to="'/casino'">
+				<NuxtLink no-prefetch :to="'/casino_good'">
 					{{ translates.CASINO_REVIEWS[config.LANG] }}
 				</NuxtLink>
 			</div>
@@ -53,7 +53,7 @@ export default {
 			}
 		},
 		goHome() {
-			this.$router.push('/casino')
+			this.$router.push('/casino_good')
 		}
 	}
 }

@@ -54,7 +54,7 @@ import TwoContentContainer from '~/components/two_content_container/'
 import CategoryFilter from '~/components/category_filter/dev'
 import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
 import Faq from '~/components/faq/app_faq'
-import CasinoLoop from '~/components/casino_loop/app_casino_loop_downloads.vue'
+import CasinoLoop from '~/components/casino_loop'
 import MainContent from '~/components/content'
 import AText from '~/components/ui/atoms/text'
 

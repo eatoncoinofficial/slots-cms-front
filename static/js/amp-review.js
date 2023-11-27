@@ -95,5 +95,5 @@
 	}
 }
 /*
-    postTypes: ['casino', 'poker'] 
+    postTypes: ['casino_good', 'poker']
  */

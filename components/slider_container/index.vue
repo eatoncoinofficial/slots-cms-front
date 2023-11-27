@@ -45,7 +45,7 @@ export default {
 		icon: {
 			type: String,
 			default() {
-				return 'casino'
+				return 'casino_good'
 			}
 		},
 		link: {
