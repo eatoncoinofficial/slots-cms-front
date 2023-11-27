@@ -25,7 +25,7 @@
 
 <script>
 import AText from '~/components/ui/atoms/text'
-import Faq from '~/components/faq/app_faq'
+import Faq from '~/components/faq'
 import BonusCategory from '~/components/bonus_category'
 import MainContent from '~/components/content'
 import DAL_Page from '~/DAL/static_pages'

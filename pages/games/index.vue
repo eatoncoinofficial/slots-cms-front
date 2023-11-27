@@ -41,7 +41,7 @@
 
 <script>
 import AText from '~/components/ui/atoms/text'
-import Faq from '~/components/faq/app_faq'
+import Faq from '~/components/faq'
 import BonusCategory from '~/components/bonus_category'
 import GameMainCard from '~/components/slot_loop/cards/main'
 import GameBigCard from '~/components/slot_loop/cards/big_card'

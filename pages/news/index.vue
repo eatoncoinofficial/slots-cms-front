@@ -22,7 +22,7 @@
 <script>
 import AText from '~/components/ui/atoms/text'
 import NewsLoop from '~/components/news_loop'
-import Faq from '~/components/faq/app_faq'
+import Faq from '~/components/faq'
 import DAL_Page from '~/DAL/static_pages'
 import head from '~/mixins/head'
 import helper from '~/helpers/helpers'

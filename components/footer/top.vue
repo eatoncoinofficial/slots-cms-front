@@ -16,7 +16,7 @@ import FooterMenu from './footer-menu'
 import FooterLogo from './logo'
 import FooterForm from './footer-form'
 export default {
-	name: 'dev-top-footer',
+	name: 'top-footer',
 	components: { FooterMenu, FooterLogo, FooterForm },
 	data: () => {
 		return {
