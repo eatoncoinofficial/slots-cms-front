@@ -182,8 +182,7 @@ export default {
 				DC: {
 					weight: 'extra-bold',
 					color: 'cairo',
-					size: 'medium',
-					weight: 'regular'
+					size: 'medium'
 				},
 				TABLET: {},
 				MOB: {}
