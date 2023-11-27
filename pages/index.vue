@@ -121,7 +121,7 @@
 			</div>
 		</div>
 		<div class="container content_container">
-			<MainContent :value="data.body.content" />
+			<Content :value="data.body.content" />
 		</div>
 		<div class="container">
 			<div class="faq_container">
@@ -145,7 +145,6 @@ import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
 import LinkWithArrow from '~/components/ui/atoms/links/link_with_arrow'
 import NewsMainCard from '~/components/news_loop/cards/main'
 import CasinoLoop from '~/components/casino_loop'
-import MainContent from '~/components/content'
 import Faq from '~/components/faq'
 import pageTemplate from '~/mixins/pageTemplate'
 import device from '~/mixins/device'
@@ -168,8 +167,7 @@ export default {
 		LinkWithArrow,
 		NewsMainCard,
 		CasinoLoop,
-		Faq,
-		MainContent
+		Faq
 	},
 	layout: 'default',
 	data: () => {
