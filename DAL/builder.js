@@ -4,7 +4,7 @@ import config from '../config'
 export default class JsonRequest {
 	#options = {
 		URL_API: config.API_URL[config.LANG],
-		POST_TYPE: 'casino_good',
+		POST_TYPE: 'casino',
 		URL: '',
 		IS_SEARCH: false,
 		SEARCH_WORD: ''
