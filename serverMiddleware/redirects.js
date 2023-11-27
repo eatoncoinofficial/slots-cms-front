@@ -3,6 +3,7 @@ import { redirects } from './storeRedirects.js'
 module.exports = function(req, res, next) {
 	const host = req.headers.host
 	const fullUrl = req.url
+    console.log(host)
 	let url = req.url.split('?')[0]
 	let urlParams = null
 	if (host.startsWith('www.')) {
