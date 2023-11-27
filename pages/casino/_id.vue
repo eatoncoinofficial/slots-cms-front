@@ -139,7 +139,7 @@ export default {
 		if (route.params.id) {
 			const request = new DAL_Builder()
 			const response = await request
-				.postType('casino_good')
+				.postType('casino')
 				.url(route.params.id)
 				.get()
 			if (response.data.confirm === 'error') {
