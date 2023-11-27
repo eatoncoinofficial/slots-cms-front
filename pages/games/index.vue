@@ -28,7 +28,7 @@
 				<SlotLoop :value="data.body.games" />
 			</div>
 			<div class="container content_container" v-if="data.body.content">
-				<MainContent :value="data.body.content" />
+				<Content :value="data.body.content" />
 			</div>
 			<div class="container" v-if="data.body.faq.length">
 				<div class="faq_container">
@@ -40,30 +40,27 @@
 </template>
 
 <script>
-import AText from '~/components/ui/atoms/text'
+import DAL_Page from '~/DAL/static_pages'
+import pageTemplate from '~/mixins/pageTemplate'
 import Faq from '~/components/faq'
 import BonusCategory from '~/components/bonus_category'
 import GameMainCard from '~/components/slot_loop/cards/main'
 import GameBigCard from '~/components/slot_loop/cards/big_card'
 import SlotLoop from '~/components/slot_loop'
 import ProviderFilter from '~/components/provider_list'
-import MainContent from '~/components/content'
-import DAL_Page from '~/DAL/static_pages'
 import head from '~/mixins/head'
 import helper from '~/helpers/helpers'
 
 export default {
 	name: 'games-page',
-	mixins: [head],
+	mixins: [head, pageTemplate],
 	components: {
-		AText,
 		Faq,
 		BonusCategory,
 		GameMainCard,
 		GameBigCard,
 		SlotLoop,
-		ProviderFilter,
-		MainContent
+		ProviderFilter
 	},
 	layout: 'default',
 	data: () => {

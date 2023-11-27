@@ -29,7 +29,7 @@
 				</div>
 			</div>
 			<div class="container content_container" v-if="data.body.content">
-				<MainContent :value="data.body.content" />
+				<Content :value="data.body.content" />
 			</div>
 			<div class="container" v-if="data.body.faq.length">
 				<div class="faq_container">
@@ -48,28 +48,25 @@
 
 <script>
 import DAL_Builder from '~/DAL/builder'
-import AText from '~/components/ui/atoms/text'
+import pageTemplate from '~/mixins/pageTemplate'
 import SlotCard from '~/components/slot_card'
 import SlotSymbols from '~/components/slot_symbols'
 import SlotScreenshots from '~/components/slot_screenshots'
 import Faq from '~/components/faq'
 import SlotPopUp from '~/components/slot_popup'
-import MainContent from '~/components/content'
 import head from '~/mixins/head'
 import helper from '~/helpers/helpers'
 import translateMixin from '~/mixins/translate'
 
 export default {
 	name: 'game_single',
-	mixins: [head, translateMixin],
+	mixins: [head, translateMixin, pageTemplate],
 	components: {
-		AText,
 		SlotCard,
 		SlotSymbols,
 		SlotScreenshots,
 		Faq,
-		SlotPopUp,
-		MainContent
+		SlotPopUp
 	},
 	layout: 'default',
 	data: () => {

@@ -8,7 +8,7 @@
 						<AImg :attributes="thumbnailSettings.DC" :src="data.body.thumbnail" />
 					</div>
 					<div class="container content_container">
-						<MainContent :value="data.body.content" />
+						<Content :value="data.body.content" />
 					</div>
 				</template>
 				<template v-slot:right>
@@ -49,28 +49,23 @@
 
 <script>
 import DAL_Builder from '~/DAL/builder'
-import AText from '~/components/ui/atoms/text'
-import AImg from '~/components/ui/atoms/img/'
+import pageTemplate from '~/mixins/pageTemplate'
 import TwoContentContainer from '~/components/two_content_container/'
 import NewsSliderCard from '~/components/news_loop/cards/slider_card'
 import LinkWithArrow from '~/components/ui/atoms/links/link_with_arrow'
 import NewsMainCard from '~/components/news_loop/cards/main'
 import translateMixin from '~/mixins/translate'
-import MainContent from '~/components/content'
 import head from '~/mixins/head'
 import helper from '~/helpers/helpers'
 
 export default {
 	name: 'news_single',
-	mixins: [head, translateMixin],
+	mixins: [head, translateMixin, pageTemplate],
 	components: {
-		AText,
 		TwoContentContainer,
 		NewsSliderCard,
-		AImg,
 		LinkWithArrow,
-		NewsMainCard,
-		MainContent
+		NewsMainCard
 	},
 	layout: 'default',
 	data: () => {
@@ -101,7 +96,6 @@ export default {
 			}
 		}
 	},
-	mixins: [head, translateMixin],
 	async asyncData({ route, error }) {
 		if (route.params.id) {
 			const request = new DAL_Builder()

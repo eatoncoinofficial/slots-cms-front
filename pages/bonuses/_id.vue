@@ -6,7 +6,7 @@
 				<BonusLoop :value="data.body.posts" />
 			</div>
 			<div class="container content_container">
-				<MainContent :value="data.body.content" />
+				<Content :value="data.body.content" />
 			</div>
 			<div class="container" v-if="data.body.faq.length">
 				<div class="faq_container">
@@ -23,8 +23,6 @@ import helper from '~/helpers/helpers'
 import head from '~/mixins/head'
 import pageTemplate from '~/mixins/pageTemplate'
 import Faq from '~/components/faq'
-import MainContent from '~/components/content'
-import AText from '~/components/ui/atoms/text'
 import BonusLoop from '~/components/bonus_loop'
 
 export default {
@@ -58,8 +56,6 @@ export default {
 	},
 	components: {
 		Faq,
-		MainContent,
-		AText,
 		BonusLoop
 	},
 	mixins: [head, pageTemplate],

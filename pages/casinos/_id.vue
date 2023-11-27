@@ -34,7 +34,7 @@
 				</div>
 			</div>
 			<div class="container content_container" v-if="data.body.content">
-				<MainContent :value="data.body.content" />
+				<Content :value="data.body.content" />
 			</div>
 			<div class="container" v-if="data.body.faq.length">
 				<div class="faq_container">
@@ -55,8 +55,6 @@ import CategoryFilter from '~/components/category_filter'
 import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
 import Faq from '~/components/faq'
 import CasinoLoop from '~/components/casino_loop'
-import MainContent from '~/components/content'
-import AText from '~/components/ui/atoms/text'
 
 export default {
 	name: 'casino-category',
@@ -91,10 +89,8 @@ export default {
 		TwoContentContainer,
 		BonusAsideCard,
 		Faq,
-		MainContent,
 		CasinoLoop,
-		CategoryFilter,
-		AText
+		CategoryFilter
 	},
 	mixins: [head, pageTemplate],
 	async asyncData({ route, error }) {

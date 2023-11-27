@@ -8,7 +8,7 @@
 				<NewsLoop :value="data.body.news" />
 			</div>
 			<div class="container content_container">
-				<MainContent :value="data.body.content" />
+				<Content :value="data.body.content" />
 			</div>
 			<div class="container">
 				<div class="faq_container">
@@ -20,22 +20,19 @@
 </template>
 
 <script>
-import AText from '~/components/ui/atoms/text'
+import DAL_Page from '~/DAL/static_pages'
+import pageTemplate from '~/mixins/pageTemplate'
 import NewsLoop from '~/components/news_loop'
 import Faq from '~/components/faq'
-import DAL_Page from '~/DAL/static_pages'
 import head from '~/mixins/head'
 import helper from '~/helpers/helpers'
-import MainContent from '~/components/content'
 
 export default {
 	name: 'news-page',
-	mixins: [head],
+	mixins: [pageTemplate, head],
 	components: {
-		AText,
 		Faq,
 		NewsLoop,
-		MainContent
 	},
 	layout: 'default',
 	data: () => {

@@ -37,7 +37,7 @@
 				<SlotLoop :value="data.body.games" />
 			</div>
 			<div class="container content_container">
-				<MainContent :value="data.body.content" />
+				<Content :value="data.body.content" />
 			</div>
 		</main>
 	</div>
@@ -52,8 +52,6 @@ import TwoContentContainer from '~/components/two_content_container/'
 import CategoryFilter from '~/components/category_filter'
 import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
 import CasinoLoop from '~/components/casino_loop'
-import MainContent from '~/components/content'
-import AText from '~/components/ui/atoms/text'
 import SlotLoop from '~/components/slot_loop'
 export default {
 	name: 'single-vendor',
@@ -93,9 +91,7 @@ export default {
 		TwoContentContainer,
 		CategoryFilter,
 		BonusAsideCard,
-		MainContent,
 		CasinoLoop,
-		AText,
 		SlotLoop
 	},
 	mixins: [head, pageTemplate],

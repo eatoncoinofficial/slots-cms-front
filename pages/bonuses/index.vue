@@ -12,7 +12,7 @@
 				</div>
 			</div>
 			<div class="container content_container">
-				<MainContent :value="data.body.content" />
+				<Content :value="data.body.content" />
 			</div>
 			<div class="container">
 				<div class="faq_container">
@@ -24,22 +24,19 @@
 </template>
 
 <script>
-import AText from '~/components/ui/atoms/text'
+import DAL_Page from '~/DAL/static_pages'
+import pageTemplate from '~/mixins/pageTemplate'
 import Faq from '~/components/faq'
 import BonusCategory from '~/components/bonus_category'
-import MainContent from '~/components/content'
-import DAL_Page from '~/DAL/static_pages'
 import head from '~/mixins/head'
 import helper from '~/helpers/helpers'
 
 export default {
 	name: 'bonuses-page',
-	mixins: [head],
+	mixins: [head, pageTemplate],
 	components: {
-		AText,
 		Faq,
-		BonusCategory,
-		MainContent
+		BonusCategory
 	},
 	layout: 'default',
 	data: () => {

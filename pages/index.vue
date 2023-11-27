@@ -135,9 +135,6 @@
 import DAL_Page from '~/DAL/static_pages'
 import Slider from '~/components/slider'
 import SliderContainer from '~/components/slider_container'
-import AText from '~/components/ui/atoms/text'
-import AButton from '~/components/ui/atoms/buttons'
-import AImg from '~/components/ui/atoms/img/'
 import CasinoSliderCard from '~/components/casino_loop/cards/slider_card'
 import SlotSliderCard from '~/components/slot_loop/cards/slider_card'
 import BonusSliderCard from '~/components/bonus_loop/cards/slider_card'
@@ -150,18 +147,17 @@ import NewsMainCard from '~/components/news_loop/cards/main'
 import CasinoLoop from '~/components/casino_loop'
 import MainContent from '~/components/content'
 import Faq from '~/components/faq'
-import translateMixin from '~/mixins/translate'
+import pageTemplate from '~/mixins/pageTemplate'
 import device from '~/mixins/device'
 import head from '~/mixins/head'
 import helper from '~/helpers/helpers'
 
 export default {
 	name: 'main-page',
-	mixins: [translateMixin, head, device],
+	mixins: [pageTemplate, head, device],
 	components: {
 		Slider,
 		SliderContainer,
-		AText,
 		CasinoSliderCard,
 		SlotSliderCard,
 		BonusSliderCard,
@@ -173,9 +169,7 @@ export default {
 		NewsMainCard,
 		CasinoLoop,
 		Faq,
-		MainContent,
-		AButton,
-		AImg
+		MainContent
 	},
 	layout: 'default',
 	data: () => {

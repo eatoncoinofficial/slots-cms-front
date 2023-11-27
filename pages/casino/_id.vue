@@ -73,7 +73,7 @@
 
 <script>
 import DAL_Builder from '~/DAL/builder'
-import AText from '~/components/ui/atoms/text'
+import pageTemplate from '~/mixins/pageTemplate'
 import TwoContentContainer from '~/components/two_content_container/'
 import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
 import CasinoCard from '~/components/casino_card'
@@ -86,9 +86,8 @@ import helper from '~/helpers/helpers'
 
 export default {
 	name: 'casino_single',
-	mixins: [translateMixin, head],
+	mixins: [translateMixin, head, pageTemplate],
 	components: {
-		AText,
 		BonusAsideCard,
 		TwoContentContainer,
 		CasinoCard,
