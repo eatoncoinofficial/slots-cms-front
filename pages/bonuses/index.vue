@@ -2,7 +2,7 @@
 	<div>
 		<main class="bonuses_page">
 			<div class="container">
-				<AText tag="div" :attributes="titleSettings.DC">{{ data.body.h1 }}</AText>
+				<AText tag="div" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 			</div>
 			<div class="container">
 				<div class="bonus_category_container">
@@ -41,9 +41,7 @@ export default {
 	data: () => {
 		return {
 			titleSettings: {
-				DC: { color: 'cairo', size: 'x-large', weight: 'bold', transform: 'uppercase', class: 'title' },
-				TABLE: {},
-				MOB: {}
+				color: 'cairo', size: 'x-large', weight: 'bold', transform: 'uppercase', class: 'title'
 			}
 		}
 	},

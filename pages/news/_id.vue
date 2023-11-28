@@ -3,16 +3,16 @@
 		<div class="container">
 			<TwoContentContainer>
 				<template v-slot:left>
-					<AText tag="h1" :attributes="titleSettings.DC">{{ data.body.h1 }}</AText>
+					<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 					<div class="wrapper_thumbnail">
-						<AImg :attributes="thumbnailSettings.DC" :src="data.body.thumbnail" />
+						<AImg :attributes="thumbnailSettings" :src="data.body.thumbnail" />
 					</div>
 					<div class="container content_container">
 						<Content :value="data.body.content" />
 					</div>
 				</template>
 				<template v-slot:right>
-					<AText tag="div" :attributes="subTitleSettings.DC">{{ t('POPULAR_NEWS') }}</AText>
+					<AText tag="div" :attributes="subTitleSettings">{{ t('POPULAR_NEWS') }}</AText>
 					<aside class="aside">
 						<NewsSliderCard
 							v-for="item in data.body.last_news"
@@ -29,7 +29,7 @@
 		<div class="news_loop">
 			<div class="container">
 				<div class="section_title_wrapper">
-					<AText tag="div" :attributes="mainContainerTitle.DC">{{ t('LAST_NEWS') }}</AText>
+					<AText tag="div" :attributes="mainContainerTitle">{{ t('LAST_NEWS') }}</AText>
 				</div>
 				<div class="news_container">
 					<NewsMainCard
@@ -69,28 +69,18 @@ export default {
 	data: () => {
 		return {
 			titleSettings: {
-				DC: { color: 'cairo', size: 'x-large', weight: 'bold', class: 'title' },
-				TABLE: {},
-				MOB: {}
+				color: 'cairo', size: 'x-large', weight: 'bold', class: 'title'
 			},
 			subTitleSettings: {
-				DC: { color: 'cairo', size: 'large', weight: 'bold', class: 'sub_title' },
-				TABLE: {},
-				MOB: {}
+				color: 'cairo', size: 'large', weight: 'bold', class: 'sub_title'
 			},
 			thumbnailSettings: {
-				DC: { width: '822px', height: '333px', class: 'thumbnail' },
-				TABLE: {},
-				MOB: {}
+				width: '822px', height: '333px', class: 'thumbnail'
 			},
 			mainContainerTitle: {
-				DC: {
 					weight: 'extra-bold',
 					color: 'cairo',
 					size: 'x-large'
-				},
-				TABLET: {},
-				MOB: {}
 			}
 		}
 	},

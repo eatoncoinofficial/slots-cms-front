@@ -2,7 +2,7 @@
 	<div>
 		<main class="category_page">
 			<div class="container">
-				<AText tag="h1" :attributes="titleSettings.DC">{{ data.body.h1 }}</AText>
+				<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 				<BonusLoop :value="data.body.posts" />
 			</div>
 			<div class="container content_container">
@@ -28,28 +28,8 @@ export default {
 	name: 'bonus-category',
 	data: () => {
 		return {
-			asideContainerTitle: {
-				DC: {
-					weight: 'bold',
-					color: 'cairo',
-					size: 'large'
-				},
-				TABLET: {},
-				MOB: {}
-			},
-			mainContainerTitle: {
-				DC: {
-					weight: 'extra-bold',
-					color: 'cairo',
-					size: 'x-large'
-				},
-				TABLET: {},
-				MOB: {}
-			},
 			titleSettings: {
-				DC: { color: 'cairo', size: 'x-large', weight: 'bold', transform: 'uppercase', class: 'title' },
-				TABLE: {},
-				MOB: {}
+                color: 'cairo', size: 'x-large', weight: 'bold', transform: 'uppercase', class: 'title'
 			}
 		}
 	},

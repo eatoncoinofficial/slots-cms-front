@@ -2,7 +2,7 @@
 	<div>
 		<main class="category_page">
 			<div class="container">
-				<AText tag="h1" :attributes="titleSettings.DC">{{ data.body.h1 }}</AText>
+				<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 				<div class="main_container">
 					<TwoContentContainer>
 						<template v-slot:left>
@@ -13,7 +13,7 @@
 						</template>
 						<template v-slot:right>
 							<aside class="aside">
-								<AText tag="div" :attributes="asideContainerTitle.DC">{{ t('RECOMMENDED_BONUSES') }}</AText>
+								<AText tag="div" :attributes="asideContainerTitle">{{ t('RECOMMENDED_BONUSES') }}</AText>
 								<div class="aside_bonus_container">
 									<BonusAsideCard
 										v-for="item in data.body.top_bonuses"
@@ -60,27 +60,12 @@ export default {
 	data: () => {
 		return {
 			asideContainerTitle: {
-				DC: {
 					weight: 'bold',
 					color: 'cairo',
 					size: 'large'
-				},
-				TABLET: {},
-				MOB: {}
-			},
-			mainContainerTitle: {
-				DC: {
-					weight: 'extra-bold',
-					color: 'cairo',
-					size: 'x-large'
-				},
-				TABLET: {},
-				MOB: {}
 			},
 			titleSettings: {
-				DC: { color: 'cairo', size: 'x-large', weight: 'bold', transform: 'uppercase', class: 'title' },
-				TABLE: {},
-				MOB: {}
+                color: 'cairo', size: 'x-large', weight: 'bold', transform: 'uppercase', class: 'title'
 			}
 		}
 	},

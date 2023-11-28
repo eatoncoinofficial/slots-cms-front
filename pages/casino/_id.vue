@@ -1,7 +1,7 @@
 <template>
 	<main class="casino_page">
 		<div class="container">
-			<AText tag="h1" :attributes="titleSettings.DC">{{ data.body.h1 }}</AText>
+			<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 			<div class="main_container">
 				<TwoContentContainer>
 					<template v-slot:left>
@@ -18,7 +18,7 @@
 								/>
 							</div>
 							<div class="casino_characters_container">
-								<AText tag="div" :attributes="titleCharactersSettings.DC">{{ t('CASINO_CHARACTERS') }}</AText>
+								<AText tag="div" :attributes="titleCharactersSettings">{{ t('CASINO_CHARACTERS') }}</AText>
 								<CasinoDetails
 									:vendors="data.body.vendors"
 									:payments="data.body.payments"
@@ -27,7 +27,7 @@
 								/>
 							</div>
 							<div class="casino_slot_container" v-if="data.body.games.length">
-								<AText tag="div" :attributes="titleSlotsSettings.DC"
+								<AText tag="div" :attributes="titleSlotsSettings"
 									>{{ t('BEST_GAMES_IN_CASINO') }} {{ data.body.title }}</AText
 								>
 								<div class="slot_loop">
@@ -44,7 +44,7 @@
 					</template>
 					<template v-slot:right>
 						<aside class="aside">
-							<AText tag="div" :attributes="asideContainerTitle.DC">{{ t('RECOMMENDED_BONUSES') }}</AText>
+							<AText tag="div" :attributes="asideContainerTitle">{{ t('RECOMMENDED_BONUSES') }}</AText>
 							<div class="aside_bonus_container">
 								<BonusAsideCard
 									v-for="(item, index) in data.body.bonuses"
@@ -97,28 +97,18 @@ export default {
 	data: () => {
 		return {
 			titleSettings: {
-				DC: { color: 'cairo', weight: 'bold', class: 'title' },
-				TABLE: {},
-				MOB: {}
+				color: 'cairo', weight: 'bold', class: 'title'
 			},
 			titleCharactersSettings: {
-				DC: { color: 'cairo', weight: 'bold', size: 'x-large', class: 'detail_title' },
-				TABLE: {},
-				MOB: {}
+				color: 'cairo', weight: 'bold', size: 'x-large', class: 'detail_title'
 			},
 			titleSlotsSettings: {
-				DC: { color: 'cairo', weight: 'regular', class: 'slots_title' },
-				TABLE: {},
-				MOB: {}
+				color: 'cairo', weight: 'regular', class: 'slots_title'
 			},
 			asideContainerTitle: {
-				DC: {
 					weight: 'bold',
 					color: 'cairo',
 					size: 'large'
-				},
-				TABLET: {},
-				MOB: {}
 			}
 		}
 	},

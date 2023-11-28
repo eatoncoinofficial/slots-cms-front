@@ -18,13 +18,13 @@
 			</div>
 			<div class="symbols" v-if="data.body.symbols.length">
 				<div class="container">
-					<AText tag="div" :attributes="symbolTitleSettings.DC">{{ t('SLOT_SYMBOLS') }}</AText>
+					<AText tag="div" :attributes="symbolTitleSettings">{{ t('SLOT_SYMBOLS') }}</AText>
 					<SlotSymbols :posts="data.body.symbols" />
 				</div>
 			</div>
 			<div class="screenshots" v-if="data.body.screenshots.length">
 				<div class="container">
-					<AText tag="div" :attributes="symbolTitleSettings.DC">{{ t('SCREENSHOTS') }}</AText>
+					<AText tag="div" :attributes="symbolTitleSettings">{{ t('SCREENSHOTS') }}</AText>
 					<SlotScreenshots :posts="data.body.screenshots" />
 				</div>
 			</div>
@@ -70,9 +70,7 @@ export default {
 	data: () => {
 		return {
 			symbolTitleSettings: {
-				DC: { size: 'x-large', color: 'cairo', weight: 'bold', class: 'title' },
-				TABLE: {},
-				MOB: {}
+                size: 'x-large', color: 'cairo', weight: 'bold', class: 'title'
 			},
 			isShowDemo: false
 		}

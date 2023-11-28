@@ -2,7 +2,7 @@
 	<div>
 		<main class="news_page">
 			<div class="container">
-				<AText tag="div" :attributes="titleSettings.DC">{{ data.body.h1 }}</AText>
+				<AText tag="div" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 			</div>
 			<div class="container">
 				<NewsLoop :value="data.body.news" />
@@ -37,9 +37,7 @@ export default {
 	data: () => {
 		return {
 			titleSettings: {
-				DC: { color: 'cairo', size: 'x-large', weight: 'bold', transform: 'uppercase', class: 'title' },
-				TABLE: {},
-				MOB: {}
+				color: 'cairo', size: 'x-large', weight: 'bold', transform: 'uppercase', class: 'title'
 			}
 		}
 	},

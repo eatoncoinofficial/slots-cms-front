@@ -2,7 +2,7 @@
 	<div>
 		<main class="games_page">
 			<div class="container">
-				<AText tag="h1" :attributes="titleSettings.DC">{{ data.body.h1 }}</AText>
+				<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 			</div>
 			<div class="container container_providers">
 				<ProviderFilter :value="data.body.vendors" />
@@ -65,9 +65,7 @@ export default {
 	data: () => {
 		return {
 			titleSettings: {
-				DC: { color: 'cairo', size: 'x-large', weight: 'bold', transform: 'uppercase', class: 'title' },
-				TABLE: {},
-				MOB: {}
+				color: 'cairo', size: 'x-large', weight: 'bold', transform: 'uppercase', class: 'title'
 			}
 		}
 	},
