@@ -80,13 +80,11 @@ import CasinoCard from '~/components/casino_card'
 import CasinoDetails from '~/components/casino_detail'
 import GameMainCard from '~/components/slot_loop/cards/main'
 import TabContent from '~/components/content/tab_content'
-import translateMixin from '~/mixins/translate'
-import head from '~/mixins/head'
 import helper from '~/helpers/helpers'
 
 export default {
 	name: 'casino_single',
-	mixins: [translateMixin, head, pageTemplate],
+	mixins: [pageTemplate],
 	components: {
 		BonusAsideCard,
 		TwoContentContainer,

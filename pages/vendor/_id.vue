@@ -46,7 +46,6 @@
 <script>
 import DAL_Builder from '~/DAL/builder'
 import helper from '~/helpers/helpers'
-import head from '~/mixins/head'
 import pageTemplate from '~/mixins/pageTemplate'
 import TwoContentContainer from '~/components/two_content_container/'
 import CategoryFilter from '~/components/category_filter'
@@ -94,7 +93,7 @@ export default {
 		CasinoLoop,
 		SlotLoop
 	},
-	mixins: [head, pageTemplate],
+	mixins: [pageTemplate],
 	async asyncData({ route, error }) {
 		if (route.params.id) {
 			const request = new DAL_Builder()

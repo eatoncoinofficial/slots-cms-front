@@ -54,13 +54,11 @@ import TwoContentContainer from '~/components/two_content_container/'
 import NewsSliderCard from '~/components/news_loop/cards/slider_card'
 import LinkWithArrow from '~/components/ui/atoms/links/link_with_arrow'
 import NewsMainCard from '~/components/news_loop/cards/main'
-import translateMixin from '~/mixins/translate'
-import head from '~/mixins/head'
 import helper from '~/helpers/helpers'
 
 export default {
 	name: 'news_single',
-	mixins: [head, translateMixin, pageTemplate],
+	mixins: [pageTemplate],
 	components: {
 		TwoContentContainer,
 		NewsSliderCard,

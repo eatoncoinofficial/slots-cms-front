@@ -24,12 +24,11 @@ import DAL_Page from '~/DAL/static_pages'
 import pageTemplate from '~/mixins/pageTemplate'
 import NewsLoop from '~/components/news_loop'
 import Faq from '~/components/faq'
-import head from '~/mixins/head'
 import helper from '~/helpers/helpers'
 
 export default {
 	name: 'news-page',
-	mixins: [pageTemplate, head],
+	mixins: [pageTemplate],
 	components: {
 		Faq,
 		NewsLoop,

@@ -48,12 +48,11 @@ import GameMainCard from '~/components/slot_loop/cards/main'
 import GameBigCard from '~/components/slot_loop/cards/big_card'
 import SlotLoop from '~/components/slot_loop'
 import ProviderFilter from '~/components/provider_list'
-import head from '~/mixins/head'
 import helper from '~/helpers/helpers'
 
 export default {
 	name: 'games-page',
-	mixins: [head, pageTemplate],
+	mixins: [pageTemplate],
 	components: {
 		Faq,
 		BonusCategory,

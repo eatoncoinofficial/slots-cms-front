@@ -54,13 +54,11 @@ import SlotSymbols from '~/components/slot_symbols'
 import SlotScreenshots from '~/components/slot_screenshots'
 import Faq from '~/components/faq'
 import SlotPopUp from '~/components/slot_popup'
-import head from '~/mixins/head'
 import helper from '~/helpers/helpers'
-import translateMixin from '~/mixins/translate'
 
 export default {
 	name: 'game_single',
-	mixins: [head, translateMixin, pageTemplate],
+	mixins: [pageTemplate],
 	components: {
 		SlotCard,
 		SlotSymbols,

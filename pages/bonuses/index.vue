@@ -28,12 +28,11 @@ import DAL_Page from '~/DAL/static_pages'
 import pageTemplate from '~/mixins/pageTemplate'
 import Faq from '~/components/faq'
 import BonusCategory from '~/components/bonus_category'
-import head from '~/mixins/head'
 import helper from '~/helpers/helpers'
 
 export default {
 	name: 'bonuses-page',
-	mixins: [head, pageTemplate],
+	mixins: [pageTemplate],
 	components: {
 		Faq,
 		BonusCategory

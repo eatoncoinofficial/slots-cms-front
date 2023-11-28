@@ -148,12 +148,11 @@ import CasinoLoop from '~/components/casino_loop'
 import Faq from '~/components/faq'
 import pageTemplate from '~/mixins/pageTemplate'
 import device from '~/mixins/device'
-import head from '~/mixins/head'
 import helper from '~/helpers/helpers'
 
 export default {
 	name: 'main-page',
-	mixins: [pageTemplate, head, device],
+	mixins: [pageTemplate, device],
 	components: {
 		Slider,
 		SliderContainer,

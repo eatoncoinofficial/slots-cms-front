@@ -20,7 +20,6 @@
 <script>
 import DAL_Builder from '~/DAL/builder'
 import helper from '~/helpers/helpers'
-import head from '~/mixins/head'
 import pageTemplate from '~/mixins/pageTemplate'
 import Faq from '~/components/faq'
 import BonusLoop from '~/components/bonus_loop'
@@ -58,7 +57,7 @@ export default {
 		Faq,
 		BonusLoop
 	},
-	mixins: [head, pageTemplate],
+	mixins: [pageTemplate],
 	async asyncData({ route, error }) {
 		if (route.params.id) {
 			const request = new DAL_Builder()
