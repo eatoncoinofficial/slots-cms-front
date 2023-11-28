@@ -2,30 +2,30 @@
 	<div class="lang_selector">
 		<div class="lang_selector_ttl open">
 			<div class="flag">
-				<AImg :attributes="imgSettings.DC" src="/img/flag_ua.png" />
+				<AImg :attributes="imgSettings" src="/img/flag_ua.png" />
 			</div>
-			<AText tag="div" :attributes="textSettings.DC">UA</AText>
+			<AText tag="div" :attributes="textSettings">UA</AText>
 			<div class="arrow">
-				<AImg :attributes="imgSettings.DC" src="/img/white_arrow.png" />
+				<AImg :attributes="imgSettings" src="/img/white_arrow.png" />
 			</div>
 		</div>
 		<div class="lang_selector_wrapper">
 			<ALink href="/custom-link" class="lang_item">
 				<div class="flag">
-					<AImg :attributes="imgSettings.DC" src="/img/flag_ua.png" />
+					<AImg :attributes="imgSettings" src="/img/flag_ua.png" />
 				</div>
-				<AText tag="div" :attributes="textSettings.DC">RU</AText>
+				<AText tag="div" :attributes="textSettings">RU</AText>
 				<div class="arrow">
-					<AImg :attributes="imgSettings.DC" src="/img/white_arrow.png" />
+					<AImg :attributes="imgSettings" src="/img/white_arrow.png" />
 				</div>
 			</ALink>
 			<ALink href="/custom-link" class="lang_item">
 				<div class="flag">
-					<AImg :attributes="imgSettings.DC" src="/img/flag_ua.png" />
+					<AImg :attributes="imgSettings" src="/img/flag_ua.png" />
 				</div>
-				<AText tag="div" :attributes="textSettings.DC">EN</AText>
+				<AText tag="div" :attributes="textSettings">EN</AText>
 				<div class="arrow">
-					<AImg :attributes="imgSettings.DC" src="/img/white_arrow.png" />
+					<AImg :attributes="imgSettings" src="/img/white_arrow.png" />
 				</div>
 			</ALink>
 		</div>
@@ -42,14 +42,10 @@ export default {
 		return {
 			options: null,
 			imgSettings: {
-				DC: { width: '18px', height: '18px' },
-				TABLET: {},
-				MOB: {}
+				width: '18px', height: '18px'
 			},
 			textSettings: {
-				DC: { color: 'cairo', transform: 'uppercase', weight: 'bolder', class: 'text' },
-				TABLET: {},
-				MOB: {}
+				color: 'cairo', transform: 'uppercase', weight: 'bolder', class: 'text'
 			}
 		}
 	}

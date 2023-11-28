@@ -24,7 +24,7 @@
 
 <script>
 export default {
-	name: 'app-game-details',
+	name: 'game-details',
 	props: {
 		value: {
 			type: Array,

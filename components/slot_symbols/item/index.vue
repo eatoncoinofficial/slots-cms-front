@@ -1,13 +1,13 @@
 <template>
 	<div class="item">
 		<div class="left">
-			<AImg :attributes="imgSettings.DC" :src="src" />
+			<AImg :attributes="imgSettings" :src="src" />
 		</div>
 		<div class="right">
 			<div>
-				<AText tag="div" :attributes="textSettings.DC" v-if="value_1">{{ value_1 }}</AText>
-				<AText tag="div" :attributes="textSettings.DC" v-if="value_2">{{ value_2 }}</AText>
-				<AText tag="div" :attributes="textSettings.DC" v-if="value_3">{{ value_3 }}</AText>
+				<AText tag="div" :attributes="textSettings" v-if="value_1">{{ value_1 }}</AText>
+				<AText tag="div" :attributes="textSettings" v-if="value_2">{{ value_2 }}</AText>
+				<AText tag="div" :attributes="textSettings" v-if="value_3">{{ value_3 }}</AText>
 			</div>
 		</div>
 	</div>
@@ -22,14 +22,10 @@ export default {
 	data() {
 		return {
 			imgSettings: {
-				DC: { width: '120px', height: '98px' },
-				TABLE: {},
-				MOB: {}
+				width: '120px', height: '98px'
 			},
 			textSettings: {
-				DC: { size: 'large', color: 'cairo', weight: 'regular', class: 'item_text' },
-				TABLE: {},
-				MOB: {}
+				size: 'large', color: 'cairo', weight: 'regular', class: 'item_text'
 			}
 		}
 	},

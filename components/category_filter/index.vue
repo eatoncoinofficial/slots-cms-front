@@ -3,7 +3,7 @@
 		<div class="wrapper">
 			<ALink
 				:href="item.permalink"
-				:attributes="textSettings.DC"
+				:attributes="textSettings"
 				v-for="(item, index) in value"
 				:key="index"
 				:data-active="activeLink(item.permalink, index)"
@@ -29,16 +29,12 @@ export default {
 	data() {
 		return {
 			textSettings: {
-				DC: {
 					class: 'item',
 					color: 'cairo',
 					text_transform: 'uppercase',
 					size: 'small',
 					weight: 'regular',
 					decoration: 'none'
-				},
-				TABLE: {},
-				MOB: {}
 			}
 		}
 	},

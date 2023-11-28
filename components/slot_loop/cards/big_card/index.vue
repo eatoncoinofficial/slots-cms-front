@@ -1,11 +1,11 @@
 <template>
 	<article class="item">
 		<div class="badge">
-			<AText :attributes="textSettings.DC">{{ t('GAME_WEEK') }}</AText>
+			<AText :attributes="textSettings">{{ t('GAME_WEEK') }}</AText>
 		</div>
 		<div class="wrapper">
 			<ALink :href="link">
-				<AImg :attributes="imgSettings.DC" :src="src" />
+				<AImg :attributes="imgSettings" :src="src" />
 			</ALink>
 		</div>
 	</article>
@@ -22,14 +22,10 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-				DC: { width: '329px', height: '355px', class: 'object_fit_cover thumbnail' },
-				TABLET: {},
-				MOB: {}
+				width: '329px', height: '355px', class: 'object_fit_cover thumbnail'
 			},
 			textSettings: {
-				DC: { color: 'cairo', class: 'badgeText', weight: 'medium' },
-				TABLET: {},
-				MOB: {}
+				color: 'cairo', class: 'badgeText', weight: 'medium'
 			}
 		}
 	},

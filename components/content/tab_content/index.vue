@@ -24,7 +24,6 @@
 </template>
 
 <script>
-import translateMixin from '~/mixins/translate'
 export default {
 	name: 'tab_content',
 	data() {
@@ -32,7 +31,6 @@ export default {
 			currentTab: 0
 		}
 	},
-	mixins: [translateMixin],
 	props: {
 		value: {
 			type: Array,

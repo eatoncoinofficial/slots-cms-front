@@ -2,7 +2,7 @@
 	<article class="item">
 		<div class="wrapper">
 			<ALink :href="link">
-				<AImg :attributes="imgSettings.DC" :src="src" />
+				<AImg :attributes="imgSettings" :src="src" />
 			</ALink>
 		</div>
 	</article>
@@ -17,9 +17,7 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-				DC: { width: '100px', height: '100px', class: 'object_fit_cover border_radius_s' },
-				TABLET: {},
-				MOB: {}
+				width: '100px', height: '100px', class: 'object_fit_cover border_radius_s'
 			}
 		}
 	},

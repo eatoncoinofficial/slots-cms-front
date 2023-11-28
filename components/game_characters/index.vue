@@ -1,10 +1,10 @@
 <template>
 	<div class="item_character">
 		<div class="left" :data-type="type">
-			<AText :attributes="titleSettings.DC">{{ title }}</AText>
+			<AText :attributes="titleSettings">{{ title }}</AText>
 		</div>
 		<div class="value_container">
-			<AText :attributes="valueSettings.DC">{{ value }}</AText>
+			<AText :attributes="valueSettings">{{ value }}</AText>
 		</div>
 	</div>
 </template>
@@ -39,14 +39,10 @@ export default {
 	data: () => {
 		return {
 			titleSettings: {
-				DC: { color: 'cairo', size: 'small', text_transform: 'uppercase' },
-				TABLE: {},
-				MOB: {}
+                color: 'cairo', size: 'small', text_transform: 'uppercase'
 			},
 			valueSettings: {
-				DC: { color: 'cairo' },
-				TABLE: {},
-				MOB: {}
+                color: 'cairo'
 			}
 		}
 	}

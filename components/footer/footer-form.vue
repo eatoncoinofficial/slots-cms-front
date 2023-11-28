@@ -4,12 +4,12 @@
 		<div class="form_wrapper">
 			<input placeholder="Ваш email" class="input" />
 			<div class="btn_wrapper">
-				<AButton :attributes="btnSettings.DC">{{ t('SIGN_UP') }}</AButton>
+				<AButton :attributes="btnSettings">{{ t('SIGN_UP') }}</AButton>
 			</div>
 		</div>
 		<div class="form_rules">
 			<div class="rules_check_box"></div>
-			<AText :attributes="formRulesSettings.DC">{{ t('SUBSCRIBE_RULES') }}</AText>
+			<AText :attributes="formRulesSettings">{{ t('SUBSCRIBE_RULES') }}</AText>
 		</div>
 	</div>
 </template>
@@ -25,9 +25,7 @@ export default {
 	data: () => {
 		return {
 			btnSettings: {
-				DC: { bg: 'calgary', color: 'cochin', borderRadius: 's', weight: 'semi-bold' },
-				TABLET: {},
-				MOB: {}
+				bg: 'calgary', color: 'cochin', borderRadius: 's', weight: 'semi-bold'
 			},
 			titleSettings: {
 				color: 'cairo',
@@ -36,9 +34,7 @@ export default {
 				class: 'form_title'
 			},
 			formRulesSettings: {
-				DC: { color: 'cordoba', weight: 'regular', size: 'small' },
-				TABLET: {},
-				MOB: {}
+				color: 'cordoba', weight: 'regular', size: 'small'
 			}
 		}
 	}

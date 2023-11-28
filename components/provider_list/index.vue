@@ -1,15 +1,15 @@
 <template>
 	<div class="root">
 		<div class="wrapper">
-			<AText :attributes="btnSettings.DC" data-active="true">{{ t('ALL') }}</AText>
+			<AText :attributes="btnSettings" data-active="true">{{ t('ALL') }}</AText>
 			<ALink
 				v-for="(item, index) in value"
 				:href="item.permalink"
-				:attributes="textSettings.DC"
+				:attributes="textSettings"
 				:key="index"
 				:data-active="item.active"
 			>
-				<AImg :attributes="imgSettings.DC" :src="item.icon" /> {{ item.title }}
+				<AImg :attributes="imgSettings" :src="item.icon" /> {{ item.title }}
 			</ALink>
 		</div>
 	</div>
@@ -35,31 +35,21 @@ export default {
 	data() {
 		return {
 			textSettings: {
-				DC: {
 					class: 'item',
 					color: 'cairo',
 					size: 'small',
 					weight: 'regular',
 					decoration: 'none'
-				},
-				TABLE: {},
-				MOB: {}
 			},
 			imgSettings: {
-				DC: { width: '26px', height: '26px', class: 'logo' },
-				TABLE: {},
-				MOB: {}
+				width: '26px', height: '26px', class: 'logo'
 			},
 			btnSettings: {
-				DC: {
 					class: 'item_btn',
 					color: 'cairo',
 					size: 'small',
 					weight: 'regular',
 					decoration: 'none'
-				},
-				TABLE: {},
-				MOB: {}
 			}
 		}
 	}

@@ -1,5 +1,5 @@
 <template>
-	<div v-bind="containerSettings.DC">
+	<div v-bind="containerSettings">
 		<div class="container top-container">
 			<div class="left">
 				<FooterLogo />
@@ -21,11 +21,7 @@ export default {
 	data: () => {
 		return {
 			containerSettings: {
-				DC: {
 					class: 'p_m'
-				},
-				TABLET: {},
-				MOB: {}
 			}
 		}
 	}

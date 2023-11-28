@@ -2,10 +2,10 @@
 	<div class="game_popup" :class="fullScreen ? 'p-0' : ''">
 		<div class="wrapper" :class="fullScreen ? 'full_screen' : ''">
 			<div class="title_wrapper" :class="fullScreen ? 'full_screen' : ''">
-				<AText :attributes="titleSettings.DC">{{ title }}</AText>
+				<AText :attributes="titleSettings">{{ title }}</AText>
 				<div class="btn_action">
-					<AButton :attributes="btnFullSettings.DC" @onClick="changeSize"></AButton>
-					<AButton :attributes="btnCloseSettings.DC" @onClick="onClickDemoClose"></AButton>
+					<AButton :attributes="btnFullSettings" @onClick="changeSize"></AButton>
+					<AButton :attributes="btnCloseSettings" @onClick="onClickDemoClose"></AButton>
 				</div>
 			</div>
 			<iframe class="game-popup__iframe" :src="src" frameborder="0"></iframe>
@@ -25,19 +25,13 @@ export default {
 	data: () => {
 		return {
 			titleSettings: {
-				DC: { color: 'cairo', size: 'medium', weight: 'bold' },
-				TABLE: {},
-				MOB: {}
+				color: 'cairo', size: 'medium', weight: 'bold'
 			},
 			btnFullSettings: {
-				DC: { class: 'btn_full' },
-				TABLE: {},
-				MOB: {}
+				class: 'btn_full'
 			},
 			btnCloseSettings: {
-				DC: { class: 'btn_close' },
-				TABLE: {},
-				MOB: {}
+				class: 'btn_close'
 			},
 			fullScreen: false
 		}

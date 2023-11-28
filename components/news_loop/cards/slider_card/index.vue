@@ -4,16 +4,16 @@
 			<div class="left">
 				<div class="img_wrapper">
 					<ALink :href="link">
-						<AImg :attributes="imgSettings.DC" :src="src" />
+						<AImg :attributes="imgSettings" :src="src" />
 					</ALink>
 				</div>
 			</div>
 			<div class="right">
 				<div>
-					<ALink :attributes="titleSettings.DC" :href="link">{{ title }}</ALink>
+					<ALink :attributes="titleSettings" :href="link">{{ title }}</ALink>
 				</div>
 				<div>
-					<AText :attributes="descTextSettings.DC">{{ desc }}</AText>
+					<AText :attributes="descTextSettings">{{ desc }}</AText>
 				</div>
 			</div>
 		</div>
@@ -29,19 +29,13 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-				DC: { width: '44px', height: '44px', class: 'object_fit_cover border_radius_s' },
-				TABLET: {},
-				MOB: {}
+				width: '44px', height: '44px', class: 'object_fit_cover border_radius_s'
 			},
 			titleSettings: {
-				DC: { color: 'cairo', size: 'small', weight: 'bold', decoration: 'none', class: 'title' },
-				TABLET: {},
-				MOB: {}
+				color: 'cairo', size: 'small', weight: 'bold', decoration: 'none', class: 'title'
 			},
 			descTextSettings: {
-				DC: { color: 'cairo', size: 'small', weight: 'regular', class: 'desc' },
-				TABLET: {},
-				MOB: {}
+				color: 'cairo', size: 'small', weight: 'regular', class: 'desc'
 			}
 		}
 	},

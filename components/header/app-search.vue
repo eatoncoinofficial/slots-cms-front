@@ -2,7 +2,7 @@
 	<div class="search">
 		<input :placeholder="t('SEARCH')" class="input" v-model="searchWord" v-on:keyup.enter="search" />
 		<button type="button" class="btn-default search__cta" @click="search">
-			<AImg :attributes="imgSettings.DC" src="/img/search.png" />
+			<AImg :attributes="imgSettings" src="/img/search.png" />
 		</button>
 		<div class="search-box" v-if="posts.length && searchWord.length">
 			<ul class="search-suggest" v-if="posts.length !== 0">
@@ -28,9 +28,7 @@ export default {
 			posts: [],
 			searchWord: '',
 			imgSettings: {
-				DC: { width: '20px', height: '20px' },
-				TABLET: {},
-				MOB: {}
+				width: '20px', height: '20px'
 			}
 		}
 	},

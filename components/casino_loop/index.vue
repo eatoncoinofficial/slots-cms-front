@@ -19,8 +19,8 @@
             />
         </div>
         <div class="items-more" v-if="hideBtnShowMore">
-            <AButton @onClick="postShowMore" :attributes="btnSettings.DC">
-                {{ t('SHOW_MORE') }} <AImg :attributes="arrowSettings.DC" src="/img/arrowGreen.svg" />
+            <AButton @onClick="postShowMore" :attributes="btnSettings">
+                {{ t('SHOW_MORE') }} <AImg :attributes="arrowSettings" src="/img/arrowGreen.svg" />
             </AButton>
         </div>
     </div>
@@ -50,20 +50,11 @@ export default {
             numberPostOnQuery: NumberPostOnQuery,
             postCurrentPage: 1,
             btnSettings: {
-                DC: { color: 'cairo', class: 'load_more', weight: 'bold', size: 'medium' },
-                TABLET: {},
-                MOB: {}
+               color: 'cairo', class: 'load_more', weight: 'bold', size: 'medium'
             },
             arrowSettings: {
-                DC: { width: '18px', height: '18px', class: 'arrow' },
-                TABLET: {},
-                MOB: {}
+                width: '18px', height: '18px', class: 'arrow'
             }
-        }
-    },
-    methods: {
-        test() {
-            console.log('Good day')
         }
     }
 }

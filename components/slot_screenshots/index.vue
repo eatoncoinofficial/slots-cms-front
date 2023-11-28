@@ -9,7 +9,7 @@
 <script>
 import SlotScreenshotsItem from '~/components/slot_screenshots/item'
 export default {
-	name: 'game_symbols',
+	name: 'game_screenshots',
 	components: { SlotScreenshotsItem },
 	data() {
 		return {

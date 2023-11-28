@@ -6,38 +6,38 @@
 					{{ label }}
 				</div>
 				<div class="rating">
-					<AImg :attributes="starSettings.DC" src="/img/goldStar.svg" />
-					<AText tag="span" :attributes="textSettings.DC">{{ rating / 10 }}</AText>
-					<AText tag="span" :attributes="thinTextSettings.DC">/10</AText>
+					<AImg :attributes="starSettings" src="/img/goldStar.svg" />
+					<AText tag="span" :attributes="textSettings">{{ rating / 10 }}</AText>
+					<AText tag="span" :attributes="thinTextSettings">/10</AText>
 				</div>
 				<div class="img_wrapper">
 					<ALink :href="link">
-						<AImg :attributes="imgSettings.DC" :src="src" />
+						<AImg :attributes="imgSettings" :src="src" />
 					</ALink>
 				</div>
 			</div>
 			<div class="right" v-if="device !== 'MOB'">
 				<div class="right_left">
-					<ALink :href="link" :attributes="titleLinkSettings.DC">
+					<ALink :href="link" :attributes="titleLinkSettings">
 						{{ title }}
 					</ALink>
-					<AText tag="div" :attributes="bonusNameSettings.DC">{{ t('WELCOME_PACKAGE') }}</AText>
-					<AText tag="div" :attributes="bonusValueSettings.DC">{{ bonus_value }}</AText>
-					<AText tag="div" :attributes="bonusDescSettings.DC"
+					<AText tag="div" :attributes="bonusNameSettings">{{ t('WELCOME_PACKAGE') }}</AText>
+					<AText tag="div" :attributes="bonusValueSettings">{{ bonus_value }}</AText>
+					<AText tag="div" :attributes="bonusDescSettings"
 						>Min. deposit: {{ min_dep }} &middot; Wagering: {{ wager }}</AText
 					>
 					<div class="action_wrapper">
 						<div class="btn_wrapper">
-							<AButton :attributes="btnSettings.DC" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
+							<AButton :attributes="btnSettings" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
 						</div>
-						<ALink :href="link" :attributes="readMoreLinkSettings.DC"
-							><AImg :attributes="searchSettings.DC" src="/img/search.png" />
+						<ALink :href="link" :attributes="readMoreLinkSettings"
+							><AImg :attributes="searchSettings" src="/img/search.png" />
 						</ALink>
 					</div>
 				</div>
 				<div class="right_right">
 					<div class="advantages_wrapper">
-						<AText tag="div" :attributes="advantagesTextSettings.DC" v-for="(item, index) in advantages" :key="index">{{
+						<AText tag="div" :attributes="advantagesTextSettings" v-for="(item, index) in advantages" :key="index">{{
 							item
 						}}</AText>
 					</div>
@@ -47,27 +47,27 @@
 							<ALink
 								v-for="(item, index) in vendors.slice(0, 4)"
 								:href="item.permalink"
-								:attributes="providerLinkSettings.DC"
+								:attributes="providerLinkSettings"
 								:key="index"
 							>
-								<AImg :attributes="providerSettings.DC" :src="item.thumbnail" />
+								<AImg :attributes="providerSettings" :src="item.thumbnail" />
 							</ALink>
 						</div>
 						<div class="providers_total">
-							<AText tag="span" :attributes="totalTextSettings.DC">+ {{ vendors.length }}</AText>
+							<AText tag="span" :attributes="totalTextSettings">+ {{ vendors.length }}</AText>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="right" v-if="device === 'MOB'">
 				<div class="wrapper_title">
-					<ALink :href="link" :attributes="titleLinkSettings.DC">
+					<ALink :href="link" :attributes="titleLinkSettings">
 						{{ title }}
 					</ALink>
 				</div>
-				<AText tag="div" :attributes="bonusNameSettings.DC">{{ t('WELCOME_PACKAGE') }}</AText>
-				<AText tag="div" :attributes="bonusValueSettings.DC">{{ bonus_value }}</AText>
-				<AText tag="div" :attributes="bonusDescSettings.DC"
+				<AText tag="div" :attributes="bonusNameSettings">{{ t('WELCOME_PACKAGE') }}</AText>
+				<AText tag="div" :attributes="bonusValueSettings">{{ bonus_value }}</AText>
+				<AText tag="div" :attributes="bonusDescSettings"
 					>Min. deposit: {{ min_dep }} &middot; Wagering: {{ wager }}</AText
 				>
 				<div class="providers">
@@ -76,30 +76,30 @@
 						<ALink
 							v-for="(item, index) in vendors.slice(0, 4)"
 							:href="item.permalink"
-							:attributes="providerLinkSettings.DC"
+							:attributes="providerLinkSettings"
 							:key="index"
 						>
-							<AImg :attributes="providerSettings.DC" :src="item.thumbnail" />
+							<AImg :attributes="providerSettings" :src="item.thumbnail" />
 						</ALink>
 					</div>
 					<div class="providers_total">
-						<AText tag="span" :attributes="totalTextSettings.DC">+ {{ vendors.length }}</AText>
+						<AText tag="span" :attributes="totalTextSettings">+ {{ vendors.length }}</AText>
 					</div>
 				</div>
 				<div class="details_wrapper">
 					<div class="details_btn" :class="{ active: detailActive }" @click="onDetailActive">{{ t('DETAILS') }}</div>
 				</div>
 				<div class="advantages_wrapper" v-if="detailActive">
-					<AText tag="div" :attributes="advantagesTextSettings.DC" v-for="(item, index) in advantages" :key="index">{{
+					<AText tag="div" :attributes="advantagesTextSettings" v-for="(item, index) in advantages" :key="index">{{
 						item
 					}}</AText>
 				</div>
 				<div class="action_wrapper">
 					<div class="btn_wrapper">
-						<AButton :attributes="btnSettings.DC" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
+						<AButton :attributes="btnSettings" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
 					</div>
-					<ALink :href="link" :attributes="readMoreLinkSettings.DC"
-						><AImg :attributes="searchSettings.DC" src="/img/search.png" />
+					<ALink :href="link" :attributes="readMoreLinkSettings"
+						><AImg :attributes="searchSettings" src="/img/search.png" />
 					</ALink>
 				</div>
 			</div>
@@ -121,79 +121,49 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-				DC: { width: '210px', height: '92px', class: 'object_fit_cover' },
-				TABLET: {},
-				MOB: {}
+				width: '210px', height: '92px', class: 'object_fit_cover'
 			},
 			starSettings: {
-				DC: { width: '14px', height: '14px', class: ' m_r_xs' },
-				TABLET: {},
-				MOB: {}
+				width: '14px', height: '14px', class: ' m_r_xs'
 			},
 			textSettings: {
-				DC: { color: 'cairo', size: 'small', bold: 'semi-bold', class: 'rating_value' },
-				TABLET: {},
-				MOB: {}
+				color: 'cairo', size: 'small', bold: 'semi-bold', class: 'rating_value'
 			},
 			thinTextSettings: {
-				DC: { color: 'cordoba', size: 'small', bold: 'thin', class: 'rating_total_value' },
-				TABLET: {},
-				MOB: {}
+				color: 'cordoba', size: 'small', bold: 'thin', class: 'rating_total_value'
 			},
 			searchSettings: {
-				DC: { width: '20px', height: '20px' },
-				TABLET: {},
-				MOB: {}
+				width: '20px', height: '20px'
 			},
 			titleLinkSettings: {
-				DC: { color: 'cairo', size: 'large', weight: 'bold', decoration: 'none' },
-				TABLET: {},
-				MOB: {}
+				color: 'cairo', size: 'large', weight: 'bold', decoration: 'none'
 			},
 			bonusNameSettings: {
-				DC: { color: 'cairo', size: 'small', weight: 'regular', class: 'bonus_name' },
-				TABLET: {},
-				MOB: {}
+				color: 'cairo', size: 'small', weight: 'regular', class: 'bonus_name'
 			},
 			bonusValueSettings: {
-				DC: { color: 'calgary', size: 'large', weight: 'bold', class: 'bonus_value' },
-				TABLET: {},
-				MOB: {}
+				color: 'calgary', size: 'large', weight: 'bold', class: 'bonus_value'
 			},
 			bonusDescSettings: {
-				DC: { color: 'cairo', size: 'small', weight: 'regular', class: 'bonus_desc' },
-				TABLET: {},
-				MOB: {}
+				color: 'cairo', size: 'small', weight: 'regular', class: 'bonus_desc'
 			},
 			btnSettings: {
-				DC: { bg: 'calgary', color: 'cochin', borderRadius: 's', weight: 'semi-bold' },
-				TABLET: {},
-				MOB: {}
+				bg: 'calgary', color: 'cochin', borderRadius: 's', weight: 'semi-bold'
 			},
 			readMoreLinkSettings: {
-				DC: { bg: 'calgary', class: 'read_more' },
-				TABLET: {},
-				MOB: {}
+                bg: 'calgary', class: 'read_more'
 			},
 			advantagesTextSettings: {
-				DC: { color: 'cairo', size: 'small', class: 'advantages' },
-				TABLET: {},
-				MOB: {}
+				color: 'cairo', size: 'small', class: 'advantages'
 			},
 			totalTextSettings: {
-				DC: { color: 'cairo' },
-				TABLET: {},
-				MOB: {}
+				color: 'cairo'
 			},
 			providerLinkSettings: {
-				DC: { class: 'provider_link' },
-				TABLET: {},
-				MOB: {}
+				class: 'provider_link'
 			},
 			providerSettings: {
-				DC: { class: 'provider_img', width: '54px', height: '34px' },
-				TABLET: {},
-				MOB: {}
+				class: 'provider_img', width: '54px', height: '34px'
 			},
 			detailActive: false
 		}

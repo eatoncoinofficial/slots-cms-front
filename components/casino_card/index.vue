@@ -3,23 +3,23 @@
 		<div class="wrapper">
 			<div class="left">
 				<div class="rating">
-					<AImg :attributes="starSettings.DC" src="/img/goldStar.svg" />
-					<AText tag="span" :attributes="textSettings.DC">{{ rating / 10 }} </AText>
-					<AText tag="span" :attributes="thinTextSettings.DC">/ 10</AText>
+					<AImg :attributes="starSettings" src="/img/goldStar.svg" />
+					<AText tag="span" :attributes="textSettings">{{ rating / 10 }} </AText>
+					<AText tag="span" :attributes="thinTextSettings">/ 10</AText>
 				</div>
 				<div class="img_wrapper">
-					<AImg :attributes="imgSettings.DC" :src="src" />
+					<AImg :attributes="imgSettings" :src="src" />
 				</div>
 			</div>
 			<div class="right">
-				<AText tag="div" :attributes="labelSettings.DC" v-if="label" :class="label">{{ label }}</AText>
+				<AText tag="div" :attributes="labelSettings" v-if="label" :class="label">{{ label }}</AText>
 				<div>
-					<AText tag="div" :attributes="titleSettings.DC">{{ title }}</AText>
-					<AText tag="div" :attributes="bonusNameSettings.DC">{{ t('WELCOME_PACKAGE') }}</AText>
-					<AText tag="div" :attributes="bonusValueSettings.DC">{{ bonus_value }}</AText>
+					<AText tag="div" :attributes="titleSettings">{{ title }}</AText>
+					<AText tag="div" :attributes="bonusNameSettings">{{ t('WELCOME_PACKAGE') }}</AText>
+					<AText tag="div" :attributes="bonusValueSettings">{{ bonus_value }}</AText>
 					<div class="action_wrapper">
 						<div class="btn_wrapper">
-							<AButton :attributes="btnSettings.DC" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
+							<AButton :attributes="btnSettings" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
 						</div>
 					</div>
 				</div>
@@ -40,49 +40,31 @@ export default {
 	data() {
 		return {
 			imgSettings: {
-				DC: { width: '210px', height: '92px', class: 'object_fit_cover' },
-				TABLET: {},
-				MOB: {}
+				width: '210px', height: '92px', class: 'object_fit_cover'
 			},
 			titleSettings: {
-				DC: { color: 'cairo', size: 'large', weight: 'bold', decoration: 'none' },
-				TABLET: {},
-				MOB: {}
+				color: 'cairo', size: 'large', weight: 'bold', decoration: 'none'
 			},
 			bonusNameSettings: {
-				DC: { color: 'cairo', size: 'small', weight: 'regular', class: 'bonus_name' },
-				TABLET: {},
-				MOB: {}
+				color: 'cairo', size: 'small', weight: 'regular', class: 'bonus_name'
 			},
 			bonusValueSettings: {
-				DC: { color: 'calgary', size: 'x-large', weight: 'bold', class: 'bonus_value' },
-				TABLET: {},
-				MOB: {}
+				color: 'calgary', size: 'x-large', weight: 'bold', class: 'bonus_value'
 			},
 			btnSettings: {
-				DC: { bg: 'calgary', color: 'cochin', borderRadius: 's', weight: 'semi-bold' },
-				TABLET: {},
-				MOB: {}
+				bg: 'calgary', color: 'cochin', borderRadius: 's', weight: 'semi-bold'
 			},
 			starSettings: {
-				DC: { width: '14px', height: '14px', class: ' m_r_xs' },
-				TABLET: {},
-				MOB: {}
+				width: '14px', height: '14px', class: ' m_r_xs'
 			},
 			textSettings: {
-				DC: { color: 'cairo', size: 'small', bold: 'semi-bold', class: 'rating_value' },
-				TABLET: {},
-				MOB: {}
+				color: 'cairo', size: 'small', bold: 'semi-bold', class: 'rating_value'
 			},
 			thinTextSettings: {
-				DC: { color: 'cordoba', size: 'small', bold: 'thin', class: 'rating_total_value' },
-				TABLET: {},
-				MOB: {}
+				color: 'cordoba', size: 'small', bold: 'thin', class: 'rating_total_value'
 			},
 			labelSettings: {
-				DC: { color: 'cairo', size: 'small', bold: 'regular', text_transform: 'uppercase', class: 'label' },
-				TABLET: {},
-				MOB: {}
+                color: 'cairo', size: 'small', bold: 'regular', text_transform: 'uppercase', class: 'label'
 			}
 		}
 	},

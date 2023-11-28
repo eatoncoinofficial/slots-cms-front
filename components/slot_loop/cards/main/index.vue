@@ -2,12 +2,12 @@
 	<article class="item" :class="size">
 		<div class="wrapper">
 			<ALink :href="link">
-				<AImg :attributes="imgSettings.DC" :src="src" />
+				<AImg :attributes="imgSettings" :src="src" />
 			</ALink>
 		</div>
 		<div class="mask">
 			<div class="action">
-				<ALink :attributes="linkSettings.DC" :href="link">{{ t('PLAY') }}</ALink>
+				<ALink :attributes="linkSettings" :href="link">{{ t('PLAY') }}</ALink>
 			</div>
 		</div>
 	</article>
@@ -24,14 +24,10 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-				DC: { width: '159px', height: '172px', class: 'object_fit_cover thumbnail' },
-				TABLET: {},
-				MOB: {}
+				width: '159px', height: '172px', class: 'object_fit_cover thumbnail'
 			},
 			linkSettings: {
-				DC: { color: 'cairo', weight: 'regular', size: 'medium', decoration: 'none' },
-				TABLET: {},
-				MOB: {}
+				color: 'cairo', weight: 'regular', size: 'medium', decoration: 'none'
 			}
 		}
 	},

@@ -4,19 +4,19 @@
 			<div class="top">
 				<div class="img_wrapper">
 					<ALink :href="link">
-						<AImg :attributes="imgSettings.DC" :src="src" />
+						<AImg :attributes="imgSettings" :src="src" />
 					</ALink>
 				</div>
 			</div>
 			<div class="center">
-				<ALink :href="link" :attributes="titleLinkSettings.DC">
+				<ALink :href="link" :attributes="titleLinkSettings">
 					{{ title }}
 				</ALink>
-				<AText tag="div" :attributes="dateTextSettings.DC">{{ date }}</AText>
-				<AText tag="div" :attributes="descTextSettings.DC">{{ desc }}</AText>
+				<AText tag="div" :attributes="dateTextSettings">{{ date }}</AText>
+				<AText tag="div" :attributes="descTextSettings">{{ desc }}</AText>
 			</div>
 			<div class="bottom">
-				<LinkWithArrow :link="link" :attributes="linkSettings.DC">
+				<LinkWithArrow :link="link" :attributes="linkSettings">
 					{{ t('READ_MORE') }}
 				</LinkWithArrow>
 			</div>
@@ -36,34 +36,22 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-				DC: { width: '276px', height: '160px', class: 'object_fit_cover border_radius_s' },
-				TABLET: {},
-				MOB: {}
+				width: '276px', height: '160px', class: 'object_fit_cover border_radius_s'
 			},
 			titleSettings: {
-				DC: { color: 'cairo', size: 'small', weight: 'bold', decoration: 'none', class: 'title' },
-				TABLET: {},
-				MOB: {}
+				color: 'cairo', size: 'small', weight: 'bold', decoration: 'none', class: 'title'
 			},
 			descTextSettings: {
-				DC: { color: 'cairo', size: 'small', weight: 'regular', class: 'desc' },
-				TABLET: {},
-				MOB: {}
+				color: 'cairo', size: 'small', weight: 'regular', class: 'desc'
 			},
 			linkSettings: {
-				DC: { size: 'medium', color: 'calgary', weight: 'semi-bold', decoration: 'none' },
-				TABLET: {},
-				MOB: {}
+                size: 'medium', color: 'calgary', weight: 'semi-bold', decoration: 'none'
 			},
 			titleLinkSettings: {
-				DC: { size: 'medium', color: 'cairo', weight: 'semi-bold', decoration: 'none' },
-				TABLET: {},
-				MOB: {}
+				size: 'medium', color: 'cairo', weight: 'semi-bold', decoration: 'none'
 			},
 			dateTextSettings: {
-				DC: { size: 'small', color: 'cairo', weight: 'regular', class: 'date' },
-				TABLET: {},
-				MOB: {}
+				size: 'small', color: 'cairo', weight: 'regular', class: 'date'
 			}
 		}
 	},

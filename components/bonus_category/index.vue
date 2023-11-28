@@ -1,6 +1,6 @@
 <template>
 	<div class="root">
-		<AText tag="div" :attributes="titleSettings.DC">{{ title }}</AText>
+		<AText tag="div" :attributes="titleSettings">{{ title }}</AText>
 		<div class="bonus_loop">
 			<BonusAsideCard
 				v-for="(item, index) in posts"
@@ -16,8 +16,8 @@
 		</div>
 		<div class="items-more">
 			<div class="btn_wrapper">
-				<ALink :attributes="btnSettings.DC" :href="link">
-					{{ t('SHOW_MORE') }} <AImg :attributes="arrowSettings.DC" src="/img/arrowGreen.svg" />
+				<ALink :attributes="btnSettings" :href="link">
+					{{ t('SHOW_MORE') }} <AImg :attributes="arrowSettings" src="/img/arrowGreen.svg" />
 				</ALink>
 			</div>
 		</div>
@@ -60,23 +60,16 @@ export default {
 		BonusAsideCard,
 		ALink
 	},
-	layout: 'dev',
 	data: () => {
 		return {
 			titleSettings: {
-				DC: { color: 'cairo', weight: 'bold', class: 'title' },
-				TABLE: {},
-				MOB: {}
+				color: 'cairo', weight: 'bold', class: 'title'
 			},
 			btnSettings: {
-				DC: { color: 'cairo', class: 'load_more', weight: 'bold', size: 'medium', decoration: 'none' },
-				TABLET: {},
-				MOB: {}
+                color: 'cairo', class: 'load_more', weight: 'bold', size: 'medium', decoration: 'none'
 			},
 			arrowSettings: {
-				DC: { width: '18px', height: '18px', class: 'arrow' },
-				TABLET: {},
-				MOB: {}
+                width: '18px', height: '18px', class: 'arrow'
 			}
 		}
 	}

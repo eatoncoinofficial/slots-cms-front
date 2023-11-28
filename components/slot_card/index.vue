@@ -2,27 +2,27 @@
 	<div class="root">
 		<div class="left">
 			<div class="thumbnail_wrapper">
-				<AImg :attributes="imgSettings.DC" :src="src" />
+				<AImg :attributes="imgSettings" :src="src" />
 			</div>
 		</div>
 		<div class="center">
 			<div class="center_wrapper">
-				<AText tag="div" :attributes="titleSettings.DC">{{ title }}</AText>
-				<AText tag="div" :attributes="subTitleSettings.DC">{{ vendor_title }}</AText>
-				<AText tag="div" :attributes="sectionTitleSettings.DC">{{ t('GAME_AVAILABLE_CASINOS') }}</AText>
+				<AText tag="div" :attributes="titleSettings">{{ title }}</AText>
+				<AText tag="div" :attributes="subTitleSettings">{{ vendor_title }}</AText>
+				<AText tag="div" :attributes="sectionTitleSettings">{{ t('GAME_AVAILABLE_CASINOS') }}</AText>
 				<div class="casino_wrapper">
 					<div class="item" v-for="(item, index) in casinos" :key="index" :style="`background: ${item.color}`">
 						<ALink :href="item.permalink">
-							<AImg :attributes="itemImgSettings.DC" :src="item.thumbnail" />
+							<AImg :attributes="itemImgSettings" :src="item.thumbnail" />
 						</ALink>
 					</div>
 				</div>
 				<div class="action_wrapper">
 					<div class="action_item">
-						<AButton :attributes="btnSettings.DC" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
+						<AButton :attributes="btnSettings" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
 					</div>
 					<div class="action_item">
-						<AButton :attributes="btnDemoSettings.DC" v-if="demo" @onClick="onClickDemoActivate">{{
+						<AButton :attributes="btnDemoSettings" v-if="demo" @onClick="onClickDemoActivate">{{
 							t('DEMO')
 						}}</AButton>
 					</div>
@@ -60,43 +60,27 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-				DC: {
 					width: '300px',
 					height: '325px',
 					class: 'object_fit_cover thumbnail'
-				},
-				TABLE: {},
-				MOB: {}
 			},
 			titleSettings: {
-				DC: { class: 'title', color: 'cairo', weight: 'bold' },
-				TABLE: {},
-				MOB: {}
+				class: 'title', color: 'cairo', weight: 'bold'
 			},
 			subTitleSettings: {
-				DC: { class: 'sub_title', color: 'cairo', size: 'medium' },
-				TABLE: {},
-				MOB: {}
+				class: 'sub_title', color: 'cairo', size: 'medium'
 			},
 			sectionTitleSettings: {
-				DC: { class: 'section_title', color: 'cairo', size: 'small' },
-				TABLE: {},
-				MOB: {}
+				class: 'section_title', color: 'cairo', size: 'small'
 			},
 			itemImgSettings: {
-				DC: { width: '68px', height: '50px' },
-				TABLE: {},
-				MOB: {}
+				width: '68px', height: '50px'
 			},
 			btnSettings: {
-				DC: { bg: 'calgary', color: 'cochin', borderRadius: 's', weight: 'semi-bold' },
-				TABLE: {},
-				MOB: {}
+                bg: 'calgary', color: 'cochin', borderRadius: 's', weight: 'semi-bold'
 			},
 			btnDemoSettings: {
-				DC: { bg: 'calgary', color: 'cairo', borderRadius: 's', weight: 'semi-bold', class: 'demo_btn' },
-				TABLE: {},
-				MOB: {}
+				bg: 'calgary', color: 'cairo', borderRadius: 's', weight: 'semi-bold', class: 'demo_btn'
 			}
 		}
 	},

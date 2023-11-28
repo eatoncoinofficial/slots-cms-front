@@ -2,12 +2,12 @@
 	<article class="item">
 		<div class="wrapper" :style="`background: ${color}`">
 			<div class="rating">
-				<AImg :attributes="starSettings.DC" src="/img/goldStar.svg" />
-				<AText tag="span" :attributes="textSettings.DC">{{ rating / 10 }}</AText>
-				<AText tag="span" :attributes="thinTextSettings.DC">/10</AText>
+				<AImg :attributes="starSettings" src="/img/goldStar.svg" />
+				<AText tag="span" :attributes="textSettings">{{ rating / 10 }}</AText>
+				<AText tag="span" :attributes="thinTextSettings">/10</AText>
 			</div>
 			<ALink :href="link">
-				<AImg :attributes="imgSettings.DC" :src="src" />
+				<AImg :attributes="imgSettings" :src="src" />
 			</ALink>
 		</div>
 	</article>
@@ -22,24 +22,16 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-				DC: { width: '50px', height: '50px', class: 'border_radius_s' },
-				TABLET: {},
-				MOB: {}
+				width: '50px', height: '50px', class: 'border_radius_s'
 			},
 			starSettings: {
-				DC: { width: '14px', height: '14px', class: ' m_r_xs' },
-				TABLET: {},
-				MOB: {}
+				width: '14px', height: '14px', class: ' m_r_xs'
 			},
 			textSettings: {
-				DC: { color: 'cairo', size: 'small', bold: 'semi-bold', class: 'rating_value' },
-				TABLET: {},
-				MOB: {}
+				color: 'cairo', size: 'small', bold: 'semi-bold', class: 'rating_value'
 			},
 			thinTextSettings: {
-				DC: { color: 'cordoba', size: 'small', bold: 'thin', class: 'rating_total_value' },
-				TABLET: {},
-				MOB: {}
+				color: 'cordoba', size: 'small', bold: 'thin', class: 'rating_total_value'
 			}
 		}
 	},

@@ -12,7 +12,7 @@ import FooterText from './footer-text'
 import FooterPartners from './partners'
 import FooterTop from './top'
 export default {
-	name: 'dev-footer',
+	name: 'app-footer',
 	components: { FooterText, FooterDescription, FooterPartners, FooterTop }
 }
 </script>

@@ -2,55 +2,55 @@
 	<div class="casino_details">
 		<div class="row">
 			<div class="left">
-				<AText :attributes="textProvidersSettings.DC">{{ t('VENDORS') }}</AText>
+				<AText :attributes="textProvidersSettings">{{ t('VENDORS') }}</AText>
 			</div>
 			<div class="right">
 				<ALink
 					v-for="(item, index) in vendors"
 					:href="item.permalink"
-					:attributes="textProviderItemSettings.DC"
+					:attributes="textProviderItemSettings"
 					:key="index"
 				>
-					<AImg :attributes="imgSettings.DC" :src="item.icon" /> {{ item.title }}
+					<AImg :attributes="imgSettings" :src="item.icon" /> {{ item.title }}
 				</ALink>
 			</div>
 		</div>
 		<div class="row">
 			<div class="left">
-				<AText :attributes="textDepositMethodsSettings.DC">{{ t('DEPOSIT_METHODS') }}</AText>
+				<AText :attributes="textDepositMethodsSettings">{{ t('DEPOSIT_METHODS') }}</AText>
 			</div>
 			<div class="right">
-				<AText :attributes="textPayoutSettings.DC" v-for="(item, index) in payments" :key="index">{{
+				<AText :attributes="textPayoutSettings" v-for="(item, index) in payments" :key="index">{{
 					item.title
 				}}</AText>
 			</div>
 		</div>
 		<div class="row">
 			<div class="left">
-				<AText :attributes="textWithoutMethodsSettings.DC">{{ t('PAYMENTS_OPTIONS') }}</AText>
+				<AText :attributes="textWithoutMethodsSettings">{{ t('PAYMENTS_OPTIONS') }}</AText>
 			</div>
 			<div class="right">
-				<AText :attributes="textPayoutSettings.DC" v-for="(item, index) in payments" :key="index">{{
+				<AText :attributes="textPayoutSettings" v-for="(item, index) in payments" :key="index">{{
 					item.title
 				}}</AText>
 			</div>
 		</div>
 		<div class="row">
 			<div class="left">
-				<AText :attributes="textGameCurrencySettings.DC">{{ t('GAME_CURRENCY') }}</AText>
+				<AText :attributes="textGameCurrencySettings">{{ t('GAME_CURRENCY') }}</AText>
 			</div>
 			<div class="right">
-				<AText :attributes="textItemSettings.DC" v-for="(item, index) in currencies" :key="index">{{
+				<AText :attributes="textItemSettings" v-for="(item, index) in currencies" :key="index">{{
 					item.title
 				}}</AText>
 			</div>
 		</div>
 		<div class="row">
 			<div class="left">
-				<AText :attributes="textLangSettings.DC">{{ t('LANG') }}</AText>
+				<AText :attributes="textLangSettings">{{ t('LANG') }}</AText>
 			</div>
 			<div class="right">
-				<AText :attributes="textItemSettings.DC" v-for="(item, index) in languages" :key="index">{{
+				<AText :attributes="textItemSettings" v-for="(item, index) in languages" :key="index">{{
 					item.title
 				}}</AText>
 			</div>
@@ -95,63 +95,39 @@ export default {
 	data() {
 		return {
 			textProvidersSettings: {
-				DC: { color: 'cairo', size: 'small', weight: 'medium', class: 'provider' },
-				TABLE: {},
-				MOB: {}
+				color: 'cairo', size: 'small', weight: 'medium', class: 'provider'
 			},
 			textDepositMethodsSettings: {
-				DC: { color: 'cairo', size: 'small', weight: 'medium', class: 'deposit_methods' },
-				TABLE: {},
-				MOB: {}
+                color: 'cairo', size: 'small', weight: 'medium', class: 'deposit_methods'
 			},
 			textWithoutMethodsSettings: {
-				DC: { color: 'cairo', size: 'small', weight: 'medium', class: 'without_methods' },
-				TABLE: {},
-				MOB: {}
+				color: 'cairo', size: 'small', weight: 'medium', class: 'without_methods'
 			},
 			textGameCurrencySettings: {
-				DC: { color: 'cairo', size: 'small', weight: 'medium', class: 'game_currency' },
-				TABLE: {},
-				MOB: {}
+				color: 'cairo', size: 'small', weight: 'medium', class: 'game_currency'
 			},
 			textLangSettings: {
-				DC: { color: 'cairo', size: 'small', weight: 'medium', class: 'lang' },
-				TABLE: {},
-				MOB: {}
+				color: 'cairo', size: 'small', weight: 'medium', class: 'lang'
 			},
 			imgSettings: {
-				DC: { width: '26px', height: '26px', class: 'logo' },
-				TABLE: {},
-				MOB: {}
+				width: '26px', height: '26px', class: 'logo'
 			},
 			textProviderItemSettings: {
-				DC: {
 					class: 'item_provider',
 					color: 'cairo',
 					size: 'small',
 					weight: 'regular',
 					decoration: 'none'
-				},
-				TABLE: {},
-				MOB: {}
 			},
 			textPayoutSettings: {
-				DC: {
 					class: 'item_payout',
 					color: 'cairo',
 					weight: 'regular'
-				},
-				TABLE: {},
-				MOB: {}
 			},
 			textItemSettings: {
-				DC: {
 					class: 'item',
 					color: 'cairo',
 					weight: 'regular'
-				},
-				TABLE: {},
-				MOB: {}
 			}
 		}
 	}

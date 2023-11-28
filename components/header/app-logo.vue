@@ -1,7 +1,7 @@
 <template>
 	<div class="header_logo">
 		<ALink href="/">
-			<AImg :attributes="imgSettings.DC" src="/img/logo_footer.png" />
+			<AImg :attributes="imgSettings" src="/img/logo_footer.png" />
 		</ALink>
 	</div>
 </template>
@@ -15,9 +15,7 @@ export default {
 		return {
 			options: null,
 			imgSettings: {
-				DC: { width: '160px', height: '36px' },
-				TABLET: {},
-				MOB: {}
+				width: '160px', height: '36px'
 			}
 		}
 	}

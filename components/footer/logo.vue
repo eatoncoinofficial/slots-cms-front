@@ -1,20 +1,20 @@
 <template>
 	<div class="footer-logo">
 		<ALink href="/">
-			<AImg :attributes="imgSettings.DC" src="/img/logo_footer.png" />
+			<AImg :attributes="imgSettings" src="/img/logo_footer.png" />
 		</ALink>
 		<div class="footer_social">
 			<ALink href="/">
-				<AImg :attributes="imgSocialSettings.DC" src="/img/social_1.png" />
+				<AImg :attributes="imgSocialSettings" src="/img/social_1.png" />
 			</ALink>
 			<ALink href="/">
-				<AImg :attributes="imgSocialSettings.DC" src="/img/social_2.png" />
+				<AImg :attributes="imgSocialSettings" src="/img/social_2.png" />
 			</ALink>
 			<ALink href="/">
-				<AImg :attributes="imgSocialSettings.DC" src="/img/social_3.png" />
+				<AImg :attributes="imgSocialSettings" src="/img/social_3.png" />
 			</ALink>
 			<ALink href="/">
-				<AImg :attributes="imgSocialSettings.DC" src="/img/social_4.png" />
+				<AImg :attributes="imgSocialSettings" src="/img/social_4.png" />
 			</ALink>
 		</div>
 	</div>
@@ -29,14 +29,10 @@ export default {
 	data() {
 		return {
 			imgSettings: {
-				DC: { width: '160px', height: '36px' },
-				TABLET: {},
-				MOB: {}
+				width: '160px', height: '36px'
 			},
 			imgSocialSettings: {
-				DC: { width: '24px', height: '24px' },
-				TABLET: {},
-				MOB: {}
+				width: '24px', height: '24px'
 			}
 		}
 	}

@@ -4,13 +4,13 @@
 			<div class="left">
 				<div class="img_wrapper">
 					<AText>
-						<AImg :attributes="imgSettings.DC" :src="src" />
+						<AImg :attributes="imgSettings" :src="src" />
 					</AText>
 				</div>
 			</div>
 			<div class="right">
 				<div>
-					<AText :attributes="titleSettings.DC">{{ title }}</AText>
+					<AText :attributes="titleSettings">{{ title }}</AText>
 				</div>
 				<div>
 					<AText :attributes="descTextSettings">{{ desc }}</AText>
@@ -21,7 +21,7 @@
 			</div>
 			<div class="action">
 				<AText>
-					<AImg :attributes="arrowSettings.DC" src="/img/arrowGreen.svg" />
+					<AImg :attributes="arrowSettings" src="/img/arrowGreen.svg" />
 				</AText>
 			</div>
 		</div>
@@ -39,19 +39,13 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-				DC: { width: '62px', height: '62px', class: 'object_fit_cover border_radius_50' },
-				TABLET: {},
-				MOB: {}
+				width: '62px', height: '62px', class: 'object_fit_cover border_radius_50'
 			},
 			arrowSettings: {
-				DC: { width: '26px', height: '26px' },
-				TABLET: {},
-				MOB: {}
+				width: '26px', height: '26px',
 			},
 			titleSettings: {
-				DC: { color: 'cairo', size: 'small', weight: 'bold', decoration: 'none', class: 'title' },
-				TABLET: {},
-				MOB: {}
+				color: 'cairo', size: 'small', weight: 'bold', decoration: 'none', class: 'title'
 			},
 			descTextSettings: {
 				color: 'cairo',

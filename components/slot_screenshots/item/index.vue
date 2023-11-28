@@ -1,6 +1,6 @@
 <template>
 	<div class="item">
-		<AImg :attributes="imgSettings.DC" :src="src" />
+		<AImg :attributes="imgSettings" :src="src" />
 	</div>
 </template>
 
@@ -12,9 +12,7 @@ export default {
 	data() {
 		return {
 			imgSettings: {
-				DC: { width: '280px', height: '170px', class: 'img' },
-				TABLE: {},
-				MOB: {}
+				width: '280px', height: '170px', class: 'img'
 			}
 		}
 	},
