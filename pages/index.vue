@@ -4,7 +4,7 @@
 			<div class="ttl_container">
 				<AText tag="h1" :attributes="mainTitleSettings">{{ data.body.h1 }}</AText>
 				<div class="ttl_desc">
-					<AText tag="div" :attributes="mainDescSettings.DC">{{ data.body.short_desc }}</AText>
+					<AText tag="div" :attributes="mainDescSettings">{{ data.body.short_desc }}</AText>
 				</div>
 			</div>
 			<div class="slider_wrapper">
@@ -62,8 +62,8 @@
 				</div>
 				<div class="slider_show_more_container" v-if="device === 'MOB' && !sliderShow">
 					<div class="btn_wrapper">
-						<AButton @onClick="sliderShowToggle" :attributes="btnSettings.DC">
-							{{ t('SHOW_MORE') }} <AImg :attributes="arrowSettings.DC" src="/img/arrowGreen.svg" />
+						<AButton @onClick="sliderShowToggle" :attributes="btnSettings">
+							{{ t('SHOW_MORE') }} <AImg :attributes="arrowSettings" src="/img/arrowGreen.svg" />
 						</AButton>
 					</div>
 				</div>
@@ -71,7 +71,7 @@
 			<div class="main_container">
 				<TwoContentContainer>
 					<template v-slot:left>
-						<AText tag="div" :attributes="mainContainerTitle.DC">{{ t('ONLINE_CASINO') }}</AText>
+						<AText tag="div" :attributes="mainContainerTitle">{{ t('ONLINE_CASINO') }}</AText>
 						<div class="category_filter_wrapper">
 							<CategoryFilter :value="data.body.casino_category" />
 						</div>
@@ -79,7 +79,7 @@
 					</template>
 					<template v-slot:right>
 						<aside class="aside">
-							<AText tag="div" :attributes="asideContainerTitle.DC">{{ t('RECOMMENDED_BONUSES') }}</AText>
+							<AText tag="div" :attributes="asideContainerTitle">{{ t('RECOMMENDED_BONUSES') }}</AText>
 							<div class="aside_bonus_container">
 								<BonusAsideCard
 									v-for="item in data.body.top_bonuses"
@@ -102,8 +102,8 @@
 		<div class="news_loop">
 			<div class="container">
 				<div class="section_title_wrapper">
-					<AText tag="div" :attributes="mainContainerTitle.DC">{{ t('NEWS') }}</AText>
-					<LinkWithArrow link="/news" :attributes="newsLinkSettings.DC">
+					<AText tag="div" :attributes="mainContainerTitle">{{ t('NEWS') }}</AText>
+					<LinkWithArrow link="/news" :attributes="newsLinkSettings">
 						{{ t('SHOW_MORE') }}
 					</LinkWithArrow>
 				</div>
@@ -178,13 +178,9 @@ export default {
 				class: 'main_page_h1'
 			},
 			mainDescSettings: {
-				DC: {
 					weight: 'extra-bold',
 					color: 'cairo',
 					size: 'medium'
-				},
-				TABLET: {},
-				MOB: {}
 			},
 			bonusSliderSettings: {
 				slidesToShow: 1.12,
@@ -307,38 +303,24 @@ export default {
 				]
 			},
 			mainContainerTitle: {
-				DC: {
 					weight: 'extra-bold',
 					color: 'cairo',
 					size: 'x-large'
-				},
-				TABLET: {},
-				MOB: {}
 			},
 			asideContainerTitle: {
-				DC: {
 					weight: 'bold',
 					color: 'cairo',
 					size: 'large'
-				},
-				TABLET: {},
-				MOB: {}
 			},
 			newsLinkSettings: {
-				DC: { size: 'medium', color: 'calgary', weight: 'semi-bold', decoration: 'none' },
-				TABLET: {},
-				MOB: {}
+                size: 'medium', color: 'calgary', weight: 'semi-bold', decoration: 'none'
 			},
 			showSliders: false,
 			btnSettings: {
-				DC: { color: 'cairo', class: 'load_more', weight: 'bold', size: 'medium' },
-				TABLET: {},
-				MOB: {}
+                color: 'cairo', class: 'load_more', weight: 'bold', size: 'medium'
 			},
 			arrowSettings: {
-				DC: { width: '18px', height: '18px', class: 'arrow' },
-				TABLET: {},
-				MOB: {}
+                width: '18px', height: '18px', class: 'arrow'
 			}
 		}
 	},
