@@ -24,15 +24,11 @@
 	</div>
 </template>
 <script>
-import AText from '~/components/ui/atoms/text'
-import AButton from '~/components/ui/atoms/buttons'
-import AImg from '~/components/ui/atoms/img/'
-import ALink from '~/components/ui/atoms/links'
 import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
-import translateMixin from '~/mixins/translate'
+import components from '~/mixins/components'
 export default {
 	name: 'bonus_category',
-	mixins: [translateMixin],
+	mixins: [components],
 	props: {
 		title: {
 			type: String,

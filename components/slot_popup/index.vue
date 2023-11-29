@@ -13,15 +13,10 @@
 	</div>
 </template>
 <script>
-import AText from '~/components/ui/atoms/text'
-import AButton from '~/components/ui/atoms/buttons'
-
+import components from '~/mixins/components'
 export default {
 	name: 'game_popup',
-	components: {
-		AText,
-		AButton
-	},
+	mixins: [components],
 	data: () => {
 		return {
 			titleSettings: {

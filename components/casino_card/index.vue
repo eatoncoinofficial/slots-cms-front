@@ -28,15 +28,11 @@
 	</div>
 </template>
 <script>
-import AImg from '~/components/ui/atoms/img/'
-import AText from '~/components/ui/atoms/text'
-import AButton from '~/components/ui/atoms/buttons'
-import translateMixin from '~/mixins/translate'
 import ref from '~/mixins/ref'
+import components from '~/mixins/components'
 export default {
 	name: 'casino_card',
-	mixins: [translateMixin, ref],
-	components: { AImg, AText, AButton },
+	mixins: [components, ref],
 	data() {
 		return {
 			imgSettings: {

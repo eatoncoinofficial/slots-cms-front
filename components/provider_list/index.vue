@@ -16,14 +16,10 @@
 </template>
 
 <script>
-import ALink from '~/components/ui/atoms/links'
-import AImg from '~/components/ui/atoms/img'
-import AText from '~/components/ui/atoms/text'
-import translateMixin from '~/mixins/translate'
+import components from '~/mixins/components'
 export default {
 	name: 'providers_filter',
-	components: { ALink, AImg, AText },
-	mixins: [translateMixin],
+	mixins: [components],
 	props: {
 		value: {
 			type: Array,

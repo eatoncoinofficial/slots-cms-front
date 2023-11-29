@@ -15,14 +15,12 @@
 
 <script>
 import { GAME as NumberPostOnQuery } from '~/config/postLoader'
-import translateMixin from '~/mixins/translate'
 import GameMainCard from '~/components/slot_loop/cards/main'
-import AButton from '~/components/ui/atoms/buttons'
-import AImg from '~/components/ui/atoms/img/'
 import postLoader from '~/mixins/postLoader'
+import components from '~/mixins/components'
 export default {
 	name: 'slot_loop',
-	components: { GameMainCard, AButton, AImg },
+	components: { GameMainCard },
 	props: {
 		value: {
 			type: Array,
@@ -31,7 +29,7 @@ export default {
 			}
 		}
 	},
-	mixins: [translateMixin, postLoader],
+	mixins: [components, postLoader],
 	data() {
 		return {
 			numberPostOnQuery: NumberPostOnQuery,

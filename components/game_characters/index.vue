@@ -9,8 +9,7 @@
 	</div>
 </template>
 <script>
-import AText from '~/components/ui/atoms/text'
-
+import components from '~/mixins/components'
 export default {
 	name: 'game_characters_item',
 	props: {
@@ -33,9 +32,7 @@ export default {
 			}
 		}
 	},
-	components: {
-		AText
-	},
+	mixins: [components],
 	data: () => {
 		return {
 			titleSettings: {

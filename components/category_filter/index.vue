@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import ALink from '~/components/ui/atoms/links'
+import components from '~/mixins/components'
 export default {
 	name: 'dev-category-filter',
-	components: { ALink },
+    mixins: [components],
 	props: {
 		value: {
 			type: Array,

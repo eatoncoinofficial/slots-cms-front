@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import AImg from '~/components/ui/atoms/img'
+import components from '~/mixins/components'
 export default {
 	name: 'app-partners',
-	components: { AImg },
+    mixins: [components],
 	data: () => {
 		return {
 			imgSettings: {

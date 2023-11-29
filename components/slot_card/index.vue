@@ -40,21 +40,13 @@
 	</div>
 </template>
 <script>
-import AText from '~/components/ui/atoms/text'
-import AImg from '~/components/ui/atoms/img'
-import ALink from '~/components/ui/atoms/links'
-import AButton from '~/components/ui/atoms/buttons'
 import GameCharacters from '~/components/game_characters'
-import translateMixin from '~/mixins/translate'
 import ref from '~/mixins/ref'
+import components from '~/mixins/components'
 export default {
 	name: 'single-game-page',
-	mixins: [translateMixin, ref],
+	mixins: [components, ref],
 	components: {
-		AText,
-		AImg,
-		ALink,
-		AButton,
 		GameCharacters
 	},
 	data: () => {

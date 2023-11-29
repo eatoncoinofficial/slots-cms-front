@@ -39,11 +39,11 @@ import Logo from './app-logo'
 import Menu from './app-menu'
 import Search from './app-search'
 import LangSelector from './lang_selector'
-import device from '~/mixins/device'
+import components from '~/mixins/components'
 export default {
 	name: 'app_header',
 	components: { Logo, Menu, Search, LangSelector },
-	mixins: [device],
+	mixins: [components],
 	data() {
 		return {
 			menuActive: false

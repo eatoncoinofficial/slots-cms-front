@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import AImg from '~/components/ui/atoms/img'
+import components from '~/mixins/components'
 export default {
 	name: 'game_screenshots_item',
-	components: { AImg },
+	mixins: [components],
 	data() {
 		return {
 			imgSettings: {

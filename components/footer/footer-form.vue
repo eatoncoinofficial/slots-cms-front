@@ -15,13 +15,10 @@
 </template>
 
 <script>
-import AButton from '~/components/ui/atoms/buttons'
-import AText from '~/components/ui/atoms/text'
-import translate from '~/mixins/translate'
+import components from '~/mixins/components'
 export default {
 	name: 'footer-form',
-	components: { AButton, AText },
-	mixins: [translate],
+	mixins: [components],
 	data: () => {
 		return {
 			btnSettings: {

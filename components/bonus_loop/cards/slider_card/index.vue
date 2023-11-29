@@ -28,14 +28,11 @@
 	</article>
 </template>
 <script>
-import AImg from '~/components/ui/atoms/img/'
-import AText from '~/components/ui/atoms/text'
-import ALink from '~/components/ui/atoms/links'
 import ref from '~/mixins/ref'
+import components from '~/mixins/components'
 export default {
 	name: 'bonus_slider_card',
-	components: { AImg, AText, ALink },
-	mixins: [ref],
+	mixins: [ref, components],
 	data: () => {
 		return {
 			imgSettings: {

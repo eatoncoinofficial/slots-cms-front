@@ -17,13 +17,12 @@
 </template>
 <script>
 import Slider from '~/components/slider'
-import AText from '~/components/ui/atoms/text'
 import LinkWithArrow from '~/components/ui/atoms/links/link_with_arrow'
-import translateMixin from '~/mixins/translate'
+import components from '~/mixins/components'
 export default {
 	name: 'slider_container',
-	components: { Slider, AText, LinkWithArrow },
-	mixins: [translateMixin],
+	components: { Slider, LinkWithArrow },
+	mixins: [components],
 	data: () => {
 		return {
 			ttlSettings: {

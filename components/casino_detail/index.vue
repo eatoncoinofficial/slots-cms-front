@@ -58,14 +58,10 @@
 	</div>
 </template>
 <script>
-import AText from '~/components/ui/atoms/text'
-import ALink from '~/components/ui/atoms/links'
-import AImg from '~/components/ui/atoms/img'
-import translateMixin from '~/mixins/translate'
+import components from '~/mixins/components'
 export default {
 	name: 'casino_detail',
-	components: { AText, ALink, AImg },
-	mixins: [translateMixin],
+	mixins: [components],
 	props: {
 		vendors: {
 			type: Array,

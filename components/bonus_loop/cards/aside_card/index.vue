@@ -33,13 +33,11 @@
 	</article>
 </template>
 <script>
-import AImg from '~/components/ui/atoms/img/'
-import AText from '~/components/ui/atoms/text'
 import ref from '~/mixins/ref'
+import components from '~/mixins/components'
 export default {
 	name: 'bonus_aside_card',
-	components: { AImg, AText },
-	mixins: [ref],
+	mixins: [ref, components],
 	data: () => {
 		return {
 			imgSettings: {

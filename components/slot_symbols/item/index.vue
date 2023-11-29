@@ -14,11 +14,10 @@
 </template>
 
 <script>
-import AText from '~/components/ui/atoms/text'
-import AImg from '~/components/ui/atoms/img'
+import components from '~/mixins/components'
 export default {
 	name: 'game_symbol_item',
-	components: { AText, AImg },
+	mixins: [components],
 	data() {
 		return {
 			imgSettings: {

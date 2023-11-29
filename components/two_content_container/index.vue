@@ -1,10 +1,10 @@
 <template>
 	<div class="two_content_container">
 		<div class="left">
-			<slot name="left"></slot>
+			<slot name="left" />
 		</div>
 		<div class="right">
-			<slot name="right"></slot>
+			<slot name="right" />
 		</div>
 	</div>
 </template>

@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import AText from '~/components/ui/atoms/text'
+import components from '~/mixins/components'
 export default {
 	name: 'footer-desc',
-	components: { AText },
+    mixins: [components],
 	data: () => {
 		return {
 			textSettings: {

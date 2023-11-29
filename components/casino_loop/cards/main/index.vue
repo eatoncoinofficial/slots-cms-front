@@ -107,17 +107,11 @@
 	</article>
 </template>
 <script>
-import AImg from '~/components/ui/atoms/img/'
-import AText from '~/components/ui/atoms/text'
-import ALink from '~/components/ui/atoms/links'
-import AButton from '~/components/ui/atoms/buttons'
-import translateMixin from '~/mixins/translate'
 import ref from '~/mixins/ref'
-import device from '~/mixins/device'
+import components from '~/mixins/components'
 export default {
 	name: 'casino_main_card',
-	mixins: [translateMixin, ref, device],
-	components: { AImg, AText, ALink, AButton },
+	mixins: [components, ref],
 	data: () => {
 		return {
 			imgSettings: {

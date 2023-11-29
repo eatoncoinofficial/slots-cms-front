@@ -26,14 +26,12 @@
 
 <script>
 import { BONUS_CATEGORY as NumberPostOnQuery } from '~/config/postLoader'
-import translate from '~/mixins/translate'
 import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
-import AButton from '~/components/ui/atoms/buttons'
-import AImg from '~/components/ui/atoms/img/'
 import postLoader from '~/mixins/postLoader'
+import components from '~/mixins/components'
 export default {
 	name: 'bonus_loop',
-	components: { BonusAsideCard, AButton, AImg },
+	components: { BonusAsideCard, components },
 	props: {
 		value: {
 			type: Array,

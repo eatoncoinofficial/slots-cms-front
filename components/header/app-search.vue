@@ -17,12 +17,10 @@
 </template>
 <script>
 import DAL_Builder from '~/DAL/builder'
-import AImg from '~/components/ui/atoms/img'
-import translate from '~/mixins/translate'
+import components from '~/mixins/components'
 export default {
 	name: 'app-search',
-	components: { AImg },
-	mixins: [translate],
+	mixins: [components],
 	data() {
 		return {
 			posts: [],

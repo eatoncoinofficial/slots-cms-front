@@ -32,12 +32,10 @@
 	</div>
 </template>
 <script>
-import ALink from '~/components/ui/atoms/links'
-import AImg from '~/components/ui/atoms/img'
-import AText from '~/components/ui/atoms/text'
+import components from '~/mixins/components'
 export default {
 	name: 'lang_selector',
-	components: { ALink, AImg, AText },
+    mixins: [components],
 	data() {
 		return {
 			options: null,

@@ -21,11 +21,10 @@
 </template>
 
 <script>
-import ALink from '~/components/ui/atoms/links'
-import AImg from '~/components/ui/atoms/img'
+import components from '~/mixins/components'
 export default {
 	name: 'footer-logo',
-	components: { ALink, AImg },
+    mixins: [components],
 	data() {
 		return {
 			imgSettings: {

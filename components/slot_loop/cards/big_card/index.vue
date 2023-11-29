@@ -11,14 +11,10 @@
 	</article>
 </template>
 <script>
-import AImg from '~/components/ui/atoms/img/'
-import AText from '~/components/ui/atoms/text'
-import ALink from '~/components/ui/atoms/links'
-import translateMixin from '~/mixins/translate'
+import components from '~/mixins/components'
 export default {
 	name: 'game_main_card',
-	mixins: [translateMixin],
-	components: { AImg, AText, ALink },
+	mixins: [components],
 	data: () => {
 		return {
 			imgSettings: {

@@ -13,12 +13,10 @@
 	</article>
 </template>
 <script>
-import AImg from '~/components/ui/atoms/img/'
-import AText from '~/components/ui/atoms/text'
-import ALink from '~/components/ui/atoms/links'
+import components from '~/mixins/components'
 export default {
 	name: 'casino_slider_card',
-	components: { AImg, AText, ALink },
+	mixins: [components],
 	data: () => {
 		return {
 			imgSettings: {

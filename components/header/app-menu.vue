@@ -17,10 +17,10 @@
 	</div>
 </template>
 <script>
-import ALink from '~/components/ui/atoms/links'
+import components from '~/mixins/components'
 export default {
 	name: 'app-menu',
-	components: { ALink },
+    mixins: [components],
 	data() {
 		return {
 			linkSettings: {
