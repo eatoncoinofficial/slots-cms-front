@@ -31,7 +31,7 @@ import postLoader from '~/mixins/postLoader'
 import components from '~/mixins/components'
 export default {
 	name: 'bonus_loop',
-	components: { BonusAsideCard, components },
+	components: { BonusAsideCard },
 	props: {
 		value: {
 			type: Array,
@@ -40,15 +40,20 @@ export default {
 			}
 		}
 	},
-	mixins: [translate, postLoader],
+	mixins: [components, postLoader],
 	data() {
 		return {
 			numberPostOnQuery: NumberPostOnQuery,
 			btnSettings: {
-				color: 'cairo', class: 'load_more', weight: 'bold', size: 'medium'
+				color: 'cairo',
+				class: 'load_more',
+				weight: 'bold',
+				size: 'medium'
 			},
 			arrowSettings: {
-                width: '18px', height: '18px', class: 'arrow'
+				width: '18px',
+				height: '18px',
+				class: 'arrow'
 			}
 		}
 	}

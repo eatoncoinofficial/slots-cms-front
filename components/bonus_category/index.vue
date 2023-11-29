@@ -50,22 +50,26 @@ export default {
 		}
 	},
 	components: {
-		AText,
-		AImg,
-		AButton,
-		BonusAsideCard,
-		ALink
+		BonusAsideCard
 	},
 	data: () => {
 		return {
 			titleSettings: {
-				color: 'cairo', weight: 'bold', class: 'title'
+				color: 'cairo',
+				weight: 'bold',
+				class: 'title'
 			},
 			btnSettings: {
-                color: 'cairo', class: 'load_more', weight: 'bold', size: 'medium', decoration: 'none'
+				color: 'cairo',
+				class: 'load_more',
+				weight: 'bold',
+				size: 'medium',
+				decoration: 'none'
 			},
 			arrowSettings: {
-                width: '18px', height: '18px', class: 'arrow'
+				width: '18px',
+				height: '18px',
+				class: 'arrow'
 			}
 		}
 	}

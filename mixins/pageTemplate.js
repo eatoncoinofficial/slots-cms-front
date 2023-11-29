@@ -7,6 +7,6 @@ import AImg from '~/components/ui/atoms/img'
 export default {
 	mixins: [translateMixin, head],
 	components: {
-		Content, AText, AButton, AImg
+		Content, AText, AButton, AImg, AText
 	},
 }
