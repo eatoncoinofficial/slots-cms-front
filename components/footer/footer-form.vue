@@ -2,7 +2,7 @@
 	<div class="form-wrapper">
 		<AText :attributes="titleSettings">{{ t('SUBSCRIBE_NEWSLETTER') }}</AText>
 		<div class="form_wrapper">
-			<input placeholder="Ваш email" class="input" />
+			<input :placeholder="t('YOUR_EMAIL')" class="input" />
 			<div class="btn_wrapper">
 				<AButton :attributes="btnSettings">{{ t('SIGN_UP') }}</AButton>
 			</div>

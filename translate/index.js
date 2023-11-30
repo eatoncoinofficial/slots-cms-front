@@ -665,5 +665,10 @@ export default {
         RU: 'Мне есть 18 лет, и закон разрешает мне играть в казино',
         UA: 'Мені є 18 років, і закон дозволяє мені грати у казино',
         EN: 'I am 18 years old and the law allows me to play in a casino'
+    },
+    YOUR_EMAIL: {
+        RU: 'Ваш email',
+        UA: 'Ваш email',
+        EN: 'Your email'
     }
 }
