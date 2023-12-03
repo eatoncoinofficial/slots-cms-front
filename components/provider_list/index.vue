@@ -31,21 +31,23 @@ export default {
 	data() {
 		return {
 			textSettings: {
-					class: 'item',
-					color: 'cairo',
-					size: 'small',
-					weight: 'regular',
-					decoration: 'none'
+				class: 'item',
+				color: 'cairo',
+				size: 'small',
+				weight: 'regular',
+				decoration: 'none'
 			},
 			imgSettings: {
-				width: '26px', height: '26px', class: 'logo'
+				width: '26px',
+				height: '26px',
+				class: 'logo'
 			},
 			btnSettings: {
-					class: 'item_btn',
-					color: 'cairo',
-					size: 'small',
-					weight: 'regular',
-					decoration: 'none'
+				class: 'item_btn',
+				color: 'cairo',
+				size: 'small',
+				weight: 'regular',
+				decoration: 'none'
 			}
 		}
 	}
@@ -83,6 +85,15 @@ export default {
 	background: rgba(255, 255, 255, 0.27);
 }
 @media (max-width: 767px) {
+	.wrapper {
+		width: auto;
+	}
+	.wrapper a,
+	.wrapper span {
+		flex-shrink: 0;
+	}
+}
+@media (min-width: 768px) and (max-width: 1200px) {
 	.wrapper {
 		width: auto;
 	}

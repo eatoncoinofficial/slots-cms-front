@@ -36,13 +36,20 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-				width: '62px', height: '62px', class: 'object_fit_cover border_radius_50'
+				width: '62px',
+				height: '62px',
+				class: 'object_fit_cover border_radius_50'
 			},
 			arrowSettings: {
-				width: '26px', height: '26px',
+				width: '26px',
+				height: '26px'
 			},
 			titleSettings: {
-				color: 'cairo', size: 'small', weight: 'bold', decoration: 'none', class: 'title'
+				color: 'cairo',
+				size: 'small',
+				weight: 'bold',
+				decoration: 'none',
+				class: 'title'
 			},
 			descTextSettings: {
 				color: 'cairo',
@@ -134,6 +141,21 @@ export default {
 	justify-content: center;
 }
 @media (max-width: 767px) {
+	.item {
+		padding-right: 0px;
+		width: 100%;
+	}
+	.bonus_card_value {
+		font-size: 14px;
+	}
+	.desc {
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		width: 190px;
+		overflow: hidden;
+	}
+}
+@media (min-width: 768px) and (max-width: 1200px) {
 	.item {
 		padding-right: 0px;
 		width: 100%;

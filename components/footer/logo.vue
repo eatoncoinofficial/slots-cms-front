@@ -4,18 +4,9 @@
 			<AImg :attributes="imgSettings" src="/img/logo_footer.png" />
 		</ALink>
 		<div class="footer_social">
-			<ALink href="/">
-				<AImg :attributes="imgSocialSettings" src="/img/social_1.png" />
-			</ALink>
-			<ALink href="/">
-				<AImg :attributes="imgSocialSettings" src="/img/social_2.png" />
-			</ALink>
-			<ALink href="/">
-				<AImg :attributes="imgSocialSettings" src="/img/social_3.png" />
-			</ALink>
-			<ALink href="/">
-				<AImg :attributes="imgSocialSettings" src="/img/social_4.png" />
-			</ALink>
+			<a v-for="(item, index) in social" :href="item.value_1" :key="index">
+				<AImg :attributes="imgSocialSettings" :src="item.src" />
+			</a>
 		</div>
 	</div>
 </template>
@@ -24,14 +15,22 @@
 import components from '~/mixins/components'
 export default {
 	name: 'footer-logo',
-    mixins: [components],
+	mixins: [components],
+	props: {
+		social: {
+			type: Array,
+			default: []
+		}
+	},
 	data() {
 		return {
 			imgSettings: {
-				width: '160px', height: '36px'
+				width: '160px',
+				height: '36px'
 			},
 			imgSocialSettings: {
-				width: '24px', height: '24px'
+				width: '24px',
+				height: '24px'
 			}
 		}
 	}
@@ -47,5 +46,13 @@ export default {
 	gap: 20px;
 	justify-content: center;
 	margin-left: 80px;
+}
+@media (max-width: 767px) {
+	.footer_social {
+		margin-left: 20px;
+		gap: 10px;
+		flex-grow: 1;
+		justify-content: end;
+	}
 }
 </style>

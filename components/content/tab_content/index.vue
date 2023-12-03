@@ -77,4 +77,9 @@ export default {
 	padding: 24px 20px 42px 20px;
 	background: rgba(35, 32, 54, 1);
 }
+@media (min-width: 768px) and (max-width: 1200px) {
+	.tab_text_container {
+		max-width: 100%;
+	}
+}
 </style>

@@ -15,18 +15,18 @@
 							<aside class="aside">
 								<AText tag="div" :attributes="asideContainerTitle">{{ t('RECOMMENDED_BONUSES') }}</AText>
 								<div class="aside_bonus_container">
-									<BonusAsideCard
-										v-for="item in data.body.top_bonuses"
-										:key="item.title"
-										:link="item.permalink"
-										:src="item.thumbnail"
-										:title="item.title"
-										:desc="item.short_desc"
-										:value="item.bonus"
-										:min_dep="item.min_deposit"
-										:wager="item.wagering"
-										:refLinks="item.casino.ref"
-									/>
+									<div class="aside_bonus_wrapper" v-for="item in data.body.top_bonuses" :key="item.title">
+										<BonusAsideCard
+											:link="item.permalink"
+											:src="item.thumbnail"
+											:title="item.title"
+											:desc="item.short_desc"
+											:value="item.bonus"
+											:min_dep="item.min_deposit"
+											:wager="item.wagering"
+											:refLinks="item.casino.ref"
+										/>
+									</div>
 								</div>
 							</aside>
 						</template>
@@ -60,12 +60,16 @@ export default {
 	data: () => {
 		return {
 			asideContainerTitle: {
-					weight: 'bold',
-					color: 'cairo',
-					size: 'large'
+				weight: 'bold',
+				color: 'cairo',
+				size: 'large'
 			},
 			titleSettings: {
-                color: 'cairo', size: 'x-large', weight: 'bold', transform: 'uppercase', class: 'title'
+				color: 'cairo',
+				size: 'x-large',
+				weight: 'bold',
+				transform: 'uppercase',
+				class: 'title'
 			}
 		}
 	},
@@ -122,6 +126,17 @@ export default {
 @media (max-width: 767px) {
 	.aside {
 		padding-top: var(--l);
+	}
+	.aside_bonus_wrapper {
+		width: 48%;
+	}
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+	.aside_bonus_wrapper {
+		width: 48%;
+	}
+	.aside_bonus_container {
+		justify-content: space-between;
 	}
 }
 </style>

@@ -81,18 +81,18 @@
 						<aside class="aside">
 							<AText tag="div" :attributes="asideContainerTitle">{{ t('RECOMMENDED_BONUSES') }}</AText>
 							<div class="aside_bonus_container">
-								<BonusAsideCard
-									v-for="item in data.body.top_bonuses"
-									:key="item.title"
-									:link="item.permalink"
-									:src="item.thumbnail"
-									:title="item.title"
-									:desc="item.short_desc"
-									:value="item.bonus"
-									:min_dep="item.min_deposit"
-									:wager="item.wagering"
-									:refLinks="item.casino.ref"
-								/>
+								<div class="aside_bonus_wrapper" v-for="item in data.body.top_bonuses" :key="item.title">
+									<BonusAsideCard
+										:link="item.permalink"
+										:src="item.thumbnail"
+										:title="item.title"
+										:desc="item.short_desc"
+										:value="item.bonus"
+										:min_dep="item.min_deposit"
+										:wager="item.wagering"
+										:refLinks="item.casino.ref"
+									/>
+								</div>
 							</div>
 						</aside>
 					</template>
@@ -178,9 +178,9 @@ export default {
 				class: 'main_page_h1'
 			},
 			mainDescSettings: {
-					weight: 'extra-bold',
-					color: 'cairo',
-					size: 'medium'
+				weight: 'extra-bold',
+				color: 'cairo',
+				size: 'medium'
 			},
 			bonusSliderSettings: {
 				slidesToShow: 1.12,
@@ -194,13 +194,17 @@ export default {
 					{
 						breakpoint: 1024,
 						settings: {
-							slidesToShow: 1.12
+							slidesToShow: 1,
+							centerMode: false,
+							initialSlide: -1
 						}
 					},
 					{
 						breakpoint: 600,
 						settings: {
-							slidesToShow: 1.12
+							slidesToShow: 1,
+							centerMode: false,
+							initialSlide: -1
 						}
 					},
 					{
@@ -226,6 +230,12 @@ export default {
 						breakpoint: 1024,
 						settings: {
 							slidesToShow: 5
+						}
+					},
+					{
+						breakpoint: 1023,
+						settings: {
+							slidesToShow: 3
 						}
 					},
 					{
@@ -258,6 +268,12 @@ export default {
 						}
 					},
 					{
+						breakpoint: 1023,
+						settings: {
+							slidesToShow: 3
+						}
+					},
+					{
 						breakpoint: 600,
 						settings: {
 							slidesToShow: 3
@@ -283,13 +299,9 @@ export default {
 					{
 						breakpoint: 1024,
 						settings: {
-							slidesToShow: 1.12
-						}
-					},
-					{
-						breakpoint: 600,
-						settings: {
-							slidesToShow: 1.12
+							slidesToShow: 1,
+							centerMode: false,
+							initialSlide: -1
 						}
 					},
 					{
@@ -303,24 +315,32 @@ export default {
 				]
 			},
 			mainContainerTitle: {
-					weight: 'extra-bold',
-					color: 'cairo',
-					size: 'x-large'
+				weight: 'extra-bold',
+				color: 'cairo',
+				size: 'x-large'
 			},
 			asideContainerTitle: {
-					weight: 'bold',
-					color: 'cairo',
-					size: 'large'
+				weight: 'bold',
+				color: 'cairo',
+				size: 'large'
 			},
 			newsLinkSettings: {
-                size: 'medium', color: 'calgary', weight: 'semi-bold', decoration: 'none'
+				size: 'medium',
+				color: 'calgary',
+				weight: 'semi-bold',
+				decoration: 'none'
 			},
 			showSliders: false,
 			btnSettings: {
-                color: 'cairo', class: 'load_more', weight: 'bold', size: 'medium'
+				color: 'cairo',
+				class: 'load_more',
+				weight: 'bold',
+				size: 'medium'
 			},
 			arrowSettings: {
-                width: '18px', height: '18px', class: 'arrow'
+				width: '18px',
+				height: '18px',
+				class: 'arrow'
 			}
 		}
 	},
@@ -443,6 +463,31 @@ export default {
 		max-width: 272px;
 		width: 272px;
 		height: 52px;
+	}
+	.aside_bonus_wrapper {
+		width: 100%;
+	}
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+	.main_page_h1 {
+		font-size: 40px;
+	}
+	.news_container {
+		overflow-y: scroll;
+		gap: 20px;
+		margin-right: -20px;
+	}
+	.news_container .item:last-child {
+		margin-right: 20px;
+	}
+	.main_page {
+		padding-top: 125px;
+	}
+	.aside_bonus_wrapper {
+		width: 48%;
+	}
+	.aside_bonus_container {
+		justify-content: space-between;
 	}
 }
 </style>

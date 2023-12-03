@@ -16,12 +16,7 @@
 					/>
 				</div>
 				<div class="right">
-					<GameMainCard
-						v-for="(item, index) in data.body.games_week_list"
-						:key="index"
-						:link="item.permalink"
-						:src="item.thumbnail"
-					/>
+					<GameMainCard v-for="(item, index) in gamesWeek" :key="index" :link="item.permalink" :src="item.thumbnail" />
 				</div>
 			</div>
 			<div class="container container_loop" v-if="data.body.games.length">
@@ -49,10 +44,11 @@ import GameBigCard from '~/components/slot_loop/cards/big_card'
 import SlotLoop from '~/components/slot_loop'
 import ProviderFilter from '~/components/provider_list'
 import helper from '~/helpers/helpers'
+import device from '~/mixins/device'
 
 export default {
 	name: 'games-page',
-	mixins: [pageTemplate],
+	mixins: [pageTemplate, device],
 	components: {
 		Faq,
 		BonusCategory,
@@ -65,7 +61,11 @@ export default {
 	data: () => {
 		return {
 			titleSettings: {
-				color: 'cairo', size: 'x-large', weight: 'bold', transform: 'uppercase', class: 'title'
+				color: 'cairo',
+				size: 'x-large',
+				weight: 'bold',
+				transform: 'uppercase',
+				class: 'title'
 			}
 		}
 	},
@@ -76,6 +76,12 @@ export default {
 		const response = await DAL_Page.getData(request)
 		const data = helper.headDataMixin(response.data, route)
 		return { data }
+	},
+	computed: {
+		gamesWeek() {
+			const config = { DC: 10, MOB: 10, TABLET: 4 }
+			return this.data.body.games_week_list.slice(0, config[this.device])
+		}
 	}
 }
 </script>
@@ -131,6 +137,18 @@ export default {
 	.container_loop {
 		padding-left: 15px;
 		padding-right: 15px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+	.container_game_week {
+		gap: 8px;
+	}
+	.left {
+		min-width: 50%;
+	}
+	.right {
+		justify-content: space-between;
 	}
 }
 </style>

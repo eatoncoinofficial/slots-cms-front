@@ -7,21 +7,21 @@
 					<div class="wrapper_thumbnail">
 						<AImg :attributes="thumbnailSettings" :src="data.body.thumbnail" />
 					</div>
-					<div class="container content_container">
+					<div class="content_container">
 						<Content :value="data.body.content" />
 					</div>
 				</template>
 				<template v-slot:right>
 					<AText tag="div" :attributes="subTitleSettings">{{ t('POPULAR_NEWS') }}</AText>
 					<aside class="aside">
-						<NewsSliderCard
-							v-for="item in data.body.last_news"
-							:key="item.title"
-							:link="item.permalink"
-							:src="item.thumbnail"
-							:title="item.title"
-							:desc="item.create_at.slice(0, 10)"
-						/>
+						<div class="aside_post_wrapper" v-for="item in data.body.last_news" :key="item.title">
+							<NewsSliderCard
+								:link="item.permalink"
+								:src="item.thumbnail"
+								:title="item.title"
+								:desc="item.create_at.slice(0, 10)"
+							/>
+						</div>
 					</aside>
 				</template>
 			</TwoContentContainer>
@@ -69,18 +69,26 @@ export default {
 	data: () => {
 		return {
 			titleSettings: {
-				color: 'cairo', size: 'x-large', weight: 'bold', class: 'title'
+				color: 'cairo',
+				size: 'x-large',
+				weight: 'bold',
+				class: 'title'
 			},
 			subTitleSettings: {
-				color: 'cairo', size: 'large', weight: 'bold', class: 'sub_title'
+				color: 'cairo',
+				size: 'large',
+				weight: 'bold',
+				class: 'sub_title'
 			},
 			thumbnailSettings: {
-				width: '822px', height: '333px', class: 'thumbnail'
+				width: '822px',
+				height: '333px',
+				class: 'thumbnail'
 			},
 			mainContainerTitle: {
-					weight: 'extra-bold',
-					color: 'cairo',
-					size: 'x-large'
+				weight: 'extra-bold',
+				color: 'cairo',
+				size: 'x-large'
 			}
 		}
 	},
@@ -158,6 +166,32 @@ export default {
 	}
 	.news_container .item:last-child {
 		margin-right: 20px;
+	}
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+	.aside {
+		display: flex;
+		flex-wrap: wrap;
+		margin-bottom: 25px;
+		justify-content: space-between;
+	}
+	.sub_title {
+		margin-top: 15px;
+	}
+	.aside_post_wrapper {
+		width: 48%;
+	}
+	.news_container {
+		overflow-y: scroll;
+		gap: 20px;
+		margin-right: -20px;
+	}
+	.news_container .item:last-child {
+		margin-right: 20px;
+	}
+	.wrapper_thumbnail {
+		width: 100%;
+		height: auto;
 	}
 }
 </style>

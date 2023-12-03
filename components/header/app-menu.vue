@@ -1,17 +1,13 @@
 <template>
 	<div class="header_menu">
 		<nav class="header_menu_container">
-			<div class="header_menu_item" :data-active="activeLink('/')">
-				<ALink href="/" :attributes="linkSettings">ОНЛАЙН-КАЗИНО</ALink>
-			</div>
-			<div class="header_menu_item">
-				<ALink href="/games" :attributes="linkSettings">Ігри</ALink>
-			</div>
-			<div class="header_menu_item">
-				<ALink href="/bonuses" :attributes="linkSettings">БОНУСИ</ALink>
-			</div>
-			<div class="header_menu_item">
-				<ALink href="/news" :attributes="linkSettings">NEWS</ALink>
+			<div
+				v-for="(item, index) in settings"
+				:key="index"
+				class="header_menu_item"
+				:data-active="activeLink(item.value_2)"
+			>
+				<ALink :href="item.value_2" :attributes="linkSettings">{{ item.value_1 }}</ALink>
 			</div>
 		</nav>
 	</div>
@@ -20,17 +16,30 @@
 import components from '~/mixins/components'
 export default {
 	name: 'app-menu',
-    mixins: [components],
+	mixins: [components],
 	data() {
 		return {
 			linkSettings: {
-				color: 'cairo', text_transform: 'uppercase', weight: 'regular', size: 'small', decoration: 'none'
-			}
+				color: 'cairo',
+				text_transform: 'uppercase',
+				weight: 'regular',
+				size: 'small',
+				decoration: 'none'
+			},
+			settings: []
 		}
 	},
 	methods: {
 		activeLink(link) {
 			return link === this.$route.path
+		}
+	},
+	async mounted() {
+		const data = { lang: 1 }
+		await this.$store.dispatch('settings/setSettings', data)
+		const settings = this.$store.getters['settings/getSettings']
+		if (settings.length !== 0) {
+			this.settings = settings.filter(item => item.key === 'header_menu')[0].value
 		}
 	}
 }
@@ -55,6 +64,16 @@ export default {
 	border-bottom: 4px solid var(--calgary) !important;
 }
 @media (max-width: 767px) {
+	.header_menu_container {
+		flex-wrap: wrap;
+		gap: 10px;
+		margin-top: 20px;
+	}
+	.header_menu_item {
+		width: 100%;
+	}
+}
+@media (min-width: 768px) and (max-width: 1200px) {
 	.header_menu_container {
 		flex-wrap: wrap;
 		gap: 10px;

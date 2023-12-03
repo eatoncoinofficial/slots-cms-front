@@ -1,6 +1,6 @@
 <template>
 	<header class="header">
-		<div class="container header_container" v-if="device !== 'MOB'">
+		<div class="container header_container" v-if="device === 'DC'">
 			<div class="header_left">
 				<Logo />
 			</div>
@@ -14,7 +14,7 @@
 				<LangSelector />
 			</div>
 		</div>
-		<div class="container" v-else-if="device === 'MOB'">
+		<div class="container" v-else>
 			<div class="header_mob_container">
 				<Logo />
 				<div class="burger" @click="mobMenuToggle"></div>
@@ -127,6 +127,62 @@ export default {
 	}
 	.header_mob_menu_wrapper {
 		width: 260px;
+		height: 100%;
+		background: rgba(16, 13, 36, 0.92);
+		padding: 16px 16px 16px 32px;
+	}
+	.burger_close {
+		width: 48px;
+		height: 48px;
+		background: url('/img/burger_close.png') center center no-repeat;
+	}
+	.mob_lang_container {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+	.header_container {
+		flex-wrap: wrap;
+	}
+	.burger {
+		width: 48px;
+		height: 48px;
+		background: url('/img/burger.png') center center no-repeat;
+	}
+	.header_mob_container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.header {
+		height: auto;
+		padding-top: 12px;
+		padding-bottom: 12px;
+	}
+	.header_mob_search_container {
+		margin-top: 5px;
+		justify-content: center;
+		display: flex;
+	}
+	.header_mob_menu {
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		width: 100vw;
+		height: 100vh;
+		background: rgba(16, 13, 36, 0.5);
+		z-index: 5;
+		display: flex;
+		justify-content: flex-end;
+		transform: translateX(100%);
+		transition: 0.7s;
+	}
+	.header_mob_menu.active {
+		transform: translateX(0%);
+	}
+	.header_mob_menu_wrapper {
+		width: 320px;
 		height: 100%;
 		background: rgba(16, 13, 36, 0.92);
 		padding: 16px 16px 16px 32px;

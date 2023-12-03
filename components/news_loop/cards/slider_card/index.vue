@@ -27,13 +27,22 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-				width: '44px', height: '44px', class: 'object_fit_cover border_radius_s'
+				width: '44px',
+				height: '44px',
+				class: 'object_fit_cover border_radius_s'
 			},
 			titleSettings: {
-				color: 'cairo', size: 'small', weight: 'bold', decoration: 'none', class: 'title'
+				color: 'cairo',
+				size: 'small',
+				weight: 'bold',
+				decoration: 'none',
+				class: 'title'
 			},
 			descTextSettings: {
-				color: 'cairo', size: 'small', weight: 'regular', class: 'desc'
+				color: 'cairo',
+				size: 'small',
+				weight: 'regular',
+				class: 'desc'
 			}
 		}
 	},
@@ -107,6 +116,22 @@ export default {
 		padding-right: 0px;
 		width: 100%;
 		height: 90px;
+	}
+	.desc {
+		display: none;
+	}
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+	.desc {
+		transform: translateY(-10px);
+		display: inline-block;
+	}
+	.title {
+		line-height: 18px;
+		display: inline-block;
+	}
+	.item {
+		padding-right: 0px;
 	}
 }
 </style>

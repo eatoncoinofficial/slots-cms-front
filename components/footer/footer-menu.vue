@@ -1,24 +1,9 @@
 <template>
 	<div>
 		<nav class="footer-nav">
-			<div class="item">
-				<ALink href="/" :attributes="textSettings">
-					ОНЛАЙН-КАЗИНО
-				</ALink>
-			</div>
-			<div class="item">
-				<ALink href="/games" :attributes="textSettings">
-					ІГРИ
-				</ALink>
-			</div>
-			<div class="item">
-				<ALink href="/bonuses" :attributes="textSettings">
-					БОНУСИ
-				</ALink>
-			</div>
-			<div class="item">
-				<ALink href="/news" :attributes="textSettings">
-					NEWS
+			<div class="item" v-for="(item, index) in value" :key="index">
+				<ALink :href="item.value_2" :attributes="textSettings">
+					{{ item.value_1 }}
 				</ALink>
 			</div>
 		</nav>
@@ -29,7 +14,13 @@
 import components from '~/mixins/components'
 export default {
 	name: 'footer-menu',
-    mixins: [components],
+	mixins: [components],
+	props: {
+		value: {
+			type: Array,
+			default: []
+		}
+	},
 	data: () => {
 		return {
 			textSettings: {
@@ -58,6 +49,14 @@ export default {
 	}
 	.item {
 		width: 100%;
+	}
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+	.footer-nav {
+		flex-wrap: wrap;
+		margin-top: 30px;
+		margin-bottom: 30px;
+		gap: 15px;
 	}
 }
 </style>

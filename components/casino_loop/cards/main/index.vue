@@ -16,7 +16,7 @@
 					</ALink>
 				</div>
 			</div>
-			<div class="right" v-if="device !== 'MOB'">
+			<div class="right" v-if="device === 'DC'">
 				<div class="right_left">
 					<ALink :href="link" :attributes="titleLinkSettings">
 						{{ title }}
@@ -59,7 +59,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="right" v-if="device === 'MOB'">
+			<div class="right" v-else>
 				<div class="wrapper_title">
 					<ALink :href="link" :attributes="titleLinkSettings">
 						{{ title }}
@@ -115,40 +115,69 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-				width: '210px', height: '92px', class: 'object_fit_cover'
+				width: '210px',
+				height: '92px',
+				class: 'object_fit_cover'
 			},
 			starSettings: {
-				width: '14px', height: '14px', class: ' m_r_xs'
+				width: '14px',
+				height: '14px',
+				class: ' m_r_xs'
 			},
 			textSettings: {
-				color: 'cairo', size: 'small', bold: 'semi-bold', class: 'rating_value'
+				color: 'cairo',
+				size: 'small',
+				bold: 'semi-bold',
+				class: 'rating_value'
 			},
 			thinTextSettings: {
-				color: 'cordoba', size: 'small', bold: 'thin', class: 'rating_total_value'
+				color: 'cordoba',
+				size: 'small',
+				bold: 'thin',
+				class: 'rating_total_value'
 			},
 			searchSettings: {
-				width: '20px', height: '20px'
+				width: '20px',
+				height: '20px'
 			},
 			titleLinkSettings: {
-				color: 'cairo', size: 'large', weight: 'bold', decoration: 'none'
+				color: 'cairo',
+				size: 'large',
+				weight: 'bold',
+				decoration: 'none'
 			},
 			bonusNameSettings: {
-				color: 'cairo', size: 'small', weight: 'regular', class: 'bonus_name'
+				color: 'cairo',
+				size: 'small',
+				weight: 'regular',
+				class: 'bonus_name'
 			},
 			bonusValueSettings: {
-				color: 'calgary', size: 'large', weight: 'bold', class: 'bonus_value'
+				color: 'calgary',
+				size: 'large',
+				weight: 'bold',
+				class: 'bonus_value'
 			},
 			bonusDescSettings: {
-				color: 'cairo', size: 'small', weight: 'regular', class: 'bonus_desc'
+				color: 'cairo',
+				size: 'small',
+				weight: 'regular',
+				class: 'bonus_desc'
 			},
 			btnSettings: {
-				bg: 'calgary', color: 'cochin', borderRadius: 's', weight: 'semi-bold'
+				bg: 'calgary',
+				color: 'cochin',
+				borderRadius: 's',
+				weight: 'semi-bold'
 			},
 			readMoreLinkSettings: {
-                bg: 'calgary', class: 'read_more'
+				bg: 'calgary',
+				class: 'read_more'
 			},
 			advantagesTextSettings: {
-				color: 'cairo', size: 'small', class: 'advantages'
+				color: 'cairo',
+				size: 'small',
+				class: 'advantages'
 			},
 			totalTextSettings: {
 				color: 'cairo'
@@ -157,7 +186,9 @@ export default {
 				class: 'provider_link'
 			},
 			providerSettings: {
-				class: 'provider_img', width: '54px', height: '34px'
+				class: 'provider_img',
+				width: '54px',
+				height: '34px'
 			},
 			detailActive: false
 		}
@@ -446,7 +477,87 @@ export default {
 		margin-top: 10px;
 	}
 	.providers {
-		width: 90%;
+		width: 100%;
+		margin: 0 auto;
+		margin-top: 20px;
+	}
+	.details_wrapper {
+		display: flex;
+		justify-content: center;
+		margin-top: 20px;
+		width: 100%;
+	}
+	.details_btn {
+		font-size: 14px;
+		color: var(--cairo);
+		cursor: pointer;
+		position: relative;
+		padding-right: 24px;
+	}
+	.details_btn::after {
+		content: '';
+		width: 18px;
+		height: 18px;
+		background: url('/img/white_arrow_details.png') center center no-repeat;
+		position: absolute;
+		right: 0px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	.details_btn.active::after {
+		transform: rotate(180deg) translateY(50%);
+	}
+	.advantages_wrapper {
+		height: auto;
+		width: 100%;
+		margin-top: 10px;
+		padding-bottom: 0px;
+	}
+	.advantages {
+		margin-bottom: 15px;
+	}
+	.action_wrapper {
+		width: 100%;
+		justify-content: center;
+	}
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+	.item {
+		width: 48%;
+		height: auto;
+	}
+	.wrapper {
+		flex-wrap: wrap;
+		height: auto;
+	}
+	.left {
+		width: 100%;
+		justify-content: center;
+	}
+	.right {
+		width: 100%;
+		flex-wrap: wrap;
+	}
+	.rating {
+		left: 100%;
+		transform: translateX(-100%);
+	}
+	.wrapper_title {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+	.bonus_name,
+	.bonus_value,
+	.bonus_desc {
+		width: 100%;
+		text-align: center;
+	}
+	.bonus_desc {
+		margin-top: 10px;
+	}
+	.providers {
+		width: 100%;
 		margin: 0 auto;
 		margin-top: 20px;
 	}

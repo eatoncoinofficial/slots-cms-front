@@ -33,22 +33,40 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-				width: '276px', height: '160px', class: 'object_fit_cover border_radius_s'
+				width: '276px',
+				height: '160px',
+				class: 'object_fit_cover border_radius_s'
 			},
 			titleSettings: {
-				color: 'cairo', size: 'small', weight: 'bold', decoration: 'none', class: 'title'
+				color: 'cairo',
+				size: 'small',
+				weight: 'bold',
+				decoration: 'none',
+				class: 'title'
 			},
 			descTextSettings: {
-				color: 'cairo', size: 'small', weight: 'regular', class: 'desc'
+				color: 'cairo',
+				size: 'small',
+				weight: 'regular',
+				class: 'desc'
 			},
 			linkSettings: {
-                size: 'medium', color: 'calgary', weight: 'semi-bold', decoration: 'none'
+				size: 'medium',
+				color: 'calgary',
+				weight: 'semi-bold',
+				decoration: 'none'
 			},
 			titleLinkSettings: {
-				size: 'medium', color: 'cairo', weight: 'semi-bold', decoration: 'none'
+				size: 'medium',
+				color: 'cairo',
+				weight: 'semi-bold',
+				decoration: 'none'
 			},
 			dateTextSettings: {
-				size: 'small', color: 'cairo', weight: 'regular', class: 'date'
+				size: 'small',
+				color: 'cairo',
+				weight: 'regular',
+				class: 'date'
 			}
 		}
 	},
@@ -117,6 +135,11 @@ export default {
 	padding: 0 var(--s);
 }
 @media (max-width: 767px) {
+	.item {
+		flex-shrink: 0;
+	}
+}
+@media (min-width: 768px) and (max-width: 1200px) {
 	.item {
 		flex-shrink: 0;
 	}

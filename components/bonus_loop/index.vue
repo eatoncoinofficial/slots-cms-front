@@ -103,4 +103,15 @@ export default {
 		width: 100%;
 	}
 }
+@media (min-width: 768px) and (max-width: 1200px) {
+	.bonus_loop {
+		gap: 12px;
+	}
+	.bonus_item {
+		width: 48%;
+	}
+	.items-more {
+		width: 100%;
+	}
+}
 </style>

@@ -41,7 +41,11 @@ export default {
 	data: () => {
 		return {
 			titleSettings: {
-				color: 'cairo', size: 'x-large', weight: 'bold', transform: 'uppercase', class: 'title'
+				color: 'cairo',
+				size: 'x-large',
+				weight: 'bold',
+				transform: 'uppercase',
+				class: 'title'
 			}
 		}
 	},
@@ -80,6 +84,14 @@ export default {
 @media (max-width: 767px) {
 	.bonus_category_item {
 		width: 100%;
+	}
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+	.bonus_category_item {
+		width: 48%;
+	}
+	.bonus_category_container {
+		gap: 12px;
 	}
 }
 </style>

@@ -32,7 +32,7 @@
 								>
 								<div class="slot_loop">
 									<GameMainCard
-										v-for="(item, index) in data.body.games"
+										v-for="(item, index) in gamesLoop"
 										:key="index"
 										:link="item.permalink"
 										:src="item.thumbnail"
@@ -46,17 +46,17 @@
 						<aside class="aside">
 							<AText tag="div" :attributes="asideContainerTitle">{{ t('RECOMMENDED_BONUSES') }}</AText>
 							<div class="aside_bonus_container">
-								<BonusAsideCard
-									v-for="(item, index) in data.body.bonuses"
-									:key="index"
-									:src="item.thumbnail"
-									:title="item.title"
-									:desc="item.short_desc"
-									:value="item.bonus"
-									:min_dep="item.min_deposit"
-									:wager="item.wagering"
-									:refLinks="item.casino.ref"
-								/>
+								<div class="aside_bonus_wrapper" v-for="(item, index) in data.body.bonuses" :key="index">
+									<BonusAsideCard
+										:src="item.thumbnail"
+										:title="item.title"
+										:desc="item.short_desc"
+										:value="item.bonus"
+										:min_dep="item.min_deposit"
+										:wager="item.wagering"
+										:refLinks="item.casino.ref"
+									/>
+								</div>
 							</div>
 						</aside>
 					</template>
@@ -81,10 +81,11 @@ import CasinoDetails from '~/components/casino_detail'
 import GameMainCard from '~/components/slot_loop/cards/main'
 import TabContent from '~/components/content/tab_content'
 import helper from '~/helpers/helpers'
+import device from '~/mixins/device'
 
 export default {
 	name: 'casino_single',
-	mixins: [pageTemplate],
+	mixins: [pageTemplate, device],
 	components: {
 		BonusAsideCard,
 		TwoContentContainer,
@@ -97,18 +98,25 @@ export default {
 	data: () => {
 		return {
 			titleSettings: {
-				color: 'cairo', weight: 'bold', class: 'title'
+				color: 'cairo',
+				weight: 'bold',
+				class: 'title'
 			},
 			titleCharactersSettings: {
-				color: 'cairo', weight: 'bold', size: 'x-large', class: 'detail_title'
+				color: 'cairo',
+				weight: 'bold',
+				size: 'x-large',
+				class: 'detail_title'
 			},
 			titleSlotsSettings: {
-				color: 'cairo', weight: 'regular', class: 'slots_title'
+				color: 'cairo',
+				weight: 'regular',
+				class: 'slots_title'
 			},
 			asideContainerTitle: {
-					weight: 'bold',
-					color: 'cairo',
-					size: 'large'
+				weight: 'bold',
+				color: 'cairo',
+				size: 'large'
 			}
 		}
 	},
@@ -121,6 +129,14 @@ export default {
 				{ title: this.t('GAMES'), content: this.data.body.content_games }
 			]
 			return data
+		},
+		gamesLoop() {
+			const config = {
+				DC: 12,
+				MOB: 12,
+				TABLET: 10
+			}
+			return this.data.body.games.slice(0, config[this.device])
 		}
 	},
 	async asyncData({ route, error }) {
@@ -200,6 +216,17 @@ export default {
 	}
 	.casino_page {
 		padding-top: 150px;
+	}
+	.aside_bonus_wrapper {
+		width: 48%;
+	}
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+	.aside_bonus_wrapper {
+		width: 48%;
+	}
+	.casino_slot_container {
+		margin-bottom: 25px;
 	}
 }
 </style>

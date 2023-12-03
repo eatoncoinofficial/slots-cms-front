@@ -42,10 +42,15 @@ export default {
 		return {
 			numberPostOnQuery: NumberPostOnQuery,
 			btnSettings: {
-				color: 'cairo', class: 'load_more', weight: 'bold', size: 'medium'
+				color: 'cairo',
+				class: 'load_more',
+				weight: 'bold',
+				size: 'medium'
 			},
 			arrowSettings: {
-				width: '18px', height: '18px', class: 'arrow'
+				width: '18px',
+				height: '18px',
+				class: 'arrow'
 			}
 		}
 	}
@@ -79,6 +84,11 @@ export default {
 @media (max-width: 767px) {
 	.news_loop {
 		justify-content: center;
+	}
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+	.news_loop {
+		justify-content: space-between;
 	}
 }
 </style>

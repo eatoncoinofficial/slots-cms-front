@@ -22,9 +22,7 @@
 						<AButton :attributes="btnSettings" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
 					</div>
 					<div class="action_item">
-						<AButton :attributes="btnDemoSettings" v-if="demo" @onClick="onClickDemoActivate">{{
-							t('DEMO')
-						}}</AButton>
+						<AButton :attributes="btnDemoSettings" v-if="demo" @onClick="onClickDemoActivate">{{ t('DEMO') }}</AButton>
 					</div>
 				</div>
 			</div>
@@ -52,27 +50,41 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-					width: '300px',
-					height: '325px',
-					class: 'object_fit_cover thumbnail'
+				width: '300px',
+				height: '325px',
+				class: 'object_fit_cover thumbnail'
 			},
 			titleSettings: {
-				class: 'title', color: 'cairo', weight: 'bold'
+				class: 'title',
+				color: 'cairo',
+				weight: 'bold'
 			},
 			subTitleSettings: {
-				class: 'sub_title', color: 'cairo', size: 'medium'
+				class: 'sub_title',
+				color: 'cairo',
+				size: 'medium'
 			},
 			sectionTitleSettings: {
-				class: 'section_title', color: 'cairo', size: 'small'
+				class: 'section_title',
+				color: 'cairo',
+				size: 'small'
 			},
 			itemImgSettings: {
-				width: '68px', height: '50px'
+				width: '68px',
+				height: '50px'
 			},
 			btnSettings: {
-                bg: 'calgary', color: 'cochin', borderRadius: 's', weight: 'semi-bold'
+				bg: 'calgary',
+				color: 'cochin',
+				borderRadius: 's',
+				weight: 'semi-bold'
 			},
 			btnDemoSettings: {
-				bg: 'calgary', color: 'cairo', borderRadius: 's', weight: 'semi-bold', class: 'demo_btn'
+				bg: 'calgary',
+				color: 'cairo',
+				borderRadius: 's',
+				weight: 'semi-bold',
+				class: 'demo_btn'
 			}
 		}
 	},
@@ -209,6 +221,34 @@ export default {
 	gap: var(--m);
 }
 @media (max-width: 767px) {
+	.root {
+		flex-wrap: wrap;
+		padding: 15px;
+	}
+	.left,
+	.right,
+	.center {
+		width: 100%;
+		max-width: none;
+	}
+	.center {
+		min-width: auto;
+	}
+	.left {
+		display: flex;
+		justify-content: center;
+	}
+	.casino_wrapper {
+		flex-wrap: wrap;
+	}
+	.action_wrapper {
+		margin-top: 30px;
+	}
+	.item_character {
+		padding-right: 0px;
+	}
+}
+@media (min-width: 768px) and (max-width: 1200px) {
 	.root {
 		flex-wrap: wrap;
 		padding: 15px;

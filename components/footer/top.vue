@@ -2,8 +2,8 @@
 	<div v-bind="containerSettings">
 		<div class="container top-container">
 			<div class="left">
-				<FooterLogo />
-				<FooterMenu />
+				<FooterLogo :social="changeSocial" />
+				<FooterMenu :value="changeMenu" />
 			</div>
 			<div class="right">
 				<FooterForm />
@@ -21,8 +21,26 @@ export default {
 	data: () => {
 		return {
 			containerSettings: {
-					class: 'p_m'
+				class: 'p_m'
+			},
+			footer_menu: null,
+			social: []
+		}
+	},
+	computed: {
+		changeMenu() {
+			const settings = this.$store.getters['settings/getSettings']
+			if (settings) {
+				this.footer_menu = settings.filter(item => item.key === 'footer_menu')[0].value
 			}
+			return this.footer_menu
+		},
+		changeSocial() {
+			const settings = this.$store.getters['settings/getSettings']
+			if (settings) {
+				this.social = settings.filter(item => item.key === 'social')[0].value
+			}
+			return this.social
 		}
 	}
 }
@@ -43,6 +61,20 @@ export default {
 		flex-wrap: wrap;
 		padding-left: 5px;
 		padding-right: 5px;
+	}
+	.left {
+		width: 100%;
+	}
+	.right {
+		width: 100%;
+	}
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+	.top-container {
+		flex-wrap: wrap;
+		padding-left: 5px;
+		padding-right: 5px;
+		margin-bottom: 15px;
 	}
 	.left {
 		width: 100%;

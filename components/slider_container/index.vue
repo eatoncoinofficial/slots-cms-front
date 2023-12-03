@@ -77,6 +77,14 @@ export default {
 		display: none;
 	}
 }
+@media (min-width: 768px) and (max-width: 1200px) {
+	.slider_head-ttl {
+		font-size: 16px;
+	}
+	.slider_head-link {
+		display: none;
+	}
+}
 </style>
 <style scoped>
 .root {
@@ -142,6 +150,16 @@ export default {
 	align-items: center;
 }
 @media (max-width: 767px) {
+	.root {
+		padding: 10px;
+	}
+	.top {
+		height: 40px;
+		padding-right: 0px;
+		margin-bottom: 0px;
+	}
+}
+@media (min-width: 768px) and (max-width: 1200px) {
 	.root {
 		padding: 10px;
 	}

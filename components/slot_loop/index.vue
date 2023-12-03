@@ -34,10 +34,15 @@ export default {
 		return {
 			numberPostOnQuery: NumberPostOnQuery,
 			btnSettings: {
-				color: 'cairo', class: 'load_more', weight: 'bold', size: 'medium'
+				color: 'cairo',
+				class: 'load_more',
+				weight: 'bold',
+				size: 'medium'
 			},
 			arrowSettings: {
-				width: '18px', height: '18px', class: 'arrow'
+				width: '18px',
+				height: '18px',
+				class: 'arrow'
 			}
 		}
 	}
@@ -72,6 +77,11 @@ export default {
 	.slot_loop {
 		justify-content: space-between;
 		padding-bottom: 20px;
+	}
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+	.slot_loop {
+		justify-content: space-between;
 	}
 }
 </style>

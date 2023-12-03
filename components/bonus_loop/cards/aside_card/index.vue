@@ -41,22 +41,38 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-                width: '62px', height: '62px', class: 'object_fit_cover border_radius_50'
+				width: '62px',
+				height: '62px',
+				class: 'object_fit_cover border_radius_50'
 			},
 			arrowSettings: {
-				width: '26px', height: '26px'
+				width: '26px',
+				height: '26px'
 			},
 			titleSettings: {
-				color: 'cairo', size: 'small', weight: 'bold', decoration: 'none', class: 'title'
+				color: 'cairo',
+				size: 'small',
+				weight: 'bold',
+				decoration: 'none',
+				class: 'title'
 			},
 			descTextSettings: {
-				color: 'cairo', size: 'small', weight: 'regular', class: 'desc'
+				color: 'cairo',
+				size: 'small',
+				weight: 'regular',
+				class: 'desc'
 			},
 			valueTextSettings: {
-				color: 'calgary', size: 'large', weight: 'bold', transform: 'uppercase'
+				color: 'calgary',
+				size: 'large',
+				weight: 'bold',
+				transform: 'uppercase'
 			},
 			bottomTextSettings: {
-				color: 'cairo', size: 'small', weight: 'regular', align: 'center'
+				color: 'cairo',
+				size: 'small',
+				weight: 'regular',
+				align: 'center'
 			}
 		}
 	},

@@ -1,12 +1,12 @@
 <template>
 	<div class="container">
 		<div class="partners">
-			<AImg :attributes="{ ...imgSettings, width: '60px' }" src="/img/partners_logo_2.png" />
-			<AImg :attributes="{ ...imgSettings, width: '60px' }" src="/img/partners_logo_2.png" />
-			<AImg :attributes="{ ...imgSettings, width: '60px' }" src="/img/partners_logo_2.png" />
-			<AImg :attributes="{ ...imgSettings, width: '60px' }" src="/img/partners_logo_2.png" />
-			<AImg :attributes="{ ...imgSettings, width: '60px' }" src="/img/partners_logo_2.png" />
-			<AImg :attributes="{ ...imgSettings, width: '60px' }" src="/img/partners_logo_2.png" />
+			<AImg
+				v-for="(item, index) in value"
+				:attributes="{ ...imgSettings, width: item.value_1 }"
+				:key="index"
+				:src="item.src"
+			/>
 		</div>
 	</div>
 </template>
@@ -15,13 +15,22 @@
 import components from '~/mixins/components'
 export default {
 	name: 'app-partners',
-    mixins: [components],
+	mixins: [components],
+	props: {
+		value: {
+			type: Array,
+			default: []
+		}
+	},
 	data: () => {
 		return {
 			imgSettings: {
 				height: '40px'
 			}
 		}
+	},
+	mounted() {
+		console.log(this.value)
 	}
 }
 </script>
@@ -34,6 +43,11 @@ export default {
 @media (max-width: 767px) {
 	.partners {
 		flex-wrap: wrap;
+	}
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+	.partners {
+		padding: 0 20px;
 	}
 }
 </style>
