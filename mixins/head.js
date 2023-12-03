@@ -7,10 +7,6 @@ export default {
 					hid: 'description',
 					name: 'description',
 					content: this.data.body.description
-				},
-				{
-					name: 'robots',
-					content: `${this.data.body.index_seo}, ${this.data.body.follow}`
 				}
 			],
 			link: [

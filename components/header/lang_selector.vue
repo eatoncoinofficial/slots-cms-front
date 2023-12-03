@@ -35,15 +35,19 @@
 import components from '~/mixins/components'
 export default {
 	name: 'lang_selector',
-    mixins: [components],
+	mixins: [components],
 	data() {
 		return {
 			options: null,
 			imgSettings: {
-				width: '18px', height: '18px'
+				width: '18px',
+				height: '18px'
 			},
 			textSettings: {
-				color: 'cairo', transform: 'uppercase', weight: 'bolder', class: 'text'
+				color: 'cairo',
+				transform: 'uppercase',
+				weight: 'bolder',
+				class: 'text'
 			}
 		}
 	}
@@ -81,7 +85,7 @@ export default {
 }
 .text {
 	font-size: 14px;
-	transform: translateY(-3px);
+	transform: translateY(-5px);
 }
 .lang_item {
 	width: 100%;

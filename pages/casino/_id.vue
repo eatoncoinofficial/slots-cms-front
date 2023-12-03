@@ -218,7 +218,7 @@ export default {
 		padding-top: 150px;
 	}
 	.aside_bonus_wrapper {
-		width: 48%;
+		width: 100%;
 	}
 }
 @media (min-width: 768px) and (max-width: 1200px) {
@@ -227,6 +227,9 @@ export default {
 	}
 	.casino_slot_container {
 		margin-bottom: 25px;
+	}
+	.aside_bonus_wrapper {
+		width: 48%;
 	}
 }
 </style>

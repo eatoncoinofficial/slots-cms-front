@@ -22,9 +22,9 @@ export default {
 	padding-right: 15px;
 }
 .right {
-	width: 328px;
+	width: 368px;
 	max-width: 100%;
-	min-width: 328px;
+	min-width: 368px;
 }
 @media (max-width: 767px) {
 	.two_content_container {
@@ -36,6 +36,7 @@ export default {
 	}
 	.right {
 		width: 100%;
+		min-width: auto;
 	}
 }
 @media (min-width: 768px) and (max-width: 1200px) {

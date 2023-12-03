@@ -12,7 +12,7 @@
 					<SliderContainer
 						icon="casino"
 						:title="t('ONLINE_CASINO')"
-						link="/casinos"
+						link="/casinos/new"
 						:sliderSettings="casinoSliderSettings"
 					>
 						<CasinoSliderCard

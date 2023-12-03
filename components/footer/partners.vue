@@ -48,6 +48,7 @@ export default {
 @media (min-width: 768px) and (max-width: 1200px) {
 	.partners {
 		padding: 0 20px;
+		flex-wrap: wrap;
 	}
 }
 </style>
