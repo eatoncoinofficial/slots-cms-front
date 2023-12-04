@@ -1,6 +1,5 @@
 import axios from 'axios'
 import config from '../config'
-
 export default class JsonRequest {
 	#options = {
 		URL_API: config.API_URL[config.LANG],
