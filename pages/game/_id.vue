@@ -70,7 +70,10 @@ export default {
 	data: () => {
 		return {
 			symbolTitleSettings: {
-                size: 'x-large', color: 'cairo', weight: 'bold', class: 'title'
+				size: 'x-large',
+				color: 'cairo',
+				weight: 'bold',
+				class: 'title'
 			},
 			isShowDemo: false
 		}
@@ -104,7 +107,7 @@ export default {
 </script>
 <style scoped>
 .game_page {
-	background: url('/img/short_bg.png') top center var(--colombo);
+	background: url('/img/casinoPageBg.jpg') top center var(--colombo);
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }
