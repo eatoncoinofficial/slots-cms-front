@@ -61,6 +61,7 @@ export default {
 	display: flex;
 	gap: 40px var(--m);
 	flex-wrap: wrap;
+	justify-content: space-between;
 }
 .items-more {
 	display: flex;

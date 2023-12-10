@@ -1,7 +1,7 @@
 <template>
 	<div v-bind="containerSettings">
 		<div class="container">
-			<AText tag="div" :attributes="textSettings">{{ value }}</AText>
+			<AText tag="div" :attributes="textSettings"><div v-html="value"/></AText>
 		</div>
 	</div>
 </template>
@@ -10,17 +10,18 @@
 import components from '~/mixins/components'
 export default {
 	name: 'footer-text',
-    mixins: [components],
+	mixins: [components],
 	data: () => {
 		return {
 			textSettings: {
-					align: 'center',
-					weight: 'regular',
-					color: 'cairo',
-					size: 'small'
+				align: 'center',
+				weight: 'regular',
+				color: 'cairo',
+				size: 'small',
+				class: 'footer_text'
 			},
 			containerSettings: {
-					class: 'p_m footer_copyright'
+				class: 'p_m footer_copyright'
 			}
 		}
 	},
@@ -32,6 +33,12 @@ export default {
 	}
 }
 </script>
+<style>
+.footer_text a {
+	color: var(--calgary);
+	text-decoration: none;
+}
+</style>
 <style scoped>
 .footer_copyright {
 	border-top: 1px solid var(--callao);

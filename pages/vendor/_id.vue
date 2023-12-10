@@ -129,7 +129,7 @@ export default {
 		margin-top: 20px;
 	}
 	.aside_bonus_wrapper {
-		width: 48%;
+		width: 100%;
 	}
 }
 @media (min-width: 768px) and (max-width: 1200px) {

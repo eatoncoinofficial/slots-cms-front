@@ -520,8 +520,14 @@ export default {
 		width: 100%;
 		justify-content: center;
 	}
+	.label {
+		width: 85px;
+	}
 }
 @media (min-width: 768px) and (max-width: 1200px) {
+	.label {
+		width: 85px;
+	}
 	.item {
 		width: 48%;
 		height: auto;

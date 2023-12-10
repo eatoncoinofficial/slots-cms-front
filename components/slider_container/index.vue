@@ -1,6 +1,6 @@
 <template>
 	<div class="root">
-		<div class="top">
+		<div class="top" @click="onClick(link)">
 			<div class="ttl" :class="icon">
 				<AText :attributes="ttlSettings">{{ title }}</AText>
 			</div>
@@ -64,6 +64,11 @@ export default {
 			default() {
 				return {}
 			}
+		}
+	},
+	methods: {
+		onClick(link) {
+			this.$router.push(link)
 		}
 	}
 }

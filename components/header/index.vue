@@ -49,6 +49,15 @@ export default {
 			menuActive: false
 		}
 	},
+	watch: {
+		'$route.params': {
+			handler: function() {
+				this.menuActive = false
+			},
+			deep: true,
+			immediate: true
+		}
+	},
 	methods: {
 		mobMenuToggle() {
 			this.menuActive = !this.menuActive

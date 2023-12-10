@@ -2,6 +2,7 @@
 	<div class="casino_card" :style="`background: ${bg}`">
 		<div class="wrapper">
 			<div class="left">
+				<AText tag="div" :attributes="labelSettings" v-if="label && device === 'MOB'" :class="label">{{ label }}</AText>
 				<div class="rating">
 					<AImg :attributes="starSettings" src="/img/goldStar.svg" />
 					<AText tag="span" :attributes="textSettings">{{ rating / 10 }} </AText>
@@ -12,8 +13,8 @@
 				</div>
 			</div>
 			<div class="right">
-				<AText tag="div" :attributes="labelSettings" v-if="label" :class="label">{{ label }}</AText>
-				<div>
+				<AText tag="div" :attributes="labelSettings" v-if="label && device !== 'MOB'" :class="label">{{ label }}</AText>
+				<div class="wrapper_desc">
 					<AText tag="div" :attributes="titleSettings">{{ title }}</AText>
 					<AText tag="div" :attributes="bonusNameSettings">{{ t('WELCOME_PACKAGE') }}</AText>
 					<AText tag="div" :attributes="bonusValueSettings">{{ bonus_value }}</AText>
@@ -36,31 +37,58 @@ export default {
 	data() {
 		return {
 			imgSettings: {
-				width: '210px', height: '92px', class: 'object_fit_cover'
+				width: '210px',
+				height: '92px',
+				class: 'object_fit_cover'
 			},
 			titleSettings: {
-				color: 'cairo', size: 'large', weight: 'bold', decoration: 'none'
+				color: 'cairo',
+				size: 'large',
+				weight: 'bold',
+				decoration: 'none',
+				class: 'title'
 			},
 			bonusNameSettings: {
-				color: 'cairo', size: 'small', weight: 'regular', class: 'bonus_name'
+				color: 'cairo',
+				size: 'small',
+				weight: 'regular',
+				class: 'bonus_name'
 			},
 			bonusValueSettings: {
-				color: 'calgary', size: 'x-large', weight: 'bold', class: 'bonus_value'
+				color: 'calgary',
+				size: 'x-large',
+				weight: 'bold',
+				class: 'bonus_value'
 			},
 			btnSettings: {
-				bg: 'calgary', color: 'cochin', borderRadius: 's', weight: 'semi-bold'
+				bg: 'calgary',
+				color: 'cochin',
+				borderRadius: 's',
+				weight: 'semi-bold'
 			},
 			starSettings: {
-				width: '14px', height: '14px', class: ' m_r_xs'
+				width: '14px',
+				height: '14px',
+				class: ' m_r_xs'
 			},
 			textSettings: {
-				color: 'cairo', size: 'small', bold: 'semi-bold', class: 'rating_value'
+				color: 'cairo',
+				size: 'small',
+				bold: 'semi-bold',
+				class: 'rating_value'
 			},
 			thinTextSettings: {
-				color: 'cordoba', size: 'small', bold: 'thin', class: 'rating_total_value'
+				color: 'cordoba',
+				size: 'small',
+				bold: 'thin',
+				class: 'rating_total_value'
 			},
 			labelSettings: {
-                color: 'cairo', size: 'small', bold: 'regular', text_transform: 'uppercase', class: 'label'
+				color: 'cairo',
+				size: 'small',
+				bold: 'regular',
+				text_transform: 'uppercase',
+				class: 'label'
 			}
 		}
 	},
@@ -188,6 +216,20 @@ export default {
 	background: rgba(255, 0, 92, 1);
 }
 @media (max-width: 767px) {
+	.title,
+	.bonus_name,
+	.bonus_value {
+		text-align: center;
+		flex-grow: 1;
+		flex-shrink: 0;
+	}
+	.wrapper_desc,
+	.btn_wrapper {
+		width: 100%;
+	}
+	.bonus_value {
+		font-size: 20px;
+	}
 	.left {
 		width: 100%;
 		justify-content: center;
@@ -201,6 +243,10 @@ export default {
 	}
 	.img_wrapper {
 		margin-top: 25px;
+	}
+	.label {
+		top: 0;
+		right: 3px;
 	}
 }
 </style>

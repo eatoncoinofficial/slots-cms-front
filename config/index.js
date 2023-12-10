@@ -3,6 +3,7 @@ export default {
 		UA: 'http://127.0.0.1:8000/api/',
 		RU: 'http://127.0.0.1:8000/api/',
 		EN: 'https://casquad-api.lenddev.com.ua/api/',
+		//EN: 'http://127.0.0.1:8000/api/',
 		//RU: 'https://api-new.slototop.ua/api/',
 		//UA: 'https://api.slototop.ua/api/'
 	},

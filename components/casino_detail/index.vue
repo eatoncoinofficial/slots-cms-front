@@ -20,9 +20,9 @@
 				<AText :attributes="textDepositMethodsSettings">{{ t('DEPOSIT_METHODS') }}</AText>
 			</div>
 			<div class="right">
-				<AText :attributes="textPayoutSettings" v-for="(item, index) in payments" :key="index">{{
-					item.title
-				}}</AText>
+				<AText :attributes="textPayoutSettings" v-for="(item, index) in payments" :key="index">
+					<AImg :attributes="imgSettings" :src="item.thumbnail" /> {{ item.title }}
+				</AText>
 			</div>
 		</div>
 		<div class="row">
@@ -30,9 +30,9 @@
 				<AText :attributes="textWithoutMethodsSettings">{{ t('PAYMENTS_OPTIONS') }}</AText>
 			</div>
 			<div class="right">
-				<AText :attributes="textPayoutSettings" v-for="(item, index) in payments" :key="index">{{
-					item.title
-				}}</AText>
+				<AText :attributes="textPayoutSettings" v-for="(item, index) in payments" :key="index">
+					<AImg :attributes="imgSettings" :src="item.thumbnail" /> {{ item.title }}
+				</AText>
 			</div>
 		</div>
 		<div class="row">
@@ -40,9 +40,9 @@
 				<AText :attributes="textGameCurrencySettings">{{ t('GAME_CURRENCY') }}</AText>
 			</div>
 			<div class="right">
-				<AText :attributes="textItemSettings" v-for="(item, index) in currencies" :key="index">{{
-					item.title
-				}}</AText>
+				<AText :attributes="textItemSettings" v-for="(item, index) in currencies" :key="index">
+					<AImg :attributes="imgSettings" :src="item.thumbnail" /> {{ item.title }}
+				</AText>
 			</div>
 		</div>
 		<div class="row">
@@ -50,9 +50,9 @@
 				<AText :attributes="textLangSettings">{{ t('LANG') }}</AText>
 			</div>
 			<div class="right">
-				<AText :attributes="textItemSettings" v-for="(item, index) in languages" :key="index">{{
-					item.title
-				}}</AText>
+				<AText :attributes="textItemSettings" v-for="(item, index) in languages" :key="index">
+					<AImg :attributes="imgSettingsFlag" :src="item.thumbnail" /> {{ item.title }}
+				</AText>
 			</div>
 		</div>
 	</div>
@@ -91,39 +91,61 @@ export default {
 	data() {
 		return {
 			textProvidersSettings: {
-				color: 'cairo', size: 'small', weight: 'medium', class: 'provider'
+				color: 'cairo',
+				size: 'small',
+				weight: 'medium',
+				class: 'provider'
 			},
 			textDepositMethodsSettings: {
-                color: 'cairo', size: 'small', weight: 'medium', class: 'deposit_methods'
+				color: 'cairo',
+				size: 'small',
+				weight: 'medium',
+				class: 'deposit_methods'
 			},
 			textWithoutMethodsSettings: {
-				color: 'cairo', size: 'small', weight: 'medium', class: 'without_methods'
+				color: 'cairo',
+				size: 'small',
+				weight: 'medium',
+				class: 'without_methods'
 			},
 			textGameCurrencySettings: {
-				color: 'cairo', size: 'small', weight: 'medium', class: 'game_currency'
+				color: 'cairo',
+				size: 'small',
+				weight: 'medium',
+				class: 'game_currency'
 			},
 			textLangSettings: {
-				color: 'cairo', size: 'small', weight: 'medium', class: 'lang'
+				color: 'cairo',
+				size: 'small',
+				weight: 'medium',
+				class: 'lang'
 			},
 			imgSettings: {
-				width: '26px', height: '26px', class: 'logo'
+				width: '26px',
+				height: '26px',
+				class: 'logo'
+			},
+			imgSettingsFlag: {
+				width: '19px',
+				height: '18px',
+				class: 'flag_icon'
 			},
 			textProviderItemSettings: {
-					class: 'item_provider',
-					color: 'cairo',
-					size: 'small',
-					weight: 'regular',
-					decoration: 'none'
+				class: 'item_provider',
+				color: 'cairo',
+				size: 'small',
+				weight: 'regular',
+				decoration: 'none'
 			},
 			textPayoutSettings: {
-					class: 'item_payout',
-					color: 'cairo',
-					weight: 'regular'
+				class: 'item_payout',
+				color: 'cairo',
+				weight: 'regular'
 			},
 			textItemSettings: {
-					class: 'item',
-					color: 'cairo',
-					weight: 'regular'
+				class: 'item',
+				color: 'cairo',
+				weight: 'regular'
 			}
 		}
 	}
@@ -131,6 +153,10 @@ export default {
 </script>
 
 <style scoped>
+.flag_icon {
+	margin-right: 5px;
+	display: block;
+}
 .row {
 	display: flex;
 	padding-bottom: 15px;
@@ -185,7 +211,7 @@ export default {
 .item_provider {
 	display: flex;
 	align-items: center;
-	padding: 5px 15px;
+	padding: 5px 10px;
 	border-radius: var(--s);
 	background: rgba(255, 255, 255, 0.1);
 	white-space: nowrap;
@@ -197,15 +223,17 @@ export default {
 }
 .item_payout {
 	font-size: 10px;
-	display: inline-flex;
-	padding: 8px 10px;
+	display: flex;
+	align-items: center;
+	padding: 5px 10px;
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	border-radius: 10px;
 }
 .item {
 	font-size: 10px;
-	display: inline-flex;
-	padding: 8px 10px;
+	display: flex;
+	align-items: center;
+	padding: 5px 10px;
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	border-radius: 10px;
 	background: rgba(255, 255, 255, 0.06);
