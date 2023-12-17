@@ -35,12 +35,15 @@ export default {
 </script>
 <style>
 .footer_text a {
-	color: var(--calgary);
+	color: var(--cordoba);
 	text-decoration: none;
 }
 </style>
 <style scoped>
+.footer_text {
+	color: var(--cordoba);
+}
 .footer_copyright {
-	border-top: 1px solid var(--callao);
+	border-top: 1px solid var(--cordoba);
 }
 </style>

@@ -54,7 +54,7 @@
 							</ALink>
 						</div>
 						<div class="providers_total">
-							<AText tag="span" :attributes="totalTextSettings">+ {{ vendors.length }}</AText>
+							<ALink :href="link" :attributes="totalTextSettings">+ {{ vendors.length }}</ALink>
 						</div>
 					</div>
 				</div>
@@ -180,7 +180,8 @@ export default {
 				class: 'advantages'
 			},
 			totalTextSettings: {
-				color: 'cairo'
+				color: 'cairo',
+				decoration: 'none'
 			},
 			providerLinkSettings: {
 				class: 'provider_link'
