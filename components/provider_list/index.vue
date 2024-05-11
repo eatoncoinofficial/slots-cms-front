@@ -9,7 +9,7 @@
 				:key="index"
 				:data-active="item.active"
 			>
-				<AImg :attributes="imgSettings" :src="item.icon" /> {{ item.title }}
+				<AImg :attributes="{ ...imgSettings, alt: `${item.title} Logo` }" :src="item.icon" /> {{ item.title }}
 			</ALink>
 		</div>
 	</div>

@@ -2,7 +2,7 @@
 	<article class="item">
 		<div class="wrapper">
 			<ALink :href="link">
-				<AImg :attributes="imgSettings" :src="src" />
+				<AImg :attributes="{ ...imgSettings, alt: `${title} logo` }" :src="src" />
 			</ALink>
 		</div>
 	</article>
@@ -11,11 +11,13 @@
 import components from '~/mixins/components'
 export default {
 	name: 'game_slider_card',
-    mixins: [components],
+	mixins: [components],
 	data: () => {
 		return {
 			imgSettings: {
-				width: '100px', height: '100px', class: 'object_fit_cover border_radius_s'
+				width: '100px',
+				height: '100px',
+				class: 'object_fit_cover border_radius_s'
 			}
 		}
 	},
@@ -30,6 +32,12 @@ export default {
 			type: String,
 			default() {
 				return '/img/noImages.png'
+			}
+		},
+		title: {
+			type: String,
+			default() {
+				return ''
 			}
 		}
 	}

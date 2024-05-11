@@ -4,7 +4,7 @@
 			<div class="top">
 				<div class="img_wrapper">
 					<ALink :href="link">
-						<AImg :attributes="imgSettings" :src="src" />
+						<AImg :attributes="{ ...imgSettings, alt: `${title} logo` }" :src="src" />
 					</ALink>
 				</div>
 			</div>

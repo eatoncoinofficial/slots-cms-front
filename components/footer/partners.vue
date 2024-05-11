@@ -3,7 +3,7 @@
 		<div class="partners">
 			<AImg
 				v-for="(item, index) in value"
-				:attributes="{ ...imgSettings, width: item.value_1 }"
+				:attributes="{ ...imgSettings, width: item.value_1, alt: 'Partners logo' }"
 				:key="index"
 				:src="item.src"
 			/>

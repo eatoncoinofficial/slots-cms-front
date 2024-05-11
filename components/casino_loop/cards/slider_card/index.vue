@@ -2,12 +2,12 @@
 	<article class="item">
 		<div class="wrapper" :style="`background: ${color}`">
 			<div class="rating">
-				<AImg :attributes="starSettings" src="/img/goldStar.svg" />
+				<AImg :attributes="{ ...starSettings, alt: 'Star' }" src="/img/goldStar.svg" />
 				<AText tag="span" :attributes="textSettings">{{ rating / 10 }}</AText>
 				<AText tag="span" :attributes="thinTextSettings">/10</AText>
 			</div>
 			<ALink :href="link">
-				<AImg :attributes="imgSettings" :src="src" />
+				<AImg :attributes="{ ...imgSettings, alt: `${title} logo` }" :src="src" />
 			</ALink>
 		</div>
 	</article>
@@ -20,16 +20,26 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-				width: '50px', height: '50px', class: 'border_radius_s'
+				width: '50px',
+				height: '50px',
+				class: 'border_radius_s'
 			},
 			starSettings: {
-				width: '14px', height: '14px', class: ' m_r_xs'
+				width: '14px',
+				height: '14px',
+				class: ' m_r_xs'
 			},
 			textSettings: {
-				color: 'cairo', size: 'small', bold: 'semi-bold', class: 'rating_value'
+				color: 'cairo',
+				size: 'small',
+				bold: 'semi-bold',
+				class: 'rating_value'
 			},
 			thinTextSettings: {
-				color: 'cordoba', size: 'small', bold: 'thin', class: 'rating_total_value'
+				color: 'cordoba',
+				size: 'small',
+				bold: 'thin',
+				class: 'rating_total_value'
 			}
 		}
 	},
@@ -56,6 +66,12 @@ export default {
 			type: String,
 			default() {
 				return '#000000FF'
+			}
+		},
+		title: {
+			type: String,
+			default() {
+				return ''
 			}
 		}
 	}

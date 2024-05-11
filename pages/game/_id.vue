@@ -19,13 +19,13 @@
 			<div class="symbols" v-if="data.body.symbols.length">
 				<div class="container">
 					<AText tag="div" :attributes="symbolTitleSettings">{{ t('SLOT_SYMBOLS') }}</AText>
-					<SlotSymbols :posts="data.body.symbols" />
+					<SlotSymbols :posts="data.body.symbols" :title="data.body.title" />
 				</div>
 			</div>
 			<div class="screenshots" v-if="data.body.screenshots.length">
 				<div class="container">
 					<AText tag="div" :attributes="symbolTitleSettings">{{ t('SCREENSHOTS') }}</AText>
-					<SlotScreenshots :posts="data.body.screenshots" />
+					<SlotScreenshots :posts="data.body.screenshots" :title="data.body.title" />
 				</div>
 			</div>
 			<div class="container content_container" v-if="data.body.content">

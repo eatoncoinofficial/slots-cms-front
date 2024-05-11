@@ -1,11 +1,11 @@
 <template>
 	<div class="footer-logo">
 		<ALink href="/">
-			<AImg :attributes="imgSettings" src="/img/logo_footer.png" />
+			<AImg :attributes="{ ...imgSettings, alt: 'Casquads logo' }" src="/img/logo_footer.png" />
 		</ALink>
 		<div class="footer_social">
 			<a v-for="(item, index) in social" :href="item.value_1" :key="index">
-				<AImg :attributes="imgSocialSettings" :src="item.src" />
+				<AImg :attributes="{ ...imgSocialSettings, alt: `Social logo ${item.value_1}` }" :src="item.src" />
 			</a>
 		</div>
 	</div>

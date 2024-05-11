@@ -11,7 +11,7 @@
 					:attributes="textProviderItemSettings"
 					:key="index"
 				>
-					<AImg :attributes="imgSettings" :src="item.icon" /> {{ item.title }}
+					<AImg :attributes="{ ...imgSettings, alt: `${item.title} Logo` }" :src="item.icon" /> {{ item.title }}
 				</ALink>
 			</div>
 		</div>
@@ -21,7 +21,7 @@
 			</div>
 			<div class="right">
 				<AText :attributes="textPayoutSettings" v-for="(item, index) in payments" :key="index">
-					<AImg :attributes="imgSettings" :src="item.thumbnail" /> {{ item.title }}
+					<AImg :attributes="{ ...imgSettings, alt: `${item.title} Logo` }" :src="item.thumbnail" /> {{ item.title }}
 				</AText>
 			</div>
 		</div>
@@ -31,7 +31,7 @@
 			</div>
 			<div class="right">
 				<AText :attributes="textPayoutSettings" v-for="(item, index) in payments" :key="index">
-					<AImg :attributes="imgSettings" :src="item.thumbnail" /> {{ item.title }}
+					<AImg :attributes="{ ...imgSettings, alt: `${item.title} Logo` }" :src="item.thumbnail" /> {{ item.title }}
 				</AText>
 			</div>
 		</div>
@@ -41,7 +41,7 @@
 			</div>
 			<div class="right">
 				<AText :attributes="textItemSettings" v-for="(item, index) in currencies" :key="index">
-					<AImg :attributes="imgSettings" :src="item.thumbnail" /> {{ item.title }}
+					<AImg :attributes="{ ...imgSettings, alt: `${item.title} Logo` }" :src="item.thumbnail" /> {{ item.title }}
 				</AText>
 			</div>
 		</div>
@@ -51,7 +51,8 @@
 			</div>
 			<div class="right">
 				<AText :attributes="textItemSettings" v-for="(item, index) in languages" :key="index">
-					<AImg :attributes="imgSettingsFlag" :src="item.thumbnail" /> {{ item.title }}
+					<AImg :attributes="{ ...imgSettingsFlag, alt: `${item.title} Logo` }" :src="item.thumbnail" />
+					{{ item.title }}
 				</AText>
 			</div>
 		</div>

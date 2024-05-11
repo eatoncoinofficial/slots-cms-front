@@ -9,12 +9,14 @@
 import components from '~/mixins/components'
 export default {
 	name: 'logo',
-    mixins: [components],
+	mixins: [components],
 	data() {
 		return {
 			options: null,
 			imgSettings: {
-				width: '160px', height: '36px'
+				width: '160px',
+				height: '36px',
+				alt: 'Casquads Logo'
 			}
 		}
 	}

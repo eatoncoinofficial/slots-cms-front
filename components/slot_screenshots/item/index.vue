@@ -1,6 +1,6 @@
 <template>
 	<div class="item">
-		<AImg :attributes="imgSettings" :src="src" />
+		<AImg :attributes="{ ...imgSettings, alt: `${title} Screen` }" :src="src" />
 	</div>
 </template>
 
@@ -12,7 +12,9 @@ export default {
 	data() {
 		return {
 			imgSettings: {
-				width: '280px', height: '170px', class: 'img'
+				width: '280px',
+				height: '170px',
+				class: 'img'
 			}
 		}
 	},
@@ -21,6 +23,12 @@ export default {
 			type: String,
 			default() {
 				return []
+			}
+		},
+		title: {
+			type: String,
+			default() {
+				return ''
 			}
 		}
 	}

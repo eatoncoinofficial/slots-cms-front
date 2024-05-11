@@ -5,7 +5,7 @@
 				<template v-slot:left>
 					<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 					<div class="wrapper_thumbnail">
-						<AImg :attributes="thumbnailSettings" :src="data.body.thumbnail" />
+						<AImg :attributes="{ ...thumbnailSettings, alt: `${data.body.title} Logo` }" :src="data.body.thumbnail" />
 					</div>
 					<div class="content_container">
 						<Content :value="data.body.content" />

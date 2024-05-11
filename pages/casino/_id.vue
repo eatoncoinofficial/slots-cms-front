@@ -36,6 +36,7 @@
 										:key="index"
 										:link="item.permalink"
 										:src="item.thumbnail"
+										:title="item.title"
 										size="middle"
 									/>
 								</div>

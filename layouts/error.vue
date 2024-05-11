@@ -1,14 +1,11 @@
 <template>
 	<div>
-		<section>
-			<div class="container error_section">
+		<section class="error_section">
+			<div class="container">
 				<img src="/img/404.png" class="error_img" />
-				<div class="error_desc">
-					<b>Извините, страница не найдена</b><br />
-					Возможно, эта страница была удалена либо допущена ошибка в адресе.
-				</div>
+				<div class="error_desc" v-html="t('TEXT_ERROR_PAGE')"></div>
 				<div class="home_link_wrapper">
-					<NuxtLink to="/" class="home_link">Home page</NuxtLink>
+					<NuxtLink to="/" class="home_link">{{ t('HOME_PAGE') }}</NuxtLink>
 				</div>
 			</div>
 		</section>
@@ -16,26 +13,19 @@
 </template>
 
 <script>
+import components from '~/mixins/components'
 export default {
 	props: ['error'],
-	data: () => {
-		return {
-			data: {
-				body: {
-					h1: '404 Page not found'
-				}
-			}
-		}
-	},
-	components: {},
+	mixins: [components],
 	layout: 'error'
 }
 </script>
 <style scoped>
 .error_section {
+	background: url(/img/hero_img.webp) top var(--colombo);
 	text-align: center;
-	margin-top: 50px;
-	margin-bottom: 50px;
+	padding-top: 200px;
+	padding-bottom: 50px;
 	flex-wrap: wrap;
 	display: flex;
 	justify-content: center;
@@ -49,10 +39,9 @@ export default {
 	display: inline-block;
 	width: 280px;
 	height: 45px;
-	background: #3f7df6;
+	background: var(--calgary);
 	border-radius: 12px;
-	color: white;
-	font-family: var(--base-font-family);
+	color: var(--cochin);
 	font-weight: bold;
 	font-size: 20px;
 	text-decoration: none;
@@ -61,9 +50,8 @@ export default {
 .error_desc {
 	width: 100%;
 	margin-top: 30px;
-	font-family: var(--base-font-family);
 	margin-bottom: 30px;
-	color: #4a5767;
+	color: var(--cairo);
 	font-size: 24px;
 }
 </style>

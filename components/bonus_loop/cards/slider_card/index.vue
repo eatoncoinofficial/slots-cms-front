@@ -4,7 +4,7 @@
 			<div class="left">
 				<div class="img_wrapper">
 					<AText>
-						<AImg :attributes="imgSettings" :src="src" />
+						<AImg :attributes="{ ...imgSettings, alt: `${title} logo` }" :src="src" />
 					</AText>
 				</div>
 			</div>
@@ -21,7 +21,7 @@
 			</div>
 			<div class="action">
 				<AText>
-					<AImg :attributes="arrowSettings" src="/img/arrowGreen.svg" />
+					<AImg :attributes="{ ...arrowSettings, alt: 'arrow' }" src="/img/arrowGreen.svg" />
 				</AText>
 			</div>
 		</div>

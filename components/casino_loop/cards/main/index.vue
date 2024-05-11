@@ -6,13 +6,13 @@
 					{{ label }}
 				</div>
 				<div class="rating">
-					<AImg :attributes="starSettings" src="/img/goldStar.svg" />
+					<AImg :attributes="{ ...starSettings, alt: 'Star' }" src="/img/goldStar.svg" />
 					<AText tag="span" :attributes="textSettings">{{ rating / 10 }}</AText>
 					<AText tag="span" :attributes="thinTextSettings">/10</AText>
 				</div>
 				<div class="img_wrapper">
 					<ALink :href="link">
-						<AImg :attributes="imgSettings" :src="src" />
+						<AImg :attributes="{ ...imgSettings, alt: `${title} logo` }" :src="src" />
 					</ALink>
 				</div>
 			</div>
@@ -31,7 +31,7 @@
 							<AButton :attributes="btnSettings" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
 						</div>
 						<ALink :href="link" :attributes="readMoreLinkSettings"
-							><AImg :attributes="searchSettings" src="/img/search.png" />
+							><AImg :attributes="{ ...searchSettings, alt: 'Read more' }" src="/img/search.png" />
 						</ALink>
 					</div>
 				</div>
@@ -50,7 +50,7 @@
 								:attributes="providerLinkSettings"
 								:key="index"
 							>
-								<AImg :attributes="providerSettings" :src="item.thumbnail" />
+								<AImg :attributes="{ ...providerSettings, alt: `${item.title} logo` }" :src="item.thumbnail" />
 							</ALink>
 						</div>
 						<div class="providers_total">
@@ -79,7 +79,7 @@
 							:attributes="providerLinkSettings"
 							:key="index"
 						>
-							<AImg :attributes="providerSettings" :src="item.thumbnail" />
+							<AImg :attributes="{ ...providerSettings, alt: `${item.title} logo` }" :src="item.thumbnail" />
 						</ALink>
 					</div>
 					<div class="providers_total">
@@ -99,7 +99,7 @@
 						<AButton :attributes="btnSettings" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
 					</div>
 					<ALink :href="link" :attributes="readMoreLinkSettings"
-						><AImg :attributes="searchSettings" src="/img/search.png" />
+						><AImg :attributes="{ ...searchSettings, alt: 'Read more' }" src="/img/search.png" />
 					</ALink>
 				</div>
 			</div>

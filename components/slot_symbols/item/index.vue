@@ -1,7 +1,7 @@
 <template>
 	<div class="item">
 		<div class="left">
-			<AImg :attributes="imgSettings" :src="src" />
+			<AImg :attributes="{ ...imgSettings, alt: `${title} Screen` }" :src="src" />
 		</div>
 		<div class="right">
 			<div>
@@ -21,10 +21,14 @@ export default {
 	data() {
 		return {
 			imgSettings: {
-				width: '120px', height: '98px'
+				width: '120px',
+				height: '98px'
 			},
 			textSettings: {
-				size: 'large', color: 'cairo', weight: 'regular', class: 'item_text'
+				size: 'large',
+				color: 'cairo',
+				weight: 'regular',
+				class: 'item_text'
 			}
 		}
 	},
@@ -48,6 +52,12 @@ export default {
 			}
 		},
 		value_3: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
+		title: {
 			type: String,
 			default() {
 				return ''

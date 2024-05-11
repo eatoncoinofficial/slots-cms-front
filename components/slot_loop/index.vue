@@ -1,12 +1,18 @@
 <template>
 	<div>
 		<div class="slot_loop">
-			<GameMainCard v-for="(item, index) in currentPosts" :key="index" :link="item.permalink" :src="item.thumbnail" />
+			<GameMainCard
+				v-for="(item, index) in currentPosts"
+				:key="index"
+				:link="item.permalink"
+				:src="item.thumbnail"
+				:title="item.title"
+			/>
 		</div>
 		<div class="items-more" v-if="hideBtnShowMore">
 			<div class="btn_wrapper">
 				<AButton @onClick="postShowMore" :attributes="btnSettings">
-					{{ t('SHOW_MORE') }} <AImg :attributes="arrowSettings" src="/img/arrowGreen.svg" />
+					{{ t('SHOW_MORE') }} <AImg :attributes="{ ...arrowSettings, alt: 'Arrow green' }" src="/img/arrowGreen.svg" />
 				</AButton>
 			</div>
 		</div>

@@ -670,5 +670,18 @@ export default {
         RU: 'Ваш email',
         UA: 'Ваш email',
         EN: 'Your email'
+    },
+    TEXT_ERROR_PAGE: {
+        RU: `<b>Извините, страница не найдена</b><br />
+        Возможно, эта страница была удалена либо допущена ошибка в адресе.`,
+        UA: `<b>Вибачте, сторінку не знайдено</b><br />
+        Можливо, цю сторінку було видалено або припущено помилку в адресі.`,
+        EN: `<b>Sorry, page not found</b><br />
+        This page may have been deleted or there was an error in the address.`
+    },
+    HOME_PAGE: {
+        RU: "Главная страница",
+        UA: "Головна сторінка",
+        EN: "Home page"
     }
 }

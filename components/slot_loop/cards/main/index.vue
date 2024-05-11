@@ -2,7 +2,7 @@
 	<article class="item" :class="size">
 		<div class="wrapper">
 			<ALink :href="link">
-				<AImg :attributes="imgSettings" :src="src" />
+				<AImg :attributes="{ ...imgSettings, alt: `${title} Logo` }" :src="src" />
 			</ALink>
 		</div>
 		<div class="mask">
@@ -20,10 +20,15 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-				width: '159px', height: '172px', class: 'object_fit_cover thumbnail'
+				width: '159px',
+				height: '172px',
+				class: 'object_fit_cover thumbnail'
 			},
 			linkSettings: {
-				color: 'cairo', weight: 'regular', size: 'medium', decoration: 'none'
+				color: 'cairo',
+				weight: 'regular',
+				size: 'medium',
+				decoration: 'none'
 			}
 		}
 	},
@@ -44,6 +49,12 @@ export default {
 			type: String,
 			default() {
 				return 'big'
+			}
+		},
+		title: {
+			type: String,
+			default() {
+				return ''
 			}
 		}
 	}

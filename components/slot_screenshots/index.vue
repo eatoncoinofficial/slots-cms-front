@@ -1,7 +1,7 @@
 <template>
 	<div class="item_container">
 		<div class="item_wrapper" v-for="(item, index) in posts" :key="index">
-			<SlotScreenshotsItem :src="item.src" />
+			<SlotScreenshotsItem :src="item.src" :title="title" />
 		</div>
 	</div>
 </template>
@@ -21,6 +21,12 @@ export default {
 			type: Array,
 			default() {
 				return []
+			}
+		},
+		title: {
+			type: String,
+			default() {
+				return ''
 			}
 		}
 	}

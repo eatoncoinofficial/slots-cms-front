@@ -22,6 +22,7 @@
 							:src="item.icon"
 							:color="item.color"
 							:rating="item.rating"
+							:title="item.title"
 						/>
 					</SliderContainer>
 				</div>
@@ -32,6 +33,7 @@
 							:key="index"
 							:link="item.permalink"
 							:src="item.thumbnail"
+							:title="item.title"
 						/>
 					</SliderContainer>
 				</div>

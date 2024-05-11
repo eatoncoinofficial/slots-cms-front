@@ -2,7 +2,7 @@
 	<div class="root">
 		<div class="left">
 			<div class="thumbnail_wrapper">
-				<AImg :attributes="imgSettings" :src="src" />
+				<AImg :attributes="{ ...imgSettings, alt: `${title} Logo` }" :src="src" />
 			</div>
 		</div>
 		<div class="center">
@@ -13,7 +13,7 @@
 				<div class="casino_wrapper">
 					<div class="item" v-for="(item, index) in casinos" :key="index" :style="`background: ${item.color}`">
 						<ALink :href="item.permalink">
-							<AImg :attributes="itemImgSettings" :src="item.thumbnail" />
+							<AImg :attributes="{ ...itemImgSettings, alt: `${item.title} Logo` }" :src="item.thumbnail" />
 						</ALink>
 					</div>
 				</div>

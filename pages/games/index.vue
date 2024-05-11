@@ -13,10 +13,17 @@
 						v-if="data.body.game_week.length"
 						:link="data.body.game_week[0].permalink"
 						:src="data.body.game_week[0].thumbnail"
+						:title="data.body.game_week[0].title"
 					/>
 				</div>
 				<div class="right">
-					<GameMainCard v-for="(item, index) in gamesWeek" :key="index" :link="item.permalink" :src="item.thumbnail" />
+					<GameMainCard
+						v-for="(item, index) in gamesWeek"
+						:key="index"
+						:link="item.permalink"
+						:src="item.thumbnail"
+						:title="item.title"
+					/>
 				</div>
 			</div>
 			<div class="container container_loop" v-if="data.body.games.length">

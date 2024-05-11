@@ -5,7 +5,7 @@
 		</div>
 		<div class="wrapper">
 			<ALink :href="link">
-				<AImg :attributes="imgSettings" :src="src" />
+				<AImg :attributes="{ ...imgSettings, alt: `${title} Logo` }" :src="src" />
 			</ALink>
 		</div>
 	</article>
@@ -18,10 +18,14 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-				width: '329px', height: '355px', class: 'object_fit_cover thumbnail'
+				width: '329px',
+				height: '355px',
+				class: 'object_fit_cover thumbnail'
 			},
 			textSettings: {
-				color: 'cairo', class: 'badgeText', weight: 'medium'
+				color: 'cairo',
+				class: 'badgeText',
+				weight: 'medium'
 			}
 		}
 	},
@@ -36,6 +40,12 @@ export default {
 			type: String,
 			default() {
 				return '/img/noImages.png'
+			}
+		},
+		title: {
+			type: String,
+			default() {
+				return ''
 			}
 		}
 	}

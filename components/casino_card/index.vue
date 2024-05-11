@@ -4,12 +4,12 @@
 			<div class="left">
 				<AText tag="div" :attributes="labelSettings" v-if="label && device === 'MOB'" :class="label">{{ label }}</AText>
 				<div class="rating">
-					<AImg :attributes="starSettings" src="/img/goldStar.svg" />
+					<AImg :attributes="{ ...starSettings, alt: 'Gold Star' }" src="/img/goldStar.svg" />
 					<AText tag="span" :attributes="textSettings">{{ rating / 10 }} </AText>
 					<AText tag="span" :attributes="thinTextSettings">/ 10</AText>
 				</div>
 				<div class="img_wrapper">
-					<AImg :attributes="imgSettings" :src="src" />
+					<AImg :attributes="{ ...imgSettings, alt: `${title} Logo` }" :src="src" />
 				</div>
 			</div>
 			<div class="right">

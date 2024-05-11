@@ -2,30 +2,30 @@
 	<div class="lang_selector">
 		<div class="lang_selector_ttl open">
 			<div class="flag">
-				<AImg :attributes="imgSettings" src="/img/flag_ua.png" />
+				<AImg :attributes="{ ...imgSettings, alt: 'Flag ua' }" src="/img/flag_ua.png" />
 			</div>
 			<AText tag="div" :attributes="textSettings">UA</AText>
 			<div class="arrow">
-				<AImg :attributes="imgSettings" src="/img/white_arrow.png" />
+				<AImg :attributes="{ ...imgSettings, alt: 'arrow' }" src="/img/white_arrow.png" />
 			</div>
 		</div>
 		<div class="lang_selector_wrapper">
 			<ALink href="/custom-link" class="lang_item">
 				<div class="flag">
-					<AImg :attributes="imgSettings" src="/img/flag_ua.png" />
+					<AImg :attributes="{ ...imgSettings, alt: 'Flag ua' }" src="/img/flag_ua.png" />
 				</div>
 				<AText tag="div" :attributes="textSettings">RU</AText>
 				<div class="arrow">
-					<AImg :attributes="imgSettings" src="/img/white_arrow.png" />
+					<AImg :attributes="{ ...imgSettings, alt: 'arrow' }" src="/img/white_arrow.png" />
 				</div>
 			</ALink>
 			<ALink href="/custom-link" class="lang_item">
 				<div class="flag">
-					<AImg :attributes="imgSettings" src="/img/flag_ua.png" />
+					<AImg :attributes="{ ...imgSettings, alt: 'Flag ua' }" src="/img/flag_ua.png" />
 				</div>
 				<AText tag="div" :attributes="textSettings">EN</AText>
 				<div class="arrow">
-					<AImg :attributes="imgSettings" src="/img/white_arrow.png" />
+					<AImg :attributes="{ ...imgSettings, alt: 'arrow' }" src="/img/white_arrow.png" />
 				</div>
 			</ALink>
 		</div>
