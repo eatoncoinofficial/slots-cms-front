@@ -39,12 +39,6 @@ export default {
 		const response = await DAL_Page.getData(request)
 		const data = helper.headDataMixin(response.data, route)
 		return { data }
-	},
-	computed: {
-		gamesWeek() {
-			const config = { DC: 10, MOB: 10, TABLET: 4 }
-			return this.data.body.games_week_list.slice(0, config[this.device])
-		}
 	}
 }
 </script>
