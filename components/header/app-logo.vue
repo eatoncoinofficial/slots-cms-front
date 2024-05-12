@@ -1,7 +1,7 @@
 <template>
 	<div class="header_logo">
-		<ALink href="/">
-			<AImg :attributes="imgSettings" src="/img/logo_footer.png" />
+		<ALink href="/" title="Goes to Casquads main page">
+			<AImg :attributes="{ ...imgSettings, alt: 'Casquads Logo' }" src="/img/logo_footer.png" />
 		</ALink>
 	</div>
 </template>
@@ -15,8 +15,7 @@ export default {
 			options: null,
 			imgSettings: {
 				width: '160px',
-				height: '36px',
-				alt: 'Casquads Logo'
+				height: '36px'
 			}
 		}
 	}

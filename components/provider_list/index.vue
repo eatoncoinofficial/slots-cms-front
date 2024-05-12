@@ -8,6 +8,7 @@
 				:attributes="textSettings"
 				:key="index"
 				:data-active="item.active"
+				:title="`Goes to ${item.title} page`"
 			>
 				<AImg :attributes="{ ...imgSettings, alt: `${item.title} Logo` }" :src="item.icon" /> {{ item.title }}
 			</ALink>

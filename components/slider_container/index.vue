@@ -4,7 +4,7 @@
 			<div class="ttl" :class="icon">
 				<AText :attributes="ttlSettings">{{ title }}</AText>
 			</div>
-			<LinkWithArrow :link="link" :attributes="linkSettings">
+			<LinkWithArrow :link="link" :attributes="linkSettings" :title="`Go to page ${title}`">
 				{{ t('SHOW_MORE') }}
 			</LinkWithArrow>
 		</div>

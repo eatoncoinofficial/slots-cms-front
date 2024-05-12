@@ -20,7 +20,9 @@
 					<AText tag="div" :attributes="bonusValueSettings">{{ bonus_value }}</AText>
 					<div class="action_wrapper">
 						<div class="btn_wrapper">
-							<AButton :attributes="btnSettings" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
+							<AButton :attributes="btnSettings" @onClick="refActivate(refLinks)" :title="`Goes to ${title}`">{{
+								t('GO_TO')
+							}}</AButton>
 						</div>
 					</div>
 				</div>

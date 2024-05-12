@@ -6,7 +6,7 @@
 				<AText tag="span" :attributes="textSettings">{{ rating / 10 }}</AText>
 				<AText tag="span" :attributes="thinTextSettings">/10</AText>
 			</div>
-			<ALink :href="link">
+			<ALink :href="link" :title="`Goes to ${title} page`">
 				<AImg :attributes="{ ...imgSettings, alt: `${title} logo` }" :src="src" />
 			</ALink>
 		</div>

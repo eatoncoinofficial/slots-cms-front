@@ -1,13 +1,13 @@
 <template>
 	<article class="item" :class="size">
 		<div class="wrapper">
-			<ALink :href="link">
+			<ALink :href="link" :title="`Goes to ${title} page`">
 				<AImg :attributes="{ ...imgSettings, alt: `${title} Logo` }" :src="src" />
 			</ALink>
 		</div>
 		<div class="mask">
 			<div class="action">
-				<ALink :attributes="linkSettings" :href="link">{{ t('PLAY') }}</ALink>
+				<ALink :attributes="linkSettings" :href="link" :title="`Goes to ${title} page`">{{ t('PLAY') }}</ALink>
 			</div>
 		</div>
 	</article>

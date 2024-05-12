@@ -11,7 +11,7 @@
 		</div>
 		<div class="items-more" v-if="hideBtnShowMore">
 			<div class="btn_wrapper">
-				<AButton @onClick="postShowMore" :attributes="btnSettings">
+				<AButton @onClick="postShowMore" :attributes="btnSettings" title="Show more">
 					{{ t('SHOW_MORE') }} <AImg :attributes="{ ...arrowSettings, alt: 'Arrow green' }" src="/img/arrowGreen.svg" />
 				</AButton>
 			</div>

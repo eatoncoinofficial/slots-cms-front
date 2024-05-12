@@ -16,7 +16,7 @@
 		</div>
 		<div class="items-more">
 			<div class="btn_wrapper">
-				<ALink :attributes="btnSettings" :href="link">
+				<ALink :attributes="btnSettings" :href="link" title="Show more">
 					{{ t('SHOW_MORE') }} <AImg :attributes="arrowSettings" src="/img/arrowGreen.svg" />
 				</ALink>
 			</div>

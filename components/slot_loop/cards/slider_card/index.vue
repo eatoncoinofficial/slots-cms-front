@@ -1,7 +1,7 @@
 <template>
 	<article class="item">
 		<div class="wrapper">
-			<ALink :href="link">
+			<ALink :href="link" :attributes="{ alt: `Goes to ${title} game` }">
 				<AImg :attributes="{ ...imgSettings, alt: `${title} logo` }" :src="src" />
 			</ALink>
 		</div>

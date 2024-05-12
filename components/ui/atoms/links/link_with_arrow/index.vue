@@ -1,6 +1,6 @@
 <template>
 	<span class="arrow_before">
-		<ALink :href="link" :attributes="attributes">
+		<ALink :href="link" :attributes="attributes" :title="title">
 			<slot />
 		</ALink>
 	</span>
@@ -21,6 +21,12 @@ export default {
 			type: Object,
 			default() {
 				return {}
+			}
+		},
+		title: {
+			type: String,
+			default() {
+				return ''
 			}
 		}
 	}

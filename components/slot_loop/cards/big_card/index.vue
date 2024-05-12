@@ -4,7 +4,7 @@
 			<AText :attributes="textSettings">{{ t('GAME_WEEK') }}</AText>
 		</div>
 		<div class="wrapper">
-			<ALink :href="link">
+			<ALink :href="link" :title="`Goes to ${title} page`">
 				<AImg :attributes="{ ...imgSettings, alt: `${title} Logo` }" :src="src" />
 			</ALink>
 		</div>

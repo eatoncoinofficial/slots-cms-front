@@ -4,7 +4,7 @@
 		<div class="form_wrapper">
 			<input :placeholder="t('YOUR_EMAIL')" class="input" />
 			<div class="btn_wrapper">
-				<AButton :attributes="btnSettings">{{ t('SIGN_UP') }}</AButton>
+				<AButton :attributes="btnSettings" title="Form Submit">{{ t('SIGN_UP') }}</AButton>
 			</div>
 		</div>
 		<div class="form_rules">
@@ -22,7 +22,10 @@ export default {
 	data: () => {
 		return {
 			btnSettings: {
-				bg: 'calgary', color: 'cochin', borderRadius: 's', weight: 'semi-bold'
+				bg: 'calgary',
+				color: 'cochin',
+				borderRadius: 's',
+				weight: 'semi-bold'
 			},
 			titleSettings: {
 				color: 'cairo',
@@ -31,7 +34,9 @@ export default {
 				class: 'form_title'
 			},
 			formRulesSettings: {
-				color: 'cordoba', weight: 'regular', size: 'small'
+				color: 'cordoba',
+				weight: 'regular',
+				size: 'small'
 			}
 		}
 	}

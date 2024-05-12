@@ -11,14 +11,14 @@
 					<AText tag="span" :attributes="thinTextSettings">/10</AText>
 				</div>
 				<div class="img_wrapper">
-					<ALink :href="link">
+					<ALink :href="link" :title="`Goes to ${title} page`">
 						<AImg :attributes="{ ...imgSettings, alt: `${title} logo` }" :src="src" />
 					</ALink>
 				</div>
 			</div>
 			<div class="right" v-if="device === 'DC'">
 				<div class="right_left">
-					<ALink :href="link" :attributes="titleLinkSettings">
+					<ALink :href="link" :attributes="titleLinkSettings" :title="`Goes to ${title} page`">
 						{{ title }}
 					</ALink>
 					<AText tag="div" :attributes="bonusNameSettings">{{ t('WELCOME_PACKAGE') }}</AText>
@@ -28,9 +28,11 @@
 					>
 					<div class="action_wrapper">
 						<div class="btn_wrapper">
-							<AButton :attributes="btnSettings" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
+							<AButton :attributes="btnSettings" :title="`Goes to ${title} page`" @onClick="refActivate(refLinks)">{{
+								t('GO_TO')
+							}}</AButton>
 						</div>
-						<ALink :href="link" :attributes="readMoreLinkSettings"
+						<ALink :href="link" :attributes="readMoreLinkSettings" :title="`Goes to ${title} page`"
 							><AImg :attributes="{ ...searchSettings, alt: 'Read more' }" src="/img/search.png" />
 						</ALink>
 					</div>
@@ -48,6 +50,7 @@
 								v-for="(item, index) in vendors.slice(0, 4)"
 								:href="item.permalink"
 								:attributes="providerLinkSettings"
+								:title="`Goes to ${item.title} page`"
 								:key="index"
 							>
 								<AImg :attributes="{ ...providerSettings, alt: `${item.title} logo` }" :src="item.thumbnail" />

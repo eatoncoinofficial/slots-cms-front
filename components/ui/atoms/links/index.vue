@@ -1,5 +1,5 @@
 <template>
-	<NuxtLink :class="currentClasses" no-prefetch :to="href">
+	<NuxtLink :class="currentClasses" no-prefetch :to="href" :title="title">
 		<slot />
 	</NuxtLink>
 </template>
@@ -21,6 +21,12 @@ export default {
 		href: {
 			default() {
 				return '#'
+			},
+			type: String
+		},
+		title: {
+			default() {
+				return ''
 			},
 			type: String
 		}

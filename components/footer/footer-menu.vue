@@ -2,7 +2,7 @@
 	<div>
 		<nav class="footer-nav">
 			<div class="item" v-for="(item, index) in value" :key="index">
-				<ALink :href="item.value_2" :attributes="textSettings">
+				<ALink :href="item.value_2" :attributes="textSettings" :title="`Goes to ${item.value_1} page`">
 					{{ item.value_1 }}
 				</ALink>
 			</div>

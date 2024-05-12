@@ -1,7 +1,7 @@
 <template>
 	<div class="search">
 		<input :placeholder="t('SEARCH')" class="input" v-model="searchWord" v-on:keyup.enter="search" />
-		<button type="button" class="btn-default search__cta" @click="search">
+		<button type="button" class="btn-default search__cta" @click="search" title="Search btn">
 			<AImg :attributes="{ ...imgSettings, alt: 'Search' }" src="/img/search.png" />
 		</button>
 		<div class="search-box" v-if="posts.length && searchWord.length">

@@ -2,9 +2,10 @@
 	<div class="root">
 		<div class="wrapper">
 			<ALink
-				:href="item.permalink"
-				:attributes="textSettings"
 				v-for="(item, index) in value"
+				:attributes="textSettings"
+				:href="item.permalink"
+				:title="`Goes to ${item.title} casino page`"
 				:key="index"
 				:data-active="activeLink(item.permalink, index)"
 				>{{ item.title }}</ALink
@@ -17,7 +18,7 @@
 import components from '~/mixins/components'
 export default {
 	name: 'dev-category-filter',
-    mixins: [components],
+	mixins: [components],
 	props: {
 		value: {
 			type: Array,
@@ -29,12 +30,12 @@ export default {
 	data() {
 		return {
 			textSettings: {
-					class: 'item',
-					color: 'cairo',
-					text_transform: 'uppercase',
-					size: 'small',
-					weight: 'regular',
-					decoration: 'none'
+				class: 'item',
+				color: 'cairo',
+				text_transform: 'uppercase',
+				size: 'small',
+				weight: 'regular',
+				decoration: 'none'
 			}
 		}
 	},

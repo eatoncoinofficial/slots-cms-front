@@ -3,20 +3,20 @@
 		<div class="wrapper">
 			<div class="top">
 				<div class="img_wrapper">
-					<ALink :href="link">
+					<ALink :href="link" :title="`Goes to ${title} page`">
 						<AImg :attributes="{ ...imgSettings, alt: `${title} logo` }" :src="src" />
 					</ALink>
 				</div>
 			</div>
 			<div class="center">
-				<ALink :href="link" :attributes="titleLinkSettings">
+				<ALink :href="link" :attributes="titleLinkSettings" :title="`Goes to ${title} page`">
 					{{ title }}
 				</ALink>
 				<AText tag="div" :attributes="dateTextSettings">{{ date }}</AText>
 				<AText tag="div" :attributes="descTextSettings">{{ desc }}</AText>
 			</div>
 			<div class="bottom">
-				<LinkWithArrow :link="link" :attributes="linkSettings">
+				<LinkWithArrow :link="link" :attributes="linkSettings" :title="`Goes to ${title} page`">
 					{{ t('READ_MORE') }}
 				</LinkWithArrow>
 			</div>

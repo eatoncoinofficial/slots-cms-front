@@ -85,7 +85,6 @@
 							<div class="aside_bonus_container">
 								<div class="aside_bonus_wrapper" v-for="item in data.body.top_bonuses" :key="item.title">
 									<BonusAsideCard
-										:link="item.permalink"
 										:src="item.thumbnail"
 										:title="item.title"
 										:desc="item.short_desc"
@@ -105,7 +104,7 @@
 			<div class="container">
 				<div class="section_title_wrapper">
 					<AText tag="div" :attributes="mainContainerTitle">{{ t('NEWS') }}</AText>
-					<LinkWithArrow link="/news" :attributes="newsLinkSettings">
+					<LinkWithArrow link="/news" :attributes="newsLinkSettings" title="Goes to page News">
 						{{ t('SHOW_MORE') }}
 					</LinkWithArrow>
 				</div>

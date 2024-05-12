@@ -2,8 +2,8 @@ export default {
 	API_URL: {
 		UA: 'https://casquad-api.lenddev.com.ua/api/',
 		RU: 'https://casquad-api.lenddev.com.ua/api/',
-		EN: 'https://casquad-api.lenddev.com.ua/api/',
-		//EN: 'http://127.0.0.1:8000/api/',
+		//EN: 'https://casquad-api.lenddev.com.ua/api/',
+		EN: 'http://127.0.0.1:8000/api/',
 	},
 	BASE_URL: {
 		RU: 'https://casquad.lenddev.com.ua',

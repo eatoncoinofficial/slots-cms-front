@@ -3,14 +3,14 @@
 		<div class="wrapper">
 			<div class="left">
 				<div class="img_wrapper">
-					<ALink :href="link">
+					<ALink :href="link" :title="`Goes to ${title} page`">
 						<AImg :attributes="{ ...imgSettings, alt: `${title} logo` }" :src="src" />
 					</ALink>
 				</div>
 			</div>
 			<div class="right">
 				<div>
-					<ALink :attributes="titleSettings" :href="link">{{ title }}</ALink>
+					<ALink :attributes="titleSettings" :href="link" :title="`Goes to ${title} page`">{{ title }}</ALink>
 				</div>
 				<div>
 					<AText :attributes="descTextSettings">{{ desc }}</AText>

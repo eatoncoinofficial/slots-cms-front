@@ -7,7 +7,9 @@
 				class="header_menu_item"
 				:data-active="activeLink(item.value_2)"
 			>
-				<ALink :href="item.value_2" :attributes="linkSettings">{{ item.value_1 }}</ALink>
+				<ALink :href="item.value_2" :attributes="linkSettings" :title="`Goes to ${item.value_1} page`">{{
+					item.value_1
+				}}</ALink>
 			</div>
 		</nav>
 	</div>
