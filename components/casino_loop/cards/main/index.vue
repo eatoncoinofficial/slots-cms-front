@@ -28,7 +28,7 @@
 					>
 					<div class="action_wrapper">
 						<div class="btn_wrapper">
-							<AButton :attributes="btnSettings" :title="`Goes to ${title} page`" @onClick="refActivate(refLinks)">{{
+							<AButton :attributes="btnSettings" :title="`Goes to ${title}`" @onClick="refActivate(refLinks)">{{
 								t('GO_TO')
 							}}</AButton>
 						</div>
@@ -57,14 +57,16 @@
 							</ALink>
 						</div>
 						<div class="providers_total">
-							<ALink :href="link" :attributes="totalTextSettings">+ {{ vendors.length }}</ALink>
+							<ALink :href="link" :attributes="totalTextSettings" :title="`Goes to ${title} page`"
+								>+ {{ vendors.length }}</ALink
+							>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="right" v-else>
 				<div class="wrapper_title">
-					<ALink :href="link" :attributes="titleLinkSettings">
+					<ALink :href="link" :attributes="titleLinkSettings" :title="`Goes to ${title} page`">
 						{{ title }}
 					</ALink>
 				</div>
@@ -80,6 +82,7 @@
 							v-for="(item, index) in vendors.slice(0, 4)"
 							:href="item.permalink"
 							:attributes="providerLinkSettings"
+							:title="`Go to ${item.title} page`"
 							:key="index"
 						>
 							<AImg :attributes="{ ...providerSettings, alt: `${item.title} logo` }" :src="item.thumbnail" />
@@ -99,9 +102,11 @@
 				</div>
 				<div class="action_wrapper">
 					<div class="btn_wrapper">
-						<AButton :attributes="btnSettings" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
+						<AButton :attributes="btnSettings" :title="`Goes to ${title}`" @onClick="refActivate(refLinks)">{{
+							t('GO_TO')
+						}}</AButton>
 					</div>
-					<ALink :href="link" :attributes="readMoreLinkSettings"
+					<ALink :href="link" :attributes="readMoreLinkSettings" :title="`Goes to ${title} page`"
 						><AImg :attributes="{ ...searchSettings, alt: 'Read more' }" src="/img/search.png" />
 					</ALink>
 				</div>
