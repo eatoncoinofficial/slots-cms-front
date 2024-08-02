@@ -16,13 +16,25 @@
 				<AText tag="div" :attributes="labelSettings" v-if="label && device !== 'MOB'" :class="label">{{ label }}</AText>
 				<div class="wrapper_desc">
 					<AText tag="div" :attributes="titleSettings">{{ title }}</AText>
-					<AText tag="div" :attributes="bonusNameSettings">{{ t('WELCOME_PACKAGE') }}</AText>
-					<AText tag="div" :attributes="bonusValueSettings">{{ bonus_value }}</AText>
-					<div class="action_wrapper">
-						<div class="btn_wrapper">
-							<AButton :attributes="btnSettings" @onClick="refActivate(refLinks)" :title="`Goes to ${title}`">{{
-								t('GO_TO')
-							}}</AButton>
+					<div class="wrapper_characters">
+						<div class="characters_left">
+							<AText tag="div" :attributes="bonusNameSettings">{{ t('WELCOME_PACKAGE') }}</AText>
+							<AText tag="div" :attributes="bonusValueSettings">{{ bonus_value }}</AText>
+							<div class="action_wrapper">
+								<div class="btn_wrapper">
+									<AButton :attributes="btnSettings" @onClick="refActivate(refLinks)" :title="`Goes to ${title}`">{{
+										t('GO_TO')
+									}}</AButton>
+								</div>
+							</div>
+						</div>
+						<div class="characters_right">
+							<AText tag="div" :attributes="advantagesItemSettings" v-for="(item, index) in advantages" :key="index">
+								{{ item }}
+							</AText>
+							<AText tag="div" :attributes="bonusNameSettings">
+								Min. dep.: {{ min_dep }} &middot; Wager: {{ wager }}
+							</AText>
 						</div>
 					</div>
 				</div>
@@ -55,6 +67,12 @@ export default {
 				size: 'small',
 				weight: 'regular',
 				class: 'bonus_name'
+			},
+			advantagesItemSettings: {
+				color: 'cairo',
+				size: 'small',
+				weight: 'regular',
+				class: 'advantages'
 			},
 			bonusValueSettings: {
 				color: 'calgary',
@@ -130,6 +148,24 @@ export default {
 			default() {
 				return 0
 			}
+		},
+		advantages: {
+			type: Array,
+			default() {
+				return []
+			}
+		},
+		min_dep: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
+		wager: {
+			type: String,
+			default() {
+				return ''
+			}
 		}
 	}
 }
@@ -165,7 +201,7 @@ export default {
 	display: flex;
 	height: 100%;
 }
-.bonus_name {
+.bonus_name, .advantages {
 	margin-top: var(--s);
 }
 .bonus_value {
@@ -217,6 +253,34 @@ export default {
 .label.popular {
 	background: rgba(255, 0, 92, 1);
 }
+.wrapper_characters {
+	width: 100%;
+	display: flex;
+}
+.characters_left {
+	width: 60%;
+}
+.characters_right {
+	width: 40%;
+}
+.wrapper_desc {
+	width: 100%;
+}
+.advantages {
+	position: relative;
+	padding-left: 25px;
+}
+.advantages::before {
+	content: '';
+	width: 18px;
+	height: 18px;
+	background: url('/img/success.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
 @media (max-width: 767px) {
 	.title,
 	.bonus_name,
@@ -249,6 +313,16 @@ export default {
 	.label {
 		top: 0;
 		right: 3px;
+	}
+	.wrapper_characters {
+		flex-wrap: wrap;
+		flex-direction: column-reverse;
+	}
+	.characters_left {
+		width: 100%;
+	}
+	.characters_right {
+		width: 100%;
 	}
 }
 </style>

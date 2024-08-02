@@ -6,7 +6,7 @@
 			</div>
 			<div class="right">
 				<ALink
-					v-for="(item, index) in vendors"
+					v-for="(item, index) in currentVendors"
 					:href="item.permalink"
 					:attributes="textProviderItemSettings"
 					:key="index"
@@ -14,6 +14,11 @@
 				>
 					<AImg :attributes="{ ...imgSettings, alt: `${item.title} Logo` }" :src="item.icon" /> {{ item.title }}
 				</ALink>
+				<div class="show_more_wrapper" v-if="vendors.length > numberItems">
+					<button class="show_more" @click="filterVendors" :class="{active: vendorsIsShow}"> 
+						<img src="/img/arrowGreen.svg" width="18px" height="18px" class="arrow" >
+					</button>
+				</div>
 			</div>
 		</div>
 		<div class="row">
@@ -21,9 +26,14 @@
 				<AText :attributes="textDepositMethodsSettings">{{ t('DEPOSIT_METHODS') }}</AText>
 			</div>
 			<div class="right">
-				<AText :attributes="textPayoutSettings" v-for="(item, index) in payments" :key="index">
+				<AText :attributes="textPayoutSettings" v-for="(item, index) in currentDeposit" :key="index">
 					<AImg :attributes="{ ...imgSettings, alt: `${item.title} Logo` }" :src="item.thumbnail" /> {{ item.title }}
 				</AText>
+				<div class="show_more_wrapper" v-if="deposit.length > numberItems">
+					<button class="show_more" @click="filterDeposit" :class="{active: depositIsShow}"> 
+						<img src="/img/arrowGreen.svg" width="18px" height="18px" class="arrow" >
+					</button>
+				</div>
 			</div>
 		</div>
 		<div class="row">
@@ -31,9 +41,14 @@
 				<AText :attributes="textWithoutMethodsSettings">{{ t('PAYMENTS_OPTIONS') }}</AText>
 			</div>
 			<div class="right">
-				<AText :attributes="textPayoutSettings" v-for="(item, index) in payments" :key="index">
+				<AText :attributes="textPayoutSettings" v-for="(item, index) in currentPayment" :key="index">
 					<AImg :attributes="{ ...imgSettings, alt: `${item.title} Logo` }" :src="item.thumbnail" /> {{ item.title }}
 				</AText>
+				<div class="show_more_wrapper" v-if="payments.length > numberItems">
+					<button class="show_more" @click="filterPayment" :class="{active: paymentIsShow}"> 
+						<img src="/img/arrowGreen.svg" width="18px" height="18px" class="arrow" >
+					</button>
+				</div>
 			</div>
 		</div>
 		<div class="row">
@@ -41,9 +56,14 @@
 				<AText :attributes="textGameCurrencySettings">{{ t('GAME_CURRENCY') }}</AText>
 			</div>
 			<div class="right">
-				<AText :attributes="textItemSettings" v-for="(item, index) in currencies" :key="index">
+				<AText :attributes="textItemSettings" v-for="(item, index) in currentCurrencies" :key="index">
 					<AImg :attributes="{ ...imgSettings, alt: `${item.title} Logo` }" :src="item.thumbnail" /> {{ item.title }}
 				</AText>
+				<div class="show_more_wrapper" v-if="currencies.length > numberItems">
+					<button class="show_more" @click="filterCurrencies" :class="{active: currenciesIsShow}"> 
+						<img src="/img/arrowGreen.svg" width="18px" height="18px" class="arrow" >
+					</button>
+				</div>
 			</div>
 		</div>
 		<div class="row">
@@ -51,10 +71,15 @@
 				<AText :attributes="textLangSettings">{{ t('LANG') }}</AText>
 			</div>
 			<div class="right">
-				<AText :attributes="textItemSettings" v-for="(item, index) in languages" :key="index">
+				<AText :attributes="textItemSettings" v-for="(item, index) in currentLanguages" :key="index">
 					<AImg :attributes="{ ...imgSettingsFlag, alt: `${item.title} Logo` }" :src="item.thumbnail" />
 					{{ item.title }}
 				</AText>
+				<div class="show_more_wrapper" v-if="languages.length > numberItems">
+					<button class="show_more" @click="filterLanguages" :class="{active: languagesIsShow}"> 
+						<img src="/img/arrowGreen.svg" width="18px" height="18px" class="arrow" >
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -72,6 +97,12 @@ export default {
 			}
 		},
 		payments: {
+			type: Array,
+			default() {
+				return []
+			}
+		},
+		deposit: {
 			type: Array,
 			default() {
 				return []
@@ -148,7 +179,47 @@ export default {
 				class: 'item',
 				color: 'cairo',
 				weight: 'regular'
-			}
+			},
+			numberItems: 5,
+			vendorsIsShow: false,
+			depositIsShow: false,
+			paymentIsShow: false,
+			currenciesIsShow: false,
+			languagesIsShow: false,
+		}
+	},
+	methods: {
+		filterVendors() {
+			this.vendorsIsShow = !this.vendorsIsShow
+		},
+		filterDeposit() {
+			this.depositIsShow = !this.depositIsShow
+		},
+		filterPayment() {
+			this.paymentIsShow = !this.paymentIsShow
+		},
+		filterCurrencies() {
+			this.currenciesIsShow =!this.currenciesIsShow
+		},
+		filterLanguages() {
+			this.languagesIsShow =!this.languagesIsShow
+		}
+	},
+	computed: {
+		currentVendors() {
+			return this.vendorsIsShow ? this.vendors : this.vendors.slice(0, this.numberItems)
+		},
+		currentDeposit() {
+			return this.depositIsShow ? this.deposit : this.deposit.slice(0, this.numberItems)
+		},
+		currentPayment() {
+			return this.paymentIsShow ? this.payments : this.payments.slice(0, this.numberItems)
+		},
+		currentCurrencies() {
+			return this.currenciesIsShow ? this.currencies : this.currencies.slice(0, this.numberItems)
+		},
+		currentLanguages() {
+			return this.languagesIsShow ? this.languages : this.languages.slice(0, this.numberItems)
 		}
 	}
 }
@@ -175,6 +246,7 @@ export default {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 5px;
+	position: relative;
 }
 .provider,
 .deposit_methods,
@@ -239,6 +311,28 @@ export default {
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	border-radius: 10px;
 	background: rgba(255, 255, 255, 0.06);
+}
+.show_more {
+	width: 30px;
+	height: 30px;
+	border-radius: var(--s);
+	background: transparent;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: rotate(90deg);
+	cursor: pointer;
+	transition: 0.7s;
+	border: none;
+}
+.show_more.active {
+	transform: rotate(-90deg);
+}
+.show_more_wrapper {
+	padding: 5px 5px 0 5px;
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
 }
 @media (max-width: 767px) {
 	.row {

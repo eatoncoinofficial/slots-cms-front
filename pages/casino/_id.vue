@@ -15,6 +15,9 @@
 									:bg="data.body.color"
 									:label="data.body.label"
 									:refLinks="data.body.ref"
+									:advantages="data.body.advantages"
+									:min_dep="data.body.min_dep"
+									:wager="data.body.wager"
 								/>
 							</div>
 							<div class="casino_characters_container">
@@ -22,6 +25,7 @@
 								<CasinoDetails
 									:vendors="data.body.vendors"
 									:payments="data.body.payments"
+									:deposit="data.body.deposit"
 									:currencies="data.body.currencies"
 									:languages="data.body.languages"
 								/>
