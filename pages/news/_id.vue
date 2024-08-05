@@ -4,9 +4,7 @@
 			<TwoContentContainer>
 				<template v-slot:left>
 					<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
-					<div class="wrapper_thumbnail">
-						<AImg :attributes="{ ...thumbnailSettings, alt: `${data.body.title} Logo` }" :src="data.body.thumbnail" />
-					</div>
+					<Banner :src="data.body.thumbnail" :alt="`${data.body.title} Logo`" />
 					<div class="content_container">
 						<Content :value="data.body.content" />
 					</div>
@@ -54,6 +52,7 @@ import TwoContentContainer from '~/components/two_content_container/'
 import NewsSliderCard from '~/components/news_loop/cards/slider_card'
 import LinkWithArrow from '~/components/ui/atoms/links/link_with_arrow'
 import NewsMainCard from '~/components/news_loop/cards/main'
+import Banner from '~/components/banner/'
 import helper from '~/helpers/helpers'
 
 export default {
@@ -63,7 +62,8 @@ export default {
 		TwoContentContainer,
 		NewsSliderCard,
 		LinkWithArrow,
-		NewsMainCard
+		NewsMainCard,
+		Banner
 	},
 	layout: 'default',
 	data: () => {
@@ -79,11 +79,6 @@ export default {
 				size: 'large',
 				weight: 'bold',
 				class: 'sub_title'
-			},
-			thumbnailSettings: {
-				width: '822px',
-				height: '333px',
-				class: 'thumbnail'
 			},
 			mainContainerTitle: {
 				weight: 'extra-bold',
@@ -129,10 +124,6 @@ export default {
 	height: 100%;
 	object-fit: cover;
 }
-.wrapper_thumbnail {
-	width: 822px;
-	height: 333px;
-}
 .section_title_wrapper {
 	display: flex;
 	justify-content: space-between;
@@ -148,10 +139,6 @@ export default {
 	margin-top: var(--l);
 }
 @media (max-width: 767px) {
-	.wrapper_thumbnail {
-		width: 100%;
-		height: auto;
-	}
 	.content_container {
 		margin-left: -15px;
 		margin-right: -15px;
@@ -188,10 +175,6 @@ export default {
 	}
 	.news_container .item:last-child {
 		margin-right: 20px;
-	}
-	.wrapper_thumbnail {
-		width: 100%;
-		height: auto;
 	}
 }
 </style>

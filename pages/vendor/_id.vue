@@ -6,7 +6,12 @@
 				<div class="main_container">
 					<TwoContentContainer>
 						<template v-slot:left>
-							<CasinoLoop :value="data.body.casinos" />
+							<div class="banner_wrapper" v-if="data.body.banner">
+								<Banner :src="data.body.banner" :alt="`${data.body.title} Logo`" />
+							</div>
+							<div class="content_container">
+								<Content :value="data.body.content" />
+							</div>
 						</template>
 						<template v-slot:right>
 							<aside class="aside">
@@ -28,14 +33,18 @@
 							</aside>
 						</template>
 					</TwoContentContainer>
+					<div class="casino_wrapper">
+						<TwoContentContainer>
+							<template v-slot:left>
+								<CasinoLoop :value="data.body.casinos" />
+							</template>
+						</TwoContentContainer>
+					</div>
+					<div class="container_loop" v-if="data.body.games.length">
+						<AText tag="div" :attributes="titleSlotsSettings"> {{ t('BEST_GAMES_PROVIDER') }} {{ data.body.title }} </AText>
+						<SlotLoop :value="data.body.games" />
+					</div>
 				</div>
-			</div>
-			<div class="container container_loop" v-if="data.body.games.length">
-				<AText tag="div" :attributes="titleSlotsSettings"> {{ t('BEST_GAMES_PROVIDER') }} {{ data.body.title }} </AText>
-				<SlotLoop :value="data.body.games" />
-			</div>
-			<div class="container content_container">
-				<Content :value="data.body.content" />
 			</div>
 		</main>
 	</div>
@@ -50,6 +59,7 @@ import CategoryFilter from '~/components/category_filter'
 import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
 import CasinoLoop from '~/components/casino_loop'
 import SlotLoop from '~/components/slot_loop'
+import Banner from '~/components/banner/'
 export default {
 	name: 'single-vendor',
 	data: () => {
@@ -78,7 +88,8 @@ export default {
 		CategoryFilter,
 		BonusAsideCard,
 		CasinoLoop,
-		SlotLoop
+		SlotLoop,
+		Banner
 	},
 	mixins: [pageTemplate],
 	async asyncData({ route, error }) {
@@ -124,12 +135,27 @@ export default {
 	font-size: 22px;
 	margin-bottom: 30px;
 }
+.casino_wrapper {
+	padding-top: var(--l);
+	padding-bottom: var(--l);
+}
+.banner_wrapper {
+	padding-bottom: var(--m);
+}
 @media (max-width: 767px) {
+	.content_container {
+		margin-left: -15px;
+		margin-right: -15px;
+	}
 	.aside {
 		margin-top: 20px;
 	}
 	.aside_bonus_wrapper {
 		width: 100%;
+	}
+	.casino_wrapper {
+		padding-top: var(--m);
+		padding-bottom: var(--m);
 	}
 }
 @media (min-width: 768px) and (max-width: 1200px) {
