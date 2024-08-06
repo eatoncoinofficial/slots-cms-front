@@ -11,11 +11,13 @@
 				<AText tag="div" :attributes="subTitleSettings">{{ vendor_title }}</AText>
 				<AText tag="div" :attributes="sectionTitleSettings">{{ t('GAME_AVAILABLE_CASINOS') }}</AText>
 				<div class="casino_wrapper">
-					<div class="item" v-for="(item, index) in casinos" :key="index" :style="`background: ${item.color}`">
-						<ALink :href="item.permalink">
-							<AImg :attributes="{ ...itemImgSettings, alt: `${item.title} Logo` }" :src="item.thumbnail" />
-						</ALink>
-					</div>
+					<Slider :settings="sliderSettings">
+						<div class="item" v-for="(item, index) in casinos" :key="index" :style="`background: ${item.color}`">
+							<ALink :href="item.permalink">
+								<AImg :attributes="{ ...itemImgSettings, alt: `${item.title} Logo` }" :src="item.thumbnail" />
+							</ALink>
+						</div>
+					</Slider>
 				</div>
 				<div class="action_wrapper">
 					<div class="action_item">
@@ -39,13 +41,15 @@
 </template>
 <script>
 import GameCharacters from '~/components/game_characters'
+import Slider from '~/components/slider'
 import ref from '~/mixins/ref'
 import components from '~/mixins/components'
 export default {
 	name: 'single-game-page',
 	mixins: [components, ref],
 	components: {
-		GameCharacters
+		GameCharacters,
+		Slider
 	},
 	data: () => {
 		return {
@@ -85,7 +89,41 @@ export default {
 				borderRadius: 's',
 				weight: 'semi-bold',
 				class: 'demo_btn'
-			}
+			},
+			sliderSettings: {
+				slidesToShow: 7,
+				autoplay: true,
+				speed: 2000,
+				autoplaySpeed: 2000,
+				initialSlide: 0,
+				infinite: true,
+				responsive: [
+					{
+						breakpoint: 1024,
+						settings: {
+							slidesToShow: 4,
+							centerMode: false,
+							initialSlide: -1
+						}
+					},
+					{
+						breakpoint: 600,
+						settings: {
+							slidesToShow: 4,
+							centerMode: false,
+							initialSlide: -1
+						}
+					},
+					{
+						breakpoint: 480,
+						settings: {
+							slidesToShow: 4,
+							centerMode: false,
+							initialSlide: -1
+						}
+					}
+				]
+			},
 		}
 	},
 	props: {
@@ -180,20 +218,21 @@ export default {
 	margin-top: 24px;
 }
 .casino_wrapper {
-	display: flex;
-	gap: var(--xs);
 	margin-top: 12px;
 }
 .center_wrapper {
 	width: 100%;
 }
 .item {
-	border-radius: var(--s);
 	width: 68px;
 	height: 50px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	padding: 3px;
+}
+.item img {
+	border-radius: var(--s);
 }
 .action_item {
 	height: 40px;

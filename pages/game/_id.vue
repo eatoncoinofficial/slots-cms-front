@@ -112,7 +112,7 @@ export default {
 	padding-top: 165px;
 }
 .container_top_game {
-	padding-bottom: 80px;
+	padding-bottom: 40px;
 }
 .symbols {
 	background: var(--cucuta);
