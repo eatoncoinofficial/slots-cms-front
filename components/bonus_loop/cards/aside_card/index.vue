@@ -1,27 +1,31 @@
 <template>
-	<article class="item" @click="refActivate(refLinks)">
+	<article class="item">
 		<div class="wrapper">
 			<div class="left">
-				<div class="img_wrapper">
+				<div class="img_wrapper" @click="refActivate(refLinks)">
 					<AText>
 						<AImg :attributes="{ ...imgSettings, alt: `${title} logo` }" :src="src" />
 					</AText>
 				</div>
 			</div>
 			<div class="right">
-				<div>
-					<AText tag="div" :attributes="titleSettings">{{ title }}</AText>
+				<div @click="refActivate(refLinks)">
+					<AText tag="div" :attributes="titleSettings"> 
+						{{ title }}
+					</AText>
 				</div>
-				<div>
+				<div  @click="refActivate(refLinks)">
 					<AText tag="div" :attributes="descTextSettings">{{ desc }}</AText>
 				</div>
-				<div>
+				<div  @click="refActivate(refLinks)">
 					<AText tag="div" :attributes="valueTextSettings">{{ value }}</AText>
 				</div>
 			</div>
 			<div class="action">
 				<AText>
-					<AImg :attributes="{ ...arrowSettings, alt: 'Arrow Green' }" src="/img/arrowGreen.svg" />
+					<nuxt-link :to="permalink">
+						<AImg :attributes="{ ...arrowSettings, alt: 'Arrow Green' }" src="/img/arrowGreen.svg" />
+					</nuxt-link>
 				</AText>
 			</div>
 		</div>
@@ -112,8 +116,25 @@ export default {
 			default() {
 				return '/img/noImages.png'
 			}
+		},
+		refLinks: {
+			type: Array,
+			default() {
+				return []
+			}
+		},
+		permalink: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
+	},
+	methods: {
+		test() {
+			console.log('This')
 		}
-	}
+	},
 }
 </script>
 <style scoped>
@@ -121,9 +142,12 @@ export default {
 	width: 356px;
 	max-width: 100%;
 	cursor: pointer;
+	position: relative;
+	z-index: 1;
 }
 .wrapper {
 	position: relative;
+	z-index: 1;
 	border-top-left-radius: 14px;
 	border-top-right-radius: 14px;
 	background: rgba(255, 255, 255, 0.1);

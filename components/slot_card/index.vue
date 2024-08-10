@@ -10,7 +10,7 @@
 				<AText tag="div" :attributes="titleSettings">{{ title }}</AText>
 				<AText tag="div" :attributes="subTitleSettings">{{ vendor_title }}</AText>
 				<AText tag="div" :attributes="sectionTitleSettings">{{ t('GAME_AVAILABLE_CASINOS') }}</AText>
-				<div class="casino_wrapper">
+				<div class="casino_wrapper" v-if="casinos.length">
 					<Slider :settings="sliderSettings">
 						<div class="item" v-for="(item, index) in casinos" :key="index" :style="`background: ${item.color}`">
 							<ALink :href="item.permalink">

@@ -1,6 +1,9 @@
 <template>
 	<div>
 		<main class="game_page">
+			<div class="container">
+				<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
+			</div>
 			<div class="container container_top_game">
 				<SlotCard
 					:title="data.body.title"
@@ -73,6 +76,13 @@ export default {
 				size: 'x-large',
 				color: 'cairo',
 				weight: 'bold',
+				class: 'title'
+			},
+			titleSettings: {
+				color: 'cairo',
+				size: 'x-large',
+				weight: 'bold',
+				transform: 'uppercase',
 				class: 'title'
 			},
 			isShowDemo: false

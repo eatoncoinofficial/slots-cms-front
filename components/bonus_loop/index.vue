@@ -11,6 +11,7 @@
 					:min_dep="item.min_deposit"
 					:wager="item.wagering"
 					:refLinks="item.casino.ref"
+					:permalink="item.permalink"
 				/>
 			</div>
 		</div>

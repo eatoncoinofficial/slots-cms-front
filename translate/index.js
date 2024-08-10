@@ -686,5 +686,10 @@ export default {
 		RU: 'Главная страница',
 		UA: 'Головна сторінка',
 		EN: 'Home page'
+	},
+	MOST_PROFITABLE_BONUSES: {
+		RU: 'Самые выгодные бонусы',
+		UA: 'Найприбутковіші бонуси',
+		EN: 'More Bonuses At This Casino'
 	}
 }
