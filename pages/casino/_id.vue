@@ -129,9 +129,8 @@ export default {
 	computed: {
 		tabContent() {
 			const data = [
-				{ title: this.t('ANALYSIS'), content: this.data.body.content_analysis },
-				{ title: this.t('BONUSES'), content: this.data.body.content_bonuses },
 				{ title: this.t('REVIEWS'), content: this.data.body.content_reviews },
+				{ title: this.t('BONUSES'), content: this.data.body.content_bonuses },
 				{ title: this.t('GAMES'), content: this.data.body.content_games }
 			]
 			return data

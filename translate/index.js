@@ -147,7 +147,7 @@ export default {
 	GAMES: {
 		UA: 'Ігри',
 		RU: 'Игры',
-		EN: 'Games'
+		EN: 'Slots'
 	},
 	ALL_GAMES: {
 		UA: 'Усі ігри',
@@ -691,5 +691,15 @@ export default {
 		RU: 'Самые выгодные бонусы',
 		UA: 'Найприбутковіші бонуси',
 		EN: 'More Bonuses At This Casino'
+	},
+	BEST_ONLINE_CASINOS_CANADA: {
+		RU: 'Лучшие онлайн казино Канада',
+		UA: 'Найкращі онлайн казино Канади',
+		EN: "Canada's Best Online Casino Sites"
+	},
+	LATEST_GAMBLING_NEWS: {
+		RU: 'Последние новости об азартных играх в Канаде',
+		UA: 'Останні новини про азартні ігри в Канаді',
+		EN: 'Gambling News'
 	}
 }

@@ -7,7 +7,7 @@
 					<AText tag="div" :attributes="mainDescSettings">{{ data.body.short_desc }}</AText>
 				</div>
 			</div>
-			<div class="slider_wrapper">
+			<div class="slider_wrapper" v-if="device === 'MOB'">
 				<div class="slider_item">
 					<SliderContainer
 						icon="casino"
@@ -73,9 +73,13 @@
 			<div class="main_container">
 				<TwoContentContainer>
 					<template v-slot:left>
-						<AText tag="div" :attributes="mainContainerTitle">{{ t('ONLINE_CASINO') }}</AText>
+						<AText tag="div" :attributes="mainContainerTitle">{{ t('BEST_ONLINE_CASINOS_CANADA') }}</AText>
 						<div class="category_filter_wrapper">
-							<CategoryFilter :value="data.body.casino_category" />
+							<CategoryFilter :value="[{
+								title: 'All',
+								permalink: '/',
+								thumbnail: ''
+							}].concat(data.body.casino_category)" />
 						</div>
 						<CasinoLoop :value="data.body.casino" />
 					</template>
@@ -379,7 +383,7 @@ export default {
 	margin-bottom: var(--m);
 }
 .main_page {
-	background: url('/img/hero_img.webp') top center var(--colombo);
+	background: url('/img/hero_img_dc.webp') top center var(--colombo);
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }
@@ -428,7 +432,14 @@ export default {
 	transform: rotate(90deg);
 	margin-left: 10px;
 }
+.main_container {
+	margin-top: 60px;
+}
 @media (max-width: 767px) {
+	.main_page {
+		background: url('/img/hero_img.webp') top center var(--colombo);
+		background-repeat: no-repeat;
+	}
 	.main_page_h1 {
 		font-size: 32px;
 		line-height: 40px;
@@ -468,6 +479,9 @@ export default {
 	}
 	.aside_bonus_wrapper {
 		width: 100%;
+	}
+	.main_container {
+		margin-top: 0px;
 	}
 }
 @media (min-width: 768px) and (max-width: 1200px) {

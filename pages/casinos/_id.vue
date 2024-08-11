@@ -7,7 +7,11 @@
 					<TwoContentContainer>
 						<template v-slot:left>
 							<div class="category_filter_wrapper">
-								<CategoryFilter :value="data.body.casino_category" />
+								<CategoryFilter :value="[{
+								title: 'All',
+								permalink: '/',
+								thumbnail: ''
+							}].concat(data.body.casino_category)" />
 							</div>
 							<CasinoLoop :value="data.body.posts" />
 						</template>

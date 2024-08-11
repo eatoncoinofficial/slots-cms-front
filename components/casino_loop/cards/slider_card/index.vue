@@ -20,8 +20,8 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-				width: '50px',
-				height: '50px',
+				width: '80px',
+				height: '80px',
 				class: 'border_radius_s'
 			},
 			starSettings: {

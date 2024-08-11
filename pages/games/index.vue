@@ -121,12 +121,10 @@ export default {
 	padding: var(--s) 0px 21px 0px;
 	padding-left: 0px;
 	padding-right: 0px;
-	overflow: hidden;
 }
 @media (max-width: 767px) {
 	.container_providers {
 		padding-left: 15px;
-		overflow-x: scroll;
 	}
 	.container_game_week {
 		flex-wrap: wrap;
