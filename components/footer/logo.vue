@@ -1,7 +1,7 @@
 <template>
 	<div class="footer-logo">
 		<ALink href="/" title="Goes to Casquads main page">
-			<AImg :attributes="{ ...imgSettings, alt: 'Casquads logo' }" src="/img/logo_footer.png" />
+			<AImg :attributes="{ ...imgSettings, alt: 'Casquads logo' }" src="/img/logo.webp" />
 		</ALink>
 		<div class="footer_social">
 			<a v-for="(item, index) in social" :href="item.value_1" :key="index" :title="`Goes to ${item.value_1} main page`">

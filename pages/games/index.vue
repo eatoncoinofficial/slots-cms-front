@@ -97,6 +97,7 @@ export default {
 	background: url('/img/casinoPageBg.jpg') top center var(--colombo);
 	background-repeat: no-repeat;
 	padding-top: 165px;
+	overflow: hidden;
 }
 .title {
 	margin-bottom: var(--m);

@@ -19,7 +19,7 @@
 								<div class="aside_bonus_container">
 									<div class="aside_bonus_wrapper" v-for="item in data.body.top_bonuses" :key="item.title">
 										<BonusAsideCard
-											:link="item.permalink"
+											:permalink="item.permalink"
 											:src="item.thumbnail"
 											:title="item.title"
 											:desc="item.short_desc"
