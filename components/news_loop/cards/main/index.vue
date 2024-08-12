@@ -9,10 +9,10 @@
 				</div>
 			</div>
 			<div class="center">
+				<AText tag="div" :attributes="dateTextSettings">{{ date }}</AText>
 				<ALink :href="link" :attributes="titleLinkSettings" :title="`Goes to ${title} page`">
 					{{ title }}
 				</ALink>
-				<AText tag="div" :attributes="dateTextSettings">{{ date }}</AText>
 				<AText tag="div" :attributes="descTextSettings">{{ desc }}</AText>
 			</div>
 			<div class="bottom">
@@ -37,13 +37,6 @@ export default {
 				height: '160px',
 				class: 'object_fit_cover border_radius_s'
 			},
-			titleSettings: {
-				color: 'cairo',
-				size: 'small',
-				weight: 'bold',
-				decoration: 'none',
-				class: 'title'
-			},
 			descTextSettings: {
 				color: 'cairo',
 				size: 'small',
@@ -60,7 +53,8 @@ export default {
 				size: 'medium',
 				color: 'cairo',
 				weight: 'semi-bold',
-				decoration: 'none'
+				decoration: 'none',
+				class: 'title'
 			},
 			dateTextSettings: {
 				size: 'small',
@@ -125,7 +119,14 @@ export default {
 }
 .desc {
 	font-size: 10px;
-	margin-top: var(--xs);
+	margin-top: var(--m);
+	-webkit-line-clamp: 3;
+    display: inline;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
 }
 .date {
 	font-size: 10px;
@@ -133,6 +134,15 @@ export default {
 }
 .bottom {
 	padding: 0 var(--s);
+}
+.title {
+	-webkit-line-clamp: 3;
+    display: inline;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
 }
 @media (max-width: 767px) {
 	.item {

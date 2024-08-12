@@ -60,7 +60,7 @@ export default {
 				initialSlide: 0,
 				variableWidth: true,
 				swipeToSlide: true,
-				infinite: false
+				infinite: true
 			},
 		}
 	}
