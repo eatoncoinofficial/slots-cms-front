@@ -165,7 +165,7 @@ export default {
 </script>
 <style scoped>
 .casino_page {
-	background: url('/img/mobHeroBg.webp') top center rgba(16, 13, 36, 1);
+	background: url('/img/casinoPageBg.jpg') top center var(--colombo);
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }

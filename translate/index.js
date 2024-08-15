@@ -492,7 +492,7 @@ export default {
 	RECOMMENDED_CASINOS: {
 		RU: 'Рекомендуемые казино',
 		UA: 'Рекомендовані казино',
-		EN: 'Recommended casinos'
+		EN: 'Recommended Casinos'
 	},
 	RATING_CASINO: {
 		RU: 'Рейтинг казино',
@@ -587,7 +587,7 @@ export default {
 	RECOMMENDED_BONUSES: {
 		RU: 'Рекомендуемые бонусы',
 		UA: 'Рекомендовані бонуси',
-		EN: 'Recommended bonuses'
+		EN: 'Recommended Bonuses'
 	},
 	GAME_WEEK: {
 		RU: 'Игра Недели',
