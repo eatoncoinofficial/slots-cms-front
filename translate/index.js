@@ -706,5 +706,10 @@ export default {
 		RU: 'Все провайдеры',
 		UA: 'Усі провайдери',
 		EN: 'All Providers'
+	},
+	PROVIDER_REVIEW: {
+		RU: 'Обзор провайдера',
+		UA: 'Огляд провайдера',
+		EN: 'Provider Review'
 	}
 }
