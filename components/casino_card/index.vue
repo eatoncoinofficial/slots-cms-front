@@ -201,6 +201,9 @@ export default {
 	display: flex;
 	height: 100%;
 }
+.characters_right .bonus_name {
+	margin-top: var(--m);
+}
 .bonus_name, .advantages {
 	margin-top: var(--s);
 }
@@ -253,15 +256,18 @@ export default {
 .label.popular {
 	background: rgba(255, 0, 92, 1);
 }
+.label.best {
+	background: var(--cleveland);
+}
 .wrapper_characters {
 	width: 100%;
 	display: flex;
 }
 .characters_left {
-	width: 60%;
+	width: 50%;
 }
 .characters_right {
-	width: 40%;
+	width: 50%;
 }
 .wrapper_desc {
 	width: 100%;

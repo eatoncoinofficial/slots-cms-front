@@ -450,6 +450,9 @@ export default {
 .label.popular {
 	background: rgba(255, 0, 92, 1);
 }
+.label.best {
+	background: var(--cleveland);
+}
 @media (max-width: 767px) {
 	.item {
 		width: 100%;
