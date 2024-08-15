@@ -1,9 +1,6 @@
 <template>
 	<div>
 		<main class="game_page">
-			<div class="container">
-				<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
-			</div>
 			<div class="container container_top_game">
 				<SlotCard
 					:title="data.body.title"
@@ -30,6 +27,9 @@
 					<AText tag="div" :attributes="symbolTitleSettings">{{ t('SCREENSHOTS') }}</AText>
 					<SlotScreenshots :posts="data.body.screenshots" :title="data.body.title" />
 				</div>
+			</div>
+			<div class="container">
+				<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 			</div>
 			<div class="container content_container" v-if="data.body.content">
 				<Content :value="data.body.content" />

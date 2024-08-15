@@ -35,7 +35,7 @@
 				</template>
 			</TwoContentContainer>
 		</div>
-        <SlickButton :ref="data.body.casino.ref" />
+        <SlickButton :refLink="data.body.casino.ref" :refText="t('GO_TO')" :linkText="t('CASINO_REVIEW')" :link="data.body.casino.permalink" />
 	</main>
 </template>
 <script>

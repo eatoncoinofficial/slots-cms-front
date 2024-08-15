@@ -1,7 +1,7 @@
 <template>
 	<section class="slick_button">
 		<div class="slick_button_part_left" @click="goHome()"></div>
-		<div class="slick_button_part_right" @click="refActivate(ref)"></div>
+		<div class="slick_button_part_right" @click="refActivate(refLink)"></div>
 		<div class="container slick_button_container">
 			<div class="slick_button_left">
 				<img
@@ -11,12 +11,12 @@
 					width="8"
 					height="12"
 				/>
-				<NuxtLink no-prefetch :to="'/'">
-					{{ t('CASINO_REVIEW') }}
+				<NuxtLink no-prefetch :to="link">
+					{{ linkText }}
 				</NuxtLink>
 			</div>
 			<div class="slick_button_right">
-				{{ t('GO_TO') }}
+				{{ refText }}
 				<img
 					src="/img/arrow.png"
 					class="slick_button_arrow right_arrow"
@@ -31,21 +31,39 @@
 
 <script>
 import translateMixin from '~/mixins/translate'
-import ref from '~/mixins/ref'
+import refMixin from '~/mixins/ref'
 export default {
 	name: 'app_slick_button',
 	props: {
-        ref: {
-                type: Array,
-                default() {
-                    return []
+        refLink: {
+            type: Array,
+            default() {
+                return []
             }
         },
+		refText: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
+		link: {
+			type: String,
+			default() {
+				return '#'
+			}
+		},
+		linkText: {
+			type: String,
+			default() {
+				return ''
+			}
+		}
     },
-	mixins: [ref, translateMixin],
+	mixins: [refMixin, translateMixin],
 	methods: {
 		goHome() {
-			this.$router.push('/')
+			this.$router.push(this.link)
 		}
 	}
 }
