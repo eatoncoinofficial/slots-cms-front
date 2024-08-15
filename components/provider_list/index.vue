@@ -1,28 +1,23 @@
 <template>
 	<div class="root" id="provider_list">
 		<div class="wrapper">
-			<Slider :settings="sliderSettings">
-				<div class="slider_item">
-					<AText :attributes="btnSettings" data-active="true">{{ t('ALL') }}</AText>
-				</div>
-				<div class="slider_item" v-for="(item, index) in value" :key="index">
-					<ALink
-					:href="item.permalink"
-					:attributes="textSettings"
-					:data-active="item.active"
-					:title="`Goes to ${item.title} page`"
-				>
-					<AImg :attributes="{ ...imgSettings, alt: `${item.title} Logo` }" :src="item.icon" /> {{ item.title }}
-				</ALink>
-				</div>
-			</Slider>
+			<AText :attributes="btnSettings" data-active="true" @onClick="toggle">{{ t('ALL_PROVIDERS') }}</AText>
+			<ALink
+				v-for="(item, index) in currentValue" :key="index"
+				:href="item.permalink"
+				:attributes="textSettings"
+				:data-active="item.active"
+				:title="`Goes to ${item.title} page`"
+			>
+				<AImg :attributes="{ ...imgSettings, alt: `${item.title} Logo` }" :src="item.icon" /> {{ item.title }}
+			</ALink>
 		</div>
 	</div>
 </template>
 
 <script>
 import components from '~/mixins/components'
-import Slider from '~/components/slider'
+import { NUMBER_ITEMS } from './constants'
 export default {
 	name: 'providers_filter',
 	mixins: [components],
@@ -34,7 +29,6 @@ export default {
 			}
 		}
 	},
-	comments: {Slider},
 	data() {
 		return {
 			textSettings: {
@@ -56,49 +50,54 @@ export default {
 				weight: 'regular',
 				decoration: 'none'
 			},
-			sliderSettings: {
-				initialSlide: 0,
-				variableWidth: true,
-				swipeToSlide: true,
-				infinite: true
-			},
+			isShowAll: false
+		}
+	},
+	methods: {
+		toggle() {
+			this.isShowAll = !this.isShowAll
+		}
+	},
+	computed: {
+		currentValue() {
+			const device = this.device || 'DC'
+			return this.isShowAll ? this.value : this.value.slice(0, NUMBER_ITEMS[device]) 
 		}
 	}
 }
 </script>
-<style>
-#provider_list .slick-list {
-	overflow: visible;
-}
-</style>
 <style scoped>
 .item {
-	display: flex!important;
+	display: flex;
 	align-items: center;
 	padding: 5px 15px;
 	border-radius: var(--s);
 	background: rgba(255, 255, 255, 0.1);
 	white-space: nowrap;
 	font-size: 10px;
-	margin-left: 5px;
-	margin-right: 5px;
 }
 .logo {
 	display: block;
 	margin-right: 5px;
 }
 .item_btn {
-	width: 80px;
 	height: 36px;
-	display: flex!important;
+	display: flex;
+	padding: 5px 15px;
+	white-space: nowrap;
 	align-items: center;
 	justify-content: center;
 	border-radius: var(--s);
-	min-width: 80px;
-	margin-right: 5px;
+	background: var(--cleveland);
+	cursor: pointer;
 }
 [data-active='true'] {
-	background: rgba(255, 255, 255, 0.27);
+	background: var(--cleveland);
+}
+.wrapper {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
 }
 @media (max-width: 767px) {
 	.wrapper a,

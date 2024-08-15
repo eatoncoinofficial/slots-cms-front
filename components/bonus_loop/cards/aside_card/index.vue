@@ -130,11 +130,6 @@ export default {
 			}
 		},
 	},
-	methods: {
-		test() {
-			console.log('This')
-		}
-	},
 }
 </script>
 <style scoped>

@@ -49,7 +49,6 @@ export default {
 				.searchWold(this.searchWord)
 				.get()
 			if (response.data.confirm !== 'error') {
-				console.log('Search good')
 				this.posts = response.data.body.posts
 			}
 		},

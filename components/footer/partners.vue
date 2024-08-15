@@ -29,9 +29,6 @@ export default {
 			}
 		}
 	},
-	mounted() {
-		console.log(this.value)
-	}
 }
 </script>
 <style scoped>

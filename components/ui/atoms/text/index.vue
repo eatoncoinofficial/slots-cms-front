@@ -1,29 +1,29 @@
 <template>
-	<span v-if="tag === 'span'" :class="currentClasses">
+	<span v-if="tag === 'span'" :class="currentClasses" @click="onClick">
 		<slot />
 	</span>
-	<p v-else-if="tag === 'p'" :class="currentClasses">
+	<p v-else-if="tag === 'p'" :class="currentClasses" @click="onClick">
 		<slot />
 	</p>
-	<div v-else-if="tag === 'div'" :class="currentClasses">
+	<div v-else-if="tag === 'div'" :class="currentClasses" @click="onClick">
 		<slot />
 	</div>
-	<h1 v-else-if="tag === 'h1'" :class="currentClasses">
+	<h1 v-else-if="tag === 'h1'" :class="currentClasses" @click="onClick">
 		<slot />
 	</h1>
-	<h2 v-else-if="tag === 'h2'" :class="currentClasses">
+	<h2 v-else-if="tag === 'h2'" :class="currentClasses" @click="onClick">
 		<slot />
 	</h2>
-	<h3 v-else-if="tag === 'h3'" :class="currentClasses">
+	<h3 v-else-if="tag === 'h3'" :class="currentClasses" @click="onClick">
 		<slot />
 	</h3>
-	<h4 v-else-if="tag === 'h4'" :class="currentClasses">
+	<h4 v-else-if="tag === 'h4'" :class="currentClasses" @click="onClick">
 		<slot />
 	</h4>
-	<h5 v-else-if="tag === 'h5'" :class="currentClasses">
+	<h5 v-else-if="tag === 'h5'" :class="currentClasses" @click="onClick">
 		<slot />
 	</h5>
-	<h6 v-else-if="tag === 'h6'" :class="currentClasses">
+	<h6 v-else-if="tag === 'h6'" :class="currentClasses" @click="onClick"> 
 		<slot />
 	</h6>
 </template>
@@ -47,6 +47,11 @@ export default {
 			default() {
 				return 'span'
 			}
+		}
+	},
+	methods: {
+		onClick() {
+			this.$emit('onClick')
 		}
 	},
 	mounted() {
