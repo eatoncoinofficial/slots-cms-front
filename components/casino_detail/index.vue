@@ -14,7 +14,7 @@
 				>
 					<AImg :attributes="{ ...imgSettings, alt: `${item.title} Logo` }" :src="item.icon" /> {{ item.title }}
 				</ALink>
-				<div class="show_more_wrapper" v-if="vendors.length > numberItems">
+				<div class="show_more_wrapper" v-if="vendors.length > vendorNumberItems">
 					<button class="show_more" @click="filterVendors" :class="{active: vendorsIsShow}"> 
 						<img src="/img/arrowGreen.svg" width="18px" height="18px" class="arrow" >
 					</button>
@@ -29,7 +29,7 @@
 				<AText :attributes="textPayoutSettings" v-for="(item, index) in currentDeposit" :key="index">
 					<AImg :attributes="{ ...imgSettings, alt: `${item.title} Logo` }" :src="item.thumbnail" /> {{ item.title }}
 				</AText>
-				<div class="show_more_wrapper" v-if="deposit.length > numberItems">
+				<div class="show_more_wrapper" v-if="deposit.length > depositNumberItems">
 					<button class="show_more" @click="filterDeposit" :class="{active: depositIsShow}"> 
 						<img src="/img/arrowGreen.svg" width="18px" height="18px" class="arrow" >
 					</button>
@@ -44,7 +44,7 @@
 				<AText :attributes="textPayoutSettings" v-for="(item, index) in currentPayment" :key="index">
 					<AImg :attributes="{ ...imgSettings, alt: `${item.title} Logo` }" :src="item.thumbnail" /> {{ item.title }}
 				</AText>
-				<div class="show_more_wrapper" v-if="payments.length > numberItems">
+				<div class="show_more_wrapper" v-if="payments.length > paymentNumberItems">
 					<button class="show_more" @click="filterPayment" :class="{active: paymentIsShow}"> 
 						<img src="/img/arrowGreen.svg" width="18px" height="18px" class="arrow" >
 					</button>
@@ -59,7 +59,7 @@
 				<AText :attributes="textItemSettings" v-for="(item, index) in currentCurrencies" :key="index">
 					<AImg :attributes="{ ...imgSettings, alt: `${item.title} Logo` }" :src="item.thumbnail" /> {{ item.title }}
 				</AText>
-				<div class="show_more_wrapper" v-if="currencies.length > numberItems">
+				<div class="show_more_wrapper" v-if="currencies.length > currenciesNumberItems">
 					<button class="show_more" @click="filterCurrencies" :class="{active: currenciesIsShow}"> 
 						<img src="/img/arrowGreen.svg" width="18px" height="18px" class="arrow" >
 					</button>
@@ -75,7 +75,7 @@
 					<AImg :attributes="{ ...imgSettingsFlag, alt: `${item.title} Logo` }" :src="item.thumbnail" />
 					{{ item.title }}
 				</AText>
-				<div class="show_more_wrapper" v-if="languages.length > numberItems">
+				<div class="show_more_wrapper" v-if="languages.length > currenciesNumberItems">
 					<button class="show_more" @click="filterLanguages" :class="{active: languagesIsShow}"> 
 						<img src="/img/arrowGreen.svg" width="18px" height="18px" class="arrow" >
 					</button>
@@ -86,6 +86,7 @@
 </template>
 <script>
 import components from '~/mixins/components'
+import { PROVIDER_NUMBER_ITEMS, DEPOSIT_NUMBER_ITEMS, PAYMENT_NUMBER_ITEMS, CURRENCY_NUMBER_ITEMS, LANGUAGE_NUMBER_ITEMS } from './constants'
 export default {
 	name: 'casino_detail',
 	mixins: [components],
@@ -180,7 +181,6 @@ export default {
 				color: 'cairo',
 				weight: 'regular'
 			},
-			numberItems: 5,
 			vendorsIsShow: false,
 			depositIsShow: false,
 			paymentIsShow: false,
@@ -207,20 +207,41 @@ export default {
 	},
 	computed: {
 		currentVendors() {
-			return this.vendorsIsShow ? this.vendors : this.vendors.slice(0, this.numberItems)
+			const device = this.device || 'DC'
+			return this.vendorsIsShow ? this.vendors : this.vendors.slice(0,  PROVIDER_NUMBER_ITEMS[device])
 		},
 		currentDeposit() {
-			return this.depositIsShow ? this.deposit : this.deposit.slice(0, this.numberItems)
+			const device = this.device || 'DC'
+			return this.depositIsShow ? this.deposit : this.deposit.slice(0, DEPOSIT_NUMBER_ITEMS[device])
 		},
 		currentPayment() {
-			return this.paymentIsShow ? this.payments : this.payments.slice(0, this.numberItems)
+			const device = this.device || 'DC'
+			return this.paymentIsShow ? this.payments : this.payments.slice(0, PAYMENT_NUMBER_ITEMS[device])
 		},
 		currentCurrencies() {
-			return this.currenciesIsShow ? this.currencies : this.currencies.slice(0, this.numberItems)
+			const device = this.device || 'DC'
+			return this.currenciesIsShow ? this.currencies : this.currencies.slice(0, CURRENCY_NUMBER_ITEMS[device])
 		},
 		currentLanguages() {
-			return this.languagesIsShow ? this.languages : this.languages.slice(0, this.numberItems)
-		}
+			const device = this.device || 'DC'
+			return this.languagesIsShow ? this.languages : this.languages.slice(0, LANGUAGE_NUMBER_ITEMS[device])
+		},
+		vendorNumberItems() {
+			const device = this.device || 'DC'
+			return PROVIDER_NUMBER_ITEMS[device]
+		},
+		depositNumberItems() {
+			const device = this.device || 'DC'
+			return DEPOSIT_NUMBER_ITEMS[device]
+		},
+		paymentNumberItems() {
+			const device = this.device || 'DC'
+			return PAYMENT_NUMBER_ITEMS[device]
+		},
+		currenciesNumberItems() {
+			const device = this.device || 'DC'
+			return CURRENCY_NUMBER_ITEMS[device]
+		},
 	}
 }
 </script>
