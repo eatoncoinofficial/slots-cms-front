@@ -2,10 +2,10 @@
 	<div>
 		<main class="vendor_page">
 			<div class="container">
-				<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 				<div class="main_container">
 					<TwoContentContainer>
 						<template v-slot:left>
+							<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 							<div class="banner_wrapper" v-if="data.body.banner">
 								<Banner :src="data.body.banner" :alt="`${data.body.title} Logo`" />
 							</div>
