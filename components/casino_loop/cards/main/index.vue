@@ -176,7 +176,8 @@ export default {
 				bg: 'calgary',
 				color: 'cochin',
 				borderRadius: 's',
-				weight: 'semi-bold'
+				weight: 'semi-bold',
+				text_transform: 'uppercase'
 			},
 			readMoreLinkSettings: {
 				bg: 'calgary',
@@ -531,6 +532,9 @@ export default {
 	.action_wrapper {
 		width: 100%;
 		justify-content: center;
+	}
+	.action_wrapper .btn_wrapper {
+		flex-grow: 1;
 	}
 	.label {
 		width: 85px;

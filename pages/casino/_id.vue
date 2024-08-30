@@ -1,10 +1,10 @@
 <template>
 	<main class="casino_page">
 		<div class="container">
-			<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 			<div class="main_container">
 				<TwoContentContainer>
 					<template v-slot:left>
+						<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 						<div class="left_wrapper">
 							<div class="casino_card_container">
 								<CasinoCard
@@ -207,7 +207,7 @@ export default {
 }
 .content_wrapper {
 	background: rgba(8, 5, 26, 1);
-	padding: 60px 0px;
+	padding: 0px 0px 60px 0px;
 }
 @media (max-width: 767px) {
 	.title {

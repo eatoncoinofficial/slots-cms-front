@@ -81,14 +81,16 @@ export default {
 				bg: 'calgary',
 				color: 'cochin',
 				borderRadius: 's',
-				weight: 'semi-bold'
+				weight: 'semi-bold',
+				text_transform: 'uppercase'
 			},
 			btnDemoSettings: {
 				bg: 'calgary',
 				color: 'cairo',
 				borderRadius: 's',
 				weight: 'semi-bold',
-				class: 'demo_btn'
+				class: 'demo_btn',
+				text_transform: 'uppercase'
 			},
 			sliderSettings: {
 				slidesToShow: 7,

@@ -81,4 +81,9 @@ export default {
 	transform: translateY(-50%);
 	background: url('/img/fire.png');
 }
+@media (max-width: 767px) {
+	.item {
+		width: 100%;
+	}
+}
 </style>

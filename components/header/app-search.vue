@@ -1,13 +1,13 @@
 <template>
 	<div class="search">
-		<input :placeholder="t('SEARCH')" class="input" v-model="searchWord" v-on:keyup.enter="search" />
+		<input :placeholder="t('SEARCH')" class="input click_permitted_area" v-model="searchWord" v-on:keyup.enter="search" />
 		<button type="button" class="btn-default search__cta" @click="search" title="Search btn">
 			<AImg :attributes="{ ...imgSettings, alt: 'Search' }" src="/img/search.png" />
 		</button>
-		<div class="search-box" v-if="posts.length && searchWord.length">
-			<ul class="search-suggest" v-if="posts.length !== 0">
+		<div class="search-box click_permitted_area" v-if="posts.length && searchWord.length && isShow">
+			<ul class="search-suggest click_permitted_area" v-if="posts.length !== 0">
 				<li v-for="(item, index) in posts" :key="index" @click="goToSearch">
-					<NuxtLink :to="item.permalink">
+					<NuxtLink :to="item.permalink" class="click_permitted_area">
 						{{ item.title }}
 					</NuxtLink>
 				</li>
@@ -27,8 +27,10 @@ export default {
 			searchWord: '',
 			imgSettings: {
 				width: '20px',
-				height: '20px'
-			}
+				height: '20px',
+				class: 'click_permitted_area'
+			},
+			isShow: true
 		}
 	},
 	computed: {
@@ -62,6 +64,12 @@ export default {
 		searchWord() {
 			if (this.searchWord === '') this.posts = []
 		}
+	},
+	mounted() {
+		const body = document.querySelector('body')
+		body.addEventListener('click', (e) => {
+			this.isShow = e.target.classList.contains('click_permitted_area')
+		})
 	}
 }
 </script>

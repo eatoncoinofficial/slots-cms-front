@@ -1,5 +1,5 @@
 <template>
-	<button class="btn" :class="currentClasses" @click="onClick">
+	<button class="btn" :class="currentClasses" @click="onClick" :disabled="disabled">
 		<slot />
 	</button>
 </template>
@@ -15,6 +15,10 @@ export default {
 		attributes: {
 			default: {},
 			type: Object
+		},
+		disabled: {
+			default: false,
+			type: Boolean
 		}
 	},
 	methods: {
@@ -23,6 +27,7 @@ export default {
 		}
 	},
 	mounted() {
+		console.log(this.disabled)
 		const classes = []
 		const availableColor = [
 			'cairo',

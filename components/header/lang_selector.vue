@@ -1,13 +1,15 @@
 <template>
 	<div class="lang_selector">
-		<div class="lang_selector_ttl open">
+		<div class="lang_selector_ttl open single">
 			<div class="flag">
-				<AImg :attributes="{ ...imgSettings, alt: 'Flag En' }" src="/img/flag_en.webp" />
+				<AImg :attributes="{ ...imgSettings, alt: 'Flag En' }" src="/img/cnd.webp" />
 			</div>
-			<AText tag="div" :attributes="textSettings">EN</AText>
+			<AText tag="div" :attributes="textSettings">CA</AText>
+			<!--
 			<div class="arrow">
 				<AImg :attributes="{ ...imgSettings, alt: 'arrow' }" src="/img/white_arrow.png" />
 			</div>
+			-->
 		</div>
 		<div class="lang_selector_wrapper" v-if="false">
 			<ALink href="/custom-link" class="lang_item">
@@ -97,5 +99,10 @@ export default {
 }
 .lang_selector_wrapper .arrow img {
 	transform: rotate(-90deg);
+}
+.single {
+	padding: 11px 10px 11px 10px;
+	gap:10px;
+	justify-content: center;
 }
 </style>

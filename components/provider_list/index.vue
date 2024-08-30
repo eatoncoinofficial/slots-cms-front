@@ -1,7 +1,9 @@
 <template>
 	<div class="root" id="provider_list">
 		<div class="wrapper">
-			<AText :attributes="btnSettings" data-active="true" @onClick="toggle">{{ t('ALL_PROVIDERS') }}</AText>
+			<AText :attributes="btnSettings" :data-state="isShowAll ? 'open' : 'hide'" data-active="true" @onClick="toggle">{{ t('ALL_PROVIDERS') }}
+				<img src="/img/arrowWhite.svg" width="18px" height="18px" class="arrow" >
+			</AText>
 			<ALink
 				v-for="(item, index) in currentValue" :key="index"
 				:href="item.permalink"
@@ -83,7 +85,7 @@ export default {
 .item_btn {
 	height: 36px;
 	display: flex;
-	padding: 5px 15px;
+	padding: 5px 5px 5px 15px;
 	white-space: nowrap;
 	align-items: center;
 	justify-content: center;
@@ -93,6 +95,9 @@ export default {
 }
 [data-active='true'] {
 	background: var(--cleveland);
+}
+[data-state='open'] .arrow {
+	transform: rotate(-90deg);
 }
 .wrapper {
 	display: flex;

@@ -103,7 +103,6 @@ export default {
 }
 .sub_title {
 	margin-bottom: 16px;
-	margin-top: 60px;
 }
 .thumbnail {
 	width: 100%;
@@ -129,6 +128,7 @@ export default {
     border: none;
     border-radius: var(--s);
     font-weight: bolder;
+	text-transform: uppercase;
 }
 .aside_bonus_container {
     display: flex;

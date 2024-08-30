@@ -106,6 +106,7 @@ export default {
 	text-decoration: none;
 	font-family: var(--font);
 	font-weight: bold;
+	text-transform: uppercase;
 }
 .slick_button_container {
 	display: flex;

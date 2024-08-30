@@ -2,14 +2,14 @@
 	<div class="form-wrapper">
 		<AText :attributes="titleSettings">{{ t('SUBSCRIBE_NEWSLETTER') }}</AText>
 		<div class="form_wrapper">
-			<input :placeholder="t('YOUR_EMAIL')" class="input" />
+			<input :placeholder="t('YOUR_EMAIL')" v-model="inputValue" class="input" />
 			<div class="btn_wrapper">
-				<AButton :attributes="btnSettings" title="Form Submit">{{ t('SIGN_UP') }}</AButton>
+				<AButton :attributes="btnSettings" :disabled="isDisabled" title="Form Submit" @onClick="send">{{ t('SIGN_UP') }}</AButton>
 			</div>
 		</div>
 		<div class="form_rules">
-			<div class="rules_check_box"></div>
-			<AText :attributes="formRulesSettings">{{ t('SUBSCRIBE_RULES') }}</AText>
+			<div class="rules_check_box" :class="{active: isConfirm}" @click="confirmRules"></div>
+			<AText :attributes="formRulesSettings" @onClick="confirmRules">{{ t('SUBSCRIBE_RULES') }}</AText>
 		</div>
 	</div>
 </template>
@@ -25,7 +25,8 @@ export default {
 				bg: 'calgary',
 				color: 'cochin',
 				borderRadius: 's',
-				weight: 'semi-bold'
+				weight: 'semi-bold',
+				class: 'send_btn'
 			},
 			titleSettings: {
 				color: 'cairo',
@@ -36,10 +37,36 @@ export default {
 			formRulesSettings: {
 				color: 'cordoba',
 				weight: 'regular',
-				size: 'small'
-			}
+				size: 'small',
+				class: 'accept_text'
+			},
+			isConfirm: false,
+			inputValue: ''
 		}
-	}
+	},
+	methods: {
+		confirmRules() {
+			this.isConfirm = !this.isConfirm
+		},
+		send() {
+			this.isConfirm = false
+			const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx52FeSYnc7C8K2JJTwReJC4BecveKFSxay1hE3mNkY3uzN38R0BzO0MfIcY10y5Tl5/exec'
+			const formData = new FormData();
+			formData.append('Data', new Intl.DateTimeFormat('en-Us').format(new Date()));
+			formData.append('Email', this.inputValue);
+			fetch(SCRIPT_URL, { method: 'POST', body: formData})
+				.then(response => {
+					this.inputValue = ''
+				})
+				.catch(error => console.error('Error!', error.message))
+		}
+	},
+	computed: {
+		isDisabled() {
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			return !(this.isConfirm && emailRegex.test(this.inputValue))
+		}
+ 	}
 }
 </script>
 <style scoped>
@@ -83,6 +110,15 @@ export default {
 	border: 1px solid #d9d9d9;
 	margin-right: 10px;
 	cursor: pointer;
+}
+.rules_check_box.active {
+	background: url('/img/accept.svg') center center no-repeat;
+}
+.accept_text {
+	cursor: pointer;
+}
+.send_btn:disabled {
+	opacity: 0.5;
 }
 @media (max-width: 767px) {
 	.form_title {

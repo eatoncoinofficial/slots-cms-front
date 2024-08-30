@@ -2,10 +2,10 @@
 	<div>
 		<main class="category_page">
 			<div class="container">
-				<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 				<div class="main_container">
 					<TwoContentContainer>
 						<template v-slot:left>
+							<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 							<div class="category_filter_wrapper">
 								<CategoryFilter :value="[{
 								title: 'All',
@@ -123,9 +123,6 @@ export default {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 15px;
-}
-.aside {
-	padding-top: var(--xl);
 }
 @media (max-width: 767px) {
 	.aside {
