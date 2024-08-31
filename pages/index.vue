@@ -383,7 +383,7 @@ export default {
 	margin-bottom: var(--m);
 }
 .main_page {
-	background: url('/img/hero_img_dc.webp') top center var(--colombo);
+	background: url('/img/cover.webp') top center var(--colombo);
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }
@@ -407,9 +407,6 @@ export default {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 15px;
-}
-.aside {
-	padding-top: var(--xl);
 }
 .section_title_wrapper {
 	display: flex;

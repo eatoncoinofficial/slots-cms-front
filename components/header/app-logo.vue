@@ -1,7 +1,7 @@
 <template>
 	<div class="header_logo">
 		<ALink href="/" title="Goes to Casquads main page">
-			<AImg :attributes="{ ...imgSettings, alt: 'Casquads Logo' }" src="/img/logo.svg" />
+			<AImg :attributes="{ ...imgSettings, alt: 'Casquads Logo' }" src="/img/logo-2.svg" />
 		</ALink>
 	</div>
 </template>

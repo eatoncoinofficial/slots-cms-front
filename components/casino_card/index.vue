@@ -84,7 +84,8 @@ export default {
 				bg: 'calgary',
 				color: 'cochin',
 				borderRadius: 's',
-				weight: 'semi-bold'
+				weight: 'semi-bold',
+				text_transform: 'uppercase'
 			},
 			starSettings: {
 				width: '14px',
