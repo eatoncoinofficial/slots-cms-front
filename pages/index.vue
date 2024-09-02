@@ -134,6 +134,7 @@
 				<Faq :value="data.body.faq" />
 			</div>
 		</div>
+		<Cookies />
 	</main>
 </template>
 
@@ -172,7 +173,7 @@ export default {
 		LinkWithArrow,
 		NewsMainCard,
 		CasinoLoop,
-		Faq
+		Faq,
 	},
 	layout: 'default',
 	data: () => {

@@ -46,6 +46,7 @@
 				@onClickDemoClose="onClickDemoClose"
 			/>
 			<SlickButton :refLink="data.body.ref" :refText="t('PLAY')" :linkText="t('PROVIDER_REVIEW')" :link="data.body.vendor[0].permalink" />
+			<Cookies position="middle" />
 		</main>
 	</div>
 </template>

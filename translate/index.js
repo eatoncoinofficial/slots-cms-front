@@ -711,5 +711,16 @@ export default {
 		RU: 'Обзор провайдера',
 		UA: 'Огляд провайдера',
 		EN: 'Provider Review'
+	},
+	COOKIES: {
+		RU: '',
+		UA: '',
+		EN:
+			'By using this website, you agree to our use of cookies to improve the performance of the website and enhance your user experience. More info on our <a href="/privacy-policy">Privacy Policy</a>. You also confirm that you have read the <a href="/terms">T&C</a>, and that you assume all responsibility and consequences by accepting this.'
+	},
+	CONFIRM: {
+		RU: 'Подтвердить',
+		UA: 'Підтвердити',
+		EN: 'Confirm'
 	}
 }

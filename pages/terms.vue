@@ -7,6 +7,7 @@
 			<div class="container content_container" v-if="data.body.content">
 				<Content :value="data.body.content" />
 			</div>
+			<Cookies />
 		</main>
 	</div>
 </template>

@@ -27,7 +27,6 @@ export default {
 		}
 	},
 	mounted() {
-		console.log(this.disabled)
 		const classes = []
 		const availableColor = [
 			'cairo',
@@ -39,7 +38,8 @@ export default {
 			'cancun',
 			'cochin',
 			'cardiff',
-			'cleveland'
+			'cleveland',
+			'chicago'
 		]
 		const availableBorderRadius = ['xxs', 'xs', 's', 'm', 'l', 'xl']
 		const availableWeight = [

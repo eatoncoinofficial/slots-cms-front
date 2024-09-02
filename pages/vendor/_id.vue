@@ -46,6 +46,7 @@
 					</div>
 				</div>
 			</div>
+			<Cookies />
 		</main>
 	</div>
 </template>

@@ -74,6 +74,7 @@
 				<TabContent :value="tabContent" />
 			</div>
 		</section>
+		<Cookies />
 	</main>
 </template>
 

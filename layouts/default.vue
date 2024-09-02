@@ -11,7 +11,7 @@ import Footer from '~/components/footer'
 import Header from '~/components/header'
 export default {
 	name: 'app-main',
-	components: { Header, Footer },
+	components: { Header, Footer},
 	middleware: ['getHeaders']
 }
 </script>
@@ -33,6 +33,7 @@ export default {
 	--cochin: #323234;
 	--cardiff: rgba(0, 0, 0, 0.26);
 	--cleveland: #5e40b5;
+	--chicago: #DA00ED;
 	--xxs: 2px;
 	--xs: 4px;
 	--s: 8px;
@@ -596,6 +597,9 @@ Common styles*/
 }
 .main_container {
 	padding-bottom: 60px;
+}
+#cookies a {
+	color: var(--cairo);
 }
 @media (max-width: 767px) {
 	.content_container {

@@ -37,6 +37,7 @@
 					<Faq :value="data.body.faq" />
 				</div>
 			</div>
+			<Cookies />
 		</main>
 	</div>
 </template>
@@ -50,6 +51,7 @@ import GameMainCard from '~/components/slot_loop/cards/main'
 import GameBigCard from '~/components/slot_loop/cards/big_card'
 import SlotLoop from '~/components/custom_slot_loop'
 import ProviderFilter from '~/components/provider_list'
+import Cookies from '~/components/cookies'
 import helper from '~/helpers/helpers'
 import device from '~/mixins/device'
 
@@ -62,7 +64,8 @@ export default {
 		GameMainCard,
 		GameBigCard,
 		SlotLoop,
-		ProviderFilter
+		ProviderFilter,
+		Cookies
 	},
 	layout: 'default',
 	data: () => {

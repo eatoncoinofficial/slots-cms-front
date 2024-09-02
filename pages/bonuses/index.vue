@@ -19,6 +19,7 @@
 					<Faq :value="data.body.faq" />
 				</div>
 			</div>
+			<Cookies />
 		</main>
 	</div>
 </template>
