@@ -130,6 +130,7 @@ export default {
     border-radius: var(--s);
     font-weight: bolder;
 	text-transform: uppercase;
+	color: var(--cairo);
 }
 .aside_bonus_container {
     display: flex;

@@ -23,7 +23,7 @@ export default {
 		return {
 			btnSettings: {
 				bg: 'calgary',
-				color: 'cochin',
+				color: 'cairo',
 				borderRadius: 's',
 				weight: 'semi-bold',
 				class: 'send_btn'

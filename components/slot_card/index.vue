@@ -79,7 +79,7 @@ export default {
 			},
 			btnSettings: {
 				bg: 'calgary',
-				color: 'cochin',
+				color: 'cairo',
 				borderRadius: 's',
 				weight: 'semi-bold',
 				text_transform: 'uppercase'

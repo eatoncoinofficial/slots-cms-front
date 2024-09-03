@@ -662,7 +662,7 @@ export default {
 	SUBSCRIBE_NEWSLETTER: {
 		RU: 'Подпишитесь на нашу рассылку',
 		UA: 'Підпишіться на нашу розсилку',
-		EN: 'Subscribe to our newsletter'
+		EN: 'Subscribe to Our Newsletter'
 	},
 	SUBSCRIBE_RULES: {
 		RU: 'Мне есть 18 лет, и закон разрешает мне играть в казино',
