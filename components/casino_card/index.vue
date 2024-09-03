@@ -258,7 +258,7 @@ export default {
 	background: rgba(255, 0, 92, 1);
 }
 .label.best {
-	background: var(--cleveland);
+	background: var(--chicago);
 }
 .wrapper_characters {
 	width: 100%;

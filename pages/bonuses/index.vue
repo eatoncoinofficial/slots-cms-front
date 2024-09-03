@@ -2,14 +2,14 @@
 	<div>
 		<main class="bonuses_page">
 			<div class="container">
-				<AText tag="div" :attributes="titleSettings">{{ data.body.h1 }}</AText>
-			</div>
-			<div class="container">
 				<div class="bonus_category_container">
 					<div class="bonus_category_item" v-for="(item, index) in data.body.bonus_category" :key="index">
 						<BonusCategory :title="item.title" :link="item.permalink" :posts="item.posts" />
 					</div>
 				</div>
+			</div>
+			<div class="container">
+				<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 			</div>
 			<div class="container content_container">
 				<Content :value="data.body.content" />
@@ -81,6 +81,12 @@ export default {
 }
 .bonus_category_item {
 	width: 32%;
+}
+::v-deep h1 {
+	margin-bottom: 0px;
+}
+.category_page .content_container {
+	padding-top: 10px;
 }
 @media (max-width: 767px) {
 	.bonus_category_item {

@@ -94,10 +94,13 @@ export default {
 	cursor: pointer;
 }
 [data-active='true'] {
-	background: var(--cleveland);
+	background: var(--chicago);
 }
 [data-state='open'] .arrow {
 	transform: rotate(-90deg);
+}
+[data-state='hide'] .arrow {
+	transform: rotate(90deg);
 }
 .wrapper {
 	display: flex;

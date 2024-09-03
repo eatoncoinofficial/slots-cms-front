@@ -78,6 +78,8 @@ export default {
     background: var(--chicago);
     color: var(--cairo);
     width: 199px;
+    min-width: 199px;
+    max-height: 44px;
     height: 44px;
     border-radius: var(--xs);
     font-family: 'Unbounded';

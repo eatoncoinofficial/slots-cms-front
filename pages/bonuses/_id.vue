@@ -2,8 +2,10 @@
 	<div>
 		<main class="category_page">
 			<div class="container">
-				<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 				<BonusLoop :value="data.body.posts" />
+			</div>
+			<div class="container h1_wrapper">
+				<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 			</div>
 			<div class="container content_container">
 				<Content :value="data.body.content" />
@@ -84,5 +86,14 @@ export default {
 }
 .aside {
 	padding-top: var(--xl);
+}
+::v-deep h1 {
+	margin-bottom: 0px;
+}
+.h1_wrapper {
+	margin-top: 40px;
+}
+.category_page .content_container {
+	padding-top: 10px;
 }
 </style>

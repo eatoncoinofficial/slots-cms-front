@@ -452,7 +452,7 @@ export default {
 	background: rgba(255, 0, 92, 1);
 }
 .label.best {
-	background: var(--cleveland);
+	background: var(--chicago);
 }
 @media (max-width: 767px) {
 	.item {
