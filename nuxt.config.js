@@ -20,6 +20,10 @@ export default {
 			{ rel: 'preconnect', href: 'https://fonts.googleapis.com' },
 			{ rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'true' },
 			{ href: 'https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&display=swap', rel: 'stylesheet' }
+		],
+		script: [
+			{ hid: 'gtag', src: 'https://www.googletagmanager.com/gtag/js?id=G-XK5G5KT3P8' },
+			{ hid: 'gtm', src: '/js/gtm.js' }
 		]
 	},
 	serverMiddleware: ['~/serverMiddleware/redirects'],

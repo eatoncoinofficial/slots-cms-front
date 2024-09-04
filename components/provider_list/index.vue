@@ -85,7 +85,7 @@ export default {
 .item_btn {
 	height: 36px;
 	display: flex;
-	padding: 5px 5px 5px 15px;
+	padding: 5px 10px 5px 15px;
 	white-space: nowrap;
 	align-items: center;
 	justify-content: center;

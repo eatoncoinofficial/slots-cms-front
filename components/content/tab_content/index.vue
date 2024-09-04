@@ -8,7 +8,7 @@
 				:key="index"
 				@click="changeTab(index)"
 			>
-				{{ item.title }}
+				<img :src="item.icon" width="26" height="26" />	{{ item.title }}
 			</button>
 		</div>
 		<article class="container tab_text_container">
@@ -61,6 +61,10 @@ export default {
 	text-transform: uppercase;
 	font-size: 14px;
 	font-weight: 700;
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	justify-content: center;
 }
 .tab_item:last-child {
 	border-top-right-radius: 12px;

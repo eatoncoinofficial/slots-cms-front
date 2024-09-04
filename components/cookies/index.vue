@@ -60,7 +60,6 @@ export default {
 .content {
     background: rgba(27, 24, 49, 0.9);
     border-radius: var(--m);
-    border: 1px solid var(--cordoba);
     font-size: 14px;
     color: var(--cairo);
     padding: 20px;
@@ -77,8 +76,8 @@ export default {
 .btnConfirm {
     background: var(--chicago);
     color: var(--cairo);
-    width: 199px;
-    min-width: 199px;
+    width: 150px;
+    min-width: 150px;
     max-height: 44px;
     height: 44px;
     border-radius: var(--xs);

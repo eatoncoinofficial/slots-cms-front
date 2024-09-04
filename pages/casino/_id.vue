@@ -130,9 +130,9 @@ export default {
 	computed: {
 		tabContent() {
 			const data = [
-				{ title: this.t('REVIEWS'), content: this.data.body.content_reviews },
-				{ title: this.t('BONUSES'), content: this.data.body.content_bonuses },
-				{ title: this.t('GAMES'), content: this.data.body.content_games }
+				{ title: this.t('REVIEWS'), content: this.data.body.content_reviews, icon: '/img/Review.svg' },
+				{ title: this.t('BONUSES'), content: this.data.body.content_bonuses, icon: '/img/icon_stars.svg' },
+				{ title: this.t('GAMES'), content: this.data.body.content_games, icon: '/img/icon_slots.svg' }
 			]
 			return data
 		},
@@ -166,7 +166,7 @@ export default {
 </script>
 <style scoped>
 .casino_page {
-	background: url('/img/casinoPageBg.jpg') top center var(--colombo);
+	background: url('/img/topBg.webp') top center var(--colombo);
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }

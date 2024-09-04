@@ -7,7 +7,7 @@ export default {
 	SHOW_MORE: {
 		UA: 'Дивитись більше',
 		RU: 'Смотреть больше',
-		EN: 'View more'
+		EN: 'View More'
 	},
 	HIDE: {
 		UA: 'Приховати',
@@ -272,7 +272,7 @@ export default {
 	READ_MORE: {
 		UA: 'Читати далі',
 		RU: 'Читать дальше',
-		EN: 'Read more'
+		EN: 'Read More'
 	},
 	GET_BONUS: {
 		UA: 'Отримати бонус',
@@ -690,7 +690,7 @@ export default {
 	MOST_PROFITABLE_BONUSES: {
 		RU: 'Самые выгодные бонусы',
 		UA: 'Найприбутковіші бонуси',
-		EN: 'More Bonuses At This Casino'
+		EN: 'More Bonuses at this Casino'
 	},
 	BEST_ONLINE_CASINOS_CANADA: {
 		RU: 'Лучшие онлайн казино Канада',
