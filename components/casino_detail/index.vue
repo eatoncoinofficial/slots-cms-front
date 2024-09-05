@@ -16,7 +16,7 @@
 				</ALink>
 				<div class="show_more_wrapper" v-if="vendors.length > vendorNumberItems">
 					<button class="show_more" @click="filterVendors" :class="{active: vendorsIsShow}"> 
-						<img src="/img/arrowGreen.svg" width="18px" height="18px" class="arrow" >
+						<AImg src="/img/arrowGreen.svg" :attributes="imgSettingsArrow" />
 					</button>
 				</div>
 			</div>
@@ -31,7 +31,7 @@
 				</AText>
 				<div class="show_more_wrapper" v-if="deposit.length > depositNumberItems">
 					<button class="show_more" @click="filterDeposit" :class="{active: depositIsShow}"> 
-						<img src="/img/arrowGreen.svg" width="18px" height="18px" class="arrow" >
+						<AImg src="/img/arrowGreen.svg" :attributes="imgSettingsArrow" />
 					</button>
 				</div>
 			</div>
@@ -46,7 +46,7 @@
 				</AText>
 				<div class="show_more_wrapper" v-if="payments.length > paymentNumberItems">
 					<button class="show_more" @click="filterPayment" :class="{active: paymentIsShow}"> 
-						<img src="/img/arrowGreen.svg" width="18px" height="18px" class="arrow" >
+						<AImg src="/img/arrowGreen.svg" :attributes="imgSettingsArrow" />
 					</button>
 				</div>
 			</div>
@@ -61,7 +61,7 @@
 				</AText>
 				<div class="show_more_wrapper" v-if="currencies.length > currenciesNumberItems">
 					<button class="show_more" @click="filterCurrencies" :class="{active: currenciesIsShow}"> 
-						<img src="/img/arrowGreen.svg" width="18px" height="18px" class="arrow" >
+						<AImg src="/img/arrowGreen.svg" :attributes="imgSettingsArrow" />
 					</button>
 				</div>
 			</div>
@@ -77,7 +77,7 @@
 				</AText>
 				<div class="show_more_wrapper" v-if="languages.length > currenciesNumberItems">
 					<button class="show_more" @click="filterLanguages" :class="{active: languagesIsShow}"> 
-						<img src="/img/arrowGreen.svg" width="18px" height="18px" class="arrow" >
+						<AImg src="/img/arrowGreen.svg" :attributes="imgSettingsArrow" />
 					</button>
 				</div>
 			</div>
@@ -163,6 +163,11 @@ export default {
 				width: '19px',
 				height: '18px',
 				class: 'flag_icon'
+			},
+			imgSettingsArrow: {
+				width: '18px',
+				height: '18px',
+				class: 'arrow'
 			},
 			textProviderItemSettings: {
 				class: 'item_provider',

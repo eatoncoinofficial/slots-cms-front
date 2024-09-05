@@ -8,7 +8,8 @@
 				:key="index"
 				@click="changeTab(index)"
 			>
-				<img :src="item.icon" width="26" height="26" />	{{ item.title }}
+				<AImg :src="item.icon" :attributes="imgSettingsIcon" />
+				{{ item.title }}
 			</button>
 		</div>
 		<article class="container tab_text_container">
@@ -24,11 +25,17 @@
 </template>
 
 <script>
+import components from '~/mixins/components'
 export default {
 	name: 'tab_content',
+	mixins: [components],
 	data() {
 		return {
-			currentTab: 0
+			currentTab: 0,
+			imgSettingsIcon: {
+				width: '26',
+				height: '26'
+			}
 		}
 	},
 	props: {

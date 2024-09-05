@@ -1,5 +1,5 @@
 <template>
-	<img v-bind="attributes" :src="src" />
+	<img v-bind="attributes" :src="src" loading="lazy" />
 </template>
 <script>
 export default {
