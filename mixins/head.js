@@ -44,7 +44,7 @@ export default {
 				},
 				{
 					property: 'og:title',
-					content: this.data.body.title,
+					content: this.data.body.meta_title,
 					'data-qmeta': 'ogTitle'
 				},
 				{
@@ -75,7 +75,7 @@ export default {
 				},
 				{
 					name: 'twitter:title',
-					content: this.data.body.title
+					content: this.data.body.meta_title
 				},
 				{
 					name: 'twitter:description',
@@ -87,7 +87,7 @@ export default {
 				},
 				{
 					name: 'apple-mobile-web-app-title',
-					content: this.data.body.title,
+					content: this.data.body.meta_title,
 					'data-qmeta': 'AppleMobileWebAppTitle'
 				},
 				{

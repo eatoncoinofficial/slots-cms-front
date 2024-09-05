@@ -35,8 +35,8 @@
 				</template>
 			</TwoContentContainer>
 		</div>
-        <SlickButton :refLink="data.body.casino.ref" :refText="t('GO_TO')" :linkText="t('CASINO_REVIEW')" :link="data.body.casino.permalink" />
-		<Cookies position="middle" />
+		<SlickBonus :refLinks="data.body.casino.ref" />
+		<Cookies />
 	</main>
 </template>
 <script>
@@ -44,7 +44,7 @@ import DAL_Builder from '~/DAL/builder'
 import pageTemplate from '~/mixins/pageTemplate'
 import TwoContentContainer from '~/components/two_content_container/'
 import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
-import SlickButton from '~/components/slick_button'
+import SlickBonus from '~/components/slick_bonus/'
 import Banner from '~/components/banner/'
 import helper from '~/helpers/helpers'
 import ref from '~/mixins/ref'
@@ -55,7 +55,7 @@ export default {
 		TwoContentContainer,
 		Banner,
         BonusAsideCard,
-        SlickButton
+		SlickBonus
 	},
 	layout: 'default',
 	data: () => {

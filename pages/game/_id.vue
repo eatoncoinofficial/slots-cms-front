@@ -45,7 +45,6 @@
 				:title="data.body.title"
 				@onClickDemoClose="onClickDemoClose"
 			/>
-			<SlickButton :refLink="data.body.ref" :refText="t('PLAY')" :linkText="t('PROVIDER_REVIEW')" :link="data.body.vendor[0].permalink" />
 			<Cookies position="middle" />
 		</main>
 	</div>
@@ -60,7 +59,6 @@ import SlotScreenshots from '~/components/slot_screenshots'
 import Faq from '~/components/faq'
 import SlotPopUp from '~/components/slot_popup'
 import helper from '~/helpers/helpers'
-import SlickButton from '~/components/slick_button'
 export default {
 	name: 'game_single',
 	mixins: [pageTemplate],
@@ -69,8 +67,7 @@ export default {
 		SlotSymbols,
 		SlotScreenshots,
 		Faq,
-		SlotPopUp,
-		SlickButton
+		SlotPopUp
 	},
 	layout: 'default',
 	data: () => {

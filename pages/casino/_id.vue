@@ -74,6 +74,7 @@
 				<TabContent :value="tabContent" />
 			</div>
 		</section>
+		<SlickBonus :refLinks="data.body.ref" />
 		<Cookies />
 	</main>
 </template>
@@ -87,6 +88,7 @@ import CasinoCard from '~/components/casino_card'
 import CasinoDetails from '~/components/casino_detail'
 import GameMainCard from '~/components/slot_loop/cards/main'
 import TabContent from '~/components/content/tab_content'
+import SlickBonus from '~/components/slick_bonus/'
 import helper from '~/helpers/helpers'
 import device from '~/mixins/device'
 
@@ -99,7 +101,8 @@ export default {
 		CasinoCard,
 		CasinoDetails,
 		GameMainCard,
-		TabContent
+		TabContent,
+		SlickBonus
 	},
 	layout: 'default',
 	data: () => {
