@@ -722,5 +722,15 @@ export default {
 		RU: 'Подтвердить',
 		UA: 'Підтвердити',
 		EN: 'Confirm'
+	},
+	AVAILABLE_THESE_CASINOS: {
+		RU: 'Доступно в этих казино',
+		UA: 'Доступно в цих казино',
+		EN: 'Available at These Casinos'
+	},
+	SIMILAR_CASINOS: {
+		RU: 'Похожие казино',
+		UA: 'Подібні казино',
+		EN: 'Similar Casinos'
 	}
 }

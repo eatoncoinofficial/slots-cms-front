@@ -33,6 +33,9 @@
 							</aside>
 						</template>
 					</TwoContentContainer>
+					<div class="section_title_wrapper">
+						<AText tag="div" :attributes="mainContainerTitle">{{ t('AVAILABLE_THESE_CASINOS') }}</AText>
+					</div>
 					<div class="casino_wrapper">
 						<TwoContentContainer>
 							<template v-slot:left>
@@ -81,7 +84,12 @@ export default {
 				color: 'cairo',
 				weight: 'regular',
 				class: 'slots_title'
-			}
+			},
+			mainContainerTitle: {
+				weight: 'extra-bold',
+				color: 'cairo',
+				size: 'x-large'
+			},
 		}
 	},
 	components: {
