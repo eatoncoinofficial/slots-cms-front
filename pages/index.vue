@@ -27,7 +27,7 @@
 					</SliderContainer>
 				</div>
 				<div class="slider_item">
-					<SliderContainer icon="game" :title="t('GAMES')" link="/games" :sliderSettings="gameSliderSettings">
+					<SliderContainer icon="game" :title="t('GAMES')" link="/slots" :sliderSettings="gameSliderSettings">
 						<SlotSliderCard
 							v-for="(item, index) in data.body.games"
 							:key="index"
@@ -47,6 +47,7 @@
 							:desc="item.short_desc"
 							:value="item.bonus"
 							:refLinks="item.casino.ref"
+							:permalink="item.permalink"
 						/>
 					</SliderContainer>
 				</div>

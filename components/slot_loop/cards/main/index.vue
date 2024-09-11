@@ -5,7 +5,7 @@
 				<AImg :attributes="{ ...imgSettings, alt: `${title} Logo` }" :src="src" />
 			</ALink>
 		</div>
-		<div class="mask">
+		<div class="mask" @click="goTo(link)">
 			<div class="action">
 				<ALink :attributes="linkSettings" :href="link" :title="`Goes to ${title} page`">{{ t('PLAY') }}</ALink>
 			</div>
@@ -57,6 +57,11 @@ export default {
 				return ''
 			}
 		}
+	},
+	methods: {
+		goTo(permalink) {
+			this.$router.push(permalink)
+		}
 	}
 }
 </script>
@@ -92,6 +97,7 @@ export default {
 	justify-content: center;
 	opacity: 0;
 	transition: 0.7s;
+	cursor: pointer;
 }
 .action {
 	position: relative;

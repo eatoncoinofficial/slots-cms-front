@@ -58,7 +58,7 @@ export default {
     align-items: center;
 }
 .content {
-    background: rgba(27, 24, 49, 0.9);
+    background: linear-gradient(to right, #1B1831E5, #534A97E5);
     border-radius: var(--m);
     font-size: 14px;
     color: var(--cairo);
@@ -74,12 +74,12 @@ export default {
     align-items: center;
 }
 .btnConfirm {
-    background: var(--chicago);
-    color: var(--cairo);
+    background: var(--calgary);
+    color: var(--cucuta);
     width: 150px;
     min-width: 150px;
-    max-height: 44px;
-    height: 44px;
+    max-height: 40px;
+    height: 40px;
     border-radius: var(--xs);
     font-family: 'Unbounded';
     font-style: normal;

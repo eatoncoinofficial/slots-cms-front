@@ -1,7 +1,7 @@
 <template>
 	<div class="slick_bonus">
         <div class="bonus">
-            <AImg src="/img/Gift.svg" :attributes="imgSettings" />
+            <AImg src="/img/Gift.svg" :attributes="imgSettings" @onClick="refActivate(refLinks)" />
         </div>
         <AButton :attributes="btnSettings" title="Get bonus" @onClick="refActivate(refLinks)">
             {{ t('GET_BONUS') }}
@@ -31,7 +31,7 @@ export default {
 			},
             btnSettings: {
 				bg: 'calgary',
-				color: 'cairo',
+				color: 'cucuta',
 				borderRadius: 's',
 				weight: 'semi-bold',
 				text_transform: 'uppercase',
@@ -43,13 +43,14 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .slick_bonus {
     position: fixed;
     width: 60px;
     height: 50px;
     bottom: 20px;
-    right: 0px;
+    right: 20px;
+    z-index: 5;
 }
 .bonus {
     position: absolute;
@@ -65,22 +66,21 @@ export default {
     transition: 0.7s;
     z-index: 1;
 }
-.slick_bonus:hover .bonus {
-    left: -70px;
-}  
-.slick_bonus:hover .action_btn {
-    left: -90px;
-    transition: 0.7s;
-}
 .action_btn {
     white-space: nowrap;
     position: absolute;
     top: 0;
-    left: 60px;
+    left: 80px;
     width: 150px!important;
     z-index: 2;
 }
-@media (min-width: 320px) and (max-width: 767px) {
-	
+@media (min-width: 767px) {
+	.slick_bonus:hover .bonus {
+        left: -70px;
+    }  
+    .slick_bonus:hover .action_btn {
+        left: -90px;
+        transition: 0.7s;
+    }
 }
 </style>

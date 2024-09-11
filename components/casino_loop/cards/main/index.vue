@@ -174,7 +174,7 @@ export default {
 			},
 			btnSettings: {
 				bg: 'calgary',
-				color: 'cairo',
+				color: 'cucuta',
 				borderRadius: 's',
 				weight: 'semi-bold',
 				text_transform: 'uppercase'

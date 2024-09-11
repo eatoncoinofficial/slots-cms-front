@@ -1,5 +1,5 @@
 <template>
-	<img v-bind="attributes" :src="src" loading="lazy" />
+	<img v-bind="attributes" :src="src" loading="lazy"  @click="onClick" />
 </template>
 <script>
 export default {
@@ -20,7 +20,12 @@ export default {
 			default: '/img/noImages.png',
 			type: String
 		}
-	}
+	},
+	methods: {
+		onClick() {
+			this.$emit('onClick')
+		}
+	},
 }
 </script>
 <style scoped></style>

@@ -45,7 +45,7 @@
 				:title="data.body.title"
 				@onClickDemoClose="onClickDemoClose"
 			/>
-			<Cookies position="middle" />
+			<Cookies />
 		</main>
 	</div>
 </template>

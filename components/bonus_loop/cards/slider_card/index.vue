@@ -1,28 +1,28 @@
 <template>
-	<article class="item" @click="refActivate(refLinks)">
+	<article class="item">
 		<div class="wrapper">
 			<div class="left">
 				<div class="img_wrapper">
 					<AText>
-						<AImg :attributes="{ ...imgSettings, alt: `${title} logo` }" :src="src" />
+						<AImg :attributes="{ ...imgSettings, alt: `${title} logo` }" :src="src" @click="refActivate(refLinks)" />
 					</AText>
 				</div>
 			</div>
 			<div class="right">
-				<div>
+				<div @click="refActivate(refLinks)">
 					<AText :attributes="titleSettings">{{ title }}</AText>
 				</div>
-				<div>
+				<div @click="refActivate(refLinks)">
 					<AText :attributes="descTextSettings">{{ desc }}</AText>
 				</div>
-				<div>
+				<div @click="refActivate(refLinks)">
 					<AText :attributes="valueTextSettings">{{ value }}</AText>
 				</div>
 			</div>
 			<div class="action">
-				<AText>
+				<ALink :href="permalink" :title="`Goes to ${title} page`">
 					<AImg :attributes="{ ...arrowSettings, alt: 'arrow' }" src="/img/arrowGreen.svg" />
-				</AText>
+				</ALink>
 			</div>
 		</div>
 	</article>
@@ -89,6 +89,12 @@ export default {
 			type: String,
 			default() {
 				return '/img/noImages.png'
+			}
+		},
+		permalink: {
+			type: String,
+			default() {
+				return ''
 			}
 		}
 	}
