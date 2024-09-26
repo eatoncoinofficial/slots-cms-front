@@ -35,7 +35,7 @@ export default {
 			imgSettings: {
 				width: '276px',
 				height: '160px',
-				class: 'object_fit_cover border_radius_s'
+				class: 'object_fit_cover border_radius_m'
 			},
 			descTextSettings: {
 				color: 'cairo',

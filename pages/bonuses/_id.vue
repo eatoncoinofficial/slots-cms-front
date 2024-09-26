@@ -1,7 +1,8 @@
 <template>
 	<div>
 		<main class="category_page">
-			<div class="container">
+			<Gradient />
+			<div class="container z-index-3">
 				<BonusLoop :value="data.body.posts" />
 			</div>
 			<div class="container h1_wrapper">
@@ -26,6 +27,7 @@ import helper from '~/helpers/helpers'
 import pageTemplate from '~/mixins/pageTemplate'
 import Faq from '~/components/faq'
 import BonusLoop from '~/components/bonus_loop'
+import Gradient from '~/components/gradient'
 
 export default {
 	name: 'bonus-category',
@@ -42,7 +44,8 @@ export default {
 	},
 	components: {
 		Faq,
-		BonusLoop
+		BonusLoop,
+		Gradient
 	},
 	mixins: [pageTemplate],
 	async asyncData({ route, error }) {
@@ -67,7 +70,7 @@ export default {
 
 <style scoped>
 .category_page {
-	background: url('/img/topBg.webp') top center var(--colombo);
+	background: var(--colombo);
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }

@@ -12,7 +12,7 @@
 				<div>
 					<ALink :attributes="titleSettings" :href="link" :title="`Goes to ${title} page`">{{ title }}</ALink>
 				</div>
-				<div>
+				<div v-if="device !== 'MOB'">
 					<AText :attributes="descTextSettings">{{ desc }}</AText>
 				</div>
 			</div>
@@ -29,7 +29,7 @@ export default {
 			imgSettings: {
 				width: '44px',
 				height: '44px',
-				class: 'object_fit_cover border_radius_s'
+				class: 'object_fit_cover border_radius_m'
 			},
 			titleSettings: {
 				color: 'cairo',
@@ -89,12 +89,12 @@ export default {
 	display: flex;
 }
 .img_wrapper {
-	width: 44px;
-	height: 44px;
+	width: 75px;
+	height: 75px;
 }
 .left {
-	width: 60px;
-	min-width: 60px;
+	width: 80px;
+	min-width: 80px;
 	align-items: center;
 	justify-content: center;
 	display: flex;
@@ -119,6 +119,12 @@ export default {
 	}
 	.desc {
 		display: none;
+	}
+	.right {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		padding: 10px;
 	}
 }
 @media (min-width: 768px) and (max-width: 1200px) {

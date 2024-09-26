@@ -602,17 +602,17 @@ export default {
 	CASINO_CHARACTERS: {
 		RU: 'Характеристики казино',
 		UA: 'Характеристики казино',
-		EN: 'Casino features'
+		EN: 'Casino Features'
 	},
 	BEST_GAMES_IN_CASINO: {
 		RU: 'Лучшие игры в казино',
 		UA: 'Найкращі ігри в казино',
-		EN: 'Best casino games'
+		EN: 'The Best Games of The'
 	},
 	BEST_GAMES_PROVIDER: {
 		RU: 'Лучшие игры провайдера',
 		UA: 'Найкращі ігри провайдера',
-		EN: 'Best games of provider'
+		EN: 'The Best Games from The'
 	},
 	SLOT_SYMBOLS: {
 		RU: 'Символы слота',

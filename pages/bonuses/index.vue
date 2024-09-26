@@ -1,7 +1,8 @@
 <template>
 	<div>
 		<main class="bonuses_page">
-			<div class="container">
+			<Gradient />
+			<div class="container z-index-3">
 				<div class="bonus_category_container">
 					<div class="bonus_category_item" v-for="(item, index) in data.body.bonus_category" :key="index">
 						<BonusCategory :title="item.title" :link="item.permalink" :posts="item.posts" />
@@ -29,6 +30,7 @@ import DAL_Page from '~/DAL/static_pages'
 import pageTemplate from '~/mixins/pageTemplate'
 import Faq from '~/components/faq'
 import BonusCategory from '~/components/bonus_category'
+import Gradient from '~/components/gradient'
 import helper from '~/helpers/helpers'
 
 export default {
@@ -36,7 +38,8 @@ export default {
 	mixins: [pageTemplate],
 	components: {
 		Faq,
-		BonusCategory
+		BonusCategory,
+		Gradient
 	},
 	layout: 'default',
 	data: () => {
@@ -62,7 +65,7 @@ export default {
 </script>
 <style scoped>
 .bonuses_page {
-	background: url('/img/topBg.webp') top center var(--colombo);
+	background: var(--colombo);
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }

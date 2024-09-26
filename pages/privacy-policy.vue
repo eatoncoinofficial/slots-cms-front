@@ -1,10 +1,11 @@
 <template>
 	<div>
 		<main class="games_page">
-			<div class="container">
+			<Gradient />
+			<div class="container z-index-3">
 				<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 			</div>
-			<div class="container content_container" v-if="data.body.content">
+			<div class="container content_container z-index-3" v-if="data.body.content">
 				<Content :value="data.body.content" />
 			</div>
 			<Cookies />
@@ -17,11 +18,13 @@ import DAL_Page from '~/DAL/static_pages'
 import pageTemplate from '~/mixins/pageTemplate'
 import helper from '~/helpers/helpers'
 import device from '~/mixins/device'
+import Gradient from '~/components/gradient'
 
 export default {
 	name: 'privacy-policy-page',
 	mixins: [pageTemplate, device],
 	layout: 'default',
+	components: {Gradient},
 	data: () => {
 		return {
 			titleSettings: {
@@ -45,7 +48,7 @@ export default {
 </script>
 <style scoped>
 .games_page {
-	background: url('/img/casinoPageBg.jpg') top center var(--colombo);
+	background: top center var(--colombo);
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }

@@ -8,7 +8,12 @@
 		<div class="center">
 			<div class="center_wrapper">
 				<AText tag="div" :attributes="titleSettings">{{ title }}</AText>
-				<AText tag="div" :attributes="subTitleSettings">{{ vendor_title }}</AText>
+				<AText tag="div" :attributes="subTitleSettings">
+					<ALink :href="vendor_permalink">
+						<AImg :attributes="{ ...vendorImgSettings, alt: `${vendor_title} Logo` }" :src="vendor_icon" />
+						{{ vendor_title }}
+					</ALink>
+				</AText>
 				<AText tag="div" :attributes="sectionTitleSettings">{{ t('GAME_AVAILABLE_CASINOS') }}</AText>
 				<div class="casino_wrapper" v-if="casinos.length">
 					<Slider :settings="sliderSettings">
@@ -58,6 +63,11 @@ export default {
 				height: '325px',
 				class: 'object_fit_cover thumbnail'
 			},
+			vendorImgSettings: {
+				width: '26',
+				height: '26',
+				class: ''
+			},
 			titleSettings: {
 				class: 'title',
 				color: 'cairo',
@@ -66,7 +76,8 @@ export default {
 			subTitleSettings: {
 				class: 'sub_title',
 				color: 'cairo',
-				size: 'medium'
+				size: 'medium',
+				class: 'vendor_container'
 			},
 			sectionTitleSettings: {
 				class: 'section_title',
@@ -182,7 +193,19 @@ export default {
 			default() {
 				return []
 			}
-		}
+		},
+		vendor_permalink: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
+		vendor_icon: {
+			type: String,
+			default() {
+				return ''
+			}
+		},
 	},
 	methods: {
 		onClickDemoActivate() {
@@ -217,7 +240,7 @@ export default {
 	font-size: var(--l);
 }
 .section_title {
-	margin-top: 24px;
+	margin-top: 15px;
 }
 .casino_wrapper {
 	margin-top: 12px;
@@ -260,6 +283,26 @@ export default {
 	display: flex;
 	flex-wrap: wrap;
 	gap: var(--m);
+}
+.vendor_container {
+	display: inline-block;
+	margin-top: 10px;
+}
+.vendor_container a {
+	display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: var(--s);
+    background: hsla(0, 0%, 100%, .1);
+    white-space: nowrap;
+    font-size: 10px;
+    height: 40px;
+	color: var(--cairo);
+	font-weight: 400;
+	text-decoration: none;
+}
+.vendor_container img {
+	margin-right: 5px;
 }
 @media (max-width: 767px) {
 	.root {

@@ -1,7 +1,8 @@
 <template>
 	<div>
 		<main class="game_page">
-			<div class="container container_top_game">
+			<Gradient />
+			<div class="container container_top_game z-index-3">
 				<SlotCard
 					:title="data.body.title"
 					:src="data.body.thumbnail"
@@ -11,6 +12,8 @@
 					:scheme="data.body.scheme"
 					:demo="data.body.iframe ? true : false"
 					:vendor_title="data.body.vendor.length ? data.body.vendor[0].title : ''"
+					:vendor_permalink="data.body.vendor.length ? data.body.vendor[0].permalink : ''"
+					:vendor_icon="data.body.vendor.length ? data.body.vendor[0].icon : ''"
 					:casinos="data.body.casinos"
 					:refLinks="data.body.ref"
 					@onClickDemoActivate="onClickDemoActivate"
@@ -58,6 +61,7 @@ import SlotSymbols from '~/components/slot_symbols'
 import SlotScreenshots from '~/components/slot_screenshots'
 import Faq from '~/components/faq'
 import SlotPopUp from '~/components/slot_popup'
+import Gradient from '~/components/gradient'
 import helper from '~/helpers/helpers'
 export default {
 	name: 'game_single',
@@ -67,7 +71,8 @@ export default {
 		SlotSymbols,
 		SlotScreenshots,
 		Faq,
-		SlotPopUp
+		SlotPopUp,
+		Gradient
 	},
 	layout: 'default',
 	data: () => {
@@ -117,7 +122,7 @@ export default {
 </script>
 <style scoped>
 .game_page {
-	background: url('/img/topBg.webp') top center var(--colombo);
+	background: var(--colombo);
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }

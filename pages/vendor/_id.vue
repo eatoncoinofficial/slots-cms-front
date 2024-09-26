@@ -1,7 +1,8 @@
 <template>
 	<div>
 		<main class="vendor_page">
-			<div class="container">
+			<Gradient />
+			<div class="container z-index-3">
 				<div class="main_container">
 					<TwoContentContainer>
 						<template v-slot:left>
@@ -40,12 +41,12 @@
 						<TwoContentContainer>
 							<template v-slot:left>
 								<CasinoLoop :value="data.body.casinos" />
+								<div class="container_loop" v-if="data.body.games.length">
+									<AText tag="div" :attributes="titleSlotsSettings"> {{ t('BEST_GAMES_PROVIDER') }} {{ data.body.title }} </AText>
+									<SlotLoop :value="data.body.games" />
+								</div>
 							</template>
 						</TwoContentContainer>
-					</div>
-					<div class="container_loop" v-if="data.body.games.length">
-						<AText tag="div" :attributes="titleSlotsSettings"> {{ t('BEST_GAMES_PROVIDER') }} {{ data.body.title }} </AText>
-						<SlotLoop :value="data.body.games" />
 					</div>
 				</div>
 			</div>
@@ -64,6 +65,7 @@ import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
 import CasinoLoop from '~/components/casino_loop'
 import SlotLoop from '~/components/slot_loop'
 import Banner from '~/components/banner/'
+import Gradient from '~/components/gradient'
 export default {
 	name: 'single-vendor',
 	data: () => {
@@ -98,7 +100,8 @@ export default {
 		BonusAsideCard,
 		CasinoLoop,
 		SlotLoop,
-		Banner
+		Banner,
+		Gradient
 	},
 	mixins: [pageTemplate],
 	async asyncData({ route, error }) {
@@ -123,7 +126,7 @@ export default {
 
 <style scoped>
 .vendor_page {
-	background: url('/img/topBg.webp') top center var(--colombo);
+	background: var(--colombo);
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }
@@ -150,6 +153,14 @@ export default {
 }
 .banner_wrapper {
 	padding-bottom: var(--m);
+}
+.container_loop {
+	border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(27, 24, 49, 1);
+    margin-top: 40px;
+    border-radius: 20px;
+    padding: 32px 22px;
+	max-width: 820px;
 }
 @media (max-width: 767px) {
 	.content_container {

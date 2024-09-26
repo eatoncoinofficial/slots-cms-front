@@ -3,6 +3,11 @@
 		<div class="row">
 			<div class="left">
 				<AText :attributes="textProvidersSettings">{{ t('VENDORS') }}</AText>
+				<div class="show_more_wrapper" v-if="vendors.length > vendorNumberItems && device === 'MOB'">
+					<button class="show_more" @click="filterVendors" :class="{active: vendorsIsShow}"> 
+						<AImg src="/img/arrowGreenDetails.svg" :attributes="imgSettingsArrow" />
+					</button>
+				</div>
 			</div>
 			<div class="right">
 				<ALink
@@ -14,72 +19,92 @@
 				>
 					<AImg :attributes="{ ...imgSettings, alt: `${item.title} Logo` }" :src="item.icon" /> {{ item.title }}
 				</ALink>
-				<div class="show_more_wrapper" v-if="vendors.length > vendorNumberItems">
-					<button class="show_more" @click="filterVendors" :class="{active: vendorsIsShow}"> 
-						<AImg src="/img/arrowGreen.svg" :attributes="imgSettingsArrow" />
-					</button>
-				</div>
+			</div>
+			<div class="show_more_wrapper" v-if="vendors.length > vendorNumberItems && device !== 'MOB'">
+				<button class="show_more" @click="filterVendors" :class="{active: vendorsIsShow}"> 
+					<AImg src="/img/arrowGreenDetails.svg" :attributes="imgSettingsArrow" />
+				</button>
 			</div>
 		</div>
 		<div class="row">
 			<div class="left">
 				<AText :attributes="textDepositMethodsSettings">{{ t('DEPOSIT_METHODS') }}</AText>
+				<div class="show_more_wrapper" v-if="deposit.length > depositNumberItems && device === 'MOB'">
+					<button class="show_more" @click="filterDeposit" :class="{active: depositIsShow}"> 
+						<AImg src="/img/arrowGreenDetails.svg" :attributes="imgSettingsArrow" />
+					</button>
+				</div>
 			</div>
 			<div class="right">
 				<AText :attributes="textPayoutSettings" v-for="(item, index) in currentDeposit" :key="index">
 					<AImg :attributes="{ ...imgSettings, alt: `${item.title} Logo` }" :src="item.thumbnail" /> {{ item.title }}
 				</AText>
-				<div class="show_more_wrapper" v-if="deposit.length > depositNumberItems">
-					<button class="show_more" @click="filterDeposit" :class="{active: depositIsShow}"> 
-						<AImg src="/img/arrowGreen.svg" :attributes="imgSettingsArrow" />
-					</button>
-				</div>
+			</div>
+			<div class="show_more_wrapper" v-if="deposit.length > depositNumberItems && device !== 'MOB'">
+				<button class="show_more" @click="filterDeposit" :class="{active: depositIsShow}"> 
+					<AImg src="/img/arrowGreenDetails.svg" :attributes="imgSettingsArrow" />
+				</button>
 			</div>
 		</div>
 		<div class="row">
 			<div class="left">
 				<AText :attributes="textWithoutMethodsSettings">{{ t('PAYMENTS_OPTIONS') }}</AText>
+				<div class="show_more_wrapper" v-if="payments.length > paymentNumberItems && device === 'MOB'">
+					<button class="show_more" @click="filterPayment" :class="{active: paymentIsShow}"> 
+						<AImg src="/img/arrowGreenDetails.svg" :attributes="imgSettingsArrow" />
+					</button>
+				</div>
 			</div>
 			<div class="right">
 				<AText :attributes="textPayoutSettings" v-for="(item, index) in currentPayment" :key="index">
 					<AImg :attributes="{ ...imgSettings, alt: `${item.title} Logo` }" :src="item.thumbnail" /> {{ item.title }}
 				</AText>
-				<div class="show_more_wrapper" v-if="payments.length > paymentNumberItems">
-					<button class="show_more" @click="filterPayment" :class="{active: paymentIsShow}"> 
-						<AImg src="/img/arrowGreen.svg" :attributes="imgSettingsArrow" />
-					</button>
-				</div>
+			</div>
+			<div class="show_more_wrapper" v-if="payments.length > paymentNumberItems && device !== 'MOB'">
+				<button class="show_more" @click="filterPayment" :class="{active: paymentIsShow}"> 
+					<AImg src="/img/arrowGreenDetails.svg" :attributes="imgSettingsArrow" />
+				</button>
 			</div>
 		</div>
 		<div class="row">
 			<div class="left">
 				<AText :attributes="textGameCurrencySettings">{{ t('GAME_CURRENCY') }}</AText>
+				<div class="show_more_wrapper" v-if="currencies.length > currenciesNumberItems && device === 'MOB'">
+					<button class="show_more" @click="filterCurrencies" :class="{active: currenciesIsShow}"> 
+						<AImg src="/img/arrowGreenDetails.svg" :attributes="imgSettingsArrow" />
+					</button>
+				</div>
 			</div>
 			<div class="right">
 				<AText :attributes="textItemSettings" v-for="(item, index) in currentCurrencies" :key="index">
 					<AImg :attributes="{ ...imgSettings, alt: `${item.title} Logo` }" :src="item.thumbnail" /> {{ item.title }}
 				</AText>
-				<div class="show_more_wrapper" v-if="currencies.length > currenciesNumberItems">
-					<button class="show_more" @click="filterCurrencies" :class="{active: currenciesIsShow}"> 
-						<AImg src="/img/arrowGreen.svg" :attributes="imgSettingsArrow" />
-					</button>
-				</div>
+			</div>
+			<div class="show_more_wrapper" v-if="currencies.length > currenciesNumberItems && device !== 'MOB'">
+				<button class="show_more" @click="filterCurrencies" :class="{active: currenciesIsShow}"> 
+					<AImg src="/img/arrowGreenDetails.svg" :attributes="imgSettingsArrow" />
+				</button>
 			</div>
 		</div>
 		<div class="row">
 			<div class="left">
 				<AText :attributes="textLangSettings">{{ t('LANG') }}</AText>
+				<div class="show_more_wrapper" v-if="languages.length > currentLanguagesItems && device === 'MOB'">
+					<button class="show_more" @click="filterLanguages" :class="{active: languagesIsShow}"> 
+						<AImg src="/img/arrowGreenDetails.svg" :attributes="imgSettingsArrow" />
+					</button>
+				</div>
 			</div>
 			<div class="right">
 				<AText :attributes="textItemSettings" v-for="(item, index) in currentLanguages" :key="index">
 					<AImg :attributes="{ ...imgSettingsFlag, alt: `${item.title} Logo` }" :src="item.thumbnail" />
 					{{ item.title }}
 				</AText>
-				<div class="show_more_wrapper" v-if="languages.length > currenciesNumberItems">
-					<button class="show_more" @click="filterLanguages" :class="{active: languagesIsShow}"> 
-						<AImg src="/img/arrowGreen.svg" :attributes="imgSettingsArrow" />
-					</button>
-				</div>
+			</div>
+			<div class="show_more_wrapper" v-if="languages.length > currentLanguagesItems && device !== 'MOB'">
+				<button class="show_more" @click="filterLanguages" :class="{active: languagesIsShow}"> 
+					<AImg src="/img/arrowGreenDetails.svg" :attributes="imgSettingsArrow" />
+				</button>
 			</div>
 		</div>
 	</div>
@@ -165,8 +190,8 @@ export default {
 				class: 'flag_icon'
 			},
 			imgSettingsArrow: {
-				width: '18px',
-				height: '18px',
+				width: '24px',
+				height: '24px',
 				class: 'arrow'
 			},
 			textProviderItemSettings: {
@@ -247,6 +272,10 @@ export default {
 			const device = this.device || 'DC'
 			return CURRENCY_NUMBER_ITEMS[device]
 		},
+		currentLanguagesItems() {
+			const device = this.device || 'DC'
+			return LANGUAGE_NUMBER_ITEMS[device]
+		},
 	}
 }
 </script>
@@ -260,7 +289,6 @@ export default {
 	display: flex;
 	padding-bottom: 15px;
 	padding-top: 20px;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .left {
 	width: 200px;
@@ -316,6 +344,7 @@ export default {
 	background: rgba(255, 255, 255, 0.1);
 	white-space: nowrap;
 	font-size: 10px;
+	height: 40px;
 }
 .logo {
 	display: block;
@@ -328,6 +357,7 @@ export default {
 	padding: 5px 10px;
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	border-radius: 10px;
+	height: 40px;
 }
 .item {
 	font-size: 10px;
@@ -337,28 +367,27 @@ export default {
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	border-radius: 10px;
 	background: rgba(255, 255, 255, 0.06);
+	height: 40px;
 }
 .show_more {
-	width: 30px;
-	height: 30px;
+	width: 40px;
+	height: 40px;
 	border-radius: var(--s);
 	background: transparent;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	transform: rotate(90deg);
+	transform: rotate(180deg);
 	cursor: pointer;
 	transition: 0.7s;
 	border: none;
 }
 .show_more.active {
-	transform: rotate(-90deg);
+	transform: rotate(0deg);
 }
 .show_more_wrapper {
-	padding: 5px 5px 0 5px;
 	display: flex;
 	justify-content: flex-end;
-	width: 100%;
 }
 @media (max-width: 767px) {
 	.row {
@@ -366,7 +395,12 @@ export default {
 	}
 	.left {
 		width: 100%;
+		max-width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 		margin-bottom: 20px;
+		padding-right: 0px;
 	}
 	.right {
 		width: 100%;

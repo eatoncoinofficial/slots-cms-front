@@ -488,6 +488,10 @@ h6 {
 .text_transform_none {
 	text-transform: none;
 }
+.z-index-3 {
+	position: relative;
+	z-index: 3;
+}
 /* */
 .faq_container {
 	max-width: 820px;

@@ -1,7 +1,8 @@
 <template>
 	<div>
 		<main class="news_page">
-			<div class="container">
+			<Gradient />
+			<div class="container z-index-3">
 				<AText tag="div" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 			</div>
 			<div class="container">
@@ -24,6 +25,7 @@
 import DAL_Page from '~/DAL/static_pages'
 import pageTemplate from '~/mixins/pageTemplate'
 import NewsLoop from '~/components/news_loop'
+import Gradient from '~/components/gradient'
 import Faq from '~/components/faq'
 import helper from '~/helpers/helpers'
 
@@ -32,7 +34,8 @@ export default {
 	mixins: [pageTemplate],
 	components: {
 		Faq,
-		NewsLoop
+		NewsLoop,
+		Gradient
 	},
 	layout: 'default',
 	data: () => {
@@ -58,7 +61,7 @@ export default {
 </script>
 <style scoped>
 .news_page {
-	background: url('/img/topBg.webp') top center var(--colombo);
+	background: var(--colombo);
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }

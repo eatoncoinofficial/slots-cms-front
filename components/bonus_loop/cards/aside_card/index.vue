@@ -23,7 +23,7 @@
 			</div>
 			<div class="action">
 				<AText>
-					<nuxt-link :to="permalink">
+					<nuxt-link :to="permalink" class="permalink">
 						<AImg :attributes="{ ...arrowSettings, alt: 'Arrow Green' }" src="/img/arrowGreen.svg" />
 					</nuxt-link>
 				</AText>
@@ -184,6 +184,22 @@ export default {
 	padding: var(--s);
 	border-bottom-left-radius: 14px;
 	border-bottom-right-radius: 14px;
+}
+.permalink {
+	border-radius: 50%;
+	overflow: hidden;
+	display: flex;
+	width: 28px;
+	height: 28px;
+	align-items: center;
+	justify-content: center;
+	background: #FFFFFF33;
+	margin-right: 9px;
+}
+.permalink img {
+	display: block;
+	margin-left: 3px;
+	margin-bottom: 1px;
 }
 @media (max-width: 767px) {
 	.item {

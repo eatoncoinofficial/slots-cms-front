@@ -7,6 +7,7 @@
 				:link="item.permalink"
 				:src="item.thumbnail"
 				:title="item.title"
+				size="middle"
 			/>
 		</div>
 		<div class="items-more" v-if="hideBtnShowMore">

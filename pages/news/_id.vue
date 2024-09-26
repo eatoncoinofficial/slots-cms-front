@@ -1,6 +1,7 @@
 <template>
 	<main class="news_page">
-		<div class="container">
+		<Gradient />
+		<div class="container z-index-3">
 			<TwoContentContainer>
 				<template v-slot:left>
 					<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
@@ -53,6 +54,7 @@ import TwoContentContainer from '~/components/two_content_container/'
 import NewsSliderCard from '~/components/news_loop/cards/slider_card'
 import LinkWithArrow from '~/components/ui/atoms/links/link_with_arrow'
 import NewsMainCard from '~/components/news_loop/cards/main'
+import Gradient from '~/components/gradient'
 import Banner from '~/components/banner/'
 import helper from '~/helpers/helpers'
 
@@ -64,7 +66,8 @@ export default {
 		NewsSliderCard,
 		LinkWithArrow,
 		NewsMainCard,
-		Banner
+		Banner,
+		Gradient
 	},
 	layout: 'default',
 	data: () => {
@@ -109,7 +112,7 @@ export default {
 </script>
 <style scoped>
 .news_page {
-	background: url('/img/topBg.webp') top center var(--colombo);
+	background: var(--colombo);
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }

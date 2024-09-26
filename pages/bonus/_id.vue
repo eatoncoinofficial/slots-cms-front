@@ -1,6 +1,7 @@
 <template>
 	<main class="bonus_page">
-		<div class="container">
+		<Gradient />
+		<div class="container z-index-3">
 			<TwoContentContainer>
 				<template v-slot:left>
 					<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
@@ -28,6 +29,7 @@
 										:min_dep="item.min_deposit"
 										:wager="item.wagering"
 										:refLinks="item.casino.ref"
+										:permalink="item.permalink"
 									/>
 								</div>
 							</div>
@@ -46,6 +48,7 @@ import TwoContentContainer from '~/components/two_content_container/'
 import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
 import SlickBonus from '~/components/slick_bonus/'
 import Banner from '~/components/banner/'
+import Gradient from '~/components/gradient'
 import helper from '~/helpers/helpers'
 import ref from '~/mixins/ref'
 export default {
@@ -55,7 +58,8 @@ export default {
 		TwoContentContainer,
 		Banner,
         BonusAsideCard,
-		SlickBonus
+		SlickBonus,
+		Gradient
 	},
 	layout: 'default',
 	data: () => {
@@ -95,7 +99,7 @@ export default {
 </script>
 <style scoped>
 .bonus_page {
-	background: url('/img/topBg.webp') top center var(--colombo);
+	background: var(--colombo);
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }

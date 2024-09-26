@@ -1,6 +1,7 @@
 <template>
 	<main class="casino_page">
-		<div class="container">
+		<Gradient />
+		<div class="container z-index-3">
 			<div class="main_container">
 				<TwoContentContainer>
 					<template v-slot:left>
@@ -74,6 +75,14 @@
 				<TabContent :value="tabContent" />
 			</div>
 		</section>
+		<div class="container" v-if="data.body.casinos.length">
+			<div class="section_title_wrapper">
+				<AText tag="div" :attributes="mainContainerTitle">{{ t('SIMILAR_CASINOS') }}</AText>
+			</div>
+			<div class="similar_casinos">
+				<CasinoLoop :value="data.body.casinos" />
+			</div>
+		</div>
 		<SlickBonus :refLinks="data.body.ref" />
 		<Cookies />
 	</main>
@@ -89,6 +98,8 @@ import CasinoDetails from '~/components/casino_detail'
 import GameMainCard from '~/components/slot_loop/cards/main'
 import TabContent from '~/components/content/tab_content'
 import SlickBonus from '~/components/slick_bonus/'
+import CasinoLoop from '~/components/casino_loop'
+import Gradient from '~/components/gradient'
 import helper from '~/helpers/helpers'
 import device from '~/mixins/device'
 
@@ -102,7 +113,9 @@ export default {
 		CasinoDetails,
 		GameMainCard,
 		TabContent,
-		SlickBonus
+		SlickBonus,
+		CasinoLoop,
+		Gradient
 	},
 	layout: 'default',
 	data: () => {
@@ -127,7 +140,12 @@ export default {
 				weight: 'bold',
 				color: 'cairo',
 				size: 'large'
-			}
+			},
+			mainContainerTitle: {
+				weight: 'extra-bold',
+				color: 'cairo',
+				size: 'x-large'
+			},
 		}
 	},
 	computed: {
@@ -142,7 +160,7 @@ export default {
 		gamesLoop() {
 			const config = {
 				DC: 12,
-				MOB: 12,
+				MOB: 6,
 				TABLET: 10
 			}
 			return this.data.body.games.slice(0, config[this.device])
@@ -188,6 +206,10 @@ export default {
 .casino_card_container {
 	margin-top: var(--l);
 }
+.similar_casinos {
+	padding-bottom: var(--l);
+	padding-top: var(--l);
+}
 .casino_characters_container,
 .casino_slot_container {
 	border: 1px solid rgba(255, 255, 255, 0.15);
@@ -211,7 +233,7 @@ export default {
 }
 .content_wrapper {
 	background: rgba(8, 5, 26, 1);
-	padding: 0px 0px 60px 0px;
+	padding: 0px 0px 40px 0px;
 }
 @media (max-width: 767px) {
 	.title {

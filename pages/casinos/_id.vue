@@ -1,7 +1,8 @@
 <template>
 	<div>
 		<main class="category_page">
-			<div class="container">
+			<Gradient />
+			<div class="container z-index-3">
 				<div class="main_container">
 					<TwoContentContainer>
 						<template v-slot:left>
@@ -29,6 +30,7 @@
 											:min_dep="item.min_deposit"
 											:wager="item.wagering"
 											:refLinks="item.casino.ref"
+											:permalink="item.permalink"
 										/>
 									</div>
 								</div>
@@ -59,6 +61,7 @@ import CategoryFilter from '~/components/category_filter'
 import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
 import Faq from '~/components/faq'
 import CasinoLoop from '~/components/casino_loop'
+import Gradient from '~/components/gradient'
 
 export default {
 	name: 'casino-category',
@@ -83,7 +86,8 @@ export default {
 		BonusAsideCard,
 		Faq,
 		CasinoLoop,
-		CategoryFilter
+		CategoryFilter,
+		Gradient
 	},
 	mixins: [pageTemplate],
 	async asyncData({ route, error }) {
@@ -108,7 +112,7 @@ export default {
 
 <style scoped>
 .category_page {
-	background: url('/img/casinoPageBg.jpg') top center var(--colombo);
+	background: var(--colombo);
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }

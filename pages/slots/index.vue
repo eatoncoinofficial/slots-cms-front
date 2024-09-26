@@ -1,13 +1,14 @@
 <template>
 	<div>
 		<main class="games_page">
-			<div class="container">
+			<Gradient />
+			<div class="container z-index-3" v-if="data.body.h1">
 				<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 			</div>
-			<div class="container container_providers">
+			<div class="container z-index-3 container_providers">
 				<ProviderFilter :value="data.body.vendors" />
 			</div>
-			<div class="container container_game_week">
+			<div class="container z-index-3 container_game_week">
 				<div class="left">
 					<GameBigCard
 						v-if="data.body.game_week.length"
@@ -52,6 +53,7 @@ import GameBigCard from '~/components/slot_loop/cards/big_card'
 import SlotLoop from '~/components/custom_slot_loop'
 import ProviderFilter from '~/components/provider_list'
 import Cookies from '~/components/cookies'
+import Gradient from '~/components/gradient'
 import helper from '~/helpers/helpers'
 import device from '~/mixins/device'
 
@@ -65,7 +67,8 @@ export default {
 		GameBigCard,
 		SlotLoop,
 		ProviderFilter,
-		Cookies
+		Cookies,
+		Gradient
 	},
 	layout: 'default',
 	data: () => {
@@ -89,7 +92,7 @@ export default {
 	},
 	computed: {
 		gamesWeek() {
-			const config = { DC: 10, MOB: 10, TABLET: 4 }
+			const config = { DC: 10, MOB: 10, TABLET: 10 }
 			return this.data.body.games_week_list.slice(0, config[this.device])
 		}
 	}
@@ -97,7 +100,7 @@ export default {
 </script>
 <style scoped>
 .games_page {
-	background: url('/img/topBg.webp') top center var(--colombo);
+	background: var(--colombo);
 	background-repeat: no-repeat;
 	padding-top: 165px;
 	overflow: hidden;
@@ -123,8 +126,6 @@ export default {
 }
 .container_providers {
 	padding: var(--s) 0px 21px 0px;
-	padding-left: 0px;
-	padding-right: 0px;
 }
 @media (max-width: 767px) {
 	.container_providers {

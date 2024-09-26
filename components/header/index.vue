@@ -74,6 +74,7 @@ export default {
 	height: 116px;
 	width: 100%;
 	background: transparent;
+	z-index: 4;
 }
 .header_left,
 .header_right {

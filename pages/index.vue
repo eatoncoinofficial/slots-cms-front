@@ -1,6 +1,7 @@
 <template>
 	<main class="main_page">
-		<div class="container">
+		<Gradient modifier="large" v-if="device !== 'MOB'" />
+		<div class="container banner_wrapper">
 			<div class="ttl_container">
 				<AText tag="h1" :attributes="mainTitleSettings">{{ data.body.h1 }}</AText>
 				<div class="ttl_desc">
@@ -154,6 +155,7 @@ import LinkWithArrow from '~/components/ui/atoms/links/link_with_arrow'
 import NewsMainCard from '~/components/news_loop/cards/main'
 import CasinoLoop from '~/components/casino_loop'
 import Faq from '~/components/faq'
+import Gradient from '~/components/gradient'
 import pageTemplate from '~/mixins/pageTemplate'
 import device from '~/mixins/device'
 import helper from '~/helpers/helpers'
@@ -175,6 +177,7 @@ export default {
 		NewsMainCard,
 		CasinoLoop,
 		Faq,
+		Gradient
 	},
 	layout: 'default',
 	data: () => {
@@ -298,7 +301,7 @@ export default {
 			newsSliderSettings: {
 				slidesToShow: 1.12,
 				centerMode: true,
-				autoplay: true,
+				autoplay: false,
 				speed: 2000,
 				autoplaySpeed: 2000,
 				initialSlide: 0,
@@ -385,7 +388,7 @@ export default {
 	margin-bottom: var(--m);
 }
 .main_page {
-	background: url('/img/cover.webp') top center var(--colombo);
+	background: var(--colombo);
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }
@@ -433,6 +436,10 @@ export default {
 }
 .main_container {
 	margin-top: 60px;
+}
+.banner_wrapper {
+	position: relative;
+	z-index: 3;
 }
 @media (max-width: 767px) {
 	.main_page {
