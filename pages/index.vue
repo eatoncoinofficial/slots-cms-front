@@ -505,6 +505,9 @@ export default {
 	.main_page {
 		padding-top: 125px;
 	}
+	.aside {
+		margin-top: 40px;
+	}
 	.aside_bonus_wrapper {
 		width: 48%;
 	}

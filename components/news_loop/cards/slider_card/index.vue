@@ -29,7 +29,7 @@ export default {
 			imgSettings: {
 				width: '44px',
 				height: '44px',
-				class: 'object_fit_cover border_radius_m'
+				class: 'object_fit_cover'
 			},
 			titleSettings: {
 				color: 'cairo',
@@ -77,7 +77,6 @@ export default {
 <style scoped>
 .item {
 	width: 356px;
-	height: 95px;
 	padding: 5px;
 	padding-right: 25px;
 }
@@ -89,8 +88,12 @@ export default {
 	display: flex;
 }
 .img_wrapper {
-	width: 75px;
-	height: 75px;
+	width: 78px;
+	height: 78px;
+	padding: 2px;
+}
+.img_wrapper img {
+	border-radius: 14px;
 }
 .left {
 	width: 80px;
@@ -110,6 +113,13 @@ export default {
 .title {
 	line-height: 18px;
 	display: inline-block;
+	-webkit-line-clamp: 2;
+    display: inline;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
 }
 @media (max-width: 767px) {
 	.item {

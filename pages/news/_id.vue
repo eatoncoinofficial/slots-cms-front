@@ -25,6 +25,20 @@
 				</template>
 			</TwoContentContainer>
 		</div>
+		<section class="similar_casino_wrapper"  v-if="data.body.casinos.length">
+			<div class="container">
+				<div class="section_title_wrapper">
+					<AText tag="div" :attributes="mainContainerTitle">{{ t('RECOMMENDED_CASINOS') }}</AText>
+				</div>
+				<div class="casino_wrapper">
+					<TwoContentContainer>
+						<template v-slot:left>
+							<CasinoLoop :value="data.body.casinos" />
+						</template>
+					</TwoContentContainer>
+				</div>
+			</div>
+		</section>
 		<div class="news_loop">
 			<div class="container">
 				<div class="section_title_wrapper">
@@ -55,6 +69,7 @@ import NewsSliderCard from '~/components/news_loop/cards/slider_card'
 import LinkWithArrow from '~/components/ui/atoms/links/link_with_arrow'
 import NewsMainCard from '~/components/news_loop/cards/main'
 import Gradient from '~/components/gradient'
+import CasinoLoop from '~/components/casino_loop'
 import Banner from '~/components/banner/'
 import helper from '~/helpers/helpers'
 
@@ -67,7 +82,8 @@ export default {
 		LinkWithArrow,
 		NewsMainCard,
 		Banner,
-		Gradient
+		Gradient,
+		CasinoLoop
 	},
 	layout: 'default',
 	data: () => {
@@ -142,6 +158,10 @@ export default {
 	justify-content: space-between;
 	margin-top: var(--l);
 }
+.casino_wrapper {
+	padding-top: var(--l);
+	padding-bottom: var(--l);
+}
 @media (max-width: 767px) {
 	.content_container {
 		margin-left: -15px;
@@ -157,6 +177,10 @@ export default {
 	}
 	.news_container .item:last-child {
 		margin-right: 20px;
+	}
+	.casino_wrapper {
+		padding-top: var(--m);
+		padding-bottom: var(--m);
 	}
 }
 @media (min-width: 768px) and (max-width: 1200px) {

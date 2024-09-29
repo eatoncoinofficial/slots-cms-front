@@ -35,7 +35,7 @@ export default {
 			imgSettings: {
 				width: '276px',
 				height: '160px',
-				class: 'object_fit_cover border_radius_m'
+				class: 'object_fit_cover thumbnail'
 			},
 			descTextSettings: {
 				color: 'cairo',
@@ -109,6 +109,9 @@ export default {
 .img_wrapper {
 	width: 100%;
 	height: 160px;
+}
+.thumbnail {
+	border-radius: 14px;
 }
 .bottom {
 	display: flex;

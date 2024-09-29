@@ -84,7 +84,7 @@ export default {
 	},
 	async asyncData({ store, route }) {
 		const request = {
-			url: 'games'
+			url: 'slots'
 		}
 		const response = await DAL_Page.getData(request)
 		const data = helper.headDataMixin(response.data, route)

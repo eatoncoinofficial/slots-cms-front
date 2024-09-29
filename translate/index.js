@@ -22,7 +22,7 @@ export default {
 	WELCOME_BONUS: {
 		UA: 'Вітальний бонус',
 		RU: 'Приветственный бонус',
-		EN: 'Welcome bonus'
+		EN: 'Welcome Bonus'
 	},
 	FREE_SPINS: {
 		UA: 'Фріспіни',
@@ -387,7 +387,7 @@ export default {
 	SCREENSHOTS: {
 		UA: 'Скріншоти слота',
 		RU: 'Скриншоты слота',
-		EN: 'Slot screenshots'
+		EN: 'Slot Screenshots'
 	},
 	SLOT_MACHINE_SYMBOLS: {
 		UA: 'Символи ігрового автомата',

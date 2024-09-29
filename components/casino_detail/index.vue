@@ -322,19 +322,19 @@ export default {
 	top: 50%;
 	left: 0px;
 	transform: translateY(-50%);
-	background: url('/img/providers.png') no-repeat;
+	background: url('/img/providers.svg') no-repeat;
 }
 .deposit_methods::before {
-	background: url('/img/deposit_methods.png') no-repeat;
+	background: url('/img/deposit_methods.svg') no-repeat;
 }
 .without_methods::before {
-	background: url('/img/without.png') no-repeat;
+	background: url('/img/without.svg') no-repeat;
 }
 .game_currency::before {
-	background: url('/img/game_currency.png') no-repeat;
+	background: url('/img/game_currency.svg') no-repeat;
 }
 .lang::before {
-	background: url('/img/lang.png') no-repeat;
+	background: url('/img/lang.svg') no-repeat;
 }
 .item_provider {
 	display: flex;
@@ -366,7 +366,6 @@ export default {
 	padding: 5px 10px;
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	border-radius: 10px;
-	background: rgba(255, 255, 255, 0.06);
 	height: 40px;
 }
 .show_more {
@@ -392,6 +391,8 @@ export default {
 @media (max-width: 767px) {
 	.row {
 		flex-wrap: wrap;
+		padding-top: 0px;
+		padding-bottom: 10px;
 	}
 	.left {
 		width: 100%;
@@ -399,7 +400,7 @@ export default {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		margin-bottom: 20px;
+		margin-bottom: 10px;
 		padding-right: 0px;
 	}
 	.right {

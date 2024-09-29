@@ -24,4 +24,9 @@ export default {
 .large {
     height: 390px;
 }
+@media (min-width: 768px) and (max-width: 1200px) {
+    .large {
+        height: 350px;
+    }
+}
 </style>

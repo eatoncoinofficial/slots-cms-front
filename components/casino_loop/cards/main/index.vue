@@ -21,7 +21,7 @@
 					<ALink :href="link" :attributes="titleLinkSettings" :title="`Goes to ${title} page`">
 						{{ title }}
 					</ALink>
-					<AText tag="div" :attributes="bonusNameSettings">{{ t('WELCOME_PACKAGE') }}</AText>
+					<AText tag="div" :attributes="bonusNameSettings">{{ t('WELCOME_BONUS') }}</AText>
 					<AText tag="div" :attributes="bonusValueSettings">{{ bonus_value }}</AText>
 					<AText tag="div" :attributes="bonusDescSettings"
 						>Min. deposit: {{ min_dep }} &middot; Wagering: {{ wager }}</AText
@@ -89,7 +89,9 @@
 						</ALink>
 					</div>
 					<div class="providers_total">
-						<AText tag="span" :attributes="totalTextSettings">+ {{ vendors.length }}</AText>
+						<ALink :href="link" :attributes="totalTextSettings" :title="`Goes to ${title} page`">
+							+ {{ vendors.length }}
+						</ALink>
 					</div>
 				</div>
 				<div class="details_wrapper">
@@ -370,7 +372,7 @@ export default {
 .providers_icon {
 	height: 34px;
 	width: 18px;
-	background: url('/img/providers.png');
+	background: url('/img/providers.svg');
 	background-position: center;
 	background-repeat: no-repeat;
 }
@@ -511,7 +513,7 @@ export default {
 		content: '';
 		width: 18px;
 		height: 18px;
-		background: url('/img/white_arrow_details.png') center center no-repeat;
+		background: url('/img/white_arrow_details.svg') center center no-repeat;
 		position: absolute;
 		right: 0px;
 		top: 50%;
