@@ -23,11 +23,11 @@ const start = async () => {
     const nuxt = new Nuxt(config);
 
     // Change static source to .nuxt/dist/static
-    const buildStatic = path.join(nuxt.server.options.buildDir, 'dist', 'static');
-    nuxt.server.options.dir.static = path.relative(
-        nuxt.server.options.srcDir,
-        buildStatic,
-    );
+    // const buildStatic = path.join(nuxt.server.options.buildDir, 'dist', 'static');
+    // nuxt.server.options.dir.static = path.relative(
+    //     nuxt.server.options.srcDir,
+    //     buildStatic,
+    // );
 
     // Run sitemap generation in the background, every 30 mins
     // let sitemapLog = '';
