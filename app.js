@@ -5,9 +5,10 @@ const express = require('express');
 const morgan = require('morgan');
 // const esm = require('esm')(module);
 
+const argv = require('minimist')(process.argv.slice(2));
 
 // const sitemap = esm('./util/build/sitemap').default;
-const port = process.env.PORT || 3000;
+const port = argv.p  || 3000;
 // Sentry.init({ dsn: "" });
 
 const start = async () => {
