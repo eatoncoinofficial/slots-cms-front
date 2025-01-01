@@ -7,7 +7,8 @@ const morgan = require('morgan');
 
 
 // const sitemap = esm('./util/build/sitemap').default;
-const port = process.env.PORT || 3000;
+const port =  argv.p || 0;
+
 // Sentry.init({ dsn: "" });
 
 const start = async () => {
