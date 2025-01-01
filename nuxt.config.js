@@ -1,7 +1,7 @@
 import DAL_Builder from './DAL/builder'
 import config from './config'
 export default {
-	mode: 'universal',
+	ssr: 'true',
 	// Global page headers: https://go.nuxtjs.dev/config-head
 	head: {
 		title: 'nuxt-slot',

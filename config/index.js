@@ -1,14 +1,14 @@
 export default {
 	API_URL: {
-		UA: 'https://api.casquads.com/api/',
-		RU: 'https://api.casquads.com/api/',
+		UA: 'https://eaton.serv00.net/api/',
+		RU: 'https://eaton.serv00.net/api/',
 		EN: 'https://api.casquads.com/api/'
 		//EN: 'http://127.0.0.1:8000/api/'
 	},
 	BASE_URL: {
-		RU: 'https://casquads.com',
-		EN: 'https://casquads.com',
-		UA: 'https://casquads.com'
+		RU: 'https://1024slots.com',
+		EN: 'https://1024slots.com',
+		UA: 'https://1024slots.com'
 	},
 	AMP_PREFIX: '/amp',
 	HTML_ATTRS: {
